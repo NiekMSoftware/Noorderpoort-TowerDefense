@@ -12,7 +12,10 @@ public class CameraMovement : MonoBehaviour
    private void Update()
    {
       Vector3 pos = transform.position;
-
+      
+      /*
+       * Keyboard Controls the camera movement
+       */
       if (Input.GetKey("w"))
       {
          pos.z += panSpeed * Time.deltaTime;
@@ -29,9 +32,13 @@ public class CameraMovement : MonoBehaviour
       {
          pos.x -= panSpeed * Time.deltaTime;
       }
-
+      
+      /*
+       * Limit the position of the camera
+       */
       pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
       pos.z = Mathf.Clamp(pos.z, -pos.y, pos.y);
+      
       transform.position = pos;
    }
 }
