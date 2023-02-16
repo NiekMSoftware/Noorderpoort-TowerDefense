@@ -22,8 +22,9 @@ public class TowerAttacking : MonoBehaviour
 
     void Update()
     {
+        target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
         timeUntilBullet -= Time.deltaTime;
-        if (timeUntilBullet < 0 && enemyInRange == true)
+        if (timeUntilBullet < 0)
         {
             GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
             Projectile.GetComponent<ProjectileController>().target = target.transform;
