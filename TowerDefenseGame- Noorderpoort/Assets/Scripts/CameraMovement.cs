@@ -43,7 +43,7 @@ public class CameraMovement : MonoBehaviour
        * Add a zoom for the player
        */
       float scroll = Input.GetAxis("Mouse ScrollWheel");
-      pos.y -= scroll * scrollSpeed * 100f* Time.deltaTime;
+      pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;
       
       /*
        * Limit the position of the camera
