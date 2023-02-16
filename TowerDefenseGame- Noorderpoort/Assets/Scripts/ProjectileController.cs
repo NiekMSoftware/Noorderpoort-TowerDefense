@@ -6,7 +6,7 @@ public class ProjectileController : MonoBehaviour
 {
     public Transform target;
     public float speed = 0.1f;
-    float bulletTTL = 5;
+    public float bulletTTL = 5;
     Vector3 targetDirection;
     // Start is called before the first frame update
     void Start()
@@ -14,12 +14,13 @@ public class ProjectileController : MonoBehaviour
         targetDirection = target.position - transform.position;
         float singleStep = speed * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDirection);
+        //transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
         bulletTTL -= Time.deltaTime;
         if (bulletTTL < 0)
         {
