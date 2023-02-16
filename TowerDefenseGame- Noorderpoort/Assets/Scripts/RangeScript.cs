@@ -7,6 +7,7 @@ public class RangeScript : MonoBehaviour
     public GameObject inRange;
     public bool enemyInRange = false;
     public List<GameObject> inRangeList = new List<GameObject>();
+    public Material rangeMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class RangeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.GetComponent<Renderer>().material = rangeMat;
     }
     private void OnTriggerEnter(Collider other)
     {
