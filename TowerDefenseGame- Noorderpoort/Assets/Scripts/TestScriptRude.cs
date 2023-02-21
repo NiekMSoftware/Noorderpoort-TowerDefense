@@ -22,4 +22,11 @@ public class TestScriptRude : MonoBehaviour
             gameObject.transform.position = spawnPos;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            gameObject.transform.position = spawnPos;
+        }
+    }
 }
