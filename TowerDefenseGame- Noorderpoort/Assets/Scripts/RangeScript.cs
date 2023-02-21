@@ -8,16 +8,16 @@ public class RangeScript : MonoBehaviour
     public bool enemyInRange = false;
     public List<GameObject> inRangeList = new List<GameObject>();
     public Material rangeMat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Renderer>().material = rangeMat;
+        if (inRangeList.Count == 0)
+        {
+            enemyInRange = false;
+        }
+        else
+        {
+            enemyInRange = true;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +25,6 @@ public class RangeScript : MonoBehaviour
         {
             inRangeList.Add(other.gameObject);
             inRange = other.gameObject;
-            enemyInRange = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -34,7 +33,6 @@ public class RangeScript : MonoBehaviour
         {
             inRangeList.Remove(other.gameObject);
             inRange = null;
-            enemyInRange = false;
         }
     }
 }
