@@ -15,7 +15,7 @@ public class TowerAttacking : MonoBehaviour
     public GameObject rangeCircle;
     public Transform firePoint;
     public float fireRate;
-    float timeUntilBullet;
+    public float timeUntilBullet;
     public float damage;
     public float range;
     public float projectileSpeed;
@@ -44,6 +44,7 @@ public class TowerAttacking : MonoBehaviour
         }
         if (stunned == false)
         {
+
             try
             {
                 target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
@@ -52,12 +53,15 @@ public class TowerAttacking : MonoBehaviour
                 Debug.Log("No Argument!");
             }
             timeUntilBullet -= Time.deltaTime;
-            if (timeUntilBullet < 0)
+            if (enemyInRange == true)
             {
-                GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
-                Projectile.GetComponent<ProjectileController>().target = target.transform;
-                Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                timeUntilBullet = fireRate / 10;
+                if (timeUntilBullet < 0)
+                {
+                    GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+                    Projectile.GetComponent<ProjectileController>().target = target.transform;
+                    Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                    timeUntilBullet = fireRate / 10;
+                }
             }
             enemyInRange = rangeCircle.GetComponent<RangeScript>().enemyInRange;
         }

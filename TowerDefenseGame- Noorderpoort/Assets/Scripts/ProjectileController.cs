@@ -8,6 +8,7 @@ public class ProjectileController : MonoBehaviour
     public float speed = 0.1f;
     public float bulletTTL = 5;
     Vector3 targetDirection;
+    public bool homing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,13 @@ public class ProjectileController : MonoBehaviour
         }
         //Rotation , Movement
         gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
+        if (homing == true)
+        {
+            targetDirection = target.position - transform.position;
+            float singleStep = speed * Time.deltaTime;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
