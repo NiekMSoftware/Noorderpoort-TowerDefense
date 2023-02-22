@@ -8,16 +8,6 @@ namespace Settings
 {
     public class VSync : SettingsManager
     {
-        private SettingsManager settingsManager;
-
-        private void Start()
-        {
-            if (!settingsManager)
-            {
-                settingsManager = FindObjectOfType<SettingsManager>();
-            }
-        }
-
         private bool vSync = false;
 
         public void SwitchVsync()
@@ -25,7 +15,7 @@ namespace Settings
             //vSync becomes what it isn't so false becomes true and true becomes false
             vSync = !vSync;
 
-            settingsManager.VSyncCountUpdate(vSync);
+            VSyncCountUpdate(vSync);
         }
     }
 }
