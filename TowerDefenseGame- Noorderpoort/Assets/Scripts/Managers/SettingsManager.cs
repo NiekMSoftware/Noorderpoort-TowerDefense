@@ -25,8 +25,6 @@ namespace Settings
                 string option = resolutions[i].width + " x " + resolutions[i].height;
                 options.Add(option);
             }
-            
-            resolutionDropDown.AddOptions(options);
         }
 
         //protected functions because we don't want them accessed everywhere only by the children of this Class
@@ -41,9 +39,9 @@ namespace Settings
             Screen.fullScreenMode = screenMode;
         }
 
-        protected void ResolutionUpdate()
+        protected void UpdateResolution(Resolution res)
         {
             
         }
-    }
+    } 
 }
