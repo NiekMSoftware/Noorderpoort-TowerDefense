@@ -11,12 +11,17 @@ namespace Settings
 
         [SerializeField]
         private Dropdown resolutionDropDown;
+
+        [SerializeField] private bool useDropdown;
         
         private void Start()
         {
             resolutions = Screen.resolutions;
             
-            resolutionDropDown.ClearOptions();
+            if (useDropdown)
+            {
+                resolutionDropDown.ClearOptions();
+            }
 
             List<string> options = new List<string>();
 
