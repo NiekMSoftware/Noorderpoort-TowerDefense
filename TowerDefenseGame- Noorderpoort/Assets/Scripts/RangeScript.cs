@@ -18,6 +18,7 @@ public class RangeScript : MonoBehaviour
         {
             enemyInRange = true;
         }
+        gameObject.GetComponent<Renderer>().material = rangeMat;
     }
     private void OnTriggerEnter(Collider other)
     {
