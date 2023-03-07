@@ -352,7 +352,7 @@ MonoBehaviour:
   inRange: {fileID: 0}
   enemyInRange: 0
   inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  rangeMat: {fileID: 2100000, guid: 5e1c5bce1855d554d8b69c7bd76ef106, type: 2}
 --- !u!136 &51423712
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   inRange: {fileID: 0}
   enemyInRange: 0
   inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  rangeMat: {fileID: 2100000, guid: 5e1c5bce1855d554d8b69c7bd76ef106, type: 2}
 --- !u!136 &175973618
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
   inRange: {fileID: 0}
   enemyInRange: 0
   inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  rangeMat: {fileID: 2100000, guid: 5e1c5bce1855d554d8b69c7bd76ef106, type: 2}
 --- !u!136 &352100423
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   inRange: {fileID: 0}
   enemyInRange: 0
   inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  rangeMat: {fileID: 2100000, guid: 5e1c5bce1855d554d8b69c7bd76ef106, type: 2}
 --- !u!136 &431918258
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   inRange: {fileID: 0}
   enemyInRange: 0
   inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  rangeMat: {fileID: 2100000, guid: 5e1c5bce1855d554d8b69c7bd76ef106, type: 2}
 --- !u!136 &446629972
 CapsuleCollider:
   m_ObjectHideFlags: 0
