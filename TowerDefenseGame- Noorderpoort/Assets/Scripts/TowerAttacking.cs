@@ -20,6 +20,8 @@ public class TowerAttacking : MonoBehaviour
     public float range;
     public float projectileSpeed;
     public bool enemyInRange = false;
+    [SerializeField] private bool defaultTower = true;
+    [SerializeField] private bool IforgotTheName;
     void Start()
     {
         rangeCircle.transform.localScale = new Vector3(range , rangeCircle.transform.localScale.y, range);
@@ -57,10 +59,20 @@ public class TowerAttacking : MonoBehaviour
             {
                 if (timeUntilBullet < 0)
                 {
-                    GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
-                    Projectile.GetComponent<ProjectileController>().target = target.transform;
-                    Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                    timeUntilBullet = fireRate / 10;
+                    if (defaultTower == true)
+                    {
+                        GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+                        Projectile.GetComponent<ProjectileController>().target = target.transform;
+                        Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                        timeUntilBullet = fireRate / 10;
+                    }
+                    if (IforgotTheName == true)
+                    {
+                        GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, 100, firePoint.eulerAngles.z - 90));
+                        Projectile.GetComponent<ProjectileController>().target = target.transform;
+                        Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                        timeUntilBullet = fireRate / 10;
+                    }
                 }
             }
             enemyInRange = rangeCircle.GetComponent<RangeScript>().enemyInRange;
