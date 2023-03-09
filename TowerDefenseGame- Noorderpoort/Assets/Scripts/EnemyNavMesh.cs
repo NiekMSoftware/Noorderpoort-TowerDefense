@@ -26,7 +26,10 @@ public class EnemyNavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(agent.velocity);
+        if (transform.rotation != Quaternion.Euler(agent.velocity))
+        {
+            transform.rotation = Quaternion.LookRotation(agent.velocity);
+        }
         agent.destination = checkpoints[checkpointamount].position;
         //agent.destination = movePositionTransform.position;
     }
