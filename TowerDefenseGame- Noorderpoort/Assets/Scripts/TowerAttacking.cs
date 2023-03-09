@@ -52,7 +52,7 @@ public class TowerAttacking : MonoBehaviour
                 target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
             } catch (ArgumentOutOfRangeException)
             {
-                Debug.Log("No Argument!");
+                
             }
             timeUntilBullet -= Time.deltaTime;
             if (enemyInRange == true)
