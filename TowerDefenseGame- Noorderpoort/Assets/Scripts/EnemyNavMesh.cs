@@ -12,6 +12,8 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField] private Transform movePositionTransform;
     public int checkpointamount;
     private NavMeshAgent agent;
+    [Header("Testing")]
+    public float deathTimer = 1f;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -32,6 +34,11 @@ public class EnemyNavMesh : MonoBehaviour
         }
         agent.destination = checkpoints[checkpointamount].position;
         //agent.destination = movePositionTransform.position;
+        deathTimer -= Time.deltaTime;
+        if (deathTimer < 0)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

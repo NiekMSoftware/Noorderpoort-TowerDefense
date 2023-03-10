@@ -805,7 +805,10 @@ MonoBehaviour:
   enemies:
   - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
-  enemiesPerRound: 0f0000000f0000000f0000001400000019000000
+  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  enemiesPerRound: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
   spawnPoint: {fileID: 1848280702}
   spawnCooldown: 0.4
   roundCooldown: 2
@@ -1506,6 +1509,7 @@ MonoBehaviour:
   takenCheckpoints: []
   movePositionTransform: {fileID: 1404436070}
   checkpointamount: 0
+  deathTimer: 1
 --- !u!195 &584284841
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1908,6 +1912,7 @@ MonoBehaviour:
   takenCheckpoints: []
   movePositionTransform: {fileID: 1404436070}
   checkpointamount: 0
+  deathTimer: 1
 --- !u!195 &807179817
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2124,6 +2129,7 @@ MonoBehaviour:
   takenCheckpoints: []
   movePositionTransform: {fileID: 1404436070}
   checkpointamount: 0
+  deathTimer: 1
 --- !u!195 &884739588
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2764,6 +2770,7 @@ MonoBehaviour:
   takenCheckpoints: []
   movePositionTransform: {fileID: 1404436070}
   checkpointamount: 0
+  deathTimer: 1
 --- !u!195 &1348117048
 NavMeshAgent:
   m_ObjectHideFlags: 0

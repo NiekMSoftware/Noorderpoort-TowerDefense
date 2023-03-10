@@ -18,12 +18,13 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private int enemy2Chance = 30;
     GameObject spawningGroup;
     float timeTillSpawn = 0;
+    float timeTillWave = 0;
     bool spawning = false;
     bool hasGroup = false;
+    bool activatedTimer;
     int spawnedEnemies = 0;
     int spawnedGroup = 0;
     int groupSize;
-    int lastType = -1;
     int type = 0;
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class WaveSystem : MonoBehaviour
             {
                 groupSize = Random.Range(minGroupSize, maxGroupSize);
                 type = randomEnemy(type);
-                lastType = type;
+                Debug.Log(type);
                 spawningGroup = enemies[type];
                 Debug.Log("Spawning " + type);
                 spawnedGroup = 0;
@@ -72,7 +73,16 @@ public class WaveSystem : MonoBehaviour
         }
         if (enemyEmpty.childCount == 0)
         {
-            roundEnd();
+            if (activatedTimer == false)
+            {
+                timeTillWave = roundCooldown;
+                activatedTimer = true;
+            }
+            timeTillWave -= Time.deltaTime;
+            if (timeTillWave < 0)
+            {
+                roundEnd();
+            }
         }
     }
     public void roundStart()
@@ -84,21 +94,23 @@ public class WaveSystem : MonoBehaviour
     }
     public void roundEnd()
     {
-        lastType = -1;
+        hasGroup = false;
+        activatedTimer = false;
         roundStart();
     }
     public int randomEnemy(int type)
     {
+        int chosenType = 5;
         int maxRandom = normalEnemyChance + enemy2Chance;
         int newtype = Random.Range(0, maxRandom);
-        Debug.Log(maxRandom + " Random");
+        Debug.Log(newtype + " Random");
         if (newtype < normalEnemyChance)
         {
-            newtype = 0;
-        } else if ( newtype > normalEnemyChance && newtype < enemy2Chance)
+            chosenType = 0;
+        } else if ( newtype > normalEnemyChance && newtype < enemy2Chance + normalEnemyChance)
         {
-            newtype = 1;
+            chosenType = 1;
         }
-        return newtype;
+        return chosenType;
     }
 }
