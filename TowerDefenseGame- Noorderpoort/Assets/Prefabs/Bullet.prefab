@@ -113,8 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 0.1
-  bulletTTL: 30
+  bulletTTL: 3
   homing: 0
+  normal: 1
+  goesUp: 0
+  timeTillDown: 0
 --- !u!54 &1229303297328922625
 Rigidbody:
   m_ObjectHideFlags: 0

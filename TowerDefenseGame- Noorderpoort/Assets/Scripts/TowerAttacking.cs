@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 public class TowerAttacking : MonoBehaviour
@@ -20,15 +21,21 @@ public class TowerAttacking : MonoBehaviour
     public float range;
     public float projectileSpeed;
     public bool enemyInRange = false;
+    GameObject bulletEmpty;
     [SerializeField] private bool defaultTower = true;
     [SerializeField] private bool IforgotTheName;
     void Start()
     {
+        bulletEmpty = GameObject.Find("BulletEmpty");
         rangeCircle.transform.localScale = new Vector3(range , rangeCircle.transform.localScale.y, range);
     }
 
     void Update()
     {
+        if (target == null)
+        {
+            enemyInRange = false;
+        }
         if (Input.GetKey(KeyCode.H))
         {
             health--;
@@ -46,7 +53,6 @@ public class TowerAttacking : MonoBehaviour
         }
         if (stunned == false)
         {
-
             try
             {
                 target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
@@ -62,6 +68,7 @@ public class TowerAttacking : MonoBehaviour
                     if (defaultTower == true)
                     {
                         GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+                        Projectile.transform.parent = bulletEmpty.transform;
                         Projectile.GetComponent<ProjectileController>().target = target.transform;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
                         timeUntilBullet = fireRate / 10;

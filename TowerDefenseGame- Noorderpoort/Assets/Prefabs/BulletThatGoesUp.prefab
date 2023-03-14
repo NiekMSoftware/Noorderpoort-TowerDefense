@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 5
-  bulletTTL: 30
+  bulletTTL: 5
   homing: 0
   normal: 0
   goesUp: 1
