@@ -19,6 +19,18 @@ public class RangeScript : MonoBehaviour
             enemyInRange = true;
         }
         gameObject.GetComponent<Renderer>().material = rangeMat;
+        for (int i = 0; i < inRangeList.Count; i++)
+        {
+            if (inRangeList[i] == null)
+            {
+                inRangeList.RemoveAt(i);
+                i--;
+            }
+        }
+        if (inRange == null)
+        {
+            enemyInRange = false;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
