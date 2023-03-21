@@ -8,7 +8,6 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private int gameRound = 0;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
-    [SerializeField] private int[] enemiesPerRound;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float spawnCooldown = 2;
     [SerializeField] private float roundCooldown = 2;

@@ -809,7 +809,6 @@ MonoBehaviour:
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
-  enemiesPerRound: 050000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
   spawnPoint: {fileID: 1848280702}
   spawnCooldown: 0.4
   roundCooldown: 2
@@ -825,7 +824,7 @@ MonoBehaviour:
   enemiesThisRound: 0
   maxEnemiesPerRound: 75
   speed: 1
-  currentSpawnCooldown: 0
+  currentSpawnCooldown: 500
 --- !u!4 &365098649
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,11 +1788,11 @@ MonoBehaviour:
     type: 3}
   rangeCircle: {fileID: 431918256}
   firePoint: {fileID: 943208118}
-  fireRate: 0
+  fireRate: 1
   timeUntilBullet: 0
   damage: 5
   range: 40
-  projectileSpeed: 4
+  projectileSpeed: 2
   enemyInRange: 0
   defaultTower: 1
   IforgotTheName: 0
@@ -3211,14 +3210,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848280698}
-  m_LocalRotation: {x: -0, y: -0.5968236, z: -0, w: 0.8023725}
-  m_LocalPosition: {x: 15.74, y: 1.3, z: 6}
+  m_LocalRotation: {x: -0, y: 0.97277576, z: -0, w: -0.23174867}
+  m_LocalPosition: {x: 15.7, y: 0.95, z: 6.35}
   m_LocalScale: {x: 0.9643951, y: 1, z: 1.3804061}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: -73.285, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 206.8, z: 0}
 --- !u!1 &2039073754
 GameObject:
   m_ObjectHideFlags: 0
