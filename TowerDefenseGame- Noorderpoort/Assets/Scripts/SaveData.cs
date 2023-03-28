@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
+    //string dif = difficulty
     // Start is called before the first frame update
     void Start()
     {
