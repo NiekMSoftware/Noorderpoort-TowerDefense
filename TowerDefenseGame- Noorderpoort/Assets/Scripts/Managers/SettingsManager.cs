@@ -43,10 +43,5 @@ namespace Settings
         {
             Screen.fullScreenMode = screenMode;
         }
-
-        protected void UpdateResolution(Resolution res)
-        {
-            
-        }
     } 
 }
