@@ -9,7 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-/UserSettings/
+UserSettings/
 
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
@@ -59,3 +59,9 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+TowerDefenseGame- Noorderpoort/UserSettings/Layouts/default-2021.dwlt
+TowerDefenseGame- Noorderpoort/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+TowerDefenseGame- Noorderpoort/UserSettings/EditorUserSettings.asset
+*.dwlt
+TowerDefenseGame- Noorderpoort/UserSettings/Layouts/default-2021.dwlt
+TowerDefenseGame- Noorderpoort/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
