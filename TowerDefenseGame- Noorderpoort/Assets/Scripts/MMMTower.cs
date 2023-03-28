@@ -6,6 +6,7 @@ public class MMMTower : MonoBehaviour
 {
     [SerializeField] private int upgrade1Money;
     [SerializeField] private int upgrade2Money;
+    [SerializeField] private int upgrade3Money;
     Bitscript bitscript;
     WaveSystem waveSystem;
     bool gotMoneyThisRound;
@@ -45,6 +46,10 @@ public class MMMTower : MonoBehaviour
             if (upgrade2)
             {
                 bitscript.AddBits(upgrade2Money);
+            }
+            if (upgrade3)
+            {
+                bitscript.AddBits(upgrade3Money);
             }
             lastRound = waveSystem.wavesEnded;
         }
