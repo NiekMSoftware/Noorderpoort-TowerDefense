@@ -366,8 +366,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545972788}
-  m_LocalRotation: {x: 0.251195, y: 0.5791955, z: -0.19374587, w: 0.75093025}
-  m_LocalPosition: {x: -34.14815, y: 21.013401, z: -13.2247925}
+  m_LocalRotation: {x: 0.328384, y: -0.62304306, z: 0.32392254, w: 0.63170844}
+  m_LocalPosition: {x: 27.504482, y: 40.099865, z: -0.72753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1331,12 +1331,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 8879124738147698341, guid: 88ad103f98129064cabca76c4a080bb0, type: 3}
-  - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
-  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  materials:
+  - {fileID: 2100000, guid: 3fbba5ac31a734641ae346928a81317f, type: 2}
+  - {fileID: 2100000, guid: 328ae5a0fee31ad4dbc62bf124148201, type: 2}
+  - {fileID: 2100000, guid: 71f6cc1ac57e72e499dbdd5a1d9424b9, type: 2}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  canPlace: 0
+  canPlace: 1
 --- !u!4 &1965355940
 Transform:
   m_ObjectHideFlags: 0

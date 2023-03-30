@@ -11,6 +11,8 @@ public class BuildingManager : MonoBehaviour
 
     private Vector3 pos;
 
+    [SerializeField] private Material[] materials;
+
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
 
@@ -27,10 +29,24 @@ public class BuildingManager : MonoBehaviour
                 PlaceObject();
             }
         }
+        UpdateMaterials();
     }
 
+    void UpdateMaterials()
+    {
+        if (canPlace)
+        {
+            pendingObject.GetComponent<MeshRenderer>().material = materials[0];
+        }
+        if(!canPlace)
+        {
+            pendingObject.GetComponent<MeshRenderer>().material = materials[1];
+        }
+    }
+    
     public void PlaceObject()
     {
+        pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         pendingObject = null;
     }
 
