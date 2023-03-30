@@ -8,7 +8,7 @@ public class Bitscript : MonoBehaviour
 {
     public int BitIndex;
     public TMP_Text BitAmount;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +24,8 @@ public class Bitscript : MonoBehaviour
         }
         BitAmount.text = BitIndex.ToString();
     }
-    public void AddBits()
+    public void AddBits(int amount)
     {
-        BitIndex++;
+        BitIndex = BitIndex + amount;
     }
 }
