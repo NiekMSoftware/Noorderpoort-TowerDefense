@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class WaveSystem : MonoBehaviour
 {
     public string status = "nothing";
-    [SerializeField] private int gameRound = 0;
+    public int gameRound = 0;
+    public int wavesEnded = 0;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform spawnPoint;
@@ -37,6 +37,7 @@ public class WaveSystem : MonoBehaviour
     int enemy1Chance = 100;
     float enemiesLastRound;
     public float currentSpawnCooldown;
+    bool gaveMoney = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +88,11 @@ public class WaveSystem : MonoBehaviour
         }
         if (enemyEmpty.childCount == 0)
         {
+            if (gaveMoney == false)
+            {
+                wavesEnded++;
+                gaveMoney = true;
+            }
             if (activatedTimer == false)
             {
                 timeTillWave = roundCooldown;
@@ -134,6 +140,7 @@ public class WaveSystem : MonoBehaviour
     {
         hasGroup = false;
         activatedTimer = false;
+        gaveMoney = false;
         roundStart();
     }
     public int randomEnemy(int type)

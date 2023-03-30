@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Bitscript : MonoBehaviour
 {
     public int BitIndex;
-    public TMP_Text BitAmount;
+/*    public TMP_Text BitAmount;*/
     
     // Start is called before the first frame update
     void Start()
@@ -18,11 +17,11 @@ public class Bitscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
         Invoke("AddBits", 0f);
-        }
-        BitAmount.text = BitIndex.ToString();
+        }*/
+        //BitAmount.text = BitIndex.ToString();
     }
     public void AddBits(int amount)
     {
