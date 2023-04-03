@@ -14,7 +14,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Object"))
+        if (other.gameObject.CompareTag("Tower"))
         {
             buildingManager.canPlace = false;
         }
@@ -22,7 +22,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Object"))
+        if (other.gameObject.CompareTag("Tower"))
         {
             buildingManager.canPlace = true;
         }

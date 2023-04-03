@@ -34,7 +34,7 @@ public class BuildingManager : MonoBehaviour
 
     void UpdateMaterials()
     {
-        if (canPlace)
+        if (canPlace && pendingObject != null)
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[0];
         }

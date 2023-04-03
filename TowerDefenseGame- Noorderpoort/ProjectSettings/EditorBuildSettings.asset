@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 8087d37f428f0d04bbe6cd00ff60df14
   - enabled: 1
-    path: Assets/Scenes/NiekTowerDefense-Testing.unity
-    guid: 71239bf8f7b66a04c8d1333ea98d77de
+    path: Assets/Scenes/GridBuilding.unity
+    guid: b473979137ce5374fbb9b53db41f90e1
   m_configObjects: {}
