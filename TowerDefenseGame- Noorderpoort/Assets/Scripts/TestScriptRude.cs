@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TestScriptRude : MonoBehaviour
 {
+    //Test Script
+
     float timeTillTeleport = 10;
     Vector3 spawnPos;
     // Start is called before the first frame update
