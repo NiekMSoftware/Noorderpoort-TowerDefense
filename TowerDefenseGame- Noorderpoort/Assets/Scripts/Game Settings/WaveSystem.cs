@@ -9,6 +9,7 @@ public class WaveSystem : MonoBehaviour
     public int wavesEnded = 0;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
+    [SerializeField] private Transform destination;
     //Spawning
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float spawnCooldown = 2;
@@ -75,6 +76,7 @@ public class WaveSystem : MonoBehaviour
             {
                 GameObject enemy = Instantiate(spawningGroup, spawnPoint.position, spawnPoint.rotation);
                 enemy.transform.parent = enemyEmpty;
+                enemy.GetComponent<EnemyNavMesh>().movePositionTransform = destination;
                 timeTillSpawn = currentSpawnCooldown;
                 spawnedGroup++;
                 spawnedEnemies++;

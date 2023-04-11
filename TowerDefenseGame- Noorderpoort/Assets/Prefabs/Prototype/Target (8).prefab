@@ -150,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76f29a2adefcf543bf1cadcc4fc0539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoints: []
-  takenCheckpoints: []
   movePositionTransform: {fileID: 0}
-  checkpointamount: 0
-  deathTimer: 5
+  lookingAtMovement: 1
+  deathTimer: 30

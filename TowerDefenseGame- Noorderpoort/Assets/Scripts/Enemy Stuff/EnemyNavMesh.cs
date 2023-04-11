@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class EnemyNavMesh : MonoBehaviour
 {
 
-    [SerializeField] private Transform movePositionTransform;
+    public Transform movePositionTransform;
     private NavMeshAgent agent;
     public bool lookingAtMovement = true;
     [Header("Testing")]
