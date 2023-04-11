@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8879124737688283546}
   - component: {fileID: 8879124737688283547}
   - component: {fileID: 8879124737688283556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangeCylinder
-  m_TagString: Untagged
+  m_TagString: Spotter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8879124737973619862}
   m_Layer: 0
   m_Name: Firepoint
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,9 +161,9 @@ GameObject:
   - component: {fileID: 8879124738147698340}
   - component: {fileID: 9016291005846939510}
   - component: {fileID: 8137912832045663821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tower
-  m_TagString: Object
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,8 +246,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0372565, y: 4.9553833, z: 2.9672632}
-  m_Center: {x: -0.064722896, y: 1.8192301, z: 0.009171963}
+  m_Size: {x: 2.0146506, y: 4.9553833, z: 2.031331}
+  m_Center: {x: -0.07003152, y: 1.8192301, z: 0.008023739}
 --- !u!114 &8879124738147698340
 MonoBehaviour:
   m_ObjectHideFlags: 0

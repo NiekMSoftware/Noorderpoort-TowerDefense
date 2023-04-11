@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using Update = UnityEngine.PlayerLoop.Update;
 
 public class CheckPlacement : MonoBehaviour
 {
+    [SerializeField]
     private BuildingManager buildingManager;
+
 
     void Start()
     {
@@ -14,16 +19,27 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Object"))
+        if (buildingManager.towerTriggers.Contains(other))
         {
+            print("Unable to place");
+            buildingManager.canPlace = false;
+        }   
+    }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if (buildingManager.towerTriggers.Contains(other))
+        {
+            print("Unable to place");
             buildingManager.canPlace = false;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Object"))
+        if (buildingManager.towerTriggers.Contains(other))
         {
+            print("Able to place");
             buildingManager.canPlace = true;
         }
     }

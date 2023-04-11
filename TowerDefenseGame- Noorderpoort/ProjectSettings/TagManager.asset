@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - Checkpoint
   - Object
+  - Spotter
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Spotter
+  - Tower
   - 
   - 
   - 
