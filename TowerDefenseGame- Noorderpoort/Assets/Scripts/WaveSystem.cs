@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 public class WaveSystem : MonoBehaviour
 {
+    //Testing
     public string status = "nothing";
-    public int gameRound = 0;
+    int gameRound = 0;
     public int wavesEnded = 0;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
+    //Spawning
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float spawnCooldown = 2;
     [SerializeField] private float roundCooldown = 2;
+    //Groups
     [SerializeField] private int maxGroupSize = 10;
     [SerializeField] private int minGroupSize = 10;
+    //Chances
     [SerializeField] private int amountOfEnemyTypes = 2;
     [SerializeField] private int normalEnemyChance = 100;
     [SerializeField] private int enemy2ChanceStopsAt = 10;
     [SerializeField] private int enemy2StartsAt = 5;
     [SerializeField] private int enemy2MinChance = 5;
     [SerializeField] private int enemy2MaxChance = 30;
+    //Amount scaling
     [SerializeField] private float enemyAmountScaleFactor = 2;
     [SerializeField] private int enemiesThisRound;
     [SerializeField] private int maxEnemiesPerRound;
@@ -179,7 +184,6 @@ public class WaveSystem : MonoBehaviour
             int chanceDifference = enemy2MaxChance - enemy2MinChance; 
             
             int chanceUpPerWave = chanceDifference / (negativeWaves - 1); 
-            //95 / 7
 
             enemy2Chance = enemy2MinChance + (chanceUpPerWave * roundsOverChance);
         }
