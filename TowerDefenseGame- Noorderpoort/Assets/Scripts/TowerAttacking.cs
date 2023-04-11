@@ -56,7 +56,8 @@ public class TowerAttacking : MonoBehaviour
             try
             {
                 target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
-            } catch (ArgumentOutOfRangeException)
+            }
+            catch (ArgumentOutOfRangeException)
             {
                 
             }
