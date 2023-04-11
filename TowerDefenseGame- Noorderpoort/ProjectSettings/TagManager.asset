@@ -8,7 +8,6 @@ TagManager:
   - Floor
   - Wall
   - Checkpoint
-  - EnTarget
   layers:
   - Default
   - TransparentFX
