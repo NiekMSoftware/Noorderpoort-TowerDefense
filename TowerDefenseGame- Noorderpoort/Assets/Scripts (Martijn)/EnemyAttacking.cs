@@ -7,11 +7,16 @@ using UnityEngine.Animations;
 public class EnemyAttacking : MonoBehaviour
 {
     public int damage;
-    //hoe veel een enemy damage doet
     public int health;
-    //hoe veel health (hit points) een enemy heeft
     public float speed;
-    //hoe snel een enemy beweegt
+    public float attackRate;
 
+    /*
+     * 
+     *     //hoe veel een enemy damage doet
+    //hoe veel health (hit points) een enemy heeft
+    //hoe snel een enemy beweegt
+     * 
+     */
 
 }
