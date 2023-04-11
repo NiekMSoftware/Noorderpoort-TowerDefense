@@ -10,16 +10,19 @@ public class TowerAttacking : MonoBehaviour
     public float timeStunned = 5;
     float stunTime = 0;
     bool stunned = false;
-    public GameObject target;
+    //hoe lang de tower's stunned blijven (niet attacken)
     public GameObject projectile;
-    public GameObject rangeCircle;
     public Transform firePoint;
     public float fireRate;
     public float timeUntilBullet;
-    public float damage;
-    public float range;
     public float projectileSpeed;
+    public float damage;
+    //firepoint (projectile spawn) en projectile damage/speed
+    public GameObject rangeCircle;
+    public GameObject target;
+    public float range;
     public bool enemyInRange = false;
+    //rangeCircle (hoe ver de towers schieten) en target (Enemy)
     void Start()
     {
         rangeCircle.transform.localScale = new Vector3(range , rangeCircle.transform.localScale.y, range);
