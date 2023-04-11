@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class BuildingManager : MonoBehaviour
 {
+    public List<Collider> towerTriggers;
+
     public GameObject[] objects;
     private GameObject pendingObject;
 
@@ -17,7 +19,8 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
 
     public bool canPlace;
-    
+
+
     void Update()
     {
         if (pendingObject != null)
@@ -47,7 +50,10 @@ public class BuildingManager : MonoBehaviour
     public void PlaceObject()
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
+        towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        
         pendingObject = null;
+        
     }
 
     private void FixedUpdate()

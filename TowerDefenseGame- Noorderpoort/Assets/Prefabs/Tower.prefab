@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8879124737688283546}
   - component: {fileID: 8879124737688283547}
   - component: {fileID: 8879124737688283556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangeCylinder
   m_TagString: Spotter
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8879124738147698340}
   - component: {fileID: 9016291005846939510}
   - component: {fileID: 8137912832045663821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
