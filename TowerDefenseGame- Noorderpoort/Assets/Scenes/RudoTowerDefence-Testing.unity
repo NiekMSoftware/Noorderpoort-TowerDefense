@@ -956,6 +956,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BitIndex: 0
+  DiscountAmount: 10
+  MultiplierAmount: 0
+  MaxDiscountAmount: 30
+  MaxMultiplierAmount: 5
 --- !u!1 &418450759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,7 +3498,7 @@ GameObject:
   - component: {fileID: 1848280700}
   - component: {fileID: 1848280699}
   m_Layer: 0
-  m_Name: Floor (6)
+  m_Name: Enemy Spawner
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
