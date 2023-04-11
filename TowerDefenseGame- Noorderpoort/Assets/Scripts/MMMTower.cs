@@ -7,6 +7,10 @@ public class MMMTower : MonoBehaviour
     [SerializeField] private int upgrade1Money;
     [SerializeField] private int upgrade2Money;
     [SerializeField] private int upgrade3Money;
+
+    [SerializeField] private GameObject upgrade1Visual;
+    [SerializeField] private GameObject upgrade2Visual;
+    [SerializeField] private GameObject upgrade3Visual;
     Bitscript bitscript;
     WaveSystem waveSystem;
     int lastRound;
@@ -17,6 +21,8 @@ public class MMMTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<MeshFilter>().mesh = upgrade1Visual.GetComponent<MeshFilter>().sharedMesh;
+        gameObject.GetComponent<MeshRenderer>().materials = upgrade1Visual.GetComponent<MeshRenderer>().sharedMaterials;
         bitscript = FindObjectOfType<Bitscript>();
         waveSystem = FindObjectOfType<WaveSystem>();
     }
@@ -24,6 +30,16 @@ public class MMMTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (upgrade2)
+        {
+            gameObject.GetComponent<MeshFilter>().mesh = upgrade2Visual.GetComponent<MeshFilter>().sharedMesh;
+            gameObject.GetComponent<MeshRenderer>().materials = upgrade2Visual.GetComponent<MeshRenderer>().sharedMaterials;
+        }
+        if (upgrade3)
+        {
+            gameObject.GetComponent<MeshFilter>().mesh = upgrade3Visual.GetComponent<MeshFilter>().sharedMesh;
+            gameObject.GetComponent<MeshRenderer>().materials = upgrade3Visual.GetComponent<MeshRenderer>().sharedMaterials;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (upgrade2)
