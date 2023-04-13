@@ -19,6 +19,7 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
 
     public bool canPlace;
+    public bool isPlacementMode = false;
 
 
     void Update()
@@ -32,6 +33,7 @@ public class BuildingManager : MonoBehaviour
                 PlaceObject();
             }
         }
+
         UpdateMaterials();
     }
 
@@ -41,19 +43,20 @@ public class BuildingManager : MonoBehaviour
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[0];
         }
-        if(!canPlace)
+
+        if (!canPlace)
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[1];
         }
     }
-    
+
     public void PlaceObject()
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-        
+
         pendingObject = null;
-        
+        isPlacementMode = false;
     }
 
     private void FixedUpdate()
@@ -69,5 +72,6 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        isPlacementMode = true;
     }
 }
