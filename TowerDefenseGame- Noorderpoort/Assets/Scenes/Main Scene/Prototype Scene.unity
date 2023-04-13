@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 152764541}
   - component: {fileID: 152764540}
   - component: {fileID: 152764539}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,6 +1657,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   canPlace: 1
+  isPlacementMode: 0
 --- !u!4 &1708140185
 Transform:
   m_ObjectHideFlags: 0

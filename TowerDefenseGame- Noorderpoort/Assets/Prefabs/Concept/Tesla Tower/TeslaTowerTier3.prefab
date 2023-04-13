@@ -246,6 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!114 &8787263766200538061
 MonoBehaviour:
   m_ObjectHideFlags: 0
