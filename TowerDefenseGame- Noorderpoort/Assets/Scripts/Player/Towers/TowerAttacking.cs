@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class TowerAttacking : MonoBehaviour
 {
-    public Material testMat;
     [SerializeField] private float health = 100;
     [SerializeField] private float timeStunned = 5;
     float stunTime = 0;
@@ -15,6 +14,10 @@ public class TowerAttacking : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform[] allFirePoints;
+    [SerializeField] private bool multipleFirepoints;
+    [SerializeField] private bool rotatesTowardsEnemies;
+    public int currentFirePoint = 0;
     [SerializeField] private float fireRate;
     [SerializeField] private float timeUntilBullet;
     [SerializeField] private float damage;
@@ -27,6 +30,7 @@ public class TowerAttacking : MonoBehaviour
     {
         gameObject.GetComponent<RangeScriptV2>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
+        firePoint = allFirePoints[currentFirePoint];
     }
 
     void Update()
@@ -59,7 +63,6 @@ public class TowerAttacking : MonoBehaviour
             try
             {
                 target = gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject;
-                target.GetComponent<MeshRenderer>().material = testMat;
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -80,6 +83,15 @@ public class TowerAttacking : MonoBehaviour
                         Projectile.GetComponent<ProjectileController>().target = target.transform;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
                         timeUntilBullet = fireRate / 10;
+                        if (multipleFirepoints)
+                        {
+                            firePoint = allFirePoints[currentFirePoint];
+                            currentFirePoint++;
+                            if (currentFirePoint == allFirePoints.Length)
+                            {
+                                currentFirePoint = 0;
+                            }
+                        }
                     }
                 }
             }
@@ -87,6 +99,16 @@ public class TowerAttacking : MonoBehaviour
         else
         {
             stunTime -= Time.deltaTime;
+        }
+        if (gameObject.GetComponent<RangeScriptV2>().enemyList.Count != 0)
+        {
+            if (rotatesTowardsEnemies)
+            {
+                Vector3 targetPostition = new Vector3(0,
+                                       target.transform.position.y,
+                                       0);
+                transform.LookAt(targetPostition);
+            }
         }
     }
 }
