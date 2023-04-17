@@ -8,6 +8,7 @@ public class Bitscript : MonoBehaviour
     public float BitIndex;
     public float DiscountAmount = 10f; // In total percentage
     public float MultiplierAmount = 0; // Multiplier
+    public TMP_Text Bitsamount;
 
     [SerializeField] private
     float MaxDiscountAmount = 30f; // Discount cap
@@ -22,7 +23,12 @@ public class Bitscript : MonoBehaviour
     {
         BitIndex = 0;
     }
-    
+
+    private void FixedUpdate()
+    {
+        Bitsamount.text = BitIndex.ToString();
+    }
+
     public void SetDiscountActivity(bool state) // Set the status of the discount
     {
         IsDiscountActive = state;
