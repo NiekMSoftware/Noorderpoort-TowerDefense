@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 521212232158015036}
   - component: {fileID: 5670859286593452991}
   - component: {fileID: 2233654880638249130}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RangeCylinder
   m_TagString: Spotter
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2030640314911626323}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: -5357232570489221130}
   - component: {fileID: 3001418165768615109}
   - component: {fileID: 2581975701133363692}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TeslaTowerTier1
   m_TagString: Tower
   m_Icon: {fileID: 0}
