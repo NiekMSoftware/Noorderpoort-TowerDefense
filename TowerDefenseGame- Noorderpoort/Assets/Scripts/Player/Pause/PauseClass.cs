@@ -9,21 +9,24 @@ public class PauseClass : MonoBehaviour
 
     private void Update()
     {
-        PauseGame();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0)
+                ResumeGame();
+            else
+                PauseGame();
+        }
     }
 
     public void PauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0f;
-            pausescreen.SetActive(true);
-        }
+       pausescreen.SetActive(true);
+       Time.timeScale = 0f; 
     }
 
     public void ResumeGame()
     {
+        pausescreen.SetActive(false); 
         Time.timeScale = 1f;
-        pausescreen.SetActive(false);
     }
 }

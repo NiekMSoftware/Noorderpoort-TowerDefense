@@ -51,7 +51,6 @@ public class CheckPlacement : MonoBehaviour
     {
         if (buildingManager.towerTriggers.Contains(other))
         {
-
             buildingManager.isPlacementMode = false;            
             print("Unable to place");
             buildingManager.canPlace = false;

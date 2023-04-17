@@ -52,9 +52,8 @@ public class WaveSystem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Time.timeScale = speed;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             roundStart();

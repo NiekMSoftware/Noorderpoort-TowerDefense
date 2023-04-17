@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1660744805381949775}
   - component: {fileID: -3010496748264909410}
   - component: {fileID: 1660164555168508162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MMM Tower FixMaybe
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7330093, y: 2.0338354, z: 3.2036374}
-  m_Center: {x: 0.1742897, y: 0.5169177, z: 0.093839765}
+  m_Size: {x: 3.7330093, y: 2.0338354, z: 3.5176506}
+  m_Center: {x: 0.1742897, y: 0.5169177, z: -0.06316686}
 --- !u!114 &1660744805381949775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!54 &1660164555168508162
 Rigidbody:
   m_ObjectHideFlags: 0
