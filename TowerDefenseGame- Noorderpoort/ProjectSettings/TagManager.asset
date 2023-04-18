@@ -13,6 +13,7 @@ TagManager:
   - Tower
   - Bullet
   - Managers
+  - Trap
   layers:
   - Default
   - TransparentFX

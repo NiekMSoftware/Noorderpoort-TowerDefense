@@ -46,4 +46,12 @@ public class EnemyHP : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            takeDamage(10);
+            Destroy(other.gameObject);
+        }
+    }
 }
