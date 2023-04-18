@@ -83,6 +83,7 @@ public class TowerAttacking : MonoBehaviour
                         Projectile.GetComponent<ProjectileController>().target = target.transform;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
                         timeUntilBullet = fireRate / 10;
+                        target.GetComponent<EnemyHP>().takeDamage(damage);
                         if (multipleFirepoints)
                         {
                             firePoint = allFirePoints[currentFirePoint];

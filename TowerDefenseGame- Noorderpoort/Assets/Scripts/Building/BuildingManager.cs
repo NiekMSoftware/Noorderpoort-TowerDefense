@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[] materials;
 
     private RaycastHit hit;
-    [SerializeField] private LayerMask layerMask;
+    public LayerMask detectLayersMask;
 
     public bool canPlace;
     public bool isPlacementMode = false;
@@ -63,7 +62,7 @@ public class BuildingManager : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (Physics.Raycast(ray, out hit, 1000, detectLayersMask))
         {
             pos = hit.point;
         }

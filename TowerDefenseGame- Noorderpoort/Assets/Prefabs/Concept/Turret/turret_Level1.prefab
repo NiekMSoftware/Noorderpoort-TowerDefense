@@ -194,9 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 16
+  layerNumber: 4
 --- !u!114 &4183818570107938648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,9 +219,9 @@ MonoBehaviour:
   multipleFirepoints: 1
   rotatesTowardsEnemies: 1
   currentFirePoint: 0
-  fireRate: 3
+  fireRate: 2
   timeUntilBullet: 0
-  damage: 5
+  damage: 10
   range: 15
   projectileSpeed: 2
   defaultTower: 1

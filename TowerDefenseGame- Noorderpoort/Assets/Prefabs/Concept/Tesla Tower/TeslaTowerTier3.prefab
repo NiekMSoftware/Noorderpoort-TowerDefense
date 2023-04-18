@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3633331542570034091}
+  - {fileID: 4889635256039431011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,9 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 16
+  layerNumber: 4
 --- !u!114 &8787263766200538061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +151,16 @@ MonoBehaviour:
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
   firePoint: {fileID: 3633331542570034091}
-  fireRate: 1
+  allFirePoints:
+  - {fileID: 3633331542570034091}
+  - {fileID: 4889635256039431011}
+  multipleFirepoints: 1
+  rotatesTowardsEnemies: 0
+  currentFirePoint: 0
+  fireRate: 5
   timeUntilBullet: 0
-  damage: 5
-  range: 15
+  damage: 35
+  range: 25
   projectileSpeed: 2
   defaultTower: 1
 --- !u!114 &7425734913026527170
@@ -196,10 +201,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5710129496188271679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.79, z: 0}
+  m_LocalPosition: {x: -0.35, y: 5.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2067768882819436440}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8149490387719871973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4889635256039431011}
+  m_Layer: 0
+  m_Name: Firepoint (1)
+  m_TagString: Object
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4889635256039431011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8149490387719871973}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.417, y: 5.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2067768882819436440}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
