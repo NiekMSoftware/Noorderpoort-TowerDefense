@@ -104,10 +104,10 @@ public class TowerAttacking : MonoBehaviour
         {
             if (rotatesTowardsEnemies)
             {
-                Vector3 targetPostition = new Vector3(0,
-                                       target.transform.position.y,
-                                       0);
-                transform.LookAt(targetPostition);
+                var lookPos = target.transform.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(-lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
             }
         }
     }
