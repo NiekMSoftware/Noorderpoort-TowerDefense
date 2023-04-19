@@ -20,7 +20,8 @@ public class BuildingManager : MonoBehaviour
     public bool canPlace;
     public bool isPlacementMode = false;
 
-
+    public static TowerBehaviour towerReference;
+    
     void Update()
     {
         if (pendingObject != null)
@@ -71,6 +72,7 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        towerReference = pendingObject.GetComponent<TowerBehaviour>();
         isPlacementMode = true;
     }
 }

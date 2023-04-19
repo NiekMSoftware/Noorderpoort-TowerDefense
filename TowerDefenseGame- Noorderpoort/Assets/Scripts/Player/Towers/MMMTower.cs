@@ -15,9 +15,9 @@ public class MMMTower : MonoBehaviour
     WaveSystem waveSystem;
     int lastRound;
     //What upgrade it is
-    bool upgrade1 = true;
-    bool upgrade2 = false;
-    bool upgrade3 = false;
+    public bool upgrade1 = true;
+    public bool upgrade2 = false;
+    public bool upgrade3 = false;
     // Start is called before the first frame update
     void Start()
     {

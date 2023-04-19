@@ -193,6 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1ae4cb1fbcf3442b0a5e4c0d2f1b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerUpgrade: 0
+  towerType: 1
   buildingManager: {fileID: 0}
   layerNumber: 4
 --- !u!114 &4183818570107938648

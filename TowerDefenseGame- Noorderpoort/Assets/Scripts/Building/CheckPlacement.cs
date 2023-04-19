@@ -1,7 +1,19 @@
+using System;
 using UnityEngine;
 
 public class CheckPlacement : MonoBehaviour
 {
+    public enum allTowerTypes
+    {
+        NotAFuckingTower,
+        Turret,
+        Tesla,
+        MMM
+    };
+
+    public int towerUpgrade = 0;
+    
+    public allTowerTypes towerType;
     [SerializeField] private BuildingManager buildingManager;
 
     [SerializeField] int layerNumber;

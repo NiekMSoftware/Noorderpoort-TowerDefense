@@ -5,6 +5,8 @@ using UnityEngine;
 public class Selection : MonoBehaviour
 {
     public GameObject selectedObject;
+
+    public bool selectedTower;
     
     // Update is called once per frame
     void Update()
@@ -20,6 +22,8 @@ public class Selection : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Tower"))
                 {
+                    selectedTower = true;
+                    print(selectedTower);
                     Debug.Log("hit");
                     Select(hit.collider.gameObject);
                 }
@@ -28,6 +32,7 @@ public class Selection : MonoBehaviour
 
         if (Input.GetMouseButton(1) && selectedObject != null)
         {
+            selectedTower = false;
             DeSelect();
         }
     }
