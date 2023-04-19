@@ -283,14 +283,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189938488}
-        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-        m_MethodName: SelectObject
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: Tower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: BuyTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 75
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -491,14 +503,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189938488}
-        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-        m_MethodName: SelectObject
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: Tower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: BuyTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -832,14 +856,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189938488}
-        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-        m_MethodName: SelectObject
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: Tower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: BuyTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1558,14 +1594,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189938488}
-        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-        m_MethodName: SelectObject
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: Tower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1122116194}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: BuyTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1756,6 +1804,7 @@ GameObject:
   - component: {fileID: 1122116193}
   - component: {fileID: 1122116192}
   - component: {fileID: 1122116191}
+  - component: {fileID: 1122116194}
   m_Layer: 8
   m_Name: SceneManager
   m_TagString: Managers
@@ -1775,9 +1824,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaf5ecf8414b6b45aabc3183f108463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BitIndex: 0
+  BitIndex: 100
   DiscountAmount: 10
   MultiplierAmount: 0
+  starterMoney: 100
   Bitsamount: {fileID: 2094380308}
   MaxDiscountAmount: 30
   MaxMultiplierAmount: 5
@@ -1794,6 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesEnded: -1
+  moneyPerWave: 50
   enemyEmpty: {fileID: 116883431}
   enemies:
   - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
@@ -1832,6 +1883,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122116194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122116190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189938487
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,7 +3488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -512, y: -41}
+  m_AnchoredPosition: {x: -289.6, y: -149.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2106761412

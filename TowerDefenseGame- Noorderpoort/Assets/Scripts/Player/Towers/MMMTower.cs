@@ -25,6 +25,7 @@ public class MMMTower : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().materials = upgrade1Visual.GetComponent<MeshRenderer>().sharedMaterials;
         bitscript = FindObjectOfType<Bitscript>();
         waveSystem = FindObjectOfType<WaveSystem>();
+        lastRound = waveSystem.wavesEnded;
     }
 
     // Update is called once per frame
@@ -39,19 +40,6 @@ public class MMMTower : MonoBehaviour
         {
             gameObject.GetComponent<MeshFilter>().mesh = upgrade3Visual.GetComponent<MeshFilter>().sharedMesh;
             gameObject.GetComponent<MeshRenderer>().materials = upgrade3Visual.GetComponent<MeshRenderer>().sharedMaterials;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (upgrade2)
-            {
-                upgrade2 = false;
-                upgrade3 = true;
-            }
-            if (upgrade1)
-            {
-                upgrade1 = false;
-                upgrade2 = true;
-            }
         }
         if (waveSystem.wavesEnded > lastRound)
         {

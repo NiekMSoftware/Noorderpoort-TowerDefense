@@ -185,11 +185,11 @@ MonoBehaviour:
   multipleFirepoints: 0
   rotatesTowardsEnemies: 0
   currentFirePoint: 0
-  fireRate: 6
+  fireRate: 5
   timeUntilBullet: 0
-  damage: 30
+  damage: 45
   range: 25
-  projectileSpeed: 2
+  projectileSpeed: 4
   defaultTower: 1
 --- !u!114 &8501759656561533833
 MonoBehaviour:

@@ -6,6 +6,7 @@ public class WaveSystem : MonoBehaviour
     //Testing
     int gameRound = 0;
     public int wavesEnded = 0;
+    [SerializeField] private int moneyPerWave;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform destination;
@@ -44,9 +45,11 @@ public class WaveSystem : MonoBehaviour
     float enemiesLastRound;
     public float currentSpawnCooldown;
     bool gaveMoney = false;
+    Bitscript bits;
     // Start is called before the first frame update
     void Start()
     {
+        bits = FindObjectOfType<Bitscript>();
         ChanceCalculator();
         enemiesThisRound = 5;
         currentSpawnCooldown = spawnCooldown;
@@ -114,6 +117,10 @@ public class WaveSystem : MonoBehaviour
     }
     public void roundStart()
     {
+        if (wavesEnded > 0)
+        {
+            bits.AddBits(moneyPerWave);
+        }
         Debug.Log("Started Round " + gameRound);
         enemiesLastRound = enemiesThisRound;
         float scale = enemyAmountScaleFactor * gameRound;
@@ -123,13 +130,13 @@ public class WaveSystem : MonoBehaviour
         {
             enemiesThisRound = maxEnemiesPerRound;
         }
-        if (enemiesThisRound > 50 && enemiesThisRound< 100)
+        if (enemiesThisRound > 25 && enemiesThisRound< 50)
         {
             currentSpawnCooldown = spawnCooldown / 2;
-        } else if (enemiesThisRound >= 100 &&enemiesThisRound <= 200)
+        } else if (enemiesThisRound >= 50 &&enemiesThisRound <= 100)
         {
             currentSpawnCooldown = spawnCooldown / 3;
-        } else if (enemiesThisRound > 200)
+        } else if (enemiesThisRound > 100)
         {
             currentSpawnCooldown = spawnCooldown / 6;
         }
