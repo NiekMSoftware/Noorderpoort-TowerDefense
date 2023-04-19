@@ -3,17 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Floor
+  - Wall
+  - Checkpoint
+  - Object
+  - Spotter
+  - Tower
+  - Bullet
+  - Managers
+  - Trap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Spotter
+  - Tower
+  - Managers
   - 
   - 
   - 
