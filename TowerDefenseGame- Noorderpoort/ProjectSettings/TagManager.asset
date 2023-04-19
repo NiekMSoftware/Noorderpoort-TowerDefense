@@ -11,6 +11,9 @@ TagManager:
   - Object
   - Spotter
   - Tower
+  - Bullet
+  - Managers
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - UI
   - Spotter
   - Tower
-  - 
+  - Managers
   - 
   - 
   - 

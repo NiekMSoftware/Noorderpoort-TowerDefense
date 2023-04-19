@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -16,9 +15,10 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[] materials;
 
     private RaycastHit hit;
-    [SerializeField] private LayerMask layerMask;
+    public LayerMask detectLayersMask;
 
     public bool canPlace;
+    public bool isPlacementMode = false;
 
 
     void Update()
@@ -32,6 +32,7 @@ public class BuildingManager : MonoBehaviour
                 PlaceObject();
             }
         }
+
         UpdateMaterials();
     }
 
@@ -41,26 +42,27 @@ public class BuildingManager : MonoBehaviour
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[0];
         }
-        if(!canPlace)
+
+        if (!canPlace)
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[1];
         }
     }
-    
+
     public void PlaceObject()
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-        
+
         pendingObject = null;
-        
+        isPlacementMode = false;
     }
 
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (Physics.Raycast(ray, out hit, 1000, detectLayersMask))
         {
             pos = hit.point;
         }
@@ -69,5 +71,6 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        isPlacementMode = true;
     }
 }
