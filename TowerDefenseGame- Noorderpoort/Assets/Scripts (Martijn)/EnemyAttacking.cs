@@ -6,11 +6,12 @@ using UnityEngine.Animations;
 
 public class EnemyAttacking : MonoBehaviour
 {
-    public int damage;
-    public int health;
-    public float speed;
-    public float attackRate;
-
+    public int damage = 10;
+    public int health = 100;
+    public float speed = 5;
+    public float attackRate = 3;
+    EnemyRangeScript MyEnemyInRage;
+    MainTowerHealth MyMainTowerHealth;
     /*
      * 
      *     //hoe veel een enemy damage doet
@@ -18,5 +19,19 @@ public class EnemyAttacking : MonoBehaviour
     //hoe snel een enemy beweegt
      * 
      */
+    void Start()
+    {
+        MyEnemyInRage = GetComponent<EnemyRangeScript>();
+        MyMainTowerHealth = GetComponent<MainTowerHealth>();
+    }
+
+    void DamageGiven()
+    {
+        
+        if (MyEnemyInRage == true)
+        {
+            MyMainTowerHealth.GetComponent<EnemyAttacking>().damage = damage;
+        }
+    }
 
 }

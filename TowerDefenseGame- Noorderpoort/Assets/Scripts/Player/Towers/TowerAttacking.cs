@@ -7,27 +7,30 @@ using UnityEngine.UIElements;
 
 public class TowerAttacking : MonoBehaviour
 {
-    public float health = 100;
-    public float timeStunned = 5;
+    [SerializeField] private float health = 100;
+    [SerializeField] private float timeStunned = 5;
     float stunTime = 0;
     bool stunned = false;
-    public GameObject target;
-    public GameObject projectile;
-    public GameObject rangeCircle;
-    public Transform firePoint;
-    public float fireRate;
-    public float timeUntilBullet;
-    public float damage;
-    public float range;
-    public float projectileSpeed;
-    public bool enemyInRange = false;
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform[] allFirePoints;
+    [SerializeField] private bool multipleFirepoints;
+    [SerializeField] private bool rotatesTowardsEnemies;
+    public int currentFirePoint = 0;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float timeUntilBullet;
+    [SerializeField] private float damage;
+    [SerializeField] private float range;
+    [SerializeField] private float projectileSpeed;
+    bool enemyInRange = false;
     GameObject bulletEmpty;
     [SerializeField] private bool defaultTower = true;
-    [SerializeField] private bool IforgotTheName;
     void Start()
     {
+        gameObject.GetComponent<RangeScriptV2>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
-        rangeCircle.transform.localScale = new Vector3(range , rangeCircle.transform.localScale.y, range);
+        firePoint = allFirePoints[currentFirePoint];
     }
 
     void Update()
@@ -35,6 +38,10 @@ public class TowerAttacking : MonoBehaviour
         if (target == null)
         {
             enemyInRange = false;
+        }
+        else
+        {
+            enemyInRange = true;
         }
         if (Input.GetKey(KeyCode.H))
         {
@@ -55,11 +62,14 @@ public class TowerAttacking : MonoBehaviour
         {
             try
             {
-                target = rangeCircle.GetComponent<RangeScript>().inRangeList[0];
+                target = gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject;
             }
             catch (ArgumentOutOfRangeException)
             {
-                
+                if (gameObject.GetComponent<RangeScriptV2>().enemyList.Count == 0)
+                {
+                    target = null;
+                }
             }
             timeUntilBullet -= Time.deltaTime;
             if (enemyInRange == true)
@@ -73,21 +83,33 @@ public class TowerAttacking : MonoBehaviour
                         Projectile.GetComponent<ProjectileController>().target = target.transform;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
                         timeUntilBullet = fireRate / 10;
-                    }
-                    if (IforgotTheName == true)
-                    {
-                        GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, 100, firePoint.eulerAngles.z - 90));
-                        Projectile.GetComponent<ProjectileController>().target = target.transform;
-                        Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                        timeUntilBullet = fireRate / 10;
+                        target.GetComponent<EnemyHP>().takeDamage(damage);
+                        if (multipleFirepoints)
+                        {
+                            firePoint = allFirePoints[currentFirePoint];
+                            currentFirePoint++;
+                            if (currentFirePoint == allFirePoints.Length)
+                            {
+                                currentFirePoint = 0;
+                            }
+                        }
                     }
                 }
             }
-            enemyInRange = rangeCircle.GetComponent<RangeScript>().enemyInRange;
         }
         else
         {
             stunTime -= Time.deltaTime;
+        }
+        if (gameObject.GetComponent<RangeScriptV2>().enemyList.Count != 0)
+        {
+            if (rotatesTowardsEnemies)
+            {
+                var lookPos = target.transform.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(-lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
+            }
         }
     }
 }

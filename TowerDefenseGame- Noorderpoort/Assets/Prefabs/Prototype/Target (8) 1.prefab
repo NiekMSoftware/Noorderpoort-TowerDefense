@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1293789637032314369}
   - component: {fileID: 1293789637032314368}
   - component: {fileID: 1293789637032314375}
+  - component: {fileID: -5005046318620515263}
   m_Layer: 0
   m_Name: Target (8) 1
   m_TagString: Enemy
@@ -126,7 +127,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 5
+  m_Speed: 7
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 0
@@ -153,3 +154,17 @@ MonoBehaviour:
   movePositionTransform: {fileID: 0}
   lookingAtMovement: 1
   deathTimer: 30
+--- !u!114 &-5005046318620515263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293789637032314374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 45
+  bitsOnDeath: 10

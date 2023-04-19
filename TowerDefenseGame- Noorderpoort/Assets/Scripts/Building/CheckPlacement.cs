@@ -1,20 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using Update = UnityEngine.PlayerLoop.Update;
 
 public class CheckPlacement : MonoBehaviour
 {
     [SerializeField] private BuildingManager buildingManager;
 
-    [SerializeField] private LayerMask layerMask = 3;
+    [SerializeField] int layerNumber;
+
+    private LayerMask canPlaceOnLayerMask;
 
     void Start()
     {
         buildingManager = GameObject.Find("BuildingManager").GetComponent<BuildingManager>();
+        canPlaceOnLayerMask = layerNumber;
     }
 
     // Check if the building is properly above terrain it can be placed on
@@ -22,14 +19,19 @@ public class CheckPlacement : MonoBehaviour
     {
         if (buildingManager.isPlacementMode)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), 1000, layerMask))
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, buildingManager.detectLayersMask))
             {
-                buildingManager.canPlace = false;
+                if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
+                {
+                    buildingManager.canPlace = true;
+                }
+                else
+                {
+                    buildingManager.canPlace = false;
+                }
             }
-            else
-            {
-                buildingManager.canPlace = true;
-            }
+
         }
     }
 
@@ -39,30 +41,27 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        buildingManager.isPlacementMode = false;
-        if (buildingManager.towerTriggers.Contains(other))
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
         {
-            print("Unable to place");
+            buildingManager.isPlacementMode = false;
             buildingManager.canPlace = false;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (buildingManager.towerTriggers.Contains(other))
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
         {
-            buildingManager.isPlacementMode = false;            
-            print("Unable to place");
+            buildingManager.isPlacementMode = false;
             buildingManager.canPlace = false;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        buildingManager.isPlacementMode = true;
-        if (buildingManager.towerTriggers.Contains(other))
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
         {
-            print("Able to place");
+            buildingManager.isPlacementMode = true;
             buildingManager.canPlace = true;
         }
     }

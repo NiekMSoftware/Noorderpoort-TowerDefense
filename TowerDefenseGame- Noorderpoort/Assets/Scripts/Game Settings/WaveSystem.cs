@@ -4,9 +4,9 @@ using UnityEngine;
 public class WaveSystem : MonoBehaviour
 {
     //Testing
-    public string status = "nothing";
     int gameRound = 0;
     public int wavesEnded = 0;
+    [SerializeField] private int moneyPerWave;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform destination;
@@ -18,16 +18,17 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private int maxGroupSize = 10;
     [SerializeField] private int minGroupSize = 10;
     //Chances
-    [SerializeField] private int amountOfEnemyTypes = 2;
-    [SerializeField] private int normalEnemyChance = 100;
-    [SerializeField] private int enemy2ChanceStopsAt = 10;
-    [SerializeField] private int enemy2StartsAt = 5;
-    [SerializeField] private int enemy2MinChance = 5;
-    [SerializeField] private int enemy2MaxChance = 30;
+    [SerializeField] private int[] enemyChanceStopsAt;
+    [SerializeField] private int[] enemyStartsAt;
+    [SerializeField] private int[] enemyMinChance;
+    [SerializeField] private int[] enemyMaxChance;
     //Amount scaling
     [SerializeField] private float enemyAmountScaleFactor = 2;
     [SerializeField] private int enemiesThisRound;
     [SerializeField] private int maxEnemiesPerRound;
+    //HP multiplying
+    public float enemyHealthMultiplier = 1;
+    [SerializeField] private float enemyHealthMultiplierPerRound = 0.05f;
     public int speed;
     GameObject spawningGroup;
     float timeTillSpawn = 0;
@@ -39,16 +40,20 @@ public class WaveSystem : MonoBehaviour
     int spawnedGroup = 0;
     int groupSize;
     int type = 0;
-    int enemy2Chance = 0;
-    int enemy1Chance = 100;
+    public int[] enemyChance = new int[2];
+    int basicEnemyChance = 100;
     float enemiesLastRound;
     public float currentSpawnCooldown;
     bool gaveMoney = false;
+    Bitscript bits;
     // Start is called before the first frame update
     void Start()
     {
+        bits = FindObjectOfType<Bitscript>();
+        ChanceCalculator();
         enemiesThisRound = 5;
         currentSpawnCooldown = spawnCooldown;
+        enemyHealthMultiplier = enemyHealthMultiplier - enemyHealthMultiplierPerRound;
     }
 
     // Update is called once per frame
@@ -63,8 +68,7 @@ public class WaveSystem : MonoBehaviour
             if (hasGroup == false)
             {
                 groupSize = Random.Range(minGroupSize, maxGroupSize);
-                type = randomEnemy(type);
-                Debug.Log(type);
+                type = randomEnemy();
                 spawningGroup = enemies[type];
                 Debug.Log("Spawning " + type);
                 spawnedGroup = 0;
@@ -113,23 +117,26 @@ public class WaveSystem : MonoBehaviour
     }
     public void roundStart()
     {
+        if (wavesEnded > 0)
+        {
+            bits.AddBits(moneyPerWave);
+        }
         Debug.Log("Started Round " + gameRound);
         enemiesLastRound = enemiesThisRound;
         float scale = enemyAmountScaleFactor * gameRound;
-        status = scale.ToString();
         float i = enemiesLastRound + scale;
         enemiesThisRound = Mathf.RoundToInt(i);
         if (enemiesThisRound > maxEnemiesPerRound)
         {
             enemiesThisRound = maxEnemiesPerRound;
         }
-        if (enemiesThisRound > 50 && enemiesThisRound< 100)
+        if (enemiesThisRound > 25 && enemiesThisRound< 50)
         {
             currentSpawnCooldown = spawnCooldown / 2;
-        } else if (enemiesThisRound >= 100 &&enemiesThisRound <= 200)
+        } else if (enemiesThisRound >= 50 &&enemiesThisRound <= 100)
         {
             currentSpawnCooldown = spawnCooldown / 3;
-        } else if (enemiesThisRound > 200)
+        } else if (enemiesThisRound > 100)
         {
             currentSpawnCooldown = spawnCooldown / 6;
         }
@@ -144,49 +151,56 @@ public class WaveSystem : MonoBehaviour
     }
     public void roundEnd()
     {
+        enemyHealthMultiplier = enemyHealthMultiplier + enemyHealthMultiplierPerRound;
         hasGroup = false;
         activatedTimer = false;
         gaveMoney = false;
         roundStart();
     }
-    public int randomEnemy(int type)
+    public int randomEnemy()
     {
-        int chosenType = 1;
-        int maxRandom = normalEnemyChance + enemy2MaxChance;
-        int newtype = Random.Range(0, maxRandom);
-        Debug.Log(newtype + " Random");
-        if (newtype < normalEnemyChance)
-        {
-            chosenType = 0;
-        } else if ( newtype >= normalEnemyChance && newtype < enemy2MaxChance + normalEnemyChance)
+        int chosenType = 0;
+        int newtype = Random.Range(0, 100);
+        Debug.Log(newtype + "random");
+        int total = 0;
+        if (newtype >= 0 && newtype < enemyChance[0])
         {
             chosenType = 1;
         }
+        total = enemyChance[0];
+        if (newtype >= enemyChance[0] && newtype < enemyChance[1] +total)
+        {
+            chosenType = 2;
+        }
+        total = total + enemyChance[1];
         return chosenType;
     }
     public void ChanceCalculator()
     {
-        if (gameRound < enemy2StartsAt)
+        for (int enemy = 0; enemy < enemies.Length - 1; enemy++)
         {
-            enemy2Chance = 0;
-        }
-        else if (gameRound >= enemy2ChanceStopsAt)
-        {
-            enemy2Chance = enemy2MaxChance;
-        }
-        else
-        {
+            Debug.Log(enemy);
+            if (gameRound < enemyStartsAt[enemy])
+            {
+                enemyChance[enemy] = 0;
+            }
+            else if (gameRound >= enemyChanceStopsAt[enemy])
+            {
+                enemyChance[enemy] = enemyMaxChance[enemy];
+            }
+            else
+            {
 
-            
-            int negativeWaves = enemy2ChanceStopsAt - enemy2StartsAt;
-            
-            int roundsOverChance = gameRound - enemy2StartsAt;
-            
-            int chanceDifference = enemy2MaxChance - enemy2MinChance; 
-            
-            int chanceUpPerWave = chanceDifference / (negativeWaves - 1); 
+                int negativeWaves = enemyChanceStopsAt[enemy] - enemyStartsAt[enemy];
 
-            enemy2Chance = enemy2MinChance + (chanceUpPerWave * roundsOverChance);
+                int roundsOverChance = gameRound - enemyStartsAt[enemy];
+
+                int chanceDifference = enemyMaxChance[enemy] - enemyMinChance[enemy];
+
+                int chanceUpPerWave = chanceDifference / (negativeWaves - 1);
+
+                enemyChance[enemy] = enemyMinChance[enemy] + (chanceUpPerWave * roundsOverChance);
+            }
         }
     }
 }

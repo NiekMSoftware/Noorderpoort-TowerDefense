@@ -8,6 +8,7 @@ public class Bitscript : MonoBehaviour
     public float BitIndex;
     public float DiscountAmount = 10f; // In total percentage
     public float MultiplierAmount = 0; // Multiplier
+    public float starterMoney = 100;
     public TMP_Text Bitsamount;
 
     [SerializeField] private
@@ -21,7 +22,7 @@ public class Bitscript : MonoBehaviour
     //UI doesnt work for me - Rudo
     void Start()
     {
-        BitIndex = 0;
+        BitIndex =starterMoney;
     }
 
     private void FixedUpdate()
