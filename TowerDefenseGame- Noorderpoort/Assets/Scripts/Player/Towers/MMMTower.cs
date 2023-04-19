@@ -18,6 +18,7 @@ public class MMMTower : MonoBehaviour
     public bool upgrade1 = true;
     public bool upgrade2 = false;
     public bool upgrade3 = false;
+    public bool isBeingPlace = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,21 +42,29 @@ public class MMMTower : MonoBehaviour
             gameObject.GetComponent<MeshFilter>().mesh = upgrade3Visual.GetComponent<MeshFilter>().sharedMesh;
             gameObject.GetComponent<MeshRenderer>().materials = upgrade3Visual.GetComponent<MeshRenderer>().sharedMaterials;
         }
-        if (waveSystem.wavesEnded > lastRound)
+
+        if (isBeingPlace == false)
         {
-            if (upgrade1)
+            if (waveSystem.wavesEnded > lastRound)
             {
-                bitscript.AddBits(upgrade1Money);
+                if (upgrade1)
+                {
+                    bitscript.AddBits(upgrade1Money);
+                }
+                if (upgrade2)
+                {
+                    bitscript.AddBits(upgrade2Money);
+                }
+                if (upgrade3)
+                {
+                    bitscript.AddBits(upgrade3Money);
+                    //Discount
+                }
+                lastRound = waveSystem.wavesEnded;
             }
-            if (upgrade2)
-            {
-                bitscript.AddBits(upgrade2Money);
-            }
-            if (upgrade3)
-            {
-                bitscript.AddBits(upgrade3Money);
-                //Discount
-            }
+        }
+        else
+        {
             lastRound = waveSystem.wavesEnded;
         }
     }

@@ -26,6 +26,7 @@ public class TowerAttacking : MonoBehaviour
     bool enemyInRange = false;
     GameObject bulletEmpty;
     [SerializeField] private bool defaultTower = true;
+    public bool isBeingPlace = false;
     void Start()
     {
         gameObject.GetComponent<RangeScriptV2>().range = range;
@@ -71,26 +72,30 @@ public class TowerAttacking : MonoBehaviour
                     target = null;
                 }
             }
-            timeUntilBullet -= Time.deltaTime;
-            if (enemyInRange == true)
+
+            if (isBeingPlace == false)
             {
-                if (timeUntilBullet < 0)
+                timeUntilBullet -= Time.deltaTime;
+                if (enemyInRange == true)
                 {
-                    if (defaultTower == true)
+                    if (timeUntilBullet < 0)
                     {
-                        GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
-                        Projectile.transform.parent = bulletEmpty.transform;
-                        Projectile.GetComponent<ProjectileController>().target = target.transform;
-                        Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                        timeUntilBullet = fireRate / 10;
-                        target.GetComponent<EnemyHP>().takeDamage(damage);
-                        if (multipleFirepoints)
+                        if (defaultTower == true)
                         {
-                            firePoint = allFirePoints[currentFirePoint];
-                            currentFirePoint++;
-                            if (currentFirePoint == allFirePoints.Length)
+                            GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+                            Projectile.transform.parent = bulletEmpty.transform;
+                            Projectile.GetComponent<ProjectileController>().target = target.transform;
+                            Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                            timeUntilBullet = fireRate / 10;
+                            target.GetComponent<EnemyHP>().takeDamage(damage);
+                            if (multipleFirepoints)
                             {
-                                currentFirePoint = 0;
+                                firePoint = allFirePoints[currentFirePoint];
+                                currentFirePoint++;
+                                if (currentFirePoint == allFirePoints.Length)
+                                {
+                                    currentFirePoint = 0;
+                                }
                             }
                         }
                     }

@@ -37,7 +37,7 @@ public class Selection : MonoBehaviour
         }
     }
 
-    private void Select(GameObject obj)
+    public void Select(GameObject obj)
     {
         //Check if the object we pressed is equal
         if (obj == selectedObject) 
@@ -57,7 +57,7 @@ public class Selection : MonoBehaviour
         selectedObject = obj;
     }
 
-    private void DeSelect()
+    public void DeSelect()
     {
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;

@@ -44,7 +44,7 @@ public class UpgradeTower : MonoBehaviour
                 newtower.transform.position = tower.transform.position;
 
                 bits.RemoveBits(teslaUpgradeCost[0]);
-                
+                _selection.Select(newtower);
                 Destroy(tower);
             }
             else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= teslaUpgradeCost[1])
@@ -52,6 +52,7 @@ public class UpgradeTower : MonoBehaviour
                 GameObject newtower = Instantiate(teslaTowers[1]);
                 newtower.transform.position = tower.transform.position;
                 bits.RemoveBits(teslaUpgradeCost[1]);
+                _selection.DeSelect();
                 Destroy(tower);
             }
         }
@@ -62,6 +63,7 @@ public class UpgradeTower : MonoBehaviour
                 GameObject newtower = Instantiate(turrets[0]);
                 newtower.transform.position = tower.transform.position;
                 bits.RemoveBits(turretUpgradeCost[0]);
+                _selection.Select(newtower);
                 Destroy(tower);
             }
             else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= turretUpgradeCost[1])
@@ -69,6 +71,7 @@ public class UpgradeTower : MonoBehaviour
                 GameObject newtower = Instantiate(turrets[1]);
                 newtower.transform.position = tower.transform.position;
                 bits.RemoveBits(turretUpgradeCost[1]);
+                _selection.DeSelect();
                 Destroy(tower);
             }
         }
@@ -84,6 +87,7 @@ public class UpgradeTower : MonoBehaviour
             {
                 tower.GetComponent<MMMTower>().upgrade2 = false;
                 tower.GetComponent<MMMTower>().upgrade3 = true;
+                _selection.DeSelect();
                 bits.RemoveBits(MMMUpgradeCost[1]);
             }
         }

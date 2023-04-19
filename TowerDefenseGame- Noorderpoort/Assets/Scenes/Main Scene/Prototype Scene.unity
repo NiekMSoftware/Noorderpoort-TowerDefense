@@ -775,9 +775,9 @@ MonoBehaviour:
   turrets:
   - {fileID: 3205597839966706227, guid: 32b8a73ff9b205040a56c135c8b17441, type: 3}
   - {fileID: 615592888454610796, guid: 906a2c3a5abb8614f8b5c27e23c7cd7f, type: 3}
-  teslaUpgradeCost: 64000000c8000000
-  turretUpgradeCost: 2c01000090010000
-  MMMUpgradeCost: f401000058020000
+  teslaUpgradeCost: 0100000001000000
+  turretUpgradeCost: 0100000001000000
+  MMMUpgradeCost: 0100000001000000
 --- !u!1 &157347747
 GameObject:
   m_ObjectHideFlags: 0

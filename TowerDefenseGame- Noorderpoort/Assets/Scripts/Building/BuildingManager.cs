@@ -27,9 +27,24 @@ public class BuildingManager : MonoBehaviour
         if (pendingObject != null)
         {
             pendingObject.transform.position = pos;
-
+            if (pendingObject.GetComponent<TowerAttacking>() == true)
+            {
+                pendingObject.GetComponent<TowerAttacking>().isBeingPlace = true;
+            }
+            if (pendingObject.GetComponent<MMMTower>() == true)
+            {
+                pendingObject.GetComponent<MMMTower>().isBeingPlace = true;
+            }
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
+                if (pendingObject.GetComponent<TowerAttacking>() == true)
+                {
+                    pendingObject.GetComponent<TowerAttacking>().isBeingPlace = false;
+                }
+                if (pendingObject.GetComponent<MMMTower>() == true)
+                {
+                    pendingObject.GetComponent<MMMTower>().isBeingPlace = false;
+                }
                 PlaceObject();
             }
         }
@@ -54,7 +69,6 @@ public class BuildingManager : MonoBehaviour
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-
         pendingObject = null;
         isPlacementMode = false;
     }
