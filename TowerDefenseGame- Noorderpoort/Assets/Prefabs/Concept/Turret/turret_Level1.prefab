@@ -130,4 +130,4 @@ MonoBehaviour:
   buildingManager: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 8
