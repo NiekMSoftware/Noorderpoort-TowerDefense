@@ -6,6 +6,7 @@ public class EnemyHP : MonoBehaviour
 {
     public float hp = 100;
     float ttDestroy = 2;
+    [SerializeField] private int bitsOnDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,8 @@ public class EnemyHP : MonoBehaviour
     }
     public void die()
     {
+        Bitscript bits = FindObjectOfType<Bitscript>();
+        bits.AddBits(bitsOnDeath);
         Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)

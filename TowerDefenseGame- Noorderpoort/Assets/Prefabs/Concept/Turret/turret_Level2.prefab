@@ -160,7 +160,7 @@ MonoBehaviour:
   fireRate: 2
   timeUntilBullet: 0
   damage: 15
-  range: 15
+  range: 17
   projectileSpeed: 2
   defaultTower: 1
 --- !u!114 &8086035504738555339

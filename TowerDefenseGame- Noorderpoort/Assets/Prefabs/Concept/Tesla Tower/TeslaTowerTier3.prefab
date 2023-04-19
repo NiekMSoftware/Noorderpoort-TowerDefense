@@ -159,9 +159,9 @@ MonoBehaviour:
   currentFirePoint: 0
   fireRate: 5
   timeUntilBullet: 0
-  damage: 35
+  damage: 60
   range: 25
-  projectileSpeed: 2
+  projectileSpeed: 4
   defaultTower: 1
 --- !u!114 &7425734913026527170
 MonoBehaviour:
