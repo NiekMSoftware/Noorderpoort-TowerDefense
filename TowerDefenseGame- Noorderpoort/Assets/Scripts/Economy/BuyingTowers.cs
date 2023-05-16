@@ -6,6 +6,7 @@ public class BuyingTowers : MonoBehaviour
 {
     Bitscript bitscript;
     BuildingManager buildingManager;
+    
     int tower = 0;
     // Start is called before the first frame update
     void Start()

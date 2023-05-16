@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class WaveSystem : MonoBehaviour
 {
-    //Testing
+    [Header("Waves")]
     int gameRound = 0;
     public int wavesEnded = 0;
+    
     [SerializeField] private int moneyPerWave;
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private GameObject[] enemies;
