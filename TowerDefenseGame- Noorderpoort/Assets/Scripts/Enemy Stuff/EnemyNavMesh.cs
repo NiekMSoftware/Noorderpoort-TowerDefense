@@ -6,10 +6,11 @@ using UnityEngine.AI;
 
 public class EnemyNavMesh : MonoBehaviour
 {
-
+    [Header("Movement")]
     public Transform movePositionTransform;
     private NavMeshAgent agent;
     public bool lookingAtMovement = true;
+
     [Header("Testing")]
     public float deathTimer = 1f;
     // Start is called before the first frame update
@@ -17,14 +18,9 @@ public class EnemyNavMesh : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
     }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        //Look at where it is going
         if (transform.rotation != Quaternion.Euler(agent.velocity))
         {
             if (lookingAtMovement)
@@ -33,6 +29,8 @@ public class EnemyNavMesh : MonoBehaviour
             }
         }
         agent.destination = movePositionTransform.position;
+
+        //Fucking dies if it lives too long
         deathTimer -= Time.deltaTime;
         if (deathTimer < 0)
         {

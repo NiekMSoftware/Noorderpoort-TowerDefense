@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class MMMTower : MonoBehaviour
 {
+    [Header("Money Per Upgrade")]
     [SerializeField] private int upgrade1Money;
     [SerializeField] private int upgrade2Money;
     [SerializeField] private int upgrade3Money;
 
+    [Header("Mesh per Upgrade")]
     [SerializeField] private GameObject upgrade1Visual;
     [SerializeField] private GameObject upgrade2Visual;
     [SerializeField] private GameObject upgrade3Visual;
-    Bitscript bitscript;
-    WaveSystem waveSystem;
-    int lastRound;
-    //What upgrade it is
+
+    [Header("Current Upgrade")]
     public bool upgrade1 = true;
     public bool upgrade2 = false;
     public bool upgrade3 = false;
-    public bool isBeingPlace = false;
-    // Start is called before the first frame update
+
+    [Header("Other")]
+    public bool isBeingPlaced = false;
+    Bitscript bitscript;
+    WaveSystem waveSystem;
+    int lastRound;
     void Start()
     {
         gameObject.GetComponent<MeshFilter>().mesh = upgrade1Visual.GetComponent<MeshFilter>().sharedMesh;
         gameObject.GetComponent<MeshRenderer>().materials = upgrade1Visual.GetComponent<MeshRenderer>().sharedMaterials;
         bitscript = FindObjectOfType<Bitscript>();
         waveSystem = FindObjectOfType<WaveSystem>();
+
         lastRound = waveSystem.wavesEnded;
     }
 
@@ -43,7 +48,7 @@ public class MMMTower : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().materials = upgrade3Visual.GetComponent<MeshRenderer>().sharedMaterials;
         }
 
-        if (isBeingPlace == false)
+        if (isBeingPlaced == false)
         {
             if (waveSystem.wavesEnded > lastRound)
             {
@@ -58,7 +63,6 @@ public class MMMTower : MonoBehaviour
                 if (upgrade3)
                 {
                     bitscript.AddBits(upgrade3Money);
-                    //Discount
                 }
                 lastRound = waveSystem.wavesEnded;
             }

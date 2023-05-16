@@ -5,29 +5,29 @@ using UnityEngine;
 
 public class RangeScriptV2 : MonoBehaviour
 {
-    public List<Collider> enemyList;
+    [Header("Range")]
     public float range;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Enemies")]
+    public List<Collider> enemyList;
 
-    // Update is called once per frame
     void Update()
     {
+        //Looks at everything around it
         Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, range);
         if (hitColliders.Length > 0)
         {
             foreach (Collider col in hitColliders.ToList())
             {
+                //Makes sure that the things are enemies
                 if (col.gameObject.GetComponent<EnemyNavMesh>() == true && enemyList.Contains(col) == false)
                 {
+                    //Adds them to a list
                     enemyList.Add(col);
                 }
             }
             foreach (Collider col in enemyList.ToList())
             {
+                //Removes the enemies if they get out of range
                 if (hitColliders.Contains(col) == false)
                 {
                     enemyList.Remove(col);

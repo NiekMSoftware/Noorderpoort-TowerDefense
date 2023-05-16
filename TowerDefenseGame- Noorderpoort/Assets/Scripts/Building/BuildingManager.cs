@@ -29,21 +29,21 @@ public class BuildingManager : MonoBehaviour
             pendingObject.transform.position = pos;
             if (pendingObject.GetComponent<TowerAttacking>() == true)
             {
-                pendingObject.GetComponent<TowerAttacking>().isBeingPlace = true;
+                pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = true;
             }
             if (pendingObject.GetComponent<MMMTower>() == true)
             {
-                pendingObject.GetComponent<MMMTower>().isBeingPlace = true;
+                pendingObject.GetComponent<MMMTower>().isBeingPlaced = true;
             }
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
                 if (pendingObject.GetComponent<TowerAttacking>() == true)
                 {
-                    pendingObject.GetComponent<TowerAttacking>().isBeingPlace = false;
+                    pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = false;
                 }
                 if (pendingObject.GetComponent<MMMTower>() == true)
                 {
-                    pendingObject.GetComponent<MMMTower>().isBeingPlace = false;
+                    pendingObject.GetComponent<MMMTower>().isBeingPlaced = false;
                 }
                 PlaceObject();
             }
