@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class UpgradeTower : MonoBehaviour
 {
+    [Header("Reference to the Selection Script")]
     public Selection _selection;
 
+    [Header("Canvas")]
     public GameObject upgradeUI;
 
+    [Header("Towers and Upgrades")]
     public GameObject[] teslaTowers;
     public GameObject[] turrets;
     [SerializeField] private int[] teslaUpgradeCost;
