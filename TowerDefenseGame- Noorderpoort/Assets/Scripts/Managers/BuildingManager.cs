@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
+    [Header("Tower Objects")]
     public List<Collider> towerTriggers;
 
     public GameObject[] objects;
@@ -12,11 +13,13 @@ public class BuildingManager : MonoBehaviour
 
     private Vector3 pos;
 
+    [Header("Materials and Layers")]
     [SerializeField] private Material[] materials;
 
     private RaycastHit hit;
     public LayerMask detectLayersMask;
 
+    [Header("Is the Tower Placeable?")]
     public bool canPlace;
     public bool isPlacementMode = false;
 

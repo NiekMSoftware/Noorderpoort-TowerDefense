@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Selection : MonoBehaviour
 {
+    [Header("Did we Select an Object?")]
     public GameObject selectedObject;
-
     public bool selectedTower;
     
     // Update is called once per frame
