@@ -111,13 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f41374083b8ac4eb08d756535a6463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 0.1
   bulletTTL: 3
-  homing: 0
-  normal: 1
-  goesUp: 0
-  timeTillDown: 0
+  target: {fileID: 0}
+  speed: 0.05
 --- !u!54 &1229303297328922625
 Rigidbody:
   m_ObjectHideFlags: 0
