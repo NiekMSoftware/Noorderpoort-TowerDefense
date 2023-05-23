@@ -19,18 +19,21 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
         //Bullet moves and rotates towards target
-        transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
-        gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
-        targetDirection = target.position - transform.position;
-        float singleStep = speed * Time.deltaTime;
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDirection);
-
-        //Bullet dies after existing too long
-        bulletTTL -= Time.deltaTime;
-        if (bulletTTL < 0)
+        if (target != null)
         {
-            Destroy(gameObject);
+            transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
+            gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
+            targetDirection = target.position - transform.position;
+            float singleStep = speed * Time.deltaTime;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+
+            //Bullet dies after existing too long
+            bulletTTL -= Time.deltaTime;
+            if (bulletTTL < 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)

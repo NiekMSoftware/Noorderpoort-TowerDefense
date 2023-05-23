@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyLooking : MonoBehaviour
 {
-    [SerializeField] Transform EnTarget;
+    public Transform Base;
     public bool lookingAtBase = false;
     //GameObject voor enemy zichzelf
 
@@ -12,7 +12,7 @@ public class EnemyLooking : MonoBehaviour
     {
         if (lookingAtBase)
         {
-            gameObject.transform.LookAt(EnTarget);
+            gameObject.transform.LookAt(Base);
         }
         //maakt zodat de enemy naar de gameObject (DefensePoint) kijkt
     }

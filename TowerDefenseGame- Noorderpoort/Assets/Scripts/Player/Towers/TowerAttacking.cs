@@ -72,7 +72,10 @@ public class TowerAttacking : MonoBehaviour
         {
             try
             {
-                target = gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject;
+                if (gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject != null)
+                {
+                    target = gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject;
+                }
             }
             catch (ArgumentOutOfRangeException)
             {
