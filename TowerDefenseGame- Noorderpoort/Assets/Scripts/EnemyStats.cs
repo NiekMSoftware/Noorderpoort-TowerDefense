@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStats : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     public float health;
     public float damage;
     public float speed;
-    // Start is called before the first frame update
+    public int bitsOnDeath;
     void Start()
     {
-        
+        //Health Multiplier
+        health = health * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
+        //Speed
+        gameObject.GetComponent<NavMeshAgent>().speed = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

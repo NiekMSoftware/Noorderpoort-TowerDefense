@@ -5,33 +5,24 @@ using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
     [Header("Health")]
-    public float hp = 100;
-    float ttDestroy = 2;
+    private EnemyStats stats;
 
     [Header("Money")]
-    [SerializeField] private int bitsOnDeath;
+    private int bitsOnDeath;
     void Start()
     {
-        //Health multiplier
-        hp = hp * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
+        stats = gameObject.GetComponent<EnemyStats>();
+        bitsOnDeath = stats.bitsOnDeath;
     }
 
     void Update()
     {
-        //Fucking dies after an amount of time after your hp is 0
-        if (hp <= 0)
-        {
-            ttDestroy -= Time.deltaTime;
-            if (ttDestroy <= 0)
-            {
-                die();
-            }
-        }
+
     }
     public void takeDamage(float damage)
     {
-        hp -= damage;
-        if (hp <= 0)
+        stats.health -= damage;
+        if (stats.health <= 0)
         {
             die();
         }
@@ -50,7 +41,7 @@ public class EnemyHP : MonoBehaviour
         //Death if touched by a bullet and less than 1 hp
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            if (hp <= 0)
+            if (stats.health <= 0)
             {
                 die();
             }

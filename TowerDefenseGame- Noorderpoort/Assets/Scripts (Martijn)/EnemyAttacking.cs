@@ -35,7 +35,7 @@ public class EnemyAttacking : MonoBehaviour
     {
         if (MTInRange && CanAttack)
         {
-            GameObject.Find("Finish").GetComponent<MainTowerHealth>().MTHealth -= damage;
+            /*GameObject.Find("Finish").GetComponent<MainTowerHealth>().MTHealth -= damage;*/
             StartCoroutine(AttackCooldown());
         }
     }
