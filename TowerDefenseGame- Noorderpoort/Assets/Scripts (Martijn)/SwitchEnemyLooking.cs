@@ -9,6 +9,7 @@ public class SwitchEnemyLooking : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyLooking>().lookingAtBase = true;
+            other.GetComponent<EnemyLooking>().Base = gameObject.transform;
             other.GetComponent<EnemyNavMesh>().lookingAtMovement = false;
         }
     }

@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class EnemyLooking : MonoBehaviour
 {
-    [SerializeField] Transform EnTarget;
+    public Transform Base;
     public bool lookingAtBase = false;
     //GameObject voor enemy zichzelf
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (lookingAtBase)
         {
-            gameObject.transform.LookAt(EnTarget);
+            gameObject.transform.LookAt(Base);
         }
         //maakt zodat de enemy naar de gameObject (DefensePoint) kijkt
     }
