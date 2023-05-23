@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1ae4cb1fbcf3442b0a5e4c0d2f1b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerUpgrade: 2
+  towerType: 2
   buildingManager: {fileID: 0}
   layerNumber: 4
 --- !u!114 &8787263766200538061
@@ -159,9 +161,9 @@ MonoBehaviour:
   currentFirePoint: 0
   fireRate: 5
   timeUntilBullet: 0
-  damage: 35
+  damage: 60
   range: 25
-  projectileSpeed: 2
+  projectileSpeed: 4
   defaultTower: 1
 --- !u!114 &7425734913026527170
 MonoBehaviour:

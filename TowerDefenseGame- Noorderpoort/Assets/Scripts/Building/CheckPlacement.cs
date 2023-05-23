@@ -1,11 +1,28 @@
+using System;
 using UnityEngine;
 
 public class CheckPlacement : MonoBehaviour
 {
+    //An Enum to save all the Towers
+    public enum allTowerTypes
+    {
+        NotAFuckingTower,
+        Turret,
+        Tesla,
+        MMM
+    };
+
+    [Header("Tower Upgrade Level")]
+    public int towerUpgrade = 0;
+    
+    [Header("Tower Types")]
+    public allTowerTypes towerType;
+    
+    [Header("Building Manager and Layer")]
     [SerializeField] private BuildingManager buildingManager;
 
-    [SerializeField] int layerNumber;
 
+    [SerializeField] int layerNumber;
     private LayerMask canPlaceOnLayerMask;
 
     void Start()

@@ -7,25 +7,37 @@ using UnityEngine.UIElements;
 
 public class TowerAttacking : MonoBehaviour
 {
+    [Header("Health")]
     [SerializeField] private float health = 100;
+    [Space]
     [SerializeField] private float timeStunned = 5;
     float stunTime = 0;
     bool stunned = false;
-    [SerializeField] private GameObject target;
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private Transform[] allFirePoints;
-    [SerializeField] private bool multipleFirepoints;
-    [SerializeField] private bool rotatesTowardsEnemies;
-    public int currentFirePoint = 0;
-    [SerializeField] private float fireRate;
-    [SerializeField] private float timeUntilBullet;
+
+    [Header("Damage")]
     [SerializeField] private float damage;
-    [SerializeField] private float range;
+    [SerializeField] private float fireRate;
+    [Space]
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private float range;
     bool enemyInRange = false;
+
+    [Header("Firepoints")]
+    [SerializeField] private Transform firePoint;
+    [Space]
+    [SerializeField] private bool multipleFirepoints;
+    [SerializeField] private Transform[] allFirePoints;
+    int currentFirePoint = 0;
+
+    [Header("Projectile")]
+    [SerializeField] private GameObject projectile;
+    float timeUntilBullet;
     GameObject bulletEmpty;
-    [SerializeField] private bool defaultTower = true;
+
+    [Header("Other")]
+    [SerializeField] private GameObject target;
+    [SerializeField] private bool rotatesTowardsEnemies;
+    public bool isBeingPlaced = false;
     void Start()
     {
         gameObject.GetComponent<RangeScriptV2>().range = range;
@@ -43,16 +55,14 @@ public class TowerAttacking : MonoBehaviour
         {
             enemyInRange = true;
         }
-        if (Input.GetKey(KeyCode.H))
-        {
-            health--;
-        }
+
         if (health <= 0)
         {
             stunned = true;
             stunTime = timeStunned;
             health = 100;
         }
+
         if (stunTime <= 0 && stunned == true)
         {
             health = 100;
@@ -71,17 +81,20 @@ public class TowerAttacking : MonoBehaviour
                     target = null;
                 }
             }
-            timeUntilBullet -= Time.deltaTime;
-            if (enemyInRange == true)
+
+            if (isBeingPlaced == false)
             {
-                if (timeUntilBullet < 0)
+                timeUntilBullet -= Time.deltaTime;
+                if (enemyInRange == true)
                 {
-                    if (defaultTower == true)
+                    if (timeUntilBullet < 0)
                     {
                         GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+
                         Projectile.transform.parent = bulletEmpty.transform;
                         Projectile.GetComponent<ProjectileController>().target = target.transform;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+
                         timeUntilBullet = fireRate / 10;
                         target.GetComponent<EnemyHP>().takeDamage(damage);
                         if (multipleFirepoints)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
+    [Header("Tower Objects")]
     public List<Collider> towerTriggers;
 
     public GameObject[] objects;
@@ -12,23 +13,41 @@ public class BuildingManager : MonoBehaviour
 
     private Vector3 pos;
 
+    [Header("Materials and Layers")]
     [SerializeField] private Material[] materials;
 
     private RaycastHit hit;
     public LayerMask detectLayersMask;
 
+    [Header("Is the Tower Placeable?")]
     public bool canPlace;
     public bool isPlacementMode = false;
 
-
+    public static TowerBehaviour towerReference;
+    
     void Update()
     {
         if (pendingObject != null)
         {
             pendingObject.transform.position = pos;
-
+            if (pendingObject.GetComponent<TowerAttacking>() == true)
+            {
+                pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = true;
+            }
+            if (pendingObject.GetComponent<MMMTower>() == true)
+            {
+                pendingObject.GetComponent<MMMTower>().isBeingPlaced = true;
+            }
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
+                if (pendingObject.GetComponent<TowerAttacking>() == true)
+                {
+                    pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = false;
+                }
+                if (pendingObject.GetComponent<MMMTower>() == true)
+                {
+                    pendingObject.GetComponent<MMMTower>().isBeingPlaced = false;
+                }
                 PlaceObject();
             }
         }
@@ -53,7 +72,6 @@ public class BuildingManager : MonoBehaviour
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-
         pendingObject = null;
         isPlacementMode = false;
     }
@@ -71,6 +89,7 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        towerReference = pendingObject.GetComponent<TowerBehaviour>();
         isPlacementMode = true;
     }
 }

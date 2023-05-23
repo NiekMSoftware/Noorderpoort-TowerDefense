@@ -121,6 +121,9 @@ MonoBehaviour:
     type: 3}
   upgrade3Visual: {fileID: 919132149155446097, guid: 7e72487ea681bdb478e23391103f8a06,
     type: 3}
+  upgrade1: 1
+  upgrade2: 0
+  upgrade3: 0
 --- !u!114 &-3010496748264909410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1ae4cb1fbcf3442b0a5e4c0d2f1b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerUpgrade: 0
+  towerType: 3
   buildingManager: {fileID: 0}
   layerNumber: 4
 --- !u!54 &1660164555168508162

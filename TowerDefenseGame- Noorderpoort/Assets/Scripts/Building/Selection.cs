@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Selection : MonoBehaviour
 {
+    [Header("Did we Select an Object?")]
     public GameObject selectedObject;
+    public bool selectedTower;
     
     // Update is called once per frame
     void Update()
@@ -20,6 +22,8 @@ public class Selection : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Tower"))
                 {
+                    selectedTower = true;
+                    print(selectedTower);
                     Debug.Log("hit");
                     Select(hit.collider.gameObject);
                 }
@@ -28,11 +32,12 @@ public class Selection : MonoBehaviour
 
         if (Input.GetMouseButton(1) && selectedObject != null)
         {
+            selectedTower = false;
             DeSelect();
         }
     }
 
-    private void Select(GameObject obj)
+    public void Select(GameObject obj)
     {
         //Check if the object we pressed is equal
         if (obj == selectedObject) 
@@ -52,7 +57,7 @@ public class Selection : MonoBehaviour
         selectedObject = obj;
     }
 
-    private void DeSelect()
+    public void DeSelect()
     {
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;
