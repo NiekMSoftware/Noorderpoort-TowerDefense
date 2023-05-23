@@ -257,16 +257,17 @@ MonoBehaviour:
   target: {fileID: 0}
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  rangeCircle: {fileID: 2026666629}
   firePoint: {fileID: 747284964}
+  allFirePoints: []
+  multipleFirepoints: 0
+  rotatesTowardsEnemies: 0
+  currentFirePoint: 0
   fireRate: 3
   timeUntilBullet: 0
   damage: 5
   range: 15
   projectileSpeed: 2
-  enemyInRange: 0
   defaultTower: 1
-  IforgotTheName: 0
 --- !u!65 &182775077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -338,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182775075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9, y: 1.16, z: -14.3}
+  m_LocalPosition: {x: 11.9, y: 17.2, z: -14.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -379,10 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1125165c3c7b34ebcc227695fc1ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: {fileID: 0}
-  enemyInRange: 0
-  inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
 --- !u!136 &368110350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -494,10 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1125165c3c7b34ebcc227695fc1ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: {fileID: 0}
-  enemyInRange: 0
-  inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
 --- !u!136 &407789846
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -645,16 +638,17 @@ MonoBehaviour:
   target: {fileID: 0}
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  rangeCircle: {fileID: 368110348}
   firePoint: {fileID: 493014902}
+  allFirePoints: []
+  multipleFirepoints: 0
+  rotatesTowardsEnemies: 0
+  currentFirePoint: 0
   fireRate: 3
   timeUntilBullet: 0
   damage: 5
   range: 15
   projectileSpeed: 2
-  enemyInRange: 0
   defaultTower: 1
-  IforgotTheName: 0
 --- !u!65 &571447291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -726,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571447289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.43, y: 1.16, z: -8.51}
+  m_LocalPosition: {x: -4.43, y: 17.2, z: -8.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -803,16 +797,17 @@ MonoBehaviour:
   target: {fileID: 0}
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  rangeCircle: {fileID: 1640589007}
   firePoint: {fileID: 1249102884}
+  allFirePoints: []
+  multipleFirepoints: 0
+  rotatesTowardsEnemies: 0
+  currentFirePoint: 0
   fireRate: 3
   timeUntilBullet: 0
   damage: 5
   range: 15
   projectileSpeed: 2
-  enemyInRange: 0
   defaultTower: 1
-  IforgotTheName: 0
 --- !u!65 &652215571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -884,7 +879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652215569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.7, y: 1.16, z: -2.3}
+  m_LocalPosition: {x: 19.7, y: 17.2, z: -2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -930,16 +925,17 @@ MonoBehaviour:
   target: {fileID: 0}
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  rangeCircle: {fileID: 407789844}
   firePoint: {fileID: 637641217}
+  allFirePoints: []
+  multipleFirepoints: 0
+  rotatesTowardsEnemies: 0
+  currentFirePoint: 0
   fireRate: 0
   timeUntilBullet: 0
   damage: 5
   range: 7
   projectileSpeed: 4
-  enemyInRange: 0
   defaultTower: 1
-  IforgotTheName: 0
 --- !u!65 &652821198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1011,14 +1007,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652821196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.44, y: 1.16, z: 7.35}
+  m_LocalPosition: {x: 19.44, y: 17.2, z: 7.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 637641217}
   - {fileID: 407789849}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659299160
 GameObject:
@@ -1036,6 +1032,7 @@ GameObject:
   - component: {fileID: 659299163}
   - component: {fileID: 659299162}
   - component: {fileID: 659299168}
+  - component: {fileID: 659299169}
   m_Layer: 0
   m_Name: Target (12)
   m_TagString: Enemy
@@ -1051,7 +1048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659299160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.62, y: -0.186, z: -1.75}
+  m_LocalPosition: {x: 29.71, y: -0.186, z: -34.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1189,6 +1186,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnTarget: {fileID: 984970578}
   lookingAtBase: 0
+--- !u!114 &659299169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659299160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2a45bfd53e30142acd38f6782c0895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCoolDown: 2
+  damage: 10
+  attackRate: 3.5
 --- !u!1 &695073589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1439,7 @@ GameObject:
   - component: {fileID: 984970576}
   - component: {fileID: 984970575}
   - component: {fileID: 984970579}
+  - component: {fileID: 984970580}
   m_Layer: 0
   m_Name: DefensePoint
   m_TagString: Finish
@@ -1529,6 +1542,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &984970580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984970574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581c4b4327946af43a7e74bc79ce28ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MTHealth: 1000
+  DamageTaken: 0
 --- !u!1 &1247619180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,10 +2182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1125165c3c7b34ebcc227695fc1ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: {fileID: 0}
-  enemyInRange: 0
-  inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
 --- !u!136 &1640589009
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2270,10 +2293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1125165c3c7b34ebcc227695fc1ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: {fileID: 0}
-  enemyInRange: 0
-  inRangeList: []
-  rangeMat: {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
 --- !u!136 &2026666631
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2376,8 +2395,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138052427}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.13, y: 1.18, z: 19.06}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.130005, y: 1.18, z: 19.060001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2507,7 +2526,7 @@ PrefabInstance:
     - target: {fileID: 7235463403346137871, guid: 4f54b68c2827b1f49acab94a69d96ba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.16
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 7235463403346137871, guid: 4f54b68c2827b1f49acab94a69d96ba6,
         type: 3}
@@ -2566,7 +2585,7 @@ PrefabInstance:
     - target: {fileID: 7430381445178882871, guid: 476d4d9cb23fab843b0e9a6154dc6f2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7430381445178882871, guid: 476d4d9cb23fab843b0e9a6154dc6f2a,
         type: 3}
