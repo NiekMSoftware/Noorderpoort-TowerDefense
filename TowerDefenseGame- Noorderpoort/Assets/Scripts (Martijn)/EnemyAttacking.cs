@@ -12,8 +12,6 @@ public class EnemyAttacking : MonoBehaviour
     private bool CanAttack = true;
 
     public float enemyCoolDown = 2;
-    public float damage = 10;
-    //hoe veel een enemy damage doet
     public float attackRate = 3.5f;     
     void Start()
     {
@@ -24,7 +22,7 @@ public class EnemyAttacking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tower"))
         {
-
+            TInRange = true;
         }
         if (other.gameObject.CompareTag("Finish"))
         {
@@ -33,11 +31,15 @@ public class EnemyAttacking : MonoBehaviour
     }
     private void Update()
     {
-        if (MTInRange && CanAttack)
+        if (TInRange && CanAttack)
+        {
+            GameObject.Find("Tower").GetComponent<EnemyAttacking>();
+        }
+/*        if (MTInRange && CanAttack)
         {
             GameObject.Find("Finish").GetComponent<MainTowerHealth>().MTHealth -= damage;
             StartCoroutine(AttackCooldown());
-        }
+        }*/
     }
     IEnumerator AttackCooldown()
     {
