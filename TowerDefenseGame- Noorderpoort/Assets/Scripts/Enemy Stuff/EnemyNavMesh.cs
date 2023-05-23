@@ -10,9 +10,6 @@ public class EnemyNavMesh : MonoBehaviour
     public Transform movePositionTransform;
     private NavMeshAgent agent;
     public bool lookingAtMovement = true;
-
-    [Header("Testing")]
-    public float deathTimer = 1f;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -29,12 +26,5 @@ public class EnemyNavMesh : MonoBehaviour
             }
         }
         agent.destination = movePositionTransform.position;
-
-        //Fucking dies if it lives too long
-        deathTimer -= Time.deltaTime;
-        if (deathTimer < 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }
