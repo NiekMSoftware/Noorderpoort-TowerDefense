@@ -36,13 +36,18 @@ public class TowerAttacking : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private GameObject target;
+    [SerializeField] private RangeScript rangeScript;
     [SerializeField] private bool rotatesTowardsEnemies;
     public bool isBeingPlaced = false;
     void Start()
     {
-        gameObject.GetComponent<RangeScriptV2>().range = range;
+        gameObject.GetComponent<RangeScript>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
-        firePoint = allFirePoints[currentFirePoint];
+        if (multipleFirepoints == true)
+        {
+            firePoint = allFirePoints[currentFirePoint];
+        }
+        rangeScript = gameObject.GetComponent<RangeScript>();
     }
 
     void Update()
@@ -68,18 +73,16 @@ public class TowerAttacking : MonoBehaviour
             health = 100;
             stunned = false;
         }
+
         if (stunned == false)
         {
-            try
+            if (rangeScript.enemyList.Count != 0)
             {
-                if (gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject != null)
+                if (rangeScript.enemyList[0].gameObject != null)
                 {
-                    target = gameObject.GetComponent<RangeScriptV2>().enemyList[0].gameObject;
+                    target = rangeScript.enemyList[0].gameObject;
                 }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                if (gameObject.GetComponent<RangeScriptV2>().enemyList.Count == 0)
+                else if (rangeScript.enemyList.Count == 0)
                 {
                     target = null;
                 }
@@ -117,7 +120,7 @@ public class TowerAttacking : MonoBehaviour
         {
             stunTime -= Time.deltaTime;
         }
-        if (gameObject.GetComponent<RangeScriptV2>().enemyList.Count != 0)
+        if (gameObject.GetComponent<RangeScript>().enemyList.Count != 0)
         {
             if (rotatesTowardsEnemies)
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RangeScriptV2 : MonoBehaviour
+public class RangeScript : MonoBehaviour
 {
     [Header("Range")]
     public float range;
