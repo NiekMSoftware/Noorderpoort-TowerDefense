@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour
 {
     [Header("Enemy Stats")]
     public float health;
-    public float damage;
+    public int damage;
     public float speed;
     public int bitsOnDeath;
     void Start()

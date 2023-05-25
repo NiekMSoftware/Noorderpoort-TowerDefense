@@ -34,6 +34,7 @@ public class Healthscript : MonoBehaviour
         {
             NormalHealth.SetActive(false);
             ZeroHealth.SetActive(true);
+            FindObjectOfType<SceneLoader>().LoadScene("Main Menu");
         }
         else
         {
