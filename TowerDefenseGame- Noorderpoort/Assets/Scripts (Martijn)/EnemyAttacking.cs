@@ -7,15 +7,18 @@ using UnityEngine.Animations;
 
 public class EnemyAttacking : MonoBehaviour
 {
-    private bool MTInRange = false;
+    public bool MTInRange = false;
     private bool TInRange = false;
     private bool CanAttack = true;
 
     public float enemyCoolDown = 2;
     public float attackRate = 3.5f;     
+    private EnemyStats stats;
+/*    public MainTowerHealth mainTowerHealth;*/
+    public Healthscript mainTowerHealth;
     void Start()
     {
-
+        stats = gameObject.GetComponent<EnemyStats>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -26,20 +29,22 @@ public class EnemyAttacking : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Finish"))
         {
+            print("mtinrange");
             MTInRange = true;
         }
     }
     private void Update()
     {
-        if (TInRange && CanAttack)
+/*        if (TInRange && CanAttack)
         {
             GameObject.Find("Tower").GetComponent<EnemyAttacking>();
-        }
-/*        if (MTInRange && CanAttack)
-        {
-            /*GameObject.Find("Finish").GetComponent<MainTowerHealth>().MTHealth -= damage;*/
-            StartCoroutine(AttackCooldown());
         }*/
+        if (MTInRange && CanAttack)
+        {
+            print("attack maybe");
+            mainTowerHealth.HealthIndex -= stats.damage;
+            StartCoroutine(AttackCooldown());
+        }
     }
     IEnumerator AttackCooldown()
     {
