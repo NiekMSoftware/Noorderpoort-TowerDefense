@@ -4,46 +4,44 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    public float hp = 100;
-    float ttDestroy = 2;
-    [SerializeField] private int bitsOnDeath;
-    // Start is called before the first frame update
+    [Header("Health")]
+    private EnemyStats stats;
+
+    [Header("Money")]
+    private int bitsOnDeath;
     void Start()
     {
-        hp = hp * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
+        stats = gameObject.GetComponent<EnemyStats>();
+        bitsOnDeath = stats.bitsOnDeath;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (hp <= 0)
-        {
-            ttDestroy -= Time.deltaTime;
-            if (ttDestroy <= 0)
-            {
-                die();
-            }
-        }
+
     }
     public void takeDamage(float damage)
     {
-        hp -= damage;
-        if (hp <= 0)
+        stats.health -= damage;
+        if (stats.health <= 0)
         {
             die();
         }
     }
     public void die()
     {
+        //Money
         Bitscript bits = FindObjectOfType<Bitscript>();
         bits.AddBits(bitsOnDeath);
+
+        //Death
         Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //Death if touched by a bullet and less than 1 hp
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            if (hp <= 0)
+            if (stats.health <= 0)
             {
                 die();
             }
@@ -51,6 +49,7 @@ public class EnemyHP : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Death if touched by a trap
         if (other.gameObject.CompareTag("Trap"))
         {
             takeDamage(10);

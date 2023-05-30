@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1293789637032314368}
   - component: {fileID: 1293789637032314375}
   - component: {fileID: -5005046318620515263}
+  - component: {fileID: 3991959165257594871}
   m_Layer: 0
   m_Name: Target (8) 1
   m_TagString: Enemy
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePositionTransform: {fileID: 0}
   lookingAtMovement: 1
-  deathTimer: 30
 --- !u!114 &-5005046318620515263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,5 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 45
+--- !u!114 &3991959165257594871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293789637032314374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4dd2a7dfece8341ae335f8e9dd592b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 70
+  damage: 0
+  speed: 10
   bitsOnDeath: 10

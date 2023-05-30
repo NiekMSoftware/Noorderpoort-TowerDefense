@@ -7,12 +7,13 @@ using System.Runtime.InteropServices;
 
 public class Healthscript : MonoBehaviour
 {
+    [Header("Health")]
     //This int is the amount of health you have
     public int HealthIndex;
-    [SerializeField]
     public Image Heart;
     public Sprite[] Spritearray;
     public TMP_Text HealthAmount;
+    
     //When the health was set to 0 it would still display 1 so i made another TMP text wich it toggles on and off based on the health value
     public GameObject NormalHealth;
     public GameObject ZeroHealth;
@@ -21,7 +22,6 @@ public class Healthscript : MonoBehaviour
     private void Start()
     {
         //This matches the health to the length of the array
-         
         HealthIndex = Spritearray.Length - 1;
     }
 
@@ -34,6 +34,7 @@ public class Healthscript : MonoBehaviour
         {
             NormalHealth.SetActive(false);
             ZeroHealth.SetActive(true);
+            FindObjectOfType<SceneLoader>().LoadScene("Main Menu");
         }
         else
         {

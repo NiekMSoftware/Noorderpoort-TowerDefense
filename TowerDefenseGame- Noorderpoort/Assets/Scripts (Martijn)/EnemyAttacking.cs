@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,32 +7,49 @@ using UnityEngine.Animations;
 
 public class EnemyAttacking : MonoBehaviour
 {
-    public int damage = 10;
-    public int health = 100;
-    public float speed = 5;
-    public float attackRate = 3;
-    EnemyRangeScript MyEnemyInRage;
-    MainTowerHealth MyMainTowerHealth;
-    /*
-     * 
-     *     //hoe veel een enemy damage doet
-    //hoe veel health (hit points) een enemy heeft
-    //hoe snel een enemy beweegt
-     * 
-     */
+    public bool MTInRange = false;
+    private bool TInRange = false;
+    private bool CanAttack = true;
+
+    public float enemyCoolDown = 2;
+    public float attackRate = 3.5f;     
+    private EnemyStats stats;
+/*    public MainTowerHealth mainTowerHealth;*/
+    public Healthscript mainTowerHealth;
     void Start()
     {
-        MyEnemyInRage = GetComponent<EnemyRangeScript>();
-        MyMainTowerHealth = GetComponent<MainTowerHealth>();
+        stats = gameObject.GetComponent<EnemyStats>();
     }
 
-    void DamageGiven()
+    void OnTriggerEnter(Collider other)
     {
-        
-        if (MyEnemyInRage == true)
+        if (other.gameObject.CompareTag("Tower"))
         {
-            MyMainTowerHealth.GetComponent<EnemyAttacking>().damage = damage;
+            TInRange = true;
+        }
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            print("mtinrange");
+            MTInRange = true;
         }
     }
-
+    private void Update()
+    {
+/*        if (TInRange && CanAttack)
+        {
+            GameObject.Find("Tower").GetComponent<EnemyAttacking>();
+        }*/
+        if (MTInRange && CanAttack)
+        {
+            print("attack maybe");
+            mainTowerHealth.HealthIndex -= stats.damage;
+            StartCoroutine(AttackCooldown());
+        }
+    }
+    IEnumerator AttackCooldown()
+    {
+        CanAttack = false;
+        yield return new WaitForSeconds(enemyCoolDown);
+        CanAttack = true;
+    }
 }
