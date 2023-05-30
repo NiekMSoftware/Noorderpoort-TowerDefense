@@ -5,36 +5,33 @@ using TMPro;
 
 public class Bitscript : MonoBehaviour
 {
-    [Header("Money")]
     public float BitIndex;
+    public float DiscountAmount = 10f; // In total percentage
+    public float MultiplierAmount = 0; // Multiplier
     public float starterMoney = 100;
-
-    [Header("Multiplier")]
-    [SerializeField] private float MaxMultiplierAmount = 5f;
-    public float MultiplierAmount = 0;
-
-    [Header("Discount")]
-    public float DiscountAmount = 10f;
-    [SerializeField] private float MaxDiscountAmount = 30f;
-    private bool IsDiscountActive = false;
-
-    [Header("Other")]
     public TMP_Text Bitsamount;
+
+    [SerializeField] private
+    float MaxDiscountAmount = 30f; // Discount cap
+
+    [SerializeField] private
+    float MaxMultiplierAmount = 5f; // Discount cap
+
+    private bool IsDiscountActive = false; // The state of the Discount
+
+    //UI doesnt work for me - Rudo
     void Start()
     {
-        //Starting Money
-        BitIndex =starterMoney;
+        BitIndex = starterMoney;
     }
 
     private void FixedUpdate()
     {
-        //Money Text
         Bitsamount.text = BitIndex.ToString();
     }
 
-    public void SetDiscountActivity(bool state)
+    public void SetDiscountActivity(bool state) // Set the status of the discount
     {
-        //Discount
         IsDiscountActive = state;
         if (state == false)
         {
@@ -50,7 +47,6 @@ public class Bitscript : MonoBehaviour
         DiscountAmount = Mathf.Clamp(DiscountAmount - amount, 0f, MaxDiscountAmount);
     }
 
-    //Multiplier
     public void AddMultiplier(float amount)
     {
         MultiplierAmount = Mathf.Clamp(MultiplierAmount + amount, 0f, MaxMultiplierAmount);
@@ -60,7 +56,6 @@ public class Bitscript : MonoBehaviour
         MultiplierAmount = Mathf.Clamp(MultiplierAmount - amount, 0f, MaxMultiplierAmount);
     }
 
-    //No more money
     public bool RemoveBits(float amount)
     {
         if ((BitIndex - amount) > 0f)
@@ -82,7 +77,6 @@ public class Bitscript : MonoBehaviour
         }
     }
 
-    //More money
     public void AddBits(float amount)
     {
         if (MultiplierAmount > 1f)
