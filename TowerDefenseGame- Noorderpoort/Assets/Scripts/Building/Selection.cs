@@ -23,8 +23,6 @@ public class Selection : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Tower"))
                 {
                     selectedTower = true;
-                    print(selectedTower);
-                    Debug.Log("hit");
                     Select(hit.collider.gameObject);
                 }
             }

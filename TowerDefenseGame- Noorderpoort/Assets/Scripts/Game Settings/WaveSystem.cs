@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+
 public class WaveSystem : MonoBehaviour
 {
     [Header("Waves")]
     int gameRound = 0;
     public int wavesEnded = 0;
-     
+
+    [SerializeField] private int wavesPerBoss;
+    int lastBoss;
+    bool spawnBossWave;
+    [SerializeField] private GameObject[] bosses;
+
     [SerializeField] private int moneyPerWave;
      
     [Header("Spawning Enemies")]
@@ -39,7 +46,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private int[] enemyMinChance;
     [SerializeField] private int[] enemyMaxChance;
      
-    int[] enemyChance = new int[2];
+    public int[] enemyChance = new int[10];
      
     [Header("Enemy Scaling")]
     [SerializeField] private float enemyAmountScaleFactor = 2;
@@ -78,13 +85,23 @@ public class WaveSystem : MonoBehaviour
     {
         if (spawning == true)
         {
+            if (spawnBossWave)
+            {
+                int bos = Random.Range(0, bosses.Length);
+                GameObject enemy = Instantiate(bosses[bos], spawnPoint.position, spawnPoint.rotation);
+                enemy.transform.parent = enemyEmpty;
+                enemy.GetComponent<EnemyNavMesh>().movePositionTransform = destination;
+                timeTillSpawn = currentSpawnCooldown;
+                spawnedGroup++;
+                spawnedEnemies++;
+                spawnBossWave = false;
+            }
             if (hasGroup == false)
             {
                 //Decides the group type
                 groupSize = Random.Range(minGroupSize, maxGroupSize);
                 type = randomEnemy();
                 spawningGroup = enemies[type];
-                Debug.Log("Spawning " + type);
                 spawnedGroup = 0;
                 hasGroup = true;
             }
@@ -99,7 +116,6 @@ public class WaveSystem : MonoBehaviour
                 timeTillSpawn = currentSpawnCooldown;
                 spawnedGroup++;
                 spawnedEnemies++;
-                Debug.Log("Spawned " + spawnedEnemies);
             }
              
             if (spawnedGroup >= groupSize)
@@ -140,6 +156,19 @@ public class WaveSystem : MonoBehaviour
     }
     public void roundStart()
     {
+        try
+        {
+            int e = (int)(wavesEnded / wavesPerBoss);
+            if (lastBoss < e)
+            {
+                spawnBossWave = true;
+                lastBoss = e;
+            }
+        }
+        catch
+        {
+            print("Er Not posible");
+        }
         if (wavesEnded > 0)
         {
             bits.AddBits(moneyPerWave);
@@ -194,26 +223,53 @@ public class WaveSystem : MonoBehaviour
     public int randomEnemy()
     {
         int chosenType = 0;
-         
+        int tot = 0;
         //Chooses a type of enemy
-        int newtype = Random.Range(0, 100);
+        for (int i = 1; i < enemies.Length; i++)
+        {
+            tot = tot + enemyChance[i - 1];
+        }
+        /*print(tot);*/
+            int newtype = Random.Range(0, 100);
         int total = 0;
-        if (newtype >= 0 && newtype < enemyChance[0])
+        /*print(newtype + " Random");*/
+        bool hasType = false;
+        for (int i = 0; i < enemies.Length; i++)
         {
-            chosenType = 1;
+            if (i >= 1)
+            {
+/*                print(total + " Current total" + i);
+                print((enemyChance[i - 1] + total) + "Chance total" + i);*/
+                if (newtype >= total && newtype < enemyChance[i - 1] + total)
+                {
+                    chosenType = i;
+                    /*print("Chosen type = " + i  + "(+1)");*/
+                    hasType = true;
+                }
+                total = total + enemyChance[i - 1];
+            }
+            else
+            {
+                if (newtype >= 0 && newtype < enemyChance[0])
+                {
+                    chosenType = 1;
+                    total = total + enemyChance[0];
+                    hasType = true;
+                    /*print("Chosen type = 1");*/
+                }
+            }
         }
-        total = enemyChance[0];
-        if (newtype >= enemyChance[0] && newtype < enemyChance[1] +total)
+        if (hasType == false)
         {
-            chosenType = 2;
+            chosenType = 0;
         }
-        total = total + enemyChance[1];
+        /*print(total + " Chosen");*/
         return chosenType;
     }
     public void ChanceCalculator()
     {
         //Chance for every type of enemy to spawn , Math
-        for (int enemy = 0; enemy < enemies.Length - 1; enemy++)
+        for (int enemy = 0; enemy < enemies.Length-1; enemy++)
         {
             if (gameRound < enemyStartsAt[enemy])
             {
@@ -226,6 +282,7 @@ public class WaveSystem : MonoBehaviour
             else
             {
                 //Math
+
                 int negativeWaves = enemyChanceStopsAt[enemy] - enemyStartsAt[enemy];
                  
                 int roundsOverChance = gameRound - enemyStartsAt[enemy];
