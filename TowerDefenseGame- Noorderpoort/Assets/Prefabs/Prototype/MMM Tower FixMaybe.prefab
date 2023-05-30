@@ -115,15 +115,16 @@ MonoBehaviour:
   upgrade1Money: 25
   upgrade2Money: 50
   upgrade3Money: 100
-  upgrade1Visual: {fileID: 919132149155446097, guid: 250cf20c7fe03e54998da6b8fb57f380,
+  upgrade1Visual: {fileID: 919132149155446097, guid: a00485581130ea24397506ac5f8ee0b5,
     type: 3}
-  upgrade2Visual: {fileID: 919132149155446097, guid: d7cb979102f3aa247a0e4e67ce76c085,
+  upgrade2Visual: {fileID: 919132149155446097, guid: 8a9eca6d7402768438718f87de3e777f,
     type: 3}
-  upgrade3Visual: {fileID: 919132149155446097, guid: 7e72487ea681bdb478e23391103f8a06,
+  upgrade3Visual: {fileID: 919132149155446097, guid: 67d30c13f9b1a7b4eae93c08ab5fa209,
     type: 3}
   upgrade1: 1
   upgrade2: 0
   upgrade3: 0
+  isBeingPlaced: 0
 --- !u!114 &-3010496748264909410
 MonoBehaviour:
   m_ObjectHideFlags: 0

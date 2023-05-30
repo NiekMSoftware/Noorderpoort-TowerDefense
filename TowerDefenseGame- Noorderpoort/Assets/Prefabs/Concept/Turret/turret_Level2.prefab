@@ -149,22 +149,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
-  projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
-    type: 3}
+  damage: 10
+  fireRate: 2
+  projectileSpeed: 2
+  range: 15
   firePoint: {fileID: 326536440838468297}
+  multipleFirepoints: 1
   allFirePoints:
   - {fileID: 326536440838468297}
   - {fileID: 4519901747080949034}
-  multipleFirepoints: 1
+  projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
+    type: 3}
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 1
-  currentFirePoint: 0
-  fireRate: 2
-  timeUntilBullet: 0
-  damage: 15
-  range: 17
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!114 &8086035504738555339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff8c3013f36c2c4c9d49a6281f81db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyList: []
   range: 0
+  enemyList: []
 --- !u!1 &4026764089050591225
 GameObject:
   m_ObjectHideFlags: 0
