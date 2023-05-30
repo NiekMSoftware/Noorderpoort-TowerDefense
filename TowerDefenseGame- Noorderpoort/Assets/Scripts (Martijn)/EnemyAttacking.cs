@@ -41,7 +41,6 @@ public class EnemyAttacking : MonoBehaviour
         }*/
         if (MTInRange && CanAttack)
         {
-            print("attack maybe");
             mainTowerHealth.HealthIndex -= stats.damage;
             StartCoroutine(AttackCooldown());
         }

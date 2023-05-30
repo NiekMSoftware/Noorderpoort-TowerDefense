@@ -52,7 +52,7 @@ public class EnemyHP : MonoBehaviour
         //Death if touched by a trap
         if (other.gameObject.CompareTag("Trap"))
         {
-            takeDamage(10);
+            takeDamage(300);
             Destroy(other.gameObject);
         }
     }

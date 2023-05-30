@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 20
+  damage: 10
   fireRate: 1
   projectileSpeed: 2
   range: 15
@@ -179,6 +179,7 @@ MonoBehaviour:
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
   target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 1
   isBeingPlaced: 0
 --- !u!1 &1817003706907108093
