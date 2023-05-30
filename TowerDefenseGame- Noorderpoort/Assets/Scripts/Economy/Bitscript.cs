@@ -22,7 +22,7 @@ public class Bitscript : MonoBehaviour
     //UI doesnt work for me - Rudo
     void Start()
     {
-        BitIndex =starterMoney;
+        BitIndex = starterMoney;
     }
 
     private void FixedUpdate()
