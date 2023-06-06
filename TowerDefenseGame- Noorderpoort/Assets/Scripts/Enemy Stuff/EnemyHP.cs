@@ -14,11 +14,6 @@ public class EnemyHP : MonoBehaviour
         stats = gameObject.GetComponent<EnemyStats>();
         bitsOnDeath = stats.bitsOnDeath;
     }
-
-    void Update()
-    {
-
-    }
     public void takeDamage(float damage)
     {
         stats.health -= damage;

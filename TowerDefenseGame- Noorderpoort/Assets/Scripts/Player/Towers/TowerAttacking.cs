@@ -34,6 +34,10 @@ public class TowerAttacking : MonoBehaviour
     float timeUntilBullet;
     GameObject bulletEmpty;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource audiosource;
+    [SerializeField] private AudioClip attackSound;
+
     [Header("Other")]
     [SerializeField] private GameObject target;
     [SerializeField] private RangeScript rangeScript;
@@ -41,6 +45,7 @@ public class TowerAttacking : MonoBehaviour
     public bool isBeingPlaced = false;
     void Start()
     {
+        audiosource.clip = attackSound;
         gameObject.GetComponent<RangeScript>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
         if (multipleFirepoints == true)
@@ -112,6 +117,7 @@ public class TowerAttacking : MonoBehaviour
                                 currentFirePoint = 0;
                             }
                         }
+                        audiosource.Play();
                     }
                 }
             }

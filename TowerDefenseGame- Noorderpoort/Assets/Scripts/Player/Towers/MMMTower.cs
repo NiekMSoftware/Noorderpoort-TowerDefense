@@ -19,6 +19,10 @@ public class MMMTower : MonoBehaviour
     public bool upgrade2 = false;
     public bool upgrade3 = false;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource audiosource;
+    [SerializeField] private AudioClip printerNoise;
+
     [Header("Other")]
     public bool isBeingPlaced = false;
     Bitscript bitscript;
@@ -26,6 +30,7 @@ public class MMMTower : MonoBehaviour
     int lastRound;
     void Start()
     {
+        audiosource.clip = printerNoise;
         gameObject.GetComponent<MeshFilter>().mesh = upgrade1Visual.GetComponent<MeshFilter>().sharedMesh;
         gameObject.GetComponent<MeshRenderer>().materials = upgrade1Visual.GetComponent<MeshRenderer>().sharedMaterials;
         bitscript = FindObjectOfType<Bitscript>();
@@ -64,6 +69,7 @@ public class MMMTower : MonoBehaviour
                 {
                     bitscript.AddBits(upgrade3Money);
                 }
+                audiosource.Play();
                 lastRound = waveSystem.wavesEnded;
             }
         }
