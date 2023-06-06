@@ -876,7 +876,7 @@ MonoBehaviour:
   enemyChance: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   enemyAmountScaleFactor: 2
   enemiesThisRound: 5
-  maxEnemiesPerRound: 75
+  maxEnemiesPerRound: 100
   enemyHealthMultiplier: 0.3
   enemyHealthMultiplierPerRound: 1
   enemyEmpty: {fileID: 724428050}

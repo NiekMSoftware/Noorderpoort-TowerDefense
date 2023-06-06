@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 300
-  fireRate: 4
+  damage: 200
+  fireRate: 5
   projectileSpeed: 4
   range: 30
   firePoint: {fileID: 3633331542570034091}

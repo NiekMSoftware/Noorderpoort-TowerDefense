@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 200
+  damage: 150
   fireRate: 8
   projectileSpeed: 4
   range: 25
