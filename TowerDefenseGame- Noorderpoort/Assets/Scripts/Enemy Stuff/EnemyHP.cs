@@ -9,8 +9,14 @@ public class EnemyHP : MonoBehaviour
 
     [Header("Money")]
     private int bitsOnDeath;
+
+    [Header("Sound")]
+    [SerializeField]private AudioSource audiosource;
+    [SerializeField]private AudioClip deathSound;
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = deathSound;
         stats = gameObject.GetComponent<EnemyStats>();
         bitsOnDeath = stats.bitsOnDeath;
     }
@@ -28,6 +34,7 @@ public class EnemyHP : MonoBehaviour
         Bitscript bits = FindObjectOfType<Bitscript>();
         bits.AddBits(bitsOnDeath);
 
+        audiosource.Play();
         //Death
         Destroy(gameObject);
     }

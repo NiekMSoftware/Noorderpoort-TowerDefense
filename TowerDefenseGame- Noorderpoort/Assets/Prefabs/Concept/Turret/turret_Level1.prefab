@@ -224,7 +224,7 @@ MonoBehaviour:
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
   audiosource: {fileID: 8811028170224061576}
-  attackSound: {fileID: 8300000, guid: f77295c8528bcbb4e93fc7e143c73017, type: 3}
+  attackSound: {fileID: 8300000, guid: 77f529f542129f94a973ca28f4a4d8b7, type: 3}
   target: {fileID: 0}
   rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 1
@@ -253,9 +253,10 @@ AudioSource:
   m_GameObject: {fileID: 8325121091093890550}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4303032591972276165, guid: 543dd26f08d666a43a350c8296ff916b,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

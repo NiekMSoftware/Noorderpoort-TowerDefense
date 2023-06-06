@@ -45,7 +45,10 @@ public class TowerAttacking : MonoBehaviour
     public bool isBeingPlaced = false;
     void Start()
     {
-        audiosource.clip = attackSound;
+        if (audiosource != null)
+        {
+            audiosource.clip = attackSound;
+        }
         gameObject.GetComponent<RangeScript>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
         if (multipleFirepoints == true)
