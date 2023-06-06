@@ -21,11 +21,11 @@ public class EndGame : MonoBehaviour
     }
     public void BlueScreen()
     {
-        StartCoroutine(Waiter(3));
+        StartCoroutine(Waiter(1.5f));
     }
     IEnumerator Waiter(float time)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         blackScreen.SetActive(true);
         //play sound
         yield return new WaitForSeconds(time);
