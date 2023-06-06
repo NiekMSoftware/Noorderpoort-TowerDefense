@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaf5ecf8414b6b45aabc3183f108463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BitIndex: 100
+  BitIndex: 1e+18
   DiscountAmount: 10
   MultiplierAmount: 0
   starterMoney: 175
@@ -875,8 +875,8 @@ MonoBehaviour:
   enemyMinChance: 0500000005000000
   enemyMaxChance: 1e00000014000000
   enemyChance: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  enemyAmountScaleFactor: 2
-  enemiesThisRound: 5
+  enemyAmountScaleFactor: 0
+  enemiesThisRound: 0
   maxEnemiesPerRound: 100
   enemyHealthMultiplier: 0.3
   enemyHealthMultiplierPerRound: 1
@@ -4481,6 +4481,7 @@ MonoBehaviour:
   - {fileID: 8010623430015773922, guid: c66889185303b18429f7dc4a6f1545a2, type: 3}
   - {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
   - {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
+  pendingObject: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 3fbba5ac31a734641ae346928a81317f, type: 2}
   - {fileID: 2100000, guid: 328ae5a0fee31ad4dbc62bf124148201, type: 2}
@@ -8091,6 +8092,7 @@ MonoBehaviour:
   - {fileID: 8010623430015773922, guid: c66889185303b18429f7dc4a6f1545a2, type: 3}
   - {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
   - {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
+  pendingObject: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 3fbba5ac31a734641ae346928a81317f, type: 2}
   - {fileID: 2100000, guid: 328ae5a0fee31ad4dbc62bf124148201, type: 2}
