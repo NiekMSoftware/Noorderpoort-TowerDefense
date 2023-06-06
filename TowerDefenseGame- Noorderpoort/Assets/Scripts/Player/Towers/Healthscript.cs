@@ -17,7 +17,7 @@ public class Healthscript : MonoBehaviour
     //When the health was set to 0 it would still display 1 so i made another TMP text wich it toggles on and off based on the health value
     public GameObject NormalHealth;
     public GameObject ZeroHealth;
-
+    bool ended = false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -32,9 +32,14 @@ public class Healthscript : MonoBehaviour
     {
         if(HealthIndex <= 0)
         {
-            NormalHealth.SetActive(false);
-            ZeroHealth.SetActive(true);
-            FindObjectOfType<SceneLoader>().LoadScene("Main Menu");
+            if (ended == false)
+            {
+                NormalHealth.SetActive(false);
+                ZeroHealth.SetActive(true);
+                ended = true;
+                FindObjectOfType<SaveData>().SaveInt(FindObjectOfType<WaveSystem>().wavesEnded, "waves");
+                FindObjectOfType<EndGame>().BlueScreen();
+            }
         }
         else
         {

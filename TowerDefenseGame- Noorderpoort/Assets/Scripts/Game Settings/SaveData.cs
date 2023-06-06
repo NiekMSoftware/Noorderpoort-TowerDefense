@@ -12,4 +12,12 @@ public class SaveData : MonoBehaviour
     {
         return PlayerPrefs.GetString(name);    
     }
+    public void SaveInt(int amount,string name)
+    {
+        PlayerPrefs.SetInt(name, amount);
+    }
+    public int GetInt(string name)
+    {
+        return PlayerPrefs.GetInt(name);
+    }
 }
