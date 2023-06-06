@@ -9,7 +9,7 @@ public class BuildingManager : MonoBehaviour
     public List<Collider> towerTriggers;
 
     public GameObject[] objects;
-    private GameObject pendingObject;
+    public GameObject pendingObject;
 
     private Vector3 pos;
 

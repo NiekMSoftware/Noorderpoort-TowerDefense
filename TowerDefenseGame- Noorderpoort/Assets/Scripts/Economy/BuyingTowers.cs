@@ -7,6 +7,7 @@ public class BuyingTowers : MonoBehaviour
     //Reference other Scripts
     Bitscript bitscript;
     BuildingManager buildingManager;
+    Selection selection;
     
     //Insert tower
     int tower = 0;
@@ -15,6 +16,7 @@ public class BuyingTowers : MonoBehaviour
     void Start()
     {
         //Call the other scripts
+        selection = FindObjectOfType<Selection>();
         bitscript = FindObjectOfType<Bitscript>();
         buildingManager = FindObjectOfType<BuildingManager>();
     }
@@ -26,10 +28,13 @@ public class BuyingTowers : MonoBehaviour
     
     public void BuyTower(int cost)
     {
-        if (bitscript.BitIndex >= cost)
+        if (buildingManager.pendingObject == null)
         {
-            bitscript.BitIndex -= cost;
-            buildingManager.SelectObject(tower);
+            if (bitscript.BitIndex >= cost)
+            {
+                bitscript.BitIndex -= cost;
+                buildingManager.SelectObject(tower);
+            }
         }
     }
 }

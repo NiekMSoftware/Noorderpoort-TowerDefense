@@ -19,7 +19,6 @@ public class UpgradeTower : MonoBehaviour
     [SerializeField] private int[] turretUpgradeCost;
     [SerializeField] private int[] MMMUpgradeCost;
     Bitscript bits;
-    public GameObject test;
 
     private int upgradeIndex;
     private void Start()
@@ -37,15 +36,12 @@ public class UpgradeTower : MonoBehaviour
         {
             upgradeUI.SetActive(false);
         }
-        GameObject tower = _selection.selectedObject;
-        test = tower;
     }
 
     public void Upgrade()
     {
         
         GameObject tower = _selection.selectedObject;
-        test = tower;
 
         if (tower.GetComponent<TowerAttacking>().isBeingPlaced == false)
         {
