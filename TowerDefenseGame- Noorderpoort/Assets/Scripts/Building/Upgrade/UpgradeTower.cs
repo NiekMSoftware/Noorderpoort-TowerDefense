@@ -18,9 +18,14 @@ public class UpgradeTower : MonoBehaviour
     [SerializeField] private int[] teslaUpgradeCost;
     [SerializeField] private int[] turretUpgradeCost;
     [SerializeField] private int[] MMMUpgradeCost;
+    Bitscript bits;
+    public GameObject test;
 
     private int upgradeIndex;
-
+    private void Start()
+    {
+        bits = FindObjectOfType<Bitscript>();
+    }
     private void Update()
     {
         if (_selection.selectedTower)
@@ -32,66 +37,84 @@ public class UpgradeTower : MonoBehaviour
         {
             upgradeUI.SetActive(false);
         }
+        GameObject tower = _selection.selectedObject;
+        test = tower;
     }
 
     public void Upgrade()
     {
-        Bitscript bits = FindObjectOfType<Bitscript>();
+        
         GameObject tower = _selection.selectedObject;
+        test = tower;
 
-        if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Tesla)
+        if (tower.GetComponent<TowerAttacking>().isBeingPlaced == false)
         {
-            if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0 && bits.BitIndex >= teslaUpgradeCost[0])
+            if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Tesla)
             {
-                GameObject newtower = Instantiate(teslaTowers[0]);
-                newtower.transform.position = tower.transform.position;
+                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0 && bits.BitIndex >= teslaUpgradeCost[0])
+                {
+                    bool bought = bits.RemoveBits(teslaUpgradeCost[0]);
+                    if (bought)
+                    {
+                        GameObject newtower = Instantiate(teslaTowers[0]);
+                        newtower.transform.position = tower.transform.position;
 
-                bits.RemoveBits(teslaUpgradeCost[0]);
-                _selection.Select(newtower);
-                Destroy(tower);
+                        _selection.Select(newtower);
+                        Destroy(tower);
+                    }
+                }
+                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= teslaUpgradeCost[1])
+                {
+                    bool bought = bits.RemoveBits(teslaUpgradeCost[1]);
+                    if (bought)
+                    {
+                        GameObject newtower = Instantiate(teslaTowers[1]);
+                        newtower.transform.position = tower.transform.position;
+                        _selection.DeSelect();
+                        Destroy(tower);
+                    }
+                }
             }
-            else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= teslaUpgradeCost[1])
+            if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Turret)
             {
-                GameObject newtower = Instantiate(teslaTowers[1]);
-                newtower.transform.position = tower.transform.position;
-                bits.RemoveBits(teslaUpgradeCost[1]);
-                _selection.DeSelect();
-                Destroy(tower);
+                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0&& bits.BitIndex >= turretUpgradeCost[0])
+                {
+                    bool bought = bits.RemoveBits(turretUpgradeCost[0]);
+                    if (bought)
+                    {
+                        GameObject newtower = Instantiate(turrets[0]);
+                        newtower.transform.position = tower.transform.position;
+                        _selection.Select(newtower);
+                        Destroy(tower);
+                    }
+                }
+                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= turretUpgradeCost[1])
+                {
+                    bool bought = bits.RemoveBits(turretUpgradeCost[1]);
+                    if (bought)
+                    {
+                        GameObject newtower = Instantiate(turrets[1]);
+                        newtower.transform.position = tower.transform.position;
+                        _selection.DeSelect();
+                        Destroy(tower);
+                    }
+                }
             }
-        }
-        if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Turret)
-        {
-            if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0&& bits.BitIndex >= turretUpgradeCost[0])
+            if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
             {
-                GameObject newtower = Instantiate(turrets[0]);
-                newtower.transform.position = tower.transform.position;
-                bits.RemoveBits(turretUpgradeCost[0]);
-                _selection.Select(newtower);
-                Destroy(tower);
-            }
-            else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= turretUpgradeCost[1])
-            {
-                GameObject newtower = Instantiate(turrets[1]);
-                newtower.transform.position = tower.transform.position;
-                bits.RemoveBits(turretUpgradeCost[1]);
-                _selection.DeSelect();
-                Destroy(tower);
-            }
-        }
-        if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
-        {
-            if (tower.GetComponent<MMMTower>().upgrade1 && bits.BitIndex >= MMMUpgradeCost[0])
-            {
-                tower.GetComponent<MMMTower>().upgrade1 = false;
-                tower.GetComponent<MMMTower>().upgrade2 = true;
-                bits.RemoveBits(MMMUpgradeCost[0]);
-            }
-            else if (tower.GetComponent<MMMTower>().upgrade2 && bits.BitIndex >= MMMUpgradeCost[1])
-            {
-                tower.GetComponent<MMMTower>().upgrade2 = false;
-                tower.GetComponent<MMMTower>().upgrade3 = true;
-                _selection.DeSelect();
-                bits.RemoveBits(MMMUpgradeCost[1]);
+                if (tower.GetComponent<MMMTower>().upgrade1 && bits.BitIndex >= MMMUpgradeCost[0])
+                {
+                    tower.GetComponent<MMMTower>().upgrade1 = false;
+                    tower.GetComponent<MMMTower>().upgrade2 = true;
+                    bits.RemoveBits(MMMUpgradeCost[0]);
+                }
+                else if (tower.GetComponent<MMMTower>().upgrade2 && bits.BitIndex >= MMMUpgradeCost[1])
+                {
+                    tower.GetComponent<MMMTower>().upgrade2 = false;
+                    tower.GetComponent<MMMTower>().upgrade3 = true;
+                    _selection.DeSelect();
+                    bits.RemoveBits(MMMUpgradeCost[1]);
+                }
             }
         }
     }

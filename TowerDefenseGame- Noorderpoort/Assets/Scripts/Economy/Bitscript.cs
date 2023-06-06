@@ -58,7 +58,7 @@ public class Bitscript : MonoBehaviour
 
     public bool RemoveBits(float amount)
     {
-        if ((BitIndex - amount) > 0f)
+        if ((BitIndex - amount) > -1f)
         {
             if (IsDiscountActive)
             {

@@ -23,10 +23,14 @@ public class ProjectileController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
             gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
-/*            targetDirection = target.position - transform.position;
-            float singleStep = speed * Time.deltaTime;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);*/
+            /*            targetDirection = target.position - transform.position;
+                        float singleStep = speed * Time.deltaTime;
+                        Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
+                        transform.rotation = Quaternion.LookRotation(newDirection);*/
+        }
+        else
+        {
+            Destroy(gameObject);
         }
         //Bullet dies after existing too long
         bulletTTL -= Time.deltaTime;
