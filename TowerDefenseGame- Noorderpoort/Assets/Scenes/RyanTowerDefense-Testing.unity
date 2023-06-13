@@ -725,20 +725,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
+  damage: 5
+  fireRate: 3
+  projectileSpeed: 2
+  range: 15
+  firePoint: {fileID: 601780709}
+  multipleFirepoints: 0
+  allFirePoints: []
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  firePoint: {fileID: 601780709}
-  allFirePoints: []
-  multipleFirepoints: 0
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 0
-  currentFirePoint: 0
-  fireRate: 3
-  timeUntilBullet: 0
-  damage: 5
-  range: 15
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!65 &107070743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1513,20 +1512,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
+  damage: 5
+  fireRate: 1
+  projectileSpeed: 2
+  range: 40
+  firePoint: {fileID: 1557181665}
+  multipleFirepoints: 0
+  allFirePoints: []
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  firePoint: {fileID: 1557181665}
-  allFirePoints: []
-  multipleFirepoints: 0
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 0
-  currentFirePoint: 0
-  fireRate: 1
-  timeUntilBullet: 0
-  damage: 5
-  range: 40
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!65 &300309206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2217,13 +2215,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesEnded: -1
   moneyPerWave: 50
-  enemyEmpty: {fileID: 1415635469}
+  spawnPoint: {fileID: 2097172699}
   enemies:
   - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: 325443aed0ca99e49878285ca23bd4c8, type: 3}
-  destination: {fileID: 417184531}
-  spawnPoint: {fileID: 2097172699}
   spawnCooldown: 0.4
   roundCooldown: 2
   maxGroupSize: 10
@@ -2237,9 +2233,8 @@ MonoBehaviour:
   maxEnemiesPerRound: 75
   enemyHealthMultiplier: 1
   enemyHealthMultiplierPerRound: 0.1
-  speed: 1
-  enemyChance: 0000000000000000
-  currentSpawnCooldown: 500
+  enemyEmpty: {fileID: 1415635469}
+  destination: {fileID: 417184531}
 --- !u!4 &412795958
 Transform:
   m_ObjectHideFlags: 0
@@ -4913,20 +4908,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
+  damage: 5
+  fireRate: 3
+  projectileSpeed: 2
+  range: 15
+  firePoint: {fileID: 2008933929}
+  multipleFirepoints: 0
+  allFirePoints: []
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  firePoint: {fileID: 2008933929}
-  allFirePoints: []
-  multipleFirepoints: 0
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 0
-  currentFirePoint: 0
-  fireRate: 3
-  timeUntilBullet: 0
-  damage: 5
-  range: 15
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!65 &1420703381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5041,20 +5035,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
+  damage: 5
+  fireRate: 100
+  projectileSpeed: 2
+  range: 50
+  firePoint: {fileID: 1673771473}
+  multipleFirepoints: 0
+  allFirePoints: []
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  firePoint: {fileID: 1673771473}
-  allFirePoints: []
-  multipleFirepoints: 0
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 0
-  currentFirePoint: 0
-  fireRate: 100
-  timeUntilBullet: 0
-  damage: 5
-  range: 50
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!65 &1435642771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5186,15 +5179,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesEnded: -1
   moneyPerWave: 0
-  enemyEmpty: {fileID: 47419383}
+  spawnPoint: {fileID: 293139122}
   enemies:
   - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
   - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
-  destination: {fileID: 0}
-  spawnPoint: {fileID: 293139122}
   spawnCooldown: 0.4
   roundCooldown: 2
   maxGroupSize: 10
@@ -5208,9 +5199,8 @@ MonoBehaviour:
   maxEnemiesPerRound: 75
   enemyHealthMultiplier: 1
   enemyHealthMultiplierPerRound: 0.05
-  speed: 1
-  enemyChance: 0000000000000000
-  currentSpawnCooldown: 500
+  enemyEmpty: {fileID: 47419383}
+  destination: {fileID: 0}
 --- !u!4 &1496886464
 Transform:
   m_ObjectHideFlags: 0
@@ -5856,20 +5846,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  target: {fileID: 0}
+  damage: 5
+  fireRate: 3
+  projectileSpeed: 2
+  range: 15
+  firePoint: {fileID: 1881768327}
+  multipleFirepoints: 0
+  allFirePoints: []
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
-  firePoint: {fileID: 1881768327}
-  allFirePoints: []
-  multipleFirepoints: 0
+  target: {fileID: 0}
+  rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 0
-  currentFirePoint: 0
-  fireRate: 3
-  timeUntilBullet: 0
-  damage: 5
-  range: 15
-  projectileSpeed: 2
-  defaultTower: 1
+  isBeingPlaced: 0
 --- !u!65 &1847271310
 BoxCollider:
   m_ObjectHideFlags: 0
