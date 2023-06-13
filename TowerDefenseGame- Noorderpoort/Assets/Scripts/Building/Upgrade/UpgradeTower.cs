@@ -43,6 +43,22 @@ public class UpgradeTower : MonoBehaviour
         
         GameObject tower = _selection.selectedObject;
 
+        if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
+        {
+            if (tower.GetComponent<MMMTower>().upgrade1 && bits.BitIndex >= MMMUpgradeCost[0])
+            {
+                tower.GetComponent<MMMTower>().upgrade1 = false;
+                tower.GetComponent<MMMTower>().upgrade2 = true;
+                bits.RemoveBits(MMMUpgradeCost[0]);
+            }
+            else if (tower.GetComponent<MMMTower>().upgrade2 && bits.BitIndex >= MMMUpgradeCost[1])
+            {
+                tower.GetComponent<MMMTower>().upgrade2 = false;
+                tower.GetComponent<MMMTower>().upgrade3 = true;
+                _selection.DeSelect();
+                bits.RemoveBits(MMMUpgradeCost[1]);
+            }
+        }
         if (tower.GetComponent<TowerAttacking>().isBeingPlaced == false)
         {
             if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Tesla)
@@ -94,22 +110,6 @@ public class UpgradeTower : MonoBehaviour
                         _selection.DeSelect();
                         Destroy(tower);
                     }
-                }
-            }
-            if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
-            {
-                if (tower.GetComponent<MMMTower>().upgrade1 && bits.BitIndex >= MMMUpgradeCost[0])
-                {
-                    tower.GetComponent<MMMTower>().upgrade1 = false;
-                    tower.GetComponent<MMMTower>().upgrade2 = true;
-                    bits.RemoveBits(MMMUpgradeCost[0]);
-                }
-                else if (tower.GetComponent<MMMTower>().upgrade2 && bits.BitIndex >= MMMUpgradeCost[1])
-                {
-                    tower.GetComponent<MMMTower>().upgrade2 = false;
-                    tower.GetComponent<MMMTower>().upgrade3 = true;
-                    _selection.DeSelect();
-                    bits.RemoveBits(MMMUpgradeCost[1]);
                 }
             }
         }
