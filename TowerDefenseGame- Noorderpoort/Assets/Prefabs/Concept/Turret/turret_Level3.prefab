@@ -181,7 +181,7 @@ MonoBehaviour:
   projectile: {fileID: 965004182692241751, guid: 37f26328bfe725a47b14584193689a8d,
     type: 3}
   audiosource: {fileID: 8265733690831307518}
-  attackSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
+  attackSound: {fileID: 8300000, guid: 009fdae388fb70a4c92a7736a6ec1de6, type: 3}
   target: {fileID: 0}
   rangeScript: {fileID: 0}
   rotatesTowardsEnemies: 1

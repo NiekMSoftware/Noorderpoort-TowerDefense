@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MTInRange: 0
-  enemyCoolDown: 2
+  enemyCoolDown: 1.85
   attackRate: 3.5
   mainTowerHealth: {fileID: 0}
 --- !u!82 &-3931409014228954267

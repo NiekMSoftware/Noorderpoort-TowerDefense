@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audiosource: {fileID: -93011621793443843}
-  deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
+  deathSound: {fileID: 8300000, guid: b8e7a1d71c69f5f4c911135a22825d1b, type: 3}
 --- !u!114 &4543265289695418437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 600
-  damage: 0
+  damage: 2
   speed: 2
   bitsOnDeath: 350
 --- !u!114 &3246342422853924032
