@@ -255,7 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: -3931409014228954267}
+  soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
+    type: 3}
   deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
 --- !u!114 &4543265289695418437
 MonoBehaviour:
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d1ec6d819e2a24c9095c70e5e44587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Base: {fileID: 0}
+  Base: {fileID: 4129657852645448207, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0, type: 3}
   lookingAtBase: 0
 --- !u!114 &7087499619317485713
 MonoBehaviour:
