@@ -11,10 +11,8 @@ public class PauseClass : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale == 0)
-                ResumeGame();
-            else
-                PauseGame();
+            print("paused"); 
+            PauseGame();
         }
     }
 
