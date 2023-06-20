@@ -119,8 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 2023365215759846902}
-  deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
+  soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
+    type: 3}
+  deathSound: {fileID: 8300000, guid: 729ff0b07449ed641871c62a511a6a4d, type: 3}
 --- !u!114 &3613241119594019918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8ad49bd6356f7df4e9b4ba9f14c5d616, type: 2}
+  - {fileID: 2100000, guid: d42d815866104b34c9b9f3a2eb1e9609, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +217,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469613145040789221}
-  m_Mesh: {fileID: -5495902117074765545, guid: 5a113f5bc503c3348b14ec718e37c8a2, type: 3}
+  m_Mesh: {fileID: -462981019419857548, guid: 4b9886f31515e084bac0d942efa5b590, type: 3}
 --- !u!82 &2023365215759846902
 AudioSource:
   m_ObjectHideFlags: 0

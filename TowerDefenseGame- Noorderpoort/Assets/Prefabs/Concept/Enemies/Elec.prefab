@@ -171,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: -8694148571733462183}
-  deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
+  soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
+    type: 3}
+  deathSound: {fileID: 8300000, guid: 9f0abaf57fdce7a46bd1110dbd27b220, type: 3}
 --- !u!114 &4543265289695418437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MTInRange: 0
-  enemyCoolDown: 2
+  enemyCoolDown: 1
   attackRate: 3.5
   mainTowerHealth: {fileID: 0}
 --- !u!82 &-8694148571733462183
