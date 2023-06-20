@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8471383421733794299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8471383421733794298}
+  - component: {fileID: 8471383421733794246}
+  - component: {fileID: 8471383421733794244}
+  - component: {fileID: 1538097848367407140}
+  m_Layer: 8
+  m_Name: Onion Manager
+  m_TagString: Managers
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8471383421733794298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471383421733794299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -637.8806, y: -209.13072, z: 20.923403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8471383421733794246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471383421733794299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddaf5ecf8414b6b45aabc3183f108463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BitIndex: 100
+  DiscountAmount: 10
+  MultiplierAmount: 0
+  starterMoney: 100
+  Bitsamount: {fileID: 0}
+  MaxDiscountAmount: 30
+  MaxMultiplierAmount: 5
+--- !u!114 &8471383421733794244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471383421733794299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096ab62cbe609da48b54c81253543d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthIndex: 0
+  Heart: {fileID: 0}
+  Spritearray:
+  - {fileID: -657895010, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 568499691, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 704473174, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -683316025, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1878464745, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 221316005, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -1581248999, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -315803104, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1918834621, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 737445319, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -1375535041, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1593687586, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  HealthAmount: {fileID: 0}
+  NormalHealth: {fileID: 0}
+  ZeroHealth: {fileID: 0}
+--- !u!114 &1538097848367407140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471383421733794299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
