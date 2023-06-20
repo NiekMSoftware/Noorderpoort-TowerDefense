@@ -141,7 +141,163 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!114 &15230763
+=======
+--- !u!4 &261631071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261631070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.330688, y: 2.430664, z: 19.362232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &264444192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264444193}
+  - component: {fileID: 264444196}
+  - component: {fileID: 264444195}
+  - component: {fileID: 264444194}
+  m_Layer: 3
+  m_Name: FloorWalkingPath4
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &264444193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264444192}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03785, y: 0, z: 14.7712}
+  m_LocalScale: {x: 0.06232678, y: 1, z: 8.779894}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1392105979}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 14.146, z: 0}
+--- !u!23 &264444194
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264444192}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1a679bb90fe2e5c4bae32c68eb960148, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &264444195
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264444192}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &264444196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264444192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &329772586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329772587}
+  - component: {fileID: 329772590}
+  - component: {fileID: 329772589}
+  - component: {fileID: 329772588}
+  m_Layer: 5
+  m_Name: Upgrade Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &329772587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329772586}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1368211893}
+  m_Father: {fileID: 1543892617}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 303.0001, y: -49}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &329772588
+>>>>>>> SOS3-HOWTHEFUCK-Niek
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2492,7 +2648,121 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1051544147}
+=======
+  m_GameObject: {fileID: 1064188763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464995358becc6941acce75291c292ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1064188765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064188763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096ab62cbe609da48b54c81253543d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthIndex: 0
+  Heart: {fileID: 235568557}
+  Spritearray:
+  - {fileID: -657895010, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 568499691, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 704473174, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -683316025, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1878464745, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 221316005, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -1581248999, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -315803104, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1918834621, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 737445319, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: -1375535041, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  - {fileID: 1593687586, guid: 774a78bf0d2df404ca39ecb4d68e153b, type: 3}
+  HealthAmount: {fileID: 1860260114}
+  NormalHealth: {fileID: 1860260111}
+  ZeroHealth: {fileID: 1579357467}
+--- !u!114 &1064188766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064188763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1064188767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064188763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddaf5ecf8414b6b45aabc3183f108463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BitIndex: 100
+  DiscountAmount: 10
+  MultiplierAmount: 0
+  starterMoney: 100
+  Bitsamount: {fileID: 1895800222}
+  MaxDiscountAmount: 30
+  MaxMultiplierAmount: 5
+--- !u!114 &1064188768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064188763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f87a24b0e67fcc43959245851978448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavesEnded: -1
+  wavesPerBoss: 0
+  bosses: []
+  moneyPerWave: 50
+  spawnPoint: {fileID: 1910117351}
+  enemies:
+  - {fileID: 2426788982346890863, guid: 733327745989fb343a3727867f612150, type: 3}
+  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  - {fileID: 1293789637032314374, guid: 325443aed0ca99e49878285ca23bd4c8, type: 3}
+  spawnCooldown: 0.4
+  roundCooldown: 2
+  maxGroupSize: 10
+  minGroupSize: 5
+  enemyChanceStopsAt: 0f00000014000000
+  enemyStartsAt: 050000000a000000
+  enemyMinChance: 0a00000005000000
+  enemyMaxChance: 140000000f000000
+  enemyChance: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  enemyAmountScaleFactor: 0.5
+  enemiesThisRound: 0
+  maxEnemiesPerRound: 75
+  enemyHealthMultiplier: 1
+  enemyHealthMultiplierPerRound: 0.1
+  enemyEmpty: {fileID: 344016441}
+  destination: {fileID: 1795245481}
+--- !u!4 &1064188769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064188763}
+>>>>>>> SOS3-HOWTHEFUCK-Niek
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -3105,7 +3375,44 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 5
+=======
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 30, y: 1.053, z: 0.902}
+--- !u!1 &1543892616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543892617}
+  m_Layer: 5
+  m_Name: Upgrade UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1543892617
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543892616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1740542763}
+  - {fileID: 329772587}
+  m_Father: {fileID: 2024904146}
+  m_RootOrder: 2
+>>>>>>> SOS3-HOWTHEFUCK-Niek
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299465040
 GameObject:
@@ -3311,16 +3618,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1372094800}
   - component: {fileID: 1372094802}
   - component: {fileID: 1372094801}
   m_Layer: 5
   m_Name: Text (TMP)
+=======
+  - component: {fileID: 1637988518}
+  - component: {fileID: 1637988517}
+  - component: {fileID: 1637988516}
+  m_Layer: 0
+  m_Name: EventSystem
+>>>>>>> SOS3-HOWTHEFUCK-Niek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &1372094800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3342,11 +3658,15 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372094801
+=======
+--- !u!114 &1637988516
+>>>>>>> SOS3-HOWTHEFUCK-Niek
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1372094799}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3432,13 +3752,59 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1372094802
 CanvasRenderer:
+=======
+  m_GameObject: {fileID: 1637988515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1637988517
+MonoBehaviour:
+>>>>>>> SOS3-HOWTHEFUCK-Niek
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1372094799}
   m_CullTransparentMesh: 1
 --- !u!1 &1428404128
+=======
+  m_GameObject: {fileID: 1637988515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1637988518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637988515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1740542762
+>>>>>>> SOS3-HOWTHEFUCK-Niek
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
