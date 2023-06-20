@@ -462,7 +462,7 @@ Transform:
   - {fileID: 773558743}
   - {fileID: 570614913}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &68706438
 GameObject:
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaf5ecf8414b6b45aabc3183f108463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BitIndex: 1e+18
+  BitIndex: 175
   DiscountAmount: 10
   MultiplierAmount: 0
   starterMoney: 175
@@ -1537,7 +1537,7 @@ GameObject:
   - component: {fileID: 441702003}
   - component: {fileID: 441702002}
   - component: {fileID: 441702001}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: FloorWalkingPath3
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -2314,75 +2314,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1616679513}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &627083122
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.626331
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.182
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 62.743294
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.007645615
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.9999708
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776859900175773516, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 306180.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef,
-        type: 3}
-      propertyPath: m_Name
-      value: Resistor
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
 --- !u!1 &646950918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3711,7 +3642,7 @@ GameObject:
   - component: {fileID: 1033810250}
   - component: {fileID: 1033810249}
   - component: {fileID: 1033810248}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: Water
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -3815,7 +3746,7 @@ GameObject:
   - component: {fileID: 1044037613}
   - component: {fileID: 1044037612}
   - component: {fileID: 1044037611}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: FloorWalkingPath1
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -7761,7 +7692,7 @@ GameObject:
   - component: {fileID: 1986409702}
   - component: {fileID: 1986409701}
   - component: {fileID: 1986409700}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: FloorWalkingPath2
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -8161,7 +8092,7 @@ GameObject:
   - component: {fileID: 2097759606}
   - component: {fileID: 2097759605}
   - component: {fileID: 2097759604}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: FloorWalkingPath4
   m_TagString: Floor
   m_Icon: {fileID: 0}

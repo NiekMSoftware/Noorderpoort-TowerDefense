@@ -197,7 +197,7 @@ MonoBehaviour:
   towerUpgrade: 0
   towerType: 1
   buildingManager: {fileID: 0}
-  layerNumber: 4
+  layerNumber: 3
 --- !u!114 &4183818570107938648
 MonoBehaviour:
   m_ObjectHideFlags: 0

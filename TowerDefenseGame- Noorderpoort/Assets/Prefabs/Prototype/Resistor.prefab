@@ -81,7 +81,7 @@ MonoBehaviour:
   towerUpgrade: 0
   towerType: 0
   buildingManager: {fileID: 0}
-  layerNumber: 3
+  layerNumber: 4
 --- !u!33 &4202668930968734914
 MeshFilter:
   m_ObjectHideFlags: 0
