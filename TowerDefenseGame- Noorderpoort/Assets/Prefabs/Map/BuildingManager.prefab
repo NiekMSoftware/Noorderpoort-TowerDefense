@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7100311545698751308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7100311545698751309}
+  - component: {fileID: 7100311545698751306}
+  m_Layer: 8
+  m_Name: BuildingManager
+  m_TagString: Managers
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7100311545698751309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100311545698751308}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -637.8806, y: -209.13072, z: 20.923403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7100311545698751306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100311545698751308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da91ee449476fd43a0d2bef241bbeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerTriggers: []
+  objects:
+  - {fileID: 8325121091093890550, guid: fc7a01b14ab625b47b8597dc46e91e56, type: 3}
+  - {fileID: 8010623430015773922, guid: c66889185303b18429f7dc4a6f1545a2, type: 3}
+  - {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
+  - {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
+  pendingObject: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 3fbba5ac31a734641ae346928a81317f, type: 2}
+  - {fileID: 2100000, guid: 328ae5a0fee31ad4dbc62bf124148201, type: 2}
+  - {fileID: 2100000, guid: 71f6cc1ac57e72e499dbdd5a1d9424b9, type: 2}
+  detectLayersMask:
+    serializedVersion: 2
+    m_Bits: 24
+  canPlace: 1
+  isPlacementMode: 0

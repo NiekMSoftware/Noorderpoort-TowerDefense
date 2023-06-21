@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &472383230069055649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472383230069055648}
+  - component: {fileID: 472383230069055643}
+  - component: {fileID: 472383230069055645}
+  - component: {fileID: 472383230069055647}
+  m_Layer: 8
+  m_Name: SceneManager
+  m_TagString: Managers
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472383230069055648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472383230069055649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -637.8806, y: -209.13072, z: 20.923403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &472383230069055643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472383230069055649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f87a24b0e67fcc43959245851978448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavesEnded: -1
+  wavesPerBoss: 0
+  bosses: []
+  moneyPerWave: 50
+  spawnPoint: {fileID: 0}
+  enemies:
+  - {fileID: 2469613145040789221, guid: 5c3ba2ff7659e244c93c234d80a69a74, type: 3}
+  - {fileID: 1293789637032314374, guid: ab28ff4c648fa344bb8f6ee958a0c497, type: 3}
+  - {fileID: 1293789637032314374, guid: 325443aed0ca99e49878285ca23bd4c8, type: 3}
+  spawnCooldown: 0.4
+  roundCooldown: 2
+  maxGroupSize: 10
+  minGroupSize: 5
+  enemyChanceStopsAt: 0f00000014000000
+  enemyStartsAt: 050000000a000000
+  enemyMinChance: 0a00000005000000
+  enemyMaxChance: 140000000f000000
+  enemyChance: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  enemyAmountScaleFactor: 0.5
+  enemiesThisRound: 0
+  maxEnemiesPerRound: 75
+  enemyHealthMultiplier: 1
+  enemyHealthMultiplierPerRound: 0.4
+  enemyEmpty: {fileID: 0}
+  destination: {fileID: 0}
+--- !u!114 &472383230069055645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472383230069055649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &472383230069055647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472383230069055649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464995358becc6941acce75291c292ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
