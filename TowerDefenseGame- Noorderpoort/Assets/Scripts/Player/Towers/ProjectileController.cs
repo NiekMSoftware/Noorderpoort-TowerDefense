@@ -11,6 +11,7 @@ public class ProjectileController : MonoBehaviour
     [Space]
     public float speed = 0.1f;
     Vector3 targetDirection;
+    bool changed = false;
 
     void Start()
     {
@@ -30,7 +31,11 @@ public class ProjectileController : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            if(changed == false)
+            {
+                bulletTTL = 0.5f;
+                changed = true;
+            }
         }
         //Bullet dies after existing too long
         bulletTTL -= Time.deltaTime;
