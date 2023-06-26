@@ -24,7 +24,12 @@ public class BuildingManager : MonoBehaviour
     public bool isPlacementMode = false;
 
     public static TowerBehaviour towerReference;
-    
+    [SerializeField] private GameObject placeParticle;
+    Selection selector;
+    private void Start()
+    {
+        selector = FindObjectOfType<Selection>();
+    }
     void Update()
     {
         if (pendingObject != null)
@@ -38,6 +43,8 @@ public class BuildingManager : MonoBehaviour
             {
                 pendingObject.GetComponent<MMMTower>().isBeingPlaced = true;
             }
+            selector.previousPending = pendingObject;
+            selector.timeSincePlace = 0;
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
                 if (pendingObject.GetComponent<TowerAttacking>() == true)
@@ -72,6 +79,7 @@ public class BuildingManager : MonoBehaviour
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
         pendingObject = null;
         isPlacementMode = false;
     }
