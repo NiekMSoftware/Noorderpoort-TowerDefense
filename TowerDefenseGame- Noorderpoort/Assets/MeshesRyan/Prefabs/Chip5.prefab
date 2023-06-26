@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6055900674592977448}
   - component: {fileID: 87452195371244609}
   - component: {fileID: 6639350084728482713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capacitor 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 728580582301459012}
   - component: {fileID: 5924463161417133198}
   - component: {fileID: 4452506525312332610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capacitor 1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6983386314303884518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chip5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1120328978323742659}
   - component: {fileID: 3183182782158898718}
   - component: {fileID: 8432851036786250969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capacitor 1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
