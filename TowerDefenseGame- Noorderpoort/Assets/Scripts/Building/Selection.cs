@@ -7,10 +7,17 @@ public class Selection : MonoBehaviour
     [Header("Did we Select an Object?")]
     public GameObject selectedObject;
     public bool selectedTower;
-    
+    [SerializeField] private BuildingManager builderman;
+    public GameObject previousPending;
+    public float timeSincePlace;
+    private void Start()
+    {
+        builderman = FindObjectOfType<BuildingManager>();
+    }
     // Update is called once per frame
     void Update()
     {
+        timeSincePlace += Time.deltaTime;
         //Check the input for the mouse
         if (Input.GetMouseButton(0))
         {
@@ -22,8 +29,19 @@ public class Selection : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Tower"))
                 {
-                    selectedTower = true;
-                    Select(hit.collider.gameObject);
+                    if (hit.collider.gameObject != previousPending && hit.collider.gameObject != builderman.pendingObject)
+                    {
+                        selectedTower = true;
+                        Select(hit.collider.gameObject);
+                    }
+                    else
+                    {
+                        if (timeSincePlace > 0.5f)
+                        {
+                            selectedTower = true;
+                            Select(hit.collider.gameObject);
+                        }
+                    }
                 }
             }
         }

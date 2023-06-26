@@ -4410,6 +4410,7 @@ MonoBehaviour:
     m_Bits: 24
   canPlace: 1
   isPlacementMode: 0
+  placeParticle: {fileID: 0}
 --- !u!4 &1189938489
 Transform:
   m_ObjectHideFlags: 0
@@ -13273,6 +13274,8 @@ MonoBehaviour:
     m_Bits: 24
   canPlace: 1
   isPlacementMode: 0
+  placeParticle: {fileID: 5285702621203002817, guid: 441d0e916593a614e988650ee7e29240,
+    type: 3}
 --- !u!1 &2121400149
 GameObject:
   m_ObjectHideFlags: 0
