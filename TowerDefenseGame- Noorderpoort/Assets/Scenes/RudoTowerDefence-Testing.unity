@@ -910,7 +910,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 7907300184443768562, guid: 4655b056166f59d4f8ef1d67e06c61c1, type: 3}
   - {fileID: 2426788982346890863, guid: b10f968a26595cc4fa17d6e43fbff73f, type: 3}
-  - {fileID: 1293789637032314374, guid: 325443aed0ca99e49878285ca23bd4c8, type: 3}
   spawnCooldown: 0.4
   roundCooldown: 2
   maxGroupSize: 10
@@ -2277,6 +2276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   selectedTower: 0
+  builderman: {fileID: 0}
+  previousPending: {fileID: 0}
+  timeSincePlace: 0
 --- !u!1 &572865669
 GameObject:
   m_ObjectHideFlags: 0
