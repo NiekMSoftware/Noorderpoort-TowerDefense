@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2132682482}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: Tower
         m_Mode: 3
@@ -1044,14 +1044,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2132682482}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: BuyTower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 75
+          m_IntArgument: 175
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3180,7 +3180,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2132682482}
+        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
+        m_MethodName: BuyTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 200
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2132682482}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: Tower
         m_Mode: 3
@@ -3188,18 +3200,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
-        m_MethodName: BuyTower
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4678,7 +4678,7 @@ Transform:
   m_Children:
   - {fileID: 2107364872}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &349064457
 GameObject:
@@ -6991,7 +6991,7 @@ Transform:
   m_Children:
   - {fileID: 48291794}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560820535
 GameObject:
@@ -9079,7 +9079,7 @@ PrefabInstance:
     - target: {fileID: 7100311545698751309, guid: 944e672a0a8f579458d860772f6ed36e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7100311545698751309, guid: 944e672a0a8f579458d860772f6ed36e,
         type: 3}
@@ -12099,7 +12099,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2132682482}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: Tower
         m_Mode: 3
@@ -12111,14 +12111,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2132682482}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: BuyTower
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
+          m_IntArgument: 300
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16360,9 +16360,9 @@ MonoBehaviour:
   turrets:
   - {fileID: 3205597839966706227, guid: 32b8a73ff9b205040a56c135c8b17441, type: 3}
   - {fileID: 615592888454610796, guid: 906a2c3a5abb8614f8b5c27e23c7cd7f, type: 3}
-  teslaUpgradeCost: 
-  turretUpgradeCost: 
-  MMMUpgradeCost: 
+  teslaUpgradeCost: fa00000090010000
+  turretUpgradeCost: 6400000096000000
+  MMMUpgradeCost: 90010000f4010000
 --- !u!1 &1390038471
 GameObject:
   m_ObjectHideFlags: 0
@@ -19821,7 +19821,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1383075848}
         m_TargetAssemblyTypeName: UpgradeTower, Assembly-CSharp
         m_MethodName: Upgrade
         m_Mode: 1
@@ -27332,10 +27332,15 @@ PrefabInstance:
       propertyPath: Bitsamount
       value: 
       objectReference: {fileID: 1403531850}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: starterMoney
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794298, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794298, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
