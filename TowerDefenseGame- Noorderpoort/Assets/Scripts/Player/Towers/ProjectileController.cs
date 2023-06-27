@@ -12,7 +12,8 @@ public class ProjectileController : MonoBehaviour
     public float speed = 0.1f;
     Vector3 targetDirection;
     bool changed = false;
-    [SerializeField] private GameObject hitParticle; 
+    [SerializeField] private GameObject hitParticle;
+    [SerializeField] private bool justHereToCount;
 
     void Start()
     {
@@ -20,19 +21,22 @@ public class ProjectileController : MonoBehaviour
     }
     void Update()
     {
-        //Bullet moves and rotates towards target
-        if (target != null)
+        if (justHereToCount == false)
         {
-            transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
-            //transform.rotation = Quaternion.LookRotation(target.position);
-            gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
-        }
-        else
-        {
-            if(changed == false)
+            //Bullet moves and rotates towards target
+            if (target != null)
             {
-                bulletTTL = 0.5f;
-                changed = true;
+                transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
+                //transform.rotation = Quaternion.LookRotation(target.position);
+                gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
+            }
+            else
+            {
+                if(changed == false)
+                {
+                    bulletTTL = 0.5f;
+                    changed = true;
+                }
             }
         }
         //Bullet dies after existing too long
@@ -44,14 +48,17 @@ public class ProjectileController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Bullet dies after hitting the floor or an enemy
-        if (collision.collider.tag == "Enemy")
+        if (justHereToCount == false)
         {
-            Destroy(gameObject);
-            Instantiate(hitParticle, transform.position, transform.rotation);
-        } else if (collision.collider.tag == "Floor")
-        {
-            //Destroy(gameObject);
+            //Bullet dies after hitting the floor or an enemy
+            if (collision.collider.tag == "Enemy")
+            {
+                Destroy(gameObject);
+                Instantiate(hitParticle, transform.position, transform.rotation);
+            } else if (collision.collider.tag == "Floor")
+            {
+                //Destroy(gameObject);
+            }
         }
     }
 }

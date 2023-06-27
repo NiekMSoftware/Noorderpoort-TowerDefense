@@ -4910,7 +4910,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.319315
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6677470819914173198
 MonoBehaviour:
@@ -4927,6 +4927,8 @@ MonoBehaviour:
   bulletTTL: 3
   target: {fileID: 0}
   speed: 0.05
+  hitParticle: {fileID: 3482557903540798658, guid: b11285bf71b8ae54f9dbfd4c862874c5,
+    type: 3}
 --- !u!54 &1229303297328922625
 Rigidbody:
   m_ObjectHideFlags: 0
