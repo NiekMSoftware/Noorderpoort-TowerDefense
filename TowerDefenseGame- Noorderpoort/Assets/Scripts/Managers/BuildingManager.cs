@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class BuildingManager : MonoBehaviour
     public GameObject pendingObject;
 
     private Vector3 pos;
+
+    [FormerlySerializedAs("obj")]
+    [Header("Deletus McFeetus")] 
+    [SerializeField] public GameObject turretObj;
 
     [Header("Materials and Layers")]
     [SerializeField] private Material[] materials;
@@ -32,8 +37,9 @@ public class BuildingManager : MonoBehaviour
     }
     void Update()
     {
-        if (pendingObject != null)
-        {
+        if (pendingObject != null) {
+            this.pendingObject.transform.parent = this.turretObj.transform;
+            
             pendingObject.transform.position = pos;
             if (pendingObject.GetComponent<TowerAttacking>() == true)
             {
