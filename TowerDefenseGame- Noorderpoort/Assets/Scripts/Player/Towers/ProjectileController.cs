@@ -24,11 +24,8 @@ public class ProjectileController : MonoBehaviour
         if (target != null)
         {
             transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
+            //transform.rotation = Quaternion.LookRotation(target.position);
             gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
-            /*            targetDirection = target.position - transform.position;
-                        float singleStep = speed * Time.deltaTime;
-                        Vector3 newDirection = Vector3.RotateTowards(transform.forward, -targetDirection, singleStep, 0.0f);
-                        transform.rotation = Quaternion.LookRotation(newDirection);*/
         }
         else
         {
@@ -54,7 +51,7 @@ public class ProjectileController : MonoBehaviour
             Instantiate(hitParticle, transform.position, transform.rotation);
         } else if (collision.collider.tag == "Floor")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

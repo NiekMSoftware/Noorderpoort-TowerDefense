@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 7264581207193378678}
   m_Layer: 0
   m_Name: gepp. 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
-  deathSound: {fileID: 8300000, guid: 729ff0b07449ed641871c62a511a6a4d, type: 3}
+  deathSound: {fileID: 8300000, guid: 10e8fa9e709af7246aa474715bc620ae, type: 3}
 --- !u!114 &2322765763154999150
 MonoBehaviour:
   m_ObjectHideFlags: 0
