@@ -20,6 +20,8 @@ public class UpgradeTower : MonoBehaviour
     [SerializeField] private int[] MMMUpgradeCost;
     Bitscript bits;
 
+    [SerializeField] GameObject turretEmpty;
+
     private int upgradeIndex;
     private void Start()
     {
@@ -40,6 +42,7 @@ public class UpgradeTower : MonoBehaviour
 
     public void Upgrade()
     {
+        
         
         GameObject tower = _selection.selectedObject;
 
@@ -71,6 +74,8 @@ public class UpgradeTower : MonoBehaviour
                         GameObject newtower = Instantiate(teslaTowers[0]);
                         newtower.transform.position = tower.transform.position;
 
+                        newtower.transform.parent = this.turretEmpty.transform;
+                        
                         _selection.Select(newtower);
                         Destroy(tower);
                     }
@@ -82,6 +87,9 @@ public class UpgradeTower : MonoBehaviour
                     {
                         GameObject newtower = Instantiate(teslaTowers[1]);
                         newtower.transform.position = tower.transform.position;
+                        
+                        newtower.transform.parent = this.turretEmpty.transform;
+                        
                         _selection.DeSelect();
                         Destroy(tower);
                     }
@@ -96,6 +104,9 @@ public class UpgradeTower : MonoBehaviour
                     {
                         GameObject newtower = Instantiate(turrets[0]);
                         newtower.transform.position = tower.transform.position;
+                        
+                        newtower.transform.parent = this.turretEmpty.transform;
+                        
                         _selection.Select(newtower);
                         Destroy(tower);
                     }
@@ -107,6 +118,9 @@ public class UpgradeTower : MonoBehaviour
                     {
                         GameObject newtower = Instantiate(turrets[1]);
                         newtower.transform.position = tower.transform.position;
+                        
+                        newtower.transform.parent = this.turretEmpty.transform;
+                        
                         _selection.DeSelect();
                         Destroy(tower);
                     }
