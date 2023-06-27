@@ -240,10 +240,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 200
+  damage: 150
   fireRate: 5
   projectileSpeed: 1.5
-  range: 30
+  range: 20
   firePoint: {fileID: 3633331542570034091}
   multipleFirepoints: 1
   allFirePoints:

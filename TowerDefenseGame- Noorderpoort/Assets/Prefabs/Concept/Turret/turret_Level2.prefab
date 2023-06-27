@@ -153,7 +153,7 @@ MonoBehaviour:
   damage: 10
   fireRate: 2
   projectileSpeed: 2
-  range: 15
+  range: 12.5
   firePoint: {fileID: 326536440838468297}
   multipleFirepoints: 1
   allFirePoints:

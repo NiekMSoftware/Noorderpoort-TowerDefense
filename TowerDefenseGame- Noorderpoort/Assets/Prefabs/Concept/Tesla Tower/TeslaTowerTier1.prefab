@@ -5083,10 +5083,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 150
+  damage: 100
   fireRate: 8
   projectileSpeed: 1
-  range: 25
+  range: 15
   firePoint: {fileID: 8163471843960515663}
   multipleFirepoints: 0
   allFirePoints: []
