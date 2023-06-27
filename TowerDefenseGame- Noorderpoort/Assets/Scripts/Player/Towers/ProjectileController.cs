@@ -12,6 +12,7 @@ public class ProjectileController : MonoBehaviour
     public float speed = 0.1f;
     Vector3 targetDirection;
     bool changed = false;
+    [SerializeField] private GameObject hitParticle; 
 
     void Start()
     {
@@ -47,7 +48,11 @@ public class ProjectileController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Bullet dies after hitting the floor or an enemy
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "Floor")
+        if (collision.collider.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            Instantiate(hitParticle, transform.position, transform.rotation);
+        } else if (collision.collider.tag == "Floor")
         {
             Destroy(gameObject);
         }
