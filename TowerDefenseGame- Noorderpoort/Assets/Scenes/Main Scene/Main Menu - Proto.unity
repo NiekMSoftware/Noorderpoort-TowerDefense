@@ -7689,6 +7689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 484785115}
   - component: {fileID: 484785116}
+  - component: {fileID: 484785117}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -7722,7 +7723,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5610088054003957510, guid: 543dd26f08d666a43a350c8296ff916b,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 355c9983ea7ed8547bab6a614079b462, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7808,6 +7809,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &484785117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484785114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1aee12b0aee2c48a82696bee9d4769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 355c9983ea7ed8547bab6a614079b462, type: 3}
+  - {fileID: 8300000, guid: 2889a2d76013d4a4180d4f6b6572a6af, type: 3}
+  - {fileID: 8300000, guid: 3eab6d16442474c40af98df0692dc276, type: 3}
+  source: {fileID: 484785116}
+  newClip: 0
+  timer: 0
 --- !u!1 &502641130
 GameObject:
   m_ObjectHideFlags: 0
@@ -12624,6 +12644,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 985311054}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 713196219}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
