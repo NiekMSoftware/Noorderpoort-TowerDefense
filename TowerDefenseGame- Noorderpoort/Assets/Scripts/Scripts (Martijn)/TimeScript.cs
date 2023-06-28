@@ -3,23 +3,38 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Threading;
 
-public class TimeScript : MonoBehaviour
-{
-    public float currentTimeInt = 0;
-    public TMP_Text currentTime;
-
+public class TimeScript : MonoBehaviour {
+    public float timeRemaining = 0;
+    public bool timeIsRunning;
+    public TMP_Text textTime;
+   
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        this.timeIsRunning = true;
     }
 
     void Update()
     {
-        currentTimeInt += Time.deltaTime;
-        currentTime.SetText(currentTimeInt.ToString("0.00"));
+        if (this.timeIsRunning) {
+            if (this.timeRemaining >= 0) {
+                this.timeRemaining += Time.deltaTime;
+                DisplayTime(this.timeRemaining);
+            }
+        }
+    }
+
+    void DisplayTime(float timeToDisplay) {
+        timeToDisplay += 1;
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        this.textTime.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+    }
+
+    public void ResetTime() {
+        this.timeRemaining = 0;
     }
 }
 
