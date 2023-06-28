@@ -121,6 +121,8 @@ AudioMixerController:
     name: Music Volume
   - guid: 435af428286c59747946c960ba2ca0ea
     name: SFX Volume
+  - guid: 1078b5adf04fcec429012198630a04a3
+    name: Voice Volume
   m_AudioMixerGroupViews:
   - guids:
     - 4dc7630ca8085de428bc8d144ddd57c3
