@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class BuildingManager : MonoBehaviour
     public GameObject pendingObject;
 
     private Vector3 pos;
+
+    [FormerlySerializedAs("obj")]
+    [Header("Deletus McFeetus")] 
+    [SerializeField] public GameObject turretObj;
 
     [Header("Materials and Layers")]
     [SerializeField] private Material[] materials;
@@ -24,11 +29,17 @@ public class BuildingManager : MonoBehaviour
     public bool isPlacementMode = false;
 
     public static TowerBehaviour towerReference;
-    
+    [SerializeField] private GameObject placeParticle;
+    Selection selector;
+    private void Start()
+    {
+        selector = FindObjectOfType<Selection>();
+    }
     void Update()
     {
-        if (pendingObject != null)
-        {
+        if (pendingObject != null) {
+            this.pendingObject.transform.parent = this.turretObj.transform;
+            
             pendingObject.transform.position = pos;
             if (pendingObject.GetComponent<TowerAttacking>() == true)
             {
@@ -38,6 +49,8 @@ public class BuildingManager : MonoBehaviour
             {
                 pendingObject.GetComponent<MMMTower>().isBeingPlaced = true;
             }
+            selector.previousPending = pendingObject;
+            selector.timeSincePlace = 0;
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
                 if (pendingObject.GetComponent<TowerAttacking>() == true)
@@ -72,6 +85,7 @@ public class BuildingManager : MonoBehaviour
     {
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
         pendingObject = null;
         isPlacementMode = false;
     }
