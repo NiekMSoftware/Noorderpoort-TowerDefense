@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
-  deathSound: {fileID: 8300000, guid: 729ff0b07449ed641871c62a511a6a4d, type: 3}
+  deathSound: {fileID: 8300000, guid: 10e8fa9e709af7246aa474715bc620ae, type: 3}
 --- !u!114 &3613241119594019918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ AudioSource:
   m_GameObject: {fileID: 2469613145040789221}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4303032591972276165, guid: 543dd26f08d666a43a350c8296ff916b,
+  OutputAudioMixerGroup: {fileID: -2875408770036705032, guid: 543dd26f08d666a43a350c8296ff916b,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0

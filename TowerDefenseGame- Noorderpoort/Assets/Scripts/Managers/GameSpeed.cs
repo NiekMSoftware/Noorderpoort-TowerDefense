@@ -11,7 +11,8 @@ public class GameSpeed : MonoBehaviour
     [SerializeField] Color inactiveColor;
     void Start()
     {
-
+        button1x.GetComponent<Image>().color = activeColor;
+        button2x.GetComponent<Image>().color = inactiveColor;
     }
 
     // Update is called once per frame
