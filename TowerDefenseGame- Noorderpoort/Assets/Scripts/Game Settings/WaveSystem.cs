@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
@@ -65,9 +66,12 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private Transform destination;
     bool activatedTimer;
+
+    [SerializeField] TMP_Text text;
      
-    void Start()
-    {
+    void Start() {
+        text = GameObject.Find("WaveText").GetComponent<TMP_Text>();
+        
         bits = FindObjectOfType<Bitscript>();
          
         ChanceCalculator();
@@ -154,8 +158,8 @@ public class WaveSystem : MonoBehaviour
             }
         }
     }
-    public void roundStart()
-    {
+    public void roundStart() {
+        this.text.text = "Wave: " + (this.wavesEnded + 1).ToString();
         try
         {
             int e = (int)(wavesEnded / wavesPerBoss);

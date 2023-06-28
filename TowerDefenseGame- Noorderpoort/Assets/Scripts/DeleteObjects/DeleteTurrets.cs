@@ -7,7 +7,8 @@ public class DeleteTurrets : MonoBehaviour {
     [SerializeField] GameObject obj;
 
     [SerializeField] GameObject mainMenu;
-    GameObject destination;
+    GameObject destinationL1;
+    GameObject destinationL2;
 
     bool removedKids;
 
@@ -42,9 +43,13 @@ public class DeleteTurrets : MonoBehaviour {
     }
 
     // Remove the destination and spawner
-    void RemoveLife() {
-        destination = GameObject.Find("Level 1(Clone)");
-        Destroy(this.destination);
+    public void RemoveLife() {
+        this.destinationL1 = GameObject.Find("Level 1(Clone)");
+        this.destinationL2 = GameObject.Find("Level 2(Clone)");
+        Destroy(this.destinationL1);
+        Destroy(this.destinationL2);
+        
+        print($"removed {this.destinationL2}");
     }
 
     // Reset the money and health
