@@ -9,16 +9,13 @@ public class GameSpeed : MonoBehaviour
     [SerializeField] GameObject button1x;
     [SerializeField] Color activeColor;
     [SerializeField] Color inactiveColor;
+    
+    public bool oneTimeSpeed = true;
+    public bool twoTimeSpeed;
     void Start()
     {
         button1x.GetComponent<Image>().color = activeColor;
         button2x.GetComponent<Image>().color = inactiveColor;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ChangeSpeed(float amount)
@@ -28,11 +25,17 @@ public class GameSpeed : MonoBehaviour
         {
             button2x.GetComponent<Image>().color = activeColor;
             button1x.GetComponent<Image>().color = inactiveColor;
+
+            this.oneTimeSpeed = false;
+            this.twoTimeSpeed = true;
         }
         else if (amount == 1)
         {
             button1x.GetComponent<Image>().color = activeColor;
             button2x.GetComponent<Image>().color = inactiveColor;
+
+            this.twoTimeSpeed = false;
+            this.oneTimeSpeed = true;
         }
     }
 }

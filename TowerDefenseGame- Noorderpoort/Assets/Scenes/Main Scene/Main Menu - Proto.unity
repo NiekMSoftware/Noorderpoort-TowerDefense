@@ -15384,6 +15384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausescreen: {fileID: 0}
+  gameSpeed: {fileID: 0}
 --- !u!1 &1049870757
 GameObject:
   m_ObjectHideFlags: 0
@@ -16695,6 +16696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausescreen: {fileID: 1977997970}
+  gameSpeed: {fileID: 1755078895}
 --- !u!1 &1128995835
 GameObject:
   m_ObjectHideFlags: 0
@@ -27970,6 +27972,8 @@ MonoBehaviour:
   button1x: {fileID: 1622359722}
   activeColor: {r: 0.4660377, g: 1, b: 0.7999136, a: 1}
   inactiveColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+  oneTimeSpeed: 0
+  twoTimeSpeed: 0
 --- !u!1 &1767323196
 GameObject:
   m_ObjectHideFlags: 0

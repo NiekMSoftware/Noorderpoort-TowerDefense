@@ -7,6 +7,8 @@ public class PauseClass : MonoBehaviour
 {
     public GameObject pausescreen;
 
+    public GameSpeed gameSpeed;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,7 +26,13 @@ public class PauseClass : MonoBehaviour
 
     public void ResumeGame()
     {
-        pausescreen.SetActive(false); 
-        Time.timeScale = 1f;
+        pausescreen.SetActive(false);
+
+        if (this.gameSpeed.twoTimeSpeed) {
+            Time.timeScale = 2f;
+        }
+        else {
+            Time.timeScale = 1f;
+        }
     }
 }
