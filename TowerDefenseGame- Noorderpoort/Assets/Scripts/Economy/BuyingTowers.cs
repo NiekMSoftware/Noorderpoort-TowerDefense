@@ -21,8 +21,8 @@ public class BuyingTowers : MonoBehaviour
         buildingManager = FindObjectOfType<BuildingManager>();
     }
     
-    public void Tower(int number)
-    {
+    public void Tower(int number) {
+        print("Fucking Work, Joe");
         tower = number;
     }
     
