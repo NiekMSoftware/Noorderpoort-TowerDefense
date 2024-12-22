@@ -34,8 +34,10 @@ public class Healthscript : MonoBehaviour
         {
             if (ended == false)
             {
-                NormalHealth.SetActive(false);
-                ZeroHealth.SetActive(true);
+                HealthIndex = 0;
+                HealthAmount.text = HealthIndex.ToString();
+                //NormalHealth.SetActive(false);
+                //ZeroHealth.SetActive(true);
                 ended = true;
                 FindObjectOfType<SaveData>().SaveInt(FindObjectOfType<WaveSystem>().wavesEnded, "waves");
                 FindObjectOfType<EndGame>().BlueScreen();
@@ -44,7 +46,7 @@ public class Healthscript : MonoBehaviour
         else
         {
             NormalHealth.SetActive(true);
-            ZeroHealth.SetActive(false);
+            //ZeroHealth.SetActive(false);
         }
 
         //If the HealthIndex goes below 0 it will give a error so im only allowing it to function if it is larger or equal to 0

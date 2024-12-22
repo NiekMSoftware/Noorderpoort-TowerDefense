@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameSpeed : MonoBehaviour
 {
-    [SerializeField]GameObject button2x;
+    [SerializeField]
+    Image[] buttons;
+    [SerializeField] GameObject button2x;
     [SerializeField] GameObject button1x;
     [SerializeField] Color activeColor;
     [SerializeField] Color inactiveColor;
