@@ -9,6 +9,8 @@ public class PauseClass : MonoBehaviour
 
     public GameSpeed gameSpeed;
 
+    private float prevTimeSpeed = 1;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -20,19 +22,14 @@ public class PauseClass : MonoBehaviour
 
     public void PauseGame()
     {
-       pausescreen.SetActive(true);
-       Time.timeScale = 0f; 
+        pausescreen.SetActive(true);
+        prevTimeSpeed = Time.timeScale;
+        Time.timeScale = 0f; 
     }
 
     public void ResumeGame()
     {
         pausescreen.SetActive(false);
-
-        if (this.gameSpeed.twoTimeSpeed) {
-            Time.timeScale = 2f;
-        }
-        else {
-            Time.timeScale = 1f;
-        }
+        Time.timeScale = prevTimeSpeed;
     }
 }

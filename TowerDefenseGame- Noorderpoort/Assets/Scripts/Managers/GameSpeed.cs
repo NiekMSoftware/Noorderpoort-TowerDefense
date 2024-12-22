@@ -2,43 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class GameSpeed : MonoBehaviour
 {
     [SerializeField]
     Image[] buttons;
-    [SerializeField] GameObject button2x;
-    [SerializeField] GameObject button1x;
     [SerializeField] Color activeColor;
     [SerializeField] Color inactiveColor;
-    
-    public bool oneTimeSpeed = true;
-    public bool twoTimeSpeed;
     void Start()
     {
-        button1x.GetComponent<Image>().color = activeColor;
-        button2x.GetComponent<Image>().color = inactiveColor;
+        foreach(var button in buttons)
+        {
+            button.color = inactiveColor;
+        }
+        buttons[0].color = activeColor;
     }
 
     public void ChangeSpeed(float amount)
     {
         Time.timeScale = amount;
-        if (amount == 2)
+        foreach (var button in buttons)
         {
-            button2x.GetComponent<Image>().color = activeColor;
-            button1x.GetComponent<Image>().color = inactiveColor;
-
-            this.oneTimeSpeed = false;
-            this.twoTimeSpeed = true;
+            button.color = inactiveColor;
         }
-        else if (amount == 1)
-        {
-            button1x.GetComponent<Image>().color = activeColor;
-            button2x.GetComponent<Image>().color = inactiveColor;
 
-            this.twoTimeSpeed = false;
-            this.oneTimeSpeed = true;
+        //This could 100% be made better but im too lazy
+        switch (amount)
+        {
+            case 1:
+                buttons[0].color = activeColor;
+                break;
+            case 2:
+                buttons[1].color = activeColor;
+                break;
+            case 5:
+                buttons[2].color = activeColor;
+                break;
         }
     }
 }

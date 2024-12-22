@@ -2111,6 +2111,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 126247432}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &134936797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134936799}
+  - component: {fileID: 134936798}
+  m_Layer: 0
+  m_Name: GameSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &134936798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134936797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b773f13204fad3f4982af800418efa9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1622359725}
+  - {fileID: 1203188187}
+  - {fileID: 1572257461}
+  activeColor: {r: 0.4660377, g: 1, b: 0.7999136, a: 1}
+  inactiveColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+--- !u!4 &134936799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134936797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 209186145}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &136669608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,6 +3741,7 @@ Transform:
   - {fileID: 962327739}
   - {fileID: 1630097556}
   - {fileID: 348519755}
+  - {fileID: 134936799}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12344,7 +12395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &853539494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14401,7 +14452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &985311055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18463,7 +18514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1755078895}
+      - m_Target: {fileID: 134936798}
         m_TargetAssemblyTypeName: GameSpeed, Assembly-CSharp
         m_MethodName: ChangeSpeed
         m_Mode: 4
@@ -24548,7 +24599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1755078895}
+      - m_Target: {fileID: 134936798}
         m_TargetAssemblyTypeName: GameSpeed, Assembly-CSharp
         m_MethodName: ChangeSpeed
         m_Mode: 4
@@ -25645,7 +25696,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1755078895}
+      - m_Target: {fileID: 134936798}
         m_TargetAssemblyTypeName: GameSpeed, Assembly-CSharp
         m_MethodName: ChangeSpeed
         m_Mode: 4
@@ -27487,7 +27538,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755078894}
-  - component: {fileID: 1755078895}
   m_Layer: 5
   m_Name: Speed Changer
   m_TagString: Untagged
@@ -27518,25 +27568,6 @@ RectTransform:
   m_AnchoredPosition: {x: -361, y: 150}
   m_SizeDelta: {x: 89.61249, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1755078895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755078893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b773f13204fad3f4982af800418efa9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
-  button2x: {fileID: 1203188185}
-  button1x: {fileID: 1622359722}
-  activeColor: {r: 0.4660377, g: 1, b: 0.7999136, a: 1}
-  inactiveColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  oneTimeSpeed: 0
-  twoTimeSpeed: 0
 --- !u!1 &1767323196
 GameObject:
   m_ObjectHideFlags: 0
