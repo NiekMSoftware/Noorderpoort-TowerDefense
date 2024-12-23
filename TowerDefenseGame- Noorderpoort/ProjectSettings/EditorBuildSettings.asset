@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Scene/Main Menu - Proto.unity
+    path: Assets/Scenes/Main Scene/MainScene.unity
     guid: d702b633f4b6211468d5a9273caaefef
   - enabled: 1
     path: Assets/Scenes/Main Scene/GameOver.unity
