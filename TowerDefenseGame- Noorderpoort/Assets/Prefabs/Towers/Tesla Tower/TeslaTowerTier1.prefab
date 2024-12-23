@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   timeStunned: 5
-  damage: 100
+  damage: 75
   fireRate: 8
   projectileSpeed: 1
   range: 15

@@ -241,9 +241,9 @@ MonoBehaviour:
   health: 100
   timeStunned: 5
   damage: 150
-  fireRate: 5
+  fireRate: 6
   projectileSpeed: 1.5
-  range: 20
+  range: 22
   firePoint: {fileID: 3633331542570034091}
   multipleFirepoints: 1
   allFirePoints:
