@@ -102,6 +102,13 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(int index)
     {
+        
+        foreach (Collider coll in towerTriggers)
+        {
+            coll.gameObject.GetComponent<RangeScript>().ShowRange(false);
+            selector.selectedObject = coll.gameObject;
+            selector.DeSelect();
+        }
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
         towerReference = pendingObject.GetComponent<TowerBehaviour>();
         isPlacementMode = true;

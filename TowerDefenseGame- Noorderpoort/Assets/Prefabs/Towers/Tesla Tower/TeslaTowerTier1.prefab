@@ -5113,6 +5113,8 @@ MonoBehaviour:
   range: 0
   enemyList: []
   towerAttack: {fileID: 0}
+  rangeCircle: {fileID: 2446392667677503648, guid: e7bed501e1be0854ea74d65b02570b75,
+    type: 3}
 --- !u!82 &1741847700913879494
 AudioSource:
   m_ObjectHideFlags: 0

@@ -63,6 +63,9 @@ public class Selection : MonoBehaviour
             DeSelect();
 
         Outline outline = obj.GetComponent<Outline>();
+
+        print("HIIII");
+        obj.GetComponent<RangeScript>().ShowRange();
         
         //Check if the object needs an outline
         if (outline == null)
@@ -75,8 +78,11 @@ public class Selection : MonoBehaviour
 
     public void DeSelect()
     {
+        if(selectedObject == null) return;
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;
+        selectedObject.GetComponent<RangeScript>().ShowRange(false);
+        print("BYEEEEE" + selectedObject.name);
         selectedObject = null;
     }
 }

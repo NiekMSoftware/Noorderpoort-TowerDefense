@@ -22,7 +22,6 @@ public class BuyingTowers : MonoBehaviour
     }
     
     public void Tower(int number) {
-        print("Fucking Work, Joe");
         tower = number;
     }
     
@@ -34,6 +33,7 @@ public class BuyingTowers : MonoBehaviour
             {
                 bitscript.BitIndex -= cost;
                 buildingManager.SelectObject(tower);
+                selection.DeSelect();
             }
         }
     }
