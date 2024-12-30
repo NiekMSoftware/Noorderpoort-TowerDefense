@@ -23,7 +23,7 @@ public class PauseClass : MonoBehaviour
     public void PauseGame()
     {
         pausescreen.SetActive(true);
-        prevTimeSpeed = Time.timeScale;
+        if(Time.timeScale != 0) prevTimeSpeed = Time.timeScale;
         Time.timeScale = 0f; 
     }
 
