@@ -22,9 +22,16 @@ public class PauseClass : MonoBehaviour
 
     public void PauseGame()
     {
-        pausescreen.SetActive(true);
-        if(Time.timeScale != 0) prevTimeSpeed = Time.timeScale;
-        Time.timeScale = 0f; 
+        if (Time.timeScale != 0) 
+        {
+            prevTimeSpeed = Time.timeScale;
+            pausescreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            ResumeGame();
+        }
     }
 
     public void ResumeGame()
