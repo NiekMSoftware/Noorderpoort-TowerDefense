@@ -54,7 +54,7 @@ public class DeleteTurrets : MonoBehaviour {
 
     // Reset the money and health
     void ResetStuff() {
-        this._bitscript.BitIndex = this._bitscript.starterMoney;
+        this._bitscript.bitIndex = this._bitscript.starterMoney;
         this._healthscript.HealthIndex = 11;
     }
 }

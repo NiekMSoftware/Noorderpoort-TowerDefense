@@ -5,69 +5,66 @@ using TMPro;
 
 public class Bitscript : MonoBehaviour
 {
-    public float BitIndex;
-    public float DiscountAmount = 10f; // In total percentage
-    public float MultiplierAmount = 0; // Multiplier
+    public float bitIndex;
+    public float discountAmount = 0f; // In total percentage
+    public float multiplierAmount = 0; // Multiplier
     public float starterMoney = 100;
-    public TMP_Text Bitsamount;
+    public TMP_Text bitsText;
 
     [SerializeField] private
-    float MaxDiscountAmount = 30f; // Discount cap
+    float maxDiscountAmount = 30f;
 
     [SerializeField] private
-    float MaxMultiplierAmount = 5f; // Discount cap
+    float maxMultiplierAmount = 5f;
 
-    private bool IsDiscountActive = false; // The state of the Discount
+    private bool isDiscountActive = true; // The state of the Discount
 
     //UI doesnt work for me - Rudo
     void Start()
     {
-        BitIndex = starterMoney;
+        bitIndex = starterMoney;
     }
 
     private void FixedUpdate()
     {
-        Bitsamount.text = BitIndex.ToString();
+        bitsText.text = bitIndex.ToString();
     }
 
     public void SetDiscountActivity(bool state) // Set the status of the discount
     {
-        IsDiscountActive = state;
-        if (state == false)
-        {
-            DiscountAmount = 0f;
-        }
+        isDiscountActive = state;
+        if (state == false) discountAmount = 0f;
     }
     public void AddDiscount(float amount)
     {
-        DiscountAmount = Mathf.Clamp(DiscountAmount + amount, 0f, MaxDiscountAmount);
+        discountAmount = Mathf.Clamp(discountAmount + amount, 0f, maxDiscountAmount);
     }
     public void RemoveDiscount(float amount)
     {
-        DiscountAmount = Mathf.Clamp(DiscountAmount - amount, 0f, MaxDiscountAmount);
+        discountAmount = Mathf.Clamp(discountAmount - amount, 0f, maxDiscountAmount);
     }
 
     public void AddMultiplier(float amount)
     {
-        MultiplierAmount = Mathf.Clamp(MultiplierAmount + amount, 0f, MaxMultiplierAmount);
+        multiplierAmount = Mathf.Clamp(multiplierAmount + amount, 0f, maxMultiplierAmount);
     }
     public void RemoveMultiplier(float amount)
     {
-        MultiplierAmount = Mathf.Clamp(MultiplierAmount - amount, 0f, MaxMultiplierAmount);
+        multiplierAmount = Mathf.Clamp(multiplierAmount - amount, 0f, maxMultiplierAmount);
     }
 
     public bool RemoveBits(float amount)
     {
-        if ((BitIndex - amount) > -1f)
+        if ((bitIndex - amount) > -1f)
         {
-            if (IsDiscountActive)
+            if (isDiscountActive)
             {
-                float discountedAmount = amount * (DiscountAmount / 100);
-                BitIndex -= (amount - discountedAmount);
+                float discountedAmount = amount * (discountAmount / 100);
+                bitIndex -= (amount - discountedAmount);
             }
             else
             {
-                BitIndex -= amount;
+                bitIndex -= amount;
             }
             return true;
         }
@@ -79,13 +76,13 @@ public class Bitscript : MonoBehaviour
 
     public void AddBits(float amount)
     {
-        if (MultiplierAmount > 1f)
+        if (multiplierAmount > 1f)
         {
-            BitIndex = (BitIndex + amount) * MultiplierAmount;
+            bitIndex += amount * multiplierAmount;
         }
         else
         {
-            BitIndex = BitIndex + amount;
+            bitIndex = bitIndex + amount;
         }
     }
 }

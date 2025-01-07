@@ -42,19 +42,17 @@ public class UpgradeTower : MonoBehaviour
 
     public void Upgrade()
     {
-        
-        
         GameObject tower = _selection.selectedObject;
 
         if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
         {
-            if (tower.GetComponent<MMMTower>().upgrade1 && bits.BitIndex >= MMMUpgradeCost[0])
+            if (tower.GetComponent<MMMTower>().upgrade1 && bits.bitIndex >= MMMUpgradeCost[0])
             {
                 tower.GetComponent<MMMTower>().upgrade1 = false;
                 tower.GetComponent<MMMTower>().upgrade2 = true;
                 bits.RemoveBits(MMMUpgradeCost[0]);
             }
-            else if (tower.GetComponent<MMMTower>().upgrade2 && bits.BitIndex >= MMMUpgradeCost[1])
+            else if (tower.GetComponent<MMMTower>().upgrade2 && bits.bitIndex >= MMMUpgradeCost[1])
             {
                 tower.GetComponent<MMMTower>().upgrade2 = false;
                 tower.GetComponent<MMMTower>().upgrade3 = true;
@@ -66,7 +64,7 @@ public class UpgradeTower : MonoBehaviour
         {
             if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Tesla)
             {
-                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0 && bits.BitIndex >= teslaUpgradeCost[0])
+                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0 && bits.bitIndex >= teslaUpgradeCost[0])
                 {
                     bool bought = bits.RemoveBits(teslaUpgradeCost[0]);
                     if (bought)
@@ -80,7 +78,7 @@ public class UpgradeTower : MonoBehaviour
                         Destroy(tower);
                     }
                 }
-                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= teslaUpgradeCost[1])
+                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.bitIndex >= teslaUpgradeCost[1])
                 {
                     bool bought = bits.RemoveBits(teslaUpgradeCost[1]);
                     if (bought)
@@ -97,7 +95,7 @@ public class UpgradeTower : MonoBehaviour
             }
             if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.Turret)
             {
-                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0&& bits.BitIndex >= turretUpgradeCost[0])
+                if (tower.GetComponent<CheckPlacement>().towerUpgrade == 0&& bits.bitIndex >= turretUpgradeCost[0])
                 {
                     bool bought = bits.RemoveBits(turretUpgradeCost[0]);
                     if (bought)
@@ -111,7 +109,7 @@ public class UpgradeTower : MonoBehaviour
                         Destroy(tower);
                     }
                 }
-                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.BitIndex >= turretUpgradeCost[1])
+                else if (tower.GetComponent<CheckPlacement>().towerUpgrade == 1&& bits.bitIndex >= turretUpgradeCost[1])
                 {
                     bool bought = bits.RemoveBits(turretUpgradeCost[1]);
                     if (bought)

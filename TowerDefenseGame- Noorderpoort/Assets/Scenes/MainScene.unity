@@ -41411,6 +41411,11 @@ PrefabInstance:
       objectReference: {fileID: 387646611}
     - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
+      propertyPath: bitsText
+      value: 
+      objectReference: {fileID: 1696103437}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
       propertyPath: Bitsamount
       value: 
       objectReference: {fileID: 1696103437}
@@ -41418,6 +41423,21 @@ PrefabInstance:
         type: 3}
       propertyPath: starterMoney
       value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: DiscountAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: MultiplierAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: maxDiscountAmount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794298, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
