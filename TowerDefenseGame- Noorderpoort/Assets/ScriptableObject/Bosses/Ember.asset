@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc1b4793779644ebc11c994f4f0659, type: 3}
   m_Name: Ember
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  health: 0
-  speed: 0
-  bitsOnDeath: 0
+  prefab: {fileID: 2426788982346890863, guid: 86f222d405320ca44ab6ff9c1bf1735e, type: 3}
+  health: 600
+  speed: 2
+  bitsOnDeath: 350
   startSpawnWave: 0
   endSpawnWave: 0
   minSpawnChance: 0

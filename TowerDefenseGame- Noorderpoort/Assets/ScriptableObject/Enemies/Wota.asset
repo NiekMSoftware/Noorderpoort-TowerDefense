@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc1b4793779644ebc11c994f4f0659, type: 3}
   m_Name: Wota
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  health: 0
-  speed: 0
-  bitsOnDeath: 0
-  startSpawnWave: 0
-  endSpawnWave: 0
-  minSpawnChance: 0
-  maxSpawnChance: 0
+  prefab: {fileID: 2426788982346890863, guid: b10f968a26595cc4fa17d6e43fbff73f, type: 3}
+  health: 75
+  speed: 8
+  bitsOnDeath: 15
+  startSpawnWave: 5
+  endSpawnWave: 15
+  minSpawnChance: 5
+  maxSpawnChance: 20

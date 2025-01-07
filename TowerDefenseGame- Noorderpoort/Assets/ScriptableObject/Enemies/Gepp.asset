@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc1b4793779644ebc11c994f4f0659, type: 3}
   m_Name: Gepp
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  health: 0
-  speed: 0
-  bitsOnDeath: 0
+  prefab: {fileID: 7907300184443768562, guid: 4655b056166f59d4f8ef1d67e06c61c1, type: 3}
+  health: 100
+  speed: 5
+  bitsOnDeath: 25
   startSpawnWave: 0
   endSpawnWave: 0
   minSpawnChance: 0
