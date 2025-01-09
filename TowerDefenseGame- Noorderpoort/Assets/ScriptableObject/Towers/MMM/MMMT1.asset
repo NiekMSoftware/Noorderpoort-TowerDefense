@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd451e5d72a5c04b8b140ad2786acbd, type: 3}
   m_Name: MMMT1
   m_EditorClassIdentifier: 
+  towerName: Money Making Machine
+  towerIcon: {fileID: 21300000, guid: e0b9a6ba582ae244b9de4bec9e2a1643, type: 3}
+  currentTier: 1
+  maxTier: 3
   canUpgrade: 1
   isOffensive: 0
   upgradeScriptable: {fileID: 11400000, guid: 0d50d4329e0c5044c9c454c5b9c3b657, type: 2}
   prefab: {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
-  cost: 0
+  cost: 100
   sellValue: 0
   damage: 0
   firerate: 0

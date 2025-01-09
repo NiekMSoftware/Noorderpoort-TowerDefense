@@ -6,6 +6,10 @@ using UnityEngine;
 public class TowerScriptable : ScriptableObject
 {
     [Header("General")]
+    public string towerName;
+    public Sprite towerIcon;
+    public int currentTier;
+    public int maxTier;
     public bool canUpgrade;
     public bool isOffensive;
     public TowerScriptable upgradeScriptable;

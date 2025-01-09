@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd451e5d72a5c04b8b140ad2786acbd, type: 3}
   m_Name: TurretT3
   m_EditorClassIdentifier: 
+  towerName: Turret
+  towerIcon: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  currentTier: 3
+  maxTier: 3
   canUpgrade: 0
   isOffensive: 1
   upgradeScriptable: {fileID: 0}
@@ -23,3 +27,4 @@ MonoBehaviour:
   range: 15
   projectileSpeed: 3
   moneyPerWave: 0
+  discount: 0
