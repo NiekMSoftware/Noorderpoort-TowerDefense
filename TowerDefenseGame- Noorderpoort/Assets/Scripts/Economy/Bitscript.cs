@@ -61,7 +61,7 @@ public class Bitscript : MonoBehaviour
         {
             if (isDiscountActive)
             {
-                bitIndex -= (amount - discountedAmount);
+                bitIndex -= (amount - (int)(discountedAmount));
             }
             else
             {

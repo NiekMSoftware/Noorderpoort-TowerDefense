@@ -23,4 +23,5 @@ public class TowerScriptable : ScriptableObject
 
     [Header("Defensive stats")]
     public int moneyPerWave;
+    public float discount;
 }
