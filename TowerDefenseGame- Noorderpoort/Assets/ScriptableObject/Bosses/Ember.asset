@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ember
   m_EditorClassIdentifier: 
   prefab: {fileID: 2426788982346890863, guid: 86f222d405320ca44ab6ff9c1bf1735e, type: 3}
-  health: 600
+  health: 750
   speed: 2
   bitsOnDeath: 350
   startSpawnWave: 0

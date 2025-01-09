@@ -42,6 +42,9 @@ public class EnemyAttacking : MonoBehaviour
         if (MTInRange && CanAttack)
         {
             mainTowerHealth.HealthIndex -= stats.damage;
+
+            GetComponent<EnemyHP>().takeDamage(9999999999999999);
+            
             StartCoroutine(AttackCooldown());
         }
     }
