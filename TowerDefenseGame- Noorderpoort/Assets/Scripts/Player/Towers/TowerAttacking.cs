@@ -146,6 +146,7 @@ public class TowerAttacking : GeneralTowerScript
         projectileSpeed = stats.projectileSpeed;
         rangeScript.range = stats.range;
         rangeScript.ShowRange();
+        sellValue = stats.sellValue;
         towerStats = stats;
     }
 }

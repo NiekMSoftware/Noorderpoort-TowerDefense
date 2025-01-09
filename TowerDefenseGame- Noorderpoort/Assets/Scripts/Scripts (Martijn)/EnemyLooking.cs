@@ -12,7 +12,8 @@ public class EnemyLooking : MonoBehaviour
     {
         if (lookingAtBase)
         {
-            gameObject.transform.LookAt(Base);
+            transform.LookAt(Base);
+            //transform.rotation = new Quaternion(transform.localEulerAngles.x, 180, transform.localEulerAngles.z,0);
         }
         //maakt zodat de enemy naar de gameObject (DefensePoint) kijkt
     }

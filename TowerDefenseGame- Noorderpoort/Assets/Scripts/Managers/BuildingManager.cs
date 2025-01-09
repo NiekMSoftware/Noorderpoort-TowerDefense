@@ -11,6 +11,7 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject[] objects;
     public GameObject pendingObject;
+    private MeshRenderer pendingObjRenderer;
 
     private Vector3 pos;
 
@@ -31,6 +32,8 @@ public class BuildingManager : MonoBehaviour
     public static TowerBehaviour towerReference;
     [SerializeField] private GameObject placeParticle;
     Selection selector;
+
+    private Material originalMat; 
     private void Start()
     {
         selector = FindObjectOfType<Selection>();
@@ -41,26 +44,12 @@ public class BuildingManager : MonoBehaviour
             this.pendingObject.transform.parent = this.turretObj.transform;
             
             pendingObject.transform.position = pos;
-            if (pendingObject.GetComponent<TowerAttacking>() == true)
-            {
-                pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = true;
-            }
-            if (pendingObject.GetComponent<MMMTower>() == true)
-            {
-                pendingObject.GetComponent<MMMTower>().isBeingPlaced = true;
-            }
+            pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = true;
             selector.previousPending = pendingObject;
             selector.timeSincePlace = 0;
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
-                if (pendingObject.GetComponent<TowerAttacking>() == true)
-                {
-                    pendingObject.GetComponent<TowerAttacking>().isBeingPlaced = false;
-                }
-                if (pendingObject.GetComponent<MMMTower>() == true)
-                {
-                    pendingObject.GetComponent<MMMTower>().isBeingPlaced = false;
-                }
+                pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = false;
                 PlaceObject();
             }
         }
@@ -72,12 +61,12 @@ public class BuildingManager : MonoBehaviour
     {
         if (canPlace && pendingObject != null)
         {
-            pendingObject.GetComponent<MeshRenderer>().material = materials[0];
+            pendingObjRenderer.GetComponent<MeshRenderer>().material = materials[0];
         }
 
         if (!canPlace)
         {
-            pendingObject.GetComponent<MeshRenderer>().material = materials[1];
+            pendingObjRenderer.GetComponent<MeshRenderer>().material = materials[1];
         }
     }
 
@@ -85,16 +74,18 @@ public class BuildingManager : MonoBehaviour
     {
         foreach (Collider coll in towerTriggers)
         {
-            if (coll != null)
+            if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
             {
                 coll.gameObject.GetComponent<RangeScript>().ShowRange(false);
             }
         }
-        pendingObject.GetComponent<MeshRenderer>().material = materials[2];
+        pendingObjRenderer.GetComponent<MeshRenderer>().material = originalMat;
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        print(selector.name);
         selector.Select(pendingObject);
         Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
         pendingObject = null;
+        pendingObjRenderer = null;
         isPlacementMode = false;
     }
 
@@ -113,7 +104,7 @@ public class BuildingManager : MonoBehaviour
         
         foreach (Collider coll in towerTriggers)
         {
-            if(coll != null)
+            if(coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
             {
                 coll.gameObject.GetComponent<RangeScript>().ShowRange(true);
                 selector.selectedObject = coll.gameObject;
@@ -122,7 +113,9 @@ public class BuildingManager : MonoBehaviour
         }
         pendingObject = Instantiate(tower.prefab, pos, transform.rotation);
         towerReference = pendingObject.GetComponent<TowerBehaviour>();
-        pendingObject.GetComponent<TowerAttacking>().SetStats(tower);
+        pendingObject.GetComponent<GeneralTowerScript>().SetStats(tower);
+        pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
+        originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;
         isPlacementMode = true;
     }
 }

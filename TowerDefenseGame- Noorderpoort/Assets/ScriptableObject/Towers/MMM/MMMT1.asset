@@ -15,10 +15,11 @@ MonoBehaviour:
   canUpgrade: 1
   isOffensive: 0
   upgradeScriptable: {fileID: 11400000, guid: 0d50d4329e0c5044c9c454c5b9c3b657, type: 2}
+  prefab: {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
   cost: 100
   sellValue: 0
   damage: 0
   firerate: 0
   range: 0
   projectileSpeed: 0
-  moneyPerWave: 0
+  moneyPerWave: 25
