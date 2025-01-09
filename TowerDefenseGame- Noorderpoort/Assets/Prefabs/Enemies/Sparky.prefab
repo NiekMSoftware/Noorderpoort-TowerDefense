@@ -203,7 +203,7 @@ MonoBehaviour:
   health: 500
   damage: 1
   speed: 9
-  bitsOnDeath: 0
+  bitsOnDeath: 250
 --- !u!114 &3246342422853924032
 MonoBehaviour:
   m_ObjectHideFlags: 0

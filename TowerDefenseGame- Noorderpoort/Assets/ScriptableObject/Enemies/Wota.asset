@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 2426788982346890863, guid: b10f968a26595cc4fa17d6e43fbff73f, type: 3}
   health: 75
   speed: 8
-  bitsOnDeath: 15
+  bitsOnDeath: 25
   startSpawnWave: 5
   endSpawnWave: 15
   minSpawnChance: 5
