@@ -41409,13 +41409,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
+      propertyPath: discountAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
       propertyPath: MultiplierAmount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
       propertyPath: maxDiscountAmount
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794298, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}

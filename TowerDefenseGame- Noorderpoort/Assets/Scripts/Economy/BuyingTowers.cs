@@ -22,9 +22,8 @@ public class BuyingTowers : MonoBehaviour
     {
         if (buildingManager.pendingObject == null)
         {
-            if (bitscript.bitIndex >= tower.cost)
+            if (bitscript.RemoveBits(tower.cost))
             {
-                bitscript.RemoveBits(tower.cost);
                 buildingManager.SelectObject(tower);
                 selection.DeSelect();
             }
