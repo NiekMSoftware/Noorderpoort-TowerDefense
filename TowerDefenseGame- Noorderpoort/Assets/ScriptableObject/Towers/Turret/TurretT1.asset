@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd451e5d72a5c04b8b140ad2786acbd, type: 3}
+  m_Name: TurretT1
+  m_EditorClassIdentifier: 
+  canUpgrade: 1
+  isOffensive: 1
+  upgradeScriptable: {fileID: 11400000, guid: b1dab9a20727d7e46b609b61b37601e5, type: 2}
+  prefab: {fileID: 8325121091093890550, guid: fc7a01b14ab625b47b8597dc46e91e56, type: 3}
+  cost: 75
+  sellValue: 40
+  damage: 5
+  firerate: 0
+  range: 99
+  projectileSpeed: 2
+  moneyPerWave: 0

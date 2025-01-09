@@ -43,8 +43,25 @@ public class UpgradeTower : MonoBehaviour
     public void Upgrade()
     {
         GameObject tower = _selection.selectedObject;
+        GeneralTowerScript generalTowerScript = tower.GetComponent<GeneralTowerScript>();
 
-        if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
+        if (!generalTowerScript.isBeingPlaced && generalTowerScript.towerStats.canUpgrade)
+        {
+            if (bits.RemoveBits(generalTowerScript.towerStats.upgradeScriptable.cost))
+            {
+                GameObject newtower = Instantiate(generalTowerScript.towerStats.upgradeScriptable.prefab);
+                newtower.transform.position = tower.transform.position;
+
+                newtower.transform.parent = this.turretEmpty.transform;
+
+                newtower.GetComponent<GeneralTowerScript>().SetStats(generalTowerScript.towerStats.upgradeScriptable);
+
+                _selection.Select(newtower);
+                Destroy(tower);
+            }
+        }
+
+        /*if (tower.GetComponent<CheckPlacement>().towerType == CheckPlacement.allTowerTypes.MMM)
         {
             if (tower.GetComponent<MMMTower>().upgrade1 && bits.bitIndex >= MMMUpgradeCost[0])
             {
@@ -124,6 +141,6 @@ public class UpgradeTower : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 }

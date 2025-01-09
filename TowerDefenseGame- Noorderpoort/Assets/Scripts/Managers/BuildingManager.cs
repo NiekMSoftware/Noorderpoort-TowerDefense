@@ -83,8 +83,16 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObject()
     {
+        foreach (Collider coll in towerTriggers)
+        {
+            if (coll != null)
+            {
+                coll.gameObject.GetComponent<RangeScript>().ShowRange(false);
+            }
+        }
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        selector.Select(pendingObject);
         Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
         pendingObject = null;
         isPlacementMode = false;
@@ -100,17 +108,21 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    public void SelectObject(int index)
+    public void SelectObject(TowerScriptable tower)
     {
         
         foreach (Collider coll in towerTriggers)
         {
-            coll.gameObject.GetComponent<RangeScript>().ShowRange(false);
-            selector.selectedObject = coll.gameObject;
-            selector.DeSelect();
+            if(coll != null)
+            {
+                coll.gameObject.GetComponent<RangeScript>().ShowRange(true);
+                selector.selectedObject = coll.gameObject;
+                selector.DeSelect();
+            }
         }
-        pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        pendingObject = Instantiate(tower.prefab, pos, transform.rotation);
         towerReference = pendingObject.GetComponent<TowerBehaviour>();
+        pendingObject.GetComponent<TowerAttacking>().SetStats(tower);
         isPlacementMode = true;
     }
 }

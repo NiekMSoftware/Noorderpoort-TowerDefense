@@ -9,9 +9,6 @@ public class BuyingTowers : MonoBehaviour
     BuildingManager buildingManager;
     Selection selection;
     
-    //Insert tower
-    int tower = 0;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +18,13 @@ public class BuyingTowers : MonoBehaviour
         buildingManager = FindObjectOfType<BuildingManager>();
     }
     
-    public void Tower(int number) {
-        tower = number;
-    }
-    
-    public void BuyTower(int cost)
+    public void BuyTower(TowerScriptable tower)
     {
         if (buildingManager.pendingObject == null)
         {
-            if (bitscript.bitIndex >= cost)
+            if (bitscript.bitIndex >= tower.cost)
             {
-                bitscript.RemoveBits(cost);
+                bitscript.RemoveBits(tower.cost);
                 buildingManager.SelectObject(tower);
                 selection.DeSelect();
             }

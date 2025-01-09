@@ -9,6 +9,7 @@ public class TowerScriptable : ScriptableObject
     public bool canUpgrade;
     public bool isOffensive;
     public TowerScriptable upgradeScriptable;
+    public GameObject prefab;
 
     [Header("General Stats")]
     public int cost;

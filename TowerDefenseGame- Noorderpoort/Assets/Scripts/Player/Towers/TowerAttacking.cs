@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
-public class TowerAttacking : MonoBehaviour
+public class TowerAttacking : GeneralTowerScript
 {
     [Header("Health")]
     [SerializeField] private float health = 100;
@@ -19,7 +19,6 @@ public class TowerAttacking : MonoBehaviour
     [SerializeField] private float fireRate;
     [Space]
     [SerializeField] private float projectileSpeed;
-    [SerializeField] private float range;
     bool enemyInRange = false;
 
     [Header("Firepoints")]
@@ -42,14 +41,12 @@ public class TowerAttacking : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private RangeScript rangeScript;
     [SerializeField] private bool rotatesTowardsEnemies;
-    public bool isBeingPlaced = false;
     void Start()
     {
         if (audiosource != null)
         {
             audiosource.clip = attackSound;
         }
-        gameObject.GetComponent<RangeScript>().range = range;
         bulletEmpty = GameObject.Find("BulletEmpty");
         if (multipleFirepoints == true)
         {
@@ -139,5 +136,16 @@ public class TowerAttacking : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
             }
         }
+    }
+
+    public override void SetStats(TowerScriptable stats)
+    {
+        if(rangeScript == null) { rangeScript = gameObject.GetComponent<RangeScript>(); }
+        damage = stats.damage;
+        fireRate = stats.firerate;
+        projectileSpeed = stats.projectileSpeed;
+        rangeScript.range = stats.range;
+        rangeScript.ShowRange();
+        towerStats = stats;
     }
 }

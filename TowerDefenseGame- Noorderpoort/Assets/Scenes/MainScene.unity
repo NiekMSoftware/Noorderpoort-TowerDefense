@@ -8747,23 +8747,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 756782732}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
-        m_MethodName: Tower
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 756782732}
-        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: BuyTower
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 053255ac3f579ef428f3ff05afe3029f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TowerScriptable, Assembly-CSharp
           m_IntArgument: 75
           m_FloatArgument: 0
           m_StringArgument: 
@@ -21519,24 +21508,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 756782732}
         m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
-        m_MethodName: Tower
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 756782732}
-        m_TargetAssemblyTypeName: BuyingTowers, Assembly-CSharp
         m_MethodName: BuyTower
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 175
+          m_ObjectArgument: {fileID: 11400000, guid: 5965e66915c7e4447b8605b2917cf458,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TowerScriptable, Assembly-CSharp
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
