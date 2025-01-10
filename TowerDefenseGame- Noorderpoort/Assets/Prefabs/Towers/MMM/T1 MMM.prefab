@@ -154,6 +154,8 @@ MonoBehaviour:
   waveMoney: 0
   audiosource: {fileID: -2954457834319067901}
   printerNoise: {fileID: 8300000, guid: 729ff0b07449ed641871c62a511a6a4d, type: 3}
+  particlePrefab: {fileID: 5749224464119231393, guid: 2671d8296608c8f4996ef031d6582079,
+    type: 3}
 --- !u!114 &-3010496748264909410
 MonoBehaviour:
   m_ObjectHideFlags: 0

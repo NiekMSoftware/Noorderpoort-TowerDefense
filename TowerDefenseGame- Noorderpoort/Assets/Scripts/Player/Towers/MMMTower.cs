@@ -14,6 +14,7 @@ public class MMMTower : GeneralTowerScript
     [Header("Other")]
     Bitscript bitscript;
     WaveSystem waveSystem;
+    [SerializeField] private GameObject particlePrefab;
     int lastRound;
     void Start()
     {
@@ -34,6 +35,7 @@ public class MMMTower : GeneralTowerScript
                 bitscript.AddBits(waveMoney);
                 audiosource.Play();
                 lastRound = waveSystem.wavesEnded;
+                Instantiate(particlePrefab,transform.position,transform.rotation,transform);
             }
         }
         else
