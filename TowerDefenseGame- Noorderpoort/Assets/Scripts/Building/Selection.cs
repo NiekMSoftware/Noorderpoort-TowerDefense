@@ -25,7 +25,7 @@ public class Selection : MonoBehaviour
 
         timeSincePlace += Time.deltaTime;
         //Check the input for the mouse
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -37,6 +37,7 @@ public class Selection : MonoBehaviour
                 {
                     if (hit.collider.gameObject != previousPending && hit.collider.gameObject != builderman.pendingObject)
                     {
+                        //if (hit.collider.gameObject == null) return;
                         selectedTower = true;
                         Select(hit.collider.gameObject);
                     }
@@ -103,7 +104,8 @@ public class Selection : MonoBehaviour
     {
         int currentStat = 0;
         TowerScriptable upgrade;
-        upgradeUI.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.SetActive(true);
+        if (upgradeUI == null) return;
+        upgradeUI.gameObject.SetActive(true);
         if (towerType.canUpgrade) {
             upgrade = towerType.upgradeScriptable;
             for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)

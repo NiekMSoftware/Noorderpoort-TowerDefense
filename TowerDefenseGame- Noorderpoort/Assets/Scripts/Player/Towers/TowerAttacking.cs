@@ -83,7 +83,7 @@ public class TowerAttacking : GeneralTowerScript
         {
             if (rangeScript.enemyList.Count != 0)
             {
-                if (rangeScript.enemyList[0].gameObject != null)
+                if (rangeScript.enemyList[0] != null)
                 {
                     target = rangeScript.enemyList[0].gameObject;
                 }
@@ -130,6 +130,7 @@ public class TowerAttacking : GeneralTowerScript
         {
             if (rotatesTowardsEnemies)
             {
+                if (target == null) return;
                 var lookPos = target.transform.position - transform.position;
                 lookPos.y = 0;
                 var rotation = Quaternion.LookRotation(-lookPos);
