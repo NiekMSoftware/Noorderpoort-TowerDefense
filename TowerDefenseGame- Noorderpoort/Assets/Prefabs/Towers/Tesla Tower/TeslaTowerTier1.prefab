@@ -92,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c2402ad8c022e7f47b836dcfadfa6a56, type: 3}
+  - {fileID: 2100000, guid: 65dfbfa16e0bcfd4f904b2cfa509e1c5, type: 2}
   - {fileID: -3846018093981099296, guid: 6655780dc9b04404f89dc6fd6977ece2, type: 3}
   - {fileID: -6922793697723135513, guid: 6655780dc9b04404f89dc6fd6977ece2, type: 3}
   - {fileID: 4874126678125670354, guid: 6655780dc9b04404f89dc6fd6977ece2, type: 3}
@@ -5081,12 +5081,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bd005c20ea1944199b85501ebfb3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBeingPlaced: 0
+  towerStats: {fileID: 0}
+  sellValue: 0
   health: 100
   timeStunned: 5
   damage: 75
   fireRate: 8
   projectileSpeed: 1
-  range: 15
   firePoint: {fileID: 8163471843960515663}
   multipleFirepoints: 0
   allFirePoints: []
@@ -5097,7 +5099,6 @@ MonoBehaviour:
   target: {fileID: 0}
   rangeScript: {fileID: 4499846043895806957}
   rotatesTowardsEnemies: 0
-  isBeingPlaced: 0
 --- !u!114 &4499846043895806957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5115,6 +5116,7 @@ MonoBehaviour:
   towerAttack: {fileID: 0}
   rangeCircle: {fileID: 2446392667677503648, guid: e7bed501e1be0854ea74d65b02570b75,
     type: 3}
+  activateRanges: []
 --- !u!82 &1741847700913879494
 AudioSource:
   m_ObjectHideFlags: 0

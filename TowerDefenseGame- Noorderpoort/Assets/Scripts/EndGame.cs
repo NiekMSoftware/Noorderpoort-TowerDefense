@@ -25,6 +25,7 @@ public class EndGame : MonoBehaviour
     }
     IEnumerator Waiter(float time)
     {
+        Time.timeScale = 1;
         yield return new WaitForSeconds(0.2f);
         blackScreen.SetActive(true);
         //play sound

@@ -8,7 +8,7 @@ using UnityEngine.Animations;
 public class EnemyAttacking : MonoBehaviour
 {
     public bool MTInRange = false;
-    private bool TInRange = false;
+    //private bool TInRange = false;
     private bool CanAttack = true;
 
     public float enemyCoolDown = 2;
@@ -25,7 +25,7 @@ public class EnemyAttacking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tower"))
         {
-            TInRange = true;
+            //TInRange = true;
         }
         if (other.gameObject.CompareTag("Finish"))
         {

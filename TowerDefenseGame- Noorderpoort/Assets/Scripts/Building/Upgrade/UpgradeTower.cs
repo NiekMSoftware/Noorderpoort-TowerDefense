@@ -29,15 +29,6 @@ public class UpgradeTower : MonoBehaviour
     }
     private void Update()
     {
-        if (_selection.selectedTower)
-        {
-            //Turn on the game object
-            upgradeUI.SetActive(enabled);
-        }
-        else
-        {
-            upgradeUI.SetActive(false);
-        }
     }
 
     public void Upgrade()
@@ -49,8 +40,10 @@ public class UpgradeTower : MonoBehaviour
         {
             if (bits.RemoveBits(generalTowerScript.towerStats.upgradeScriptable.cost))
             {
+                Quaternion qua = tower.transform.rotation;
                 GameObject newtower = Instantiate(generalTowerScript.towerStats.upgradeScriptable.prefab);
                 newtower.transform.position = tower.transform.position;
+                newtower.transform.rotation = qua;
 
                 newtower.transform.parent = this.turretEmpty.transform;
 

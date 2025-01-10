@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TeslaT2
   m_EditorClassIdentifier: 
   towerName: Tesla
-  towerIcon: {fileID: 21300000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
+  towerIcon: {fileID: 21300000, guid: afaa0ed82d5534f40adc055bdd335400, type: 3}
   currentTier: 2
   maxTier: 3
   canUpgrade: 1
@@ -21,10 +21,10 @@ MonoBehaviour:
   upgradeScriptable: {fileID: 11400000, guid: 988ddfaa521f7a5499916c380a32550e, type: 2}
   prefab: {fileID: 4978053617802569782, guid: f231f191506dfd34dbafc47e217787b7, type: 3}
   cost: 250
-  sellValue: 0
+  sellValue: 200
   damage: 120
   firerate: 7.5
-  range: 20
+  range: 18
   projectileSpeed: 1.2
   moneyPerWave: 0
   discount: 0

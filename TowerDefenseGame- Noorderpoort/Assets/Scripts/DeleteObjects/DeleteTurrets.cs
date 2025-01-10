@@ -48,8 +48,6 @@ public class DeleteTurrets : MonoBehaviour {
         this.destinationL2 = GameObject.Find("Level 2(Clone)");
         Destroy(this.destinationL1);
         Destroy(this.destinationL2);
-        
-        print($"removed {this.destinationL2}");
     }
 
     // Reset the money and health

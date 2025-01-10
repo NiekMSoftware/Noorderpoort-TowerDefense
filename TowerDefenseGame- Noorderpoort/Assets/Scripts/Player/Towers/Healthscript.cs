@@ -32,9 +32,9 @@ public class Healthscript : MonoBehaviour
     {
         if(HealthIndex <= 0)
         {
+            HealthIndex = 0;
             if (ended == false)
             {
-                HealthIndex = 0;
                 HealthAmount.text = HealthIndex.ToString();
                 //NormalHealth.SetActive(false);
                 //ZeroHealth.SetActive(true);

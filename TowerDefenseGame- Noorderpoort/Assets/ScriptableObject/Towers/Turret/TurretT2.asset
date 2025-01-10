@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TurretT2
   m_EditorClassIdentifier: 
   towerName: Turret
-  towerIcon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  towerIcon: {fileID: 21300000, guid: 942f8e80573f78b4b810a32db318a8b2, type: 3}
   currentTier: 2
   maxTier: 3
   canUpgrade: 1

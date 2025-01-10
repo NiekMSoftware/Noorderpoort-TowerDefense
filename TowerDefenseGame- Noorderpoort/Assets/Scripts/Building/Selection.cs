@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Selection : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Selection : MonoBehaviour
     public float timeSincePlace;
 
     public UpgradeUIReferences upgradeUI;
+    [SerializeField] private Sprite[] statSprites;
     private void Start()
     {
         builderman = FindObjectOfType<BuildingManager>();
@@ -19,6 +22,7 @@ public class Selection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         timeSincePlace += Time.deltaTime;
         //Check the input for the mouse
         if (Input.GetMouseButton(0))
@@ -44,6 +48,11 @@ public class Selection : MonoBehaviour
                             Select(hit.collider.gameObject);
                         }
                     }
+                }
+                else if(!IsPointerOverUIElement() && builderman.isPlacementMode == false)
+                {
+                    selectedTower = false;
+                    DeSelect();
                 }
             }
         }
@@ -79,46 +88,85 @@ public class Selection : MonoBehaviour
         UpdateUpgradeUI(obj.GetComponent<GeneralTowerScript>().towerStats);
     }
 
+    public void SellTower()
+    {
+        if (selectedObject != null)
+        {
+            builderman.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
+            Bitscript.instance.AddBits(selectedObject.GetComponent<GeneralTowerScript>().towerStats.sellValue);
+            Destroy(selectedObject);
+            DeSelect();
+        }
+    }
+
     private void UpdateUpgradeUI(TowerScriptable towerType)
     {
         int currentStat = 0;
         TowerScriptable upgrade;
+        upgradeUI.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.gameObject.SetActive(true);
         if (towerType.canUpgrade) {
             upgrade = towerType.upgradeScriptable;
-            upgradeUI.statIcons[currentStat].color = new Color(1,1,1,1);
+            for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
+            {
+                upgradeUI.statArrows[i].SetActive(true);
+                upgradeUI.currentStatValues[i].text = " ";
+                upgradeUI.upgradeStatValues[i].text = " ";
+                upgradeUI.statIcons[i].color = new Color(1, 1, 1, 1);
+            }
+            upgradeUI.upgradeCostText.text = Bitscript.instance.CalculateWithDiscount(upgrade.cost).ToString();
             if (towerType.damage < upgrade.damage)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
                 upgradeUI.upgradeStatValues[currentStat].text = upgrade.damage.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[0];
                 currentStat++;
             }
             if (towerType.firerate > upgrade.firerate)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.firerate.ToString();
                 upgradeUI.upgradeStatValues[currentStat].text = upgrade.firerate.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[1];
                 currentStat++;
             }
             if (towerType.range < upgrade.range)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.range.ToString();
                 upgradeUI.upgradeStatValues[currentStat].text = upgrade.range.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[2];
                 currentStat++;
+            }
+
+            for (int i = currentStat; i < upgradeUI.statIcons.Length; i++)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.range.ToString();
+                upgradeUI.upgradeStatValues[currentStat].text = upgrade.range.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[3];
+            }
+            for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
+            {
+                upgradeUI.statArrows[i].SetActive(false);
+                upgradeUI.currentStatValues[i].text = " ";
+                upgradeUI.upgradeStatValues[i].text = " ";
+                upgradeUI.statIcons[i].color = new Color(0, 0, 0, 0);
             }
         }
         else
         {
             for(int i = 0;i < upgradeUI.currentStatValues.Length; i++)
             {
+                upgradeUI.statArrows[i].SetActive(false);
                 upgradeUI.currentStatValues[i].text = " ";
                 upgradeUI.upgradeStatValues[i].text = " ";
                 upgradeUI.statIcons[i].color = new Color(0, 0, 0, 0);
             }
+            upgradeUI.upgradeCostText.text = "MAX";
         }
         upgradeUI.towerName.text = towerType.towerName;
         upgradeUI.towerImage.sprite = towerType.towerIcon;
         upgradeUI.levelSlider.maxValue = towerType.maxTier;
         upgradeUI.levelSlider.value = towerType.currentTier;
         upgradeUI.levelText.text = towerType.currentTier.ToString();
+        upgradeUI.sellText.text = towerType.sellValue.ToString();
     }
 
     public void DeSelect()
@@ -129,6 +177,36 @@ public class Selection : MonoBehaviour
         if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false); }
             
         print("BYEEEEE" + selectedObject.name);
+        upgradeUI.gameObject.SetActive(false);
         selectedObject = null;
+    }
+
+    public bool IsPointerOverUIElement()
+    {
+        return IsPointerOverUIElement(GetEventSystemRaycastResults());
+    }
+
+
+    //Returns 'true' if we touched or hovering on Unity UI element.
+    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+    {
+        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+        {
+            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+            if (curRaysastResult.gameObject.layer == 5)
+                return true;
+        }
+        return false;
+    }
+
+
+    //Gets all event system raycast results of current mouse or touch position.
+    static List<RaycastResult> GetEventSystemRaycastResults()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> raysastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, raysastResults);
+        return raysastResults;
     }
 }

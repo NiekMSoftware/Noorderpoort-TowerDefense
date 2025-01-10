@@ -486,7 +486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0b9a6ba582ae244b9de4bec9e2a1643, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a50c0a0bf7491b84b9ca95f44d5842a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spectre
+  m_text: SpinningSpectre
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6219,7 +6219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9510b790c3ee0c6438700c27a61fd70b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90996833663431641abbc93dcffc10a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11379,7 +11379,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.3857, y: 0}
   m_SizeDelta: {x: 9.2286, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16048,7 +16048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &853539494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19736,7 +19736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 38e5730e16234dc4782d47c88a17786b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55533846f0292f540b6f420b58e49e72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20144,7 +20144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1044661535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22021,7 +22021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1140181139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22066,6 +22066,10 @@ MonoBehaviour:
   - {fileID: 1685328824}
   - {fileID: 612837667}
   - {fileID: 1010097674}
+  statArrows:
+  - {fileID: 532387997}
+  - {fileID: 992482182}
+  - {fileID: 360797737}
   statIcons:
   - {fileID: 289793641}
   - {fileID: 2032661396}
@@ -22075,6 +22079,8 @@ MonoBehaviour:
   extraInfo: {fileID: 1044661536}
   levelSlider: {fileID: 1260609167}
   levelText: {fileID: 622005551}
+  upgradeCostText: {fileID: 2027325337}
+  sellText: {fileID: 600644365}
 --- !u!1 &1140849493
 GameObject:
   m_ObjectHideFlags: 0
@@ -31292,6 +31298,11 @@ MonoBehaviour:
   previousPending: {fileID: 0}
   timeSincePlace: 0
   upgradeUI: {fileID: 1140181140}
+  statSprites:
+  - {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  - {fileID: 21300000, guid: 3086d66a563317b40a20a20da2c64ac0, type: 3}
+  - {fileID: 21300000, guid: c887ed2a931c29040bc544cd8c546e9f, type: 3}
 --- !u!1 &1610448360
 GameObject:
   m_ObjectHideFlags: 0
@@ -35957,9 +35968,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.24705882}
-    m_PressedColor: {r: 0.3679245, g: 0.345016, b: 0.345016, a: 0.48235294}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.7254902}
+    m_HighlightedColor: {r: 0.0876075, g: 1, b: 0, a: 1}
+    m_PressedColor: {r: 0.34983978, g: 0.5849056, b: 0.3644213, a: 1}
+    m_SelectedColor: {r: 0.5535848, g: 1, b: 0.48490566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -36092,9 +36103,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.24705882}
-    m_PressedColor: {r: 0.3679245, g: 0.345016, b: 0.345016, a: 0.48235294}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.7254902}
+    m_HighlightedColor: {r: 1, g: 0.04989811, b: 0, a: 1}
+    m_PressedColor: {r: 0.58431375, g: 0.37196103, b: 0.34901962, a: 1}
+    m_SelectedColor: {r: 1, g: 0.49168667, b: 0.48627448, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -36114,9 +36125,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1383075848}
-        m_TargetAssemblyTypeName: UpgradeTower, Assembly-CSharp
-        m_MethodName: Upgrade
+      - m_Target: {fileID: 1608233467}
+        m_TargetAssemblyTypeName: Selection, Assembly-CSharp
+        m_MethodName: SellTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

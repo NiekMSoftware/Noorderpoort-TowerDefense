@@ -5,6 +5,7 @@ using TMPro;
 
 public class Bitscript : MonoBehaviour
 {
+    public static Bitscript instance;
     public float bitIndex;
     public float discountAmount = 0f; // In total percentage
     public float multiplierAmount = 0; // Multiplier
@@ -23,11 +24,20 @@ public class Bitscript : MonoBehaviour
     void Start()
     {
         bitIndex = starterMoney;
+        instance = this;
     }
 
     private void FixedUpdate()
     {
         bitsText.text = bitIndex.ToString();
+    }
+
+    public float CalculateWithDiscount(int cost)
+    {
+        float discountedAmount = cost * (discountAmount / 100);
+        if (!isDiscountActive) { discountedAmount = 0f; }
+        float newCost = (cost - (int)(discountedAmount));
+        return newCost;
     }
 
     public void SetDiscountActivity(bool state) // Set the status of the discount
