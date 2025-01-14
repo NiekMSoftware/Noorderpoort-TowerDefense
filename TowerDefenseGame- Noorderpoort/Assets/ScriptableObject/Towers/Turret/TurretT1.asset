@@ -23,8 +23,11 @@ MonoBehaviour:
   cost: 75
   sellValue: 40
   damage: 6
-  firerate: 1.5
+  firerate: 1.4
   range: 12.5
   projectileSpeed: 2
   moneyPerWave: 0
   discount: 0
+  detectionRange: 0
+  uses: 0
+  cooldown: 0
