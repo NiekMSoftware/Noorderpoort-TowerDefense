@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64bc1b4793779644ebc11c994f4f0659, type: 3}
-  m_Name: Ember
+  m_Name: Cooki
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2426788982346890863, guid: 86f222d405320ca44ab6ff9c1bf1735e, type: 3}
-  health: 750
+  prefab: {fileID: 7907300184443768562, guid: 2a882037806fa414a909bdc023670d7f, type: 3}
+  health: 175
   speed: 3
-  bitsOnDeath: 250
-  startSpawnWave: 0
-  endSpawnWave: 0
-  minSpawnChance: 0
-  maxSpawnChance: 0
+  bitsOnDeath: 25
+  startSpawnWave: 10
+  endSpawnWave: 20
+  minSpawnChance: 5
+  maxSpawnChance: 20

@@ -8,6 +8,8 @@ public class BuyingTowers : MonoBehaviour
     Bitscript bitscript;
     BuildingManager buildingManager;
     Selection selection;
+
+    [SerializeField] private TowerScriptable debugTower;
     
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,17 @@ public class BuyingTowers : MonoBehaviour
         bitscript = FindObjectOfType<Bitscript>();
         buildingManager = FindObjectOfType<BuildingManager>();
     }
-    
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            BuyTower(debugTower);
+        }
+#endif
+    }
+
     public void BuyTower(TowerScriptable tower)
     {
         if (PauseClass.instance.isPaused) { return; }

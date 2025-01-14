@@ -20,6 +20,7 @@ public class WaveSystem : MonoBehaviour
     [Header("Spawning Enemies")]
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject[] enemies;
+    [SerializeField] private EnemyScriptable[] enemyStats;
     [Space]
     [SerializeField] private float spawnCooldown = 2;
     [SerializeField] private float roundCooldown = 2;
@@ -70,6 +71,14 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] TMP_Text text;
      
     void Start() {
+
+        for(int i = 0; i < enemyStats.Length; i++)
+        {
+            enemyMaxChance[i] = enemyStats[i].maxSpawnChance;
+            enemyMinChance[i] = enemyStats[i].minSpawnChance;
+            enemyStartsAt[i] = enemyStats[i].startSpawnWave;
+            enemyChanceStopsAt[i] = enemyStats[i].endSpawnWave;
+        }
         text = GameObject.Find("WaveText").GetComponent<TMP_Text>();
         
         bits = FindObjectOfType<Bitscript>();
@@ -207,10 +216,10 @@ public class WaveSystem : MonoBehaviour
         }
          
         //Sets up for spawning
+        ChanceCalculator();
         spawnedEnemies = 0;
         spawning = true;
         timeTillSpawn = 0;
-        ChanceCalculator();
     }
     public void roundEnd()
     {
@@ -234,7 +243,7 @@ public class WaveSystem : MonoBehaviour
             tot = tot + enemyChance[i - 1];
         }
         /*print(tot);*/
-            int newtype = Random.Range(0, 100);
+        int newtype = Random.Range(0, 100);
         int total = 0;
         /*print(newtype + " Random");*/
         bool hasType = false;
@@ -275,11 +284,12 @@ public class WaveSystem : MonoBehaviour
         //Chance for every type of enemy to spawn , Math
         for (int enemy = 0; enemy < enemies.Length-1; enemy++)
         {
-            if (gameRound < enemyStartsAt[enemy])
+            if (wavesEnded < enemyStartsAt[enemy])
             {
                 enemyChance[enemy] = 0;
+                print("HIIII" + gameRound);
             }
-            else if (gameRound >= enemyChanceStopsAt[enemy])
+            else if (wavesEnded >= enemyChanceStopsAt[enemy])
             {
                 enemyChance[enemy] = enemyMaxChance[enemy];
             }
@@ -289,7 +299,7 @@ public class WaveSystem : MonoBehaviour
 
                 int negativeWaves = enemyChanceStopsAt[enemy] - enemyStartsAt[enemy];
                  
-                int roundsOverChance = gameRound - enemyStartsAt[enemy];
+                int roundsOverChance = wavesEnded - enemyStartsAt[enemy];
                  
                 int chanceDifference = enemyMaxChance[enemy] - enemyMinChance[enemy];
                  

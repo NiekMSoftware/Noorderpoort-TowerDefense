@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 6354418470071112102}
   - component: {fileID: 7264581207193378678}
   m_Layer: 0
-  m_Name: Gepp
+  m_Name: Cooki
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptable: {fileID: 11400000, guid: d7bde6af43db794478932b91fdb6ce5b, type: 2}
+  scriptable: {fileID: 11400000, guid: 2e87fd07d50d84a47b50a72836467100, type: 2}
   health: 0
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
@@ -708,7 +708,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 4b9886f31515e084bac0d942efa5b590, type: 3}
+  - {fileID: 2100000, guid: 8b29aaa3eec7468097ff07adfcf29ac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

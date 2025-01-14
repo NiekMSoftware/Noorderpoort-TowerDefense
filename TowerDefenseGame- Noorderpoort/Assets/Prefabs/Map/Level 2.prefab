@@ -743,50 +743,6 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 693179688213034859}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: wavesPerBoss
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: bosses.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: enemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: bosses.Array.data[0]
-      value: 
-      objectReference: {fileID: 2426788982346890863, guid: ff30eb00053cdfb4a8795a00035de87b,
-        type: 3}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: bosses.Array.data[1]
-      value: 
-      objectReference: {fileID: 2426788982346890863, guid: 86f222d405320ca44ab6ff9c1bf1735e,
-        type: 3}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 7907300184443768562, guid: 4655b056166f59d4f8ef1d67e06c61c1,
-        type: 3}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 2426788982346890863, guid: b10f968a26595cc4fa17d6e43fbff73f,
-        type: 3}
-    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
-        type: 3}
-      propertyPath: enemyHealthMultiplierPerRound
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 472383230069055648, guid: dda88066f5aed914db691bbec2deb2f7,
         type: 3}
       propertyPath: m_RootOrder

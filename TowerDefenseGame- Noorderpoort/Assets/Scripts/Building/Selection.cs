@@ -38,7 +38,6 @@ public class Selection : MonoBehaviour
                 {
                     if (hit.collider.gameObject != previousPending && hit.collider.gameObject != builderman.pendingObject)
                     {
-                        //if (hit.collider.gameObject == null) return;
                         selectedTower = true;
                         Select(hit.collider.gameObject);
                     }

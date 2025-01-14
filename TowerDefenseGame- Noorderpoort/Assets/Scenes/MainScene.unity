@@ -14376,6 +14376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugTower: {fileID: 11400000, guid: af1bd8b158712ae448ff77f7199b520b, type: 2}
 --- !u!114 &756782733 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7100311545698751306, guid: 944e672a0a8f579458d860772f6ed36e,

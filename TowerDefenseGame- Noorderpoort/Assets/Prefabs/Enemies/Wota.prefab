@@ -260,6 +260,7 @@ MonoBehaviour:
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
   deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
+  agent: {fileID: 2426788982346890857}
 --- !u!114 &4543265289695418437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 8
   bitsOnDeath: 25
 --- !u!114 &3246342422853924032
 MonoBehaviour:

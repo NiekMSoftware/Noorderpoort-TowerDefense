@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHP : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class EnemyHP : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private GameObject soundBlock;
     [SerializeField]private AudioClip deathSound;
+
+    [SerializeField] private NavMeshAgent agent;
     void Start()
     {
         health = scriptable.health;
+        if(agent == null) { agent = gameObject.GetComponent<NavMeshAgent>(); }
+        agent.speed = scriptable.speed;
         stats = gameObject.GetComponent<EnemyStats>();
-        bitsOnDeath = stats.bitsOnDeath;
+        bitsOnDeath = scriptable.bitsOnDeath;
         //Health Multiplier
         health = health * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
     }
