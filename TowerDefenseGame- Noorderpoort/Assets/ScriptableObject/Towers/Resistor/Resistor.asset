@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd451e5d72a5c04b8b140ad2786acbd, type: 3}
   m_Name: Resistor
   m_EditorClassIdentifier: 
+  towerName: Resistor
+  towerIcon: {fileID: 21300000, guid: e90f08218e416b244ae778c37fbc98b7, type: 3}
+  currentTier: 1
+  maxTier: 1
   canUpgrade: 0
   isOffensive: 1
   upgradeScriptable: {fileID: 0}
+  prefab: {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
   cost: 200
-  sellValue: 0
+  sellValue: 100
   damage: 200
   firerate: 0
-  range: 0
+  range: 15
   projectileSpeed: 0
   moneyPerWave: 0
+  discount: 0
+  detectionRange: 5
+  uses: 3
+  cooldown: 5

@@ -272,9 +272,9 @@ GameObject:
   - component: {fileID: 693179687125834137}
   - component: {fileID: 693179687125834138}
   - component: {fileID: 693179687125834139}
-  m_Layer: 2
+  m_Layer: 4
   m_Name: Enemy Spawner
-  m_TagString: Tower
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,6 +419,8 @@ MonoBehaviour:
   builderman: {fileID: 0}
   previousPending: {fileID: 0}
   timeSincePlace: 0
+  upgradeUI: {fileID: 0}
+  statSprites: []
 --- !u!1 &693179687721650257
 GameObject:
   m_ObjectHideFlags: 0

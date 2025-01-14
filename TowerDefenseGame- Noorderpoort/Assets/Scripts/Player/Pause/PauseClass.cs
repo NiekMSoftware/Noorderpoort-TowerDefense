@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class PauseClass : MonoBehaviour
 {
+    public static PauseClass instance;
     public GameObject pausescreen;
 
     public GameSpeed gameSpeed;
 
     private float prevTimeSpeed = 1;
 
+    public bool isPaused = false;
+
+    private void Start()
+    {
+        instance = this;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,6 +31,7 @@ public class PauseClass : MonoBehaviour
     {
         if (Time.timeScale != 0) 
         {
+            isPaused = true;
             prevTimeSpeed = Time.timeScale;
             pausescreen.SetActive(true);
             Time.timeScale = 0f;
@@ -36,6 +44,7 @@ public class PauseClass : MonoBehaviour
 
     public void ResumeGame()
     {
+        isPaused = false;
         pausescreen.SetActive(false);
         Time.timeScale = prevTimeSpeed;
     }

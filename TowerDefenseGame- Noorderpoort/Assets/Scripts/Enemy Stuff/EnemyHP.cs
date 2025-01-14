@@ -6,6 +6,7 @@ public class EnemyHP : MonoBehaviour
 {
     [Header("Health")]
     private EnemyStats stats;
+    private float health;
 
     [Header("Money")]
     private int bitsOnDeath;
@@ -17,16 +18,18 @@ public class EnemyHP : MonoBehaviour
     {
         stats = gameObject.GetComponent<EnemyStats>();
         bitsOnDeath = stats.bitsOnDeath;
+        //Health Multiplier
+        health = health * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
     }
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        stats.health -= damage;
-        if (stats.health <= 0)
+        health -= damage;
+        if (health <= 0)
         {
-            die();
+            Die();
         }
     }
-    public void die()
+    public void Die()
     {
         //Money
         Bitscript bits = FindObjectOfType<Bitscript>();
@@ -43,19 +46,10 @@ public class EnemyHP : MonoBehaviour
         //Death if touched by a bullet and less than 1 hp
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            if (stats.health <= 0)
+            if (health <= 0)
             {
-                die();
+                Die();
             }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        //Death if touched by a trap
-        if (other.gameObject.CompareTag("Trap"))
-        {
-            takeDamage(300);
-            Destroy(other.gameObject);
         }
     }
 }

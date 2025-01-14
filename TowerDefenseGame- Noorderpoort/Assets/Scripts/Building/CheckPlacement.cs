@@ -3,20 +3,9 @@ using UnityEngine;
 
 public class CheckPlacement : MonoBehaviour
 {
-    //An Enum to save all the Towers
-    public enum allTowerTypes
-    {
-        NotAFuckingTower,
-        Turret,
-        Tesla,
-        MMM
-    };
 
     [Header("Tower Upgrade Level")]
     public int towerUpgrade = 0;
-    
-    [Header("Tower Types")]
-    public allTowerTypes towerType;
     
     [Header("Building Manager and Layer")]
     [SerializeField] private BuildingManager buildingManager;
@@ -39,6 +28,7 @@ public class CheckPlacement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, buildingManager.detectLayersMask))
             {
+                print(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
                 {
                     buildingManager.canPlace = true;
@@ -58,7 +48,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.gameObject.tag == "Trap")
         {
             buildingManager.isPlacementMode = false;
             buildingManager.canPlace = false;
@@ -67,7 +57,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.gameObject.tag == "Trap")
         {
             buildingManager.isPlacementMode = false;
             buildingManager.canPlace = false;
@@ -76,7 +66,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower")
+        if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.tag == "Trap")
         {
             buildingManager.isPlacementMode = true;
             buildingManager.canPlace = true;

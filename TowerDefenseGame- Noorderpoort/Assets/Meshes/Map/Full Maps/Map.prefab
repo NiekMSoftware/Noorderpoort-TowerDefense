@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 301309156007743499}
   m_Layer: 2
   m_Name: Enemy Spawner
-  m_TagString: Tower
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

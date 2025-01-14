@@ -107,7 +107,7 @@ public class TowerAttacking : GeneralTowerScript
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
 
                         timeUntilBullet = fireRate / 10;
-                        target.GetComponent<EnemyHP>().takeDamage(damage);
+                        target.GetComponent<EnemyHP>().TakeDamage(damage);
                         if (multipleFirepoints)
                         {
                             firePoint = allFirePoints[currentFirePoint];

@@ -72,6 +72,7 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObject()
     {
+        if (PauseClass.instance.isPaused) { return; }
         foreach (Collider coll in towerTriggers)
         {
             if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
@@ -101,7 +102,7 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(TowerScriptable tower)
     {
-        
+        isPlacementMode = true;
         foreach (Collider coll in towerTriggers)
         {
             if(coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
@@ -116,6 +117,5 @@ public class BuildingManager : MonoBehaviour
         pendingObject.GetComponent<GeneralTowerScript>().SetStats(tower);
         pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
         originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;
-        isPlacementMode = true;
     }
 }

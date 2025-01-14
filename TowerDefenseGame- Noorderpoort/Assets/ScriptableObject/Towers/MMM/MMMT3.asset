@@ -27,4 +27,5 @@ MonoBehaviour:
   range: 0
   projectileSpeed: 0
   moneyPerWave: 100
-  discount: 10
+  discount: 5
+  detectionRange: 0

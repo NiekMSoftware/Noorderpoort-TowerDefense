@@ -28,4 +28,9 @@ public class TowerScriptable : ScriptableObject
     [Header("Defensive stats")]
     public int moneyPerWave;
     public float discount;
+
+    [Header("Trap stats")]
+    public float detectionRange;
+    public int uses;
+    public float cooldown;
 }

@@ -20,6 +20,7 @@ public class BuyingTowers : MonoBehaviour
     
     public void BuyTower(TowerScriptable tower)
     {
+        if (PauseClass.instance.isPaused) { return; }
         if (buildingManager.pendingObject == null)
         {
             if (bitscript.RemoveBits(tower.cost))

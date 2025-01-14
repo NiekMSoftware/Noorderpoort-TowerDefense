@@ -33,6 +33,7 @@ public class UpgradeTower : MonoBehaviour
 
     public void Upgrade()
     {
+        if (PauseClass.instance.isPaused) { return; }
         GameObject tower = _selection.selectedObject;
         GeneralTowerScript generalTowerScript = tower.GetComponent<GeneralTowerScript>();
 

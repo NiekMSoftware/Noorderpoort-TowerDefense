@@ -33,7 +33,7 @@ public class Selection : MonoBehaviour
             //Compare if we selected a Tower tag
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                if (hit.collider.gameObject.CompareTag("Tower"))
+                if (hit.collider.gameObject.CompareTag("Tower") || hit.collider.gameObject.CompareTag("Trap"))
                 {
                     if (hit.collider.gameObject != previousPending && hit.collider.gameObject != builderman.pendingObject)
                     {
@@ -67,6 +67,7 @@ public class Selection : MonoBehaviour
 
     public void Select(GameObject obj)
     {
+        if (PauseClass.instance.isPaused) { return; }
         //Check if the object we pressed is equal
         if (obj == selectedObject) 
             return;
@@ -91,6 +92,7 @@ public class Selection : MonoBehaviour
 
     public void SellTower()
     {
+        if (PauseClass.instance.isPaused) { return; }
         if (selectedObject != null)
         {
             builderman.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
@@ -173,7 +175,8 @@ public class Selection : MonoBehaviour
 
     public void DeSelect()
     {
-        if(selectedObject == null) return;
+        if (PauseClass.instance.isPaused) { return; }
+        if (selectedObject == null) return;
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;
         if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false); }
