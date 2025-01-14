@@ -26,6 +26,8 @@ MonoBehaviour:
   firerate: 0
   range: 0
   projectileSpeed: 0
-  moneyPerWave: 100
-  discount: 5
+  moneyPerWave: 75
+  discount: 10
   detectionRange: 0
+  uses: 0
+  cooldown: 0

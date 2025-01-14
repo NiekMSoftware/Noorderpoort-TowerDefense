@@ -27,6 +27,7 @@ public class Selection : MonoBehaviour
         //Check the input for the mouse
         if (Input.GetMouseButtonDown(0))
         {
+            if(IsPointerOverUIElement()) { return; }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
@@ -127,8 +128,8 @@ public class Selection : MonoBehaviour
             }
             if (towerType.firerate > upgrade.firerate)
             {
-                upgradeUI.currentStatValues[currentStat].text = towerType.firerate.ToString();
-                upgradeUI.upgradeStatValues[currentStat].text = upgrade.firerate.ToString();
+                upgradeUI.currentStatValues[currentStat].text = towerType.firerate.ToString() + "s";
+                upgradeUI.upgradeStatValues[currentStat].text = upgrade.firerate.ToString() + "s";
                 upgradeUI.statIcons[currentStat].sprite = statSprites[1];
                 currentStat++;
             }
@@ -139,6 +140,24 @@ public class Selection : MonoBehaviour
                 upgradeUI.statIcons[currentStat].sprite = statSprites[2];
                 currentStat++;
             }
+            if (towerType.moneyPerWave < upgrade.moneyPerWave)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.moneyPerWave.ToString();
+                upgradeUI.upgradeStatValues[currentStat].text = upgrade.moneyPerWave.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[3];
+                currentStat++;
+            }
+
+            if (towerType.discount < upgrade.discount)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.discount.ToString() + "%";
+                upgradeUI.upgradeStatValues[currentStat].text = upgrade.discount.ToString() + "%";
+                upgradeUI.statIcons[currentStat].sprite = statSprites[4];
+                currentStat++;
+            }
+
+
+
 
             for (int i = currentStat; i < upgradeUI.statIcons.Length; i++)
             {
@@ -146,6 +165,7 @@ public class Selection : MonoBehaviour
                 upgradeUI.upgradeStatValues[currentStat].text = upgrade.range.ToString();
                 upgradeUI.statIcons[currentStat].sprite = statSprites[3];
             }
+
             for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(false);

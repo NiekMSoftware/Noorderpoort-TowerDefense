@@ -31334,6 +31334,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
   - {fileID: 21300000, guid: 3086d66a563317b40a20a20da2c64ac0, type: 3}
   - {fileID: 21300000, guid: c887ed2a931c29040bc544cd8c546e9f, type: 3}
+  - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
 --- !u!1 &1610448360
 GameObject:
   m_ObjectHideFlags: 0
@@ -41152,7 +41153,7 @@ PrefabInstance:
     - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
       propertyPath: maxDiscountAmount
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8471383421733794298, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
