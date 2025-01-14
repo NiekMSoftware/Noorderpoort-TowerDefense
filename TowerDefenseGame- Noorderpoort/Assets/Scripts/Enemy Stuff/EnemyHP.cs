@@ -6,7 +6,8 @@ public class EnemyHP : MonoBehaviour
 {
     [Header("Health")]
     private EnemyStats stats;
-    private float health;
+    [SerializeField] private EnemyScriptable scriptable;
+    public float health;
 
     [Header("Money")]
     private int bitsOnDeath;
@@ -16,6 +17,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField]private AudioClip deathSound;
     void Start()
     {
+        health = scriptable.health;
         stats = gameObject.GetComponent<EnemyStats>();
         bitsOnDeath = stats.bitsOnDeath;
         //Health Multiplier

@@ -255,6 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e9713e97c7ac42bf48cbe9e9253eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptable: {fileID: 11400000, guid: 8224d87ba2a7c5d4993aa4bf69aa2d00, type: 2}
+  health: 0
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
   deathSound: {fileID: 8300000, guid: 25d3263b3dbdb9348b6cf8eff2e5de2e, type: 3}
@@ -284,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4dd2a7dfece8341ae335f8e9dd592b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
   damage: 1
   speed: 8
   bitsOnDeath: 25
@@ -301,7 +302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MTInRange: 0
-  enemyCoolDown: 1.85
   attackRate: 3.5
   mainTowerHealth: {fileID: 0}
 --- !u!82 &-3931409014228954267

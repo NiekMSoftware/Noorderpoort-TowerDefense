@@ -33,7 +33,9 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private GameObject placeParticle;
     Selection selector;
 
-    private Material originalMat; 
+    private Material originalMat;
+
+    [SerializeField] private GameObject cancelButton;
     private void Start()
     {
         selector = FindObjectOfType<Selection>();
@@ -73,6 +75,7 @@ public class BuildingManager : MonoBehaviour
     public void PlaceObject()
     {
         if (PauseClass.instance.isPaused) { return; }
+        if (Selection.IsPointerOverUIElement()) { return; }
         foreach (Collider coll in towerTriggers)
         {
             if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
@@ -88,6 +91,7 @@ public class BuildingManager : MonoBehaviour
         pendingObject = null;
         pendingObjRenderer = null;
         isPlacementMode = false;
+        cancelButton.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -117,5 +121,19 @@ public class BuildingManager : MonoBehaviour
         pendingObject.GetComponent<GeneralTowerScript>().SetStats(tower);
         pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
         originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;
+        cancelButton.SetActive(true);
+    }
+
+    public void CancelPlace()
+    {
+        if (PauseClass.instance.isPaused) { return; }
+        if(pendingObject == null) { return; }
+        Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
+        isPlacementMode = false;
+        selector.DeSelect();
+        Destroy(pendingObject);
+        pendingObject = null;
+        pendingObjRenderer = null;
+        cancelButton.SetActive(false);
     }
 }
