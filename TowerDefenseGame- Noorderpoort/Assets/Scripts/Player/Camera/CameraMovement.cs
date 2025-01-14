@@ -23,26 +23,26 @@ public class CameraMovement : MonoBehaviour
        */
       if (Input.GetKey("w"))
       {
-         pos.z += panSpeed * Time.deltaTime;
+         pos.z += panSpeed * (Time.deltaTime/Time.timeScale);
       }
       if (Input.GetKey("s"))
       {
-         pos.z -= panSpeed * Time.deltaTime;
+         pos.z -= panSpeed * (Time.deltaTime / Time.timeScale);
       }
       if (Input.GetKey("d"))
       {
-         pos.x += panSpeed * Time.deltaTime;
+         pos.x += panSpeed * (Time.deltaTime / Time.timeScale);
       }
       if (Input.GetKey("a"))
       {
-         pos.x -= panSpeed * Time.deltaTime;
+         pos.x -= panSpeed * (Time.deltaTime / Time.timeScale);
       }
      
       /*
        * Add a zoom for the player
        */
       float scroll = Input.GetAxis("Mouse ScrollWheel");
-      pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;
+      pos.y -= scroll * scrollSpeed * 100f * (Time.deltaTime / Time.timeScale);
       
       /*
        * Limit the position of the camera
