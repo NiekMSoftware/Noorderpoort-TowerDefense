@@ -33,6 +33,7 @@ public class EndGame : MonoBehaviour
         DeleteTurrets.instance.FullReset();
         blackScreen.SetActive(false);
         mainCam.gameObject.SetActive(true);
+        mainCam.GetComponent<CameraMovement>().ResetToStartPos();
         Healthscript.instance.ended = false;
         BuildingManager.instance.CancelPlace();
 

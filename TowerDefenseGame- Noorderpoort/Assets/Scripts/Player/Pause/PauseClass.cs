@@ -7,6 +7,7 @@ public class PauseClass : MonoBehaviour
 {
     public static PauseClass instance;
     public GameObject pausescreen;
+    [SerializeField] private GameObject[] settingEmpties;
 
     public GameSpeed gameSpeed;
 
@@ -31,6 +32,7 @@ public class PauseClass : MonoBehaviour
     {
         if (Time.timeScale != 0) 
         {
+            print(gameObject.transform.parent.name);
             isPaused = true;
             prevTimeSpeed = Time.timeScale;
             pausescreen.SetActive(true);
@@ -47,5 +49,9 @@ public class PauseClass : MonoBehaviour
         isPaused = false;
         pausescreen.SetActive(false);
         Time.timeScale = prevTimeSpeed;
+        for (int i = 0; i < settingEmpties.Length; i++)
+        {
+            settingEmpties[i].SetActive(false);
+        }
     }
 }

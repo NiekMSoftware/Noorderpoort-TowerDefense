@@ -130,7 +130,6 @@ public class BuildingManager : MonoBehaviour
     public void CancelPlace()
     {
         if (PauseClass.instance.isPaused) { return; }
-        print(transform.parent.name);
         cancelButton.SetActive(false);
         isPlacementMode = false;
         pendingObjRenderer = null;

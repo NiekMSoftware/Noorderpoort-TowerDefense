@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -14,9 +15,19 @@ public class CameraMovement : MonoBehaviour
     public float scrollSpeed;
     public float minY = 20f;
     public float maxY = 120f;
+
+    [Header("Starting Pos")]
+    [SerializeField] private Vector3 startPos;
+
+    [SerializeField] private TMP_Text sliderText;
+
+    private void Start()
+    {
+        ResetToStartPos();
+    }
     private void Update()
     {
-        if (PauseClass.instance.isPaused) { return; }
+        if (PauseClass.instance && PauseClass.instance.isPaused) { return; }
         Vector3 pos = transform.position;
 
         if (Input.GetKey("w"))
@@ -44,5 +55,16 @@ public class CameraMovement : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -pos.y, pos.y);
 
         transform.position = pos;
+    }
+
+    public void ResetToStartPos()
+    {
+        transform.position = startPos;
+    }
+
+    public void SetCameraSpeed(float speed)
+    {
+        panSpeed = speed;
+        sliderText.text = speed.ToString();
     }
 }
