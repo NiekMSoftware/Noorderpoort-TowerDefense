@@ -36,9 +36,12 @@ public class BuildingManager : MonoBehaviour
     private Material originalMat;
 
     [SerializeField] private GameObject cancelButton;
+
+    public static BuildingManager instance;
     private void Start()
     {
         selector = FindObjectOfType<Selection>();
+        instance = this;
     }
     void Update()
     {
@@ -127,13 +130,14 @@ public class BuildingManager : MonoBehaviour
     public void CancelPlace()
     {
         if (PauseClass.instance.isPaused) { return; }
+        print(transform.parent.name);
+        cancelButton.SetActive(false);
+        isPlacementMode = false;
+        pendingObjRenderer = null;
         if(pendingObject == null) { return; }
         Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
-        isPlacementMode = false;
         selector.DeSelect();
         Destroy(pendingObject);
         pendingObject = null;
-        pendingObjRenderer = null;
-        cancelButton.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeleteTurrets : MonoBehaviour {
+    public static DeleteTurrets instance;
     [SerializeField] GameObject obj;
 
     [SerializeField] GameObject mainMenu;
@@ -18,19 +19,26 @@ public class DeleteTurrets : MonoBehaviour {
     void Awake() {
         this._bitscript = FindObjectOfType<Bitscript>();
         this._healthscript = FindObjectOfType<Healthscript>();
+        instance = this;
     }
 
     void Update() {
         if (this.mainMenu.activeSelf && !this.removedKids) {
             this.removedKids = true;
+
+            FullReset();
             
-            this.RemoveKids();
-            this.RemoveLife();
-            this.ResetStuff();
         }
         else {
             this.removedKids = false;
         }
+    }
+
+    public void FullReset()
+    {
+        this.RemoveKids();
+        this.RemoveLife();
+        this.ResetStuff();
     }
 
     // Remove children of parent
@@ -51,7 +59,7 @@ public class DeleteTurrets : MonoBehaviour {
     }
 
     // Reset the money and health
-    void ResetStuff() {
+    public void ResetStuff() {
         this._bitscript.bitIndex = this._bitscript.starterMoney;
         this._healthscript.HealthIndex = 11;
     }

@@ -17,12 +17,14 @@ public class Healthscript : MonoBehaviour
     //When the health was set to 0 it would still display 1 so i made another TMP text wich it toggles on and off based on the health value
     public GameObject NormalHealth;
     public GameObject ZeroHealth;
-    bool ended = false;
+    public bool ended = false;
+    public static Healthscript instance;
     // Start is called before the first frame update
     private void Start()
     {
         //This matches the health to the length of the array
         HealthIndex = Spritearray.Length - 1;
+        instance = this;
     }
 
 
@@ -41,6 +43,7 @@ public class Healthscript : MonoBehaviour
                 ended = true;
                 FindObjectOfType<SaveData>().SaveInt(FindObjectOfType<WaveSystem>().wavesEnded, "waves");
                 FindObjectOfType<EndGame>().BlueScreen();
+                
             }
         }
         else
