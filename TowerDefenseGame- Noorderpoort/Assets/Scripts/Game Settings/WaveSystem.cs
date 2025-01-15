@@ -287,7 +287,6 @@ public class WaveSystem : MonoBehaviour
             if (wavesEnded < enemyStartsAt[enemy])
             {
                 enemyChance[enemy] = 0;
-                print("HIIII" + gameRound);
             }
             else if (wavesEnded >= enemyChanceStopsAt[enemy])
             {

@@ -23,7 +23,6 @@ public class PauseClass : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("paused"); 
             PauseGame();
         }
     }
@@ -32,7 +31,6 @@ public class PauseClass : MonoBehaviour
     {
         if (Time.timeScale != 0) 
         {
-            print(gameObject.transform.parent.name);
             isPaused = true;
             prevTimeSpeed = Time.timeScale;
             pausescreen.SetActive(true);

@@ -200,7 +200,6 @@ public class Selection : MonoBehaviour
         selectedObject.GetComponent<Outline>().enabled = false;
         if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false); }
             
-        print("BYEEEEE" + selectedObject.name);
         upgradeUI.gameObject.SetActive(false);
         selectedObject = null;
     }
