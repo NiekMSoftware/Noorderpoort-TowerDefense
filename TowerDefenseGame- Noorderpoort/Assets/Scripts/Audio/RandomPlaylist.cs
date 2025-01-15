@@ -7,11 +7,12 @@ public class RandomPlaylist : MonoBehaviour {
     [SerializeField] AudioSource source;
     [SerializeField] float newClip;
     [SerializeField] float timer;
+
+    private AudioClip prevClip;
     
     
     // Start is called before the first frame update
     void Start() {
-        this.source.gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,13 +26,22 @@ public class RandomPlaylist : MonoBehaviour {
     }
 
     void NewClip() {
-        int clipNum = Random.Range(0, this.clips.Length);
+        bool hasClip = false;
+        int clipNum = 1;
+        while (!hasClip)
+        {
+            clipNum = Random.Range(0, this.clips.Length);
+            if (clips[clipNum] != prevClip)
+            {
+                hasClip = true;
+            }
+        }
 
         if (!this.source.isPlaying) {
-            this.source.loop = true;
             this.source.PlayOneShot(clips[clipNum]);
         }
 
+        prevClip = clips[clipNum];
         this.newClip = this.clips[clipNum].length;
     }
 }
