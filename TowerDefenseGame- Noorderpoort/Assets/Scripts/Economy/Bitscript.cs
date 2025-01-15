@@ -20,7 +20,6 @@ public class Bitscript : MonoBehaviour
 
     private bool isDiscountActive = true; // The state of the Discount
 
-    //UI doesnt work for me - Rudo
     void Start()
     {
         bitIndex = starterMoney;
@@ -48,6 +47,7 @@ public class Bitscript : MonoBehaviour
     public void AddDiscount(float amount)
     {
         discountAmount = Mathf.Clamp(discountAmount + amount, 0f, maxDiscountAmount);
+        ShopReferences.Instance.UpdateCosts();
     }
     public void RemoveDiscount(float amount)
     {

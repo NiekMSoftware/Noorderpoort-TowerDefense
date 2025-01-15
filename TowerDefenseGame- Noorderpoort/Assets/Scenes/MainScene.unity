@@ -10409,6 +10409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538262221}
+  - component: {fileID: 538262222}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -10440,6 +10441,28 @@ RectTransform:
   m_AnchoredPosition: {x: 107, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &538262222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538262220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13186172e6ad6ae4e83ff3587c4ecd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCosts:
+  - {fileID: 1034720205}
+  - {fileID: 407383243}
+  - {fileID: 866888695}
+  - {fileID: 1514326788}
+  towersInSpots:
+  - {fileID: 11400000, guid: 053255ac3f579ef428f3ff05afe3029f, type: 2}
+  - {fileID: 11400000, guid: 5965e66915c7e4447b8605b2917cf458, type: 2}
+  - {fileID: 11400000, guid: 7e18a20fc57ff804f94527f7e61de5a4, type: 2}
+  - {fileID: 11400000, guid: feeba404bb1557e439de6e30dcdebc17, type: 2}
 --- !u!1 &544218550
 GameObject:
   m_ObjectHideFlags: 0
