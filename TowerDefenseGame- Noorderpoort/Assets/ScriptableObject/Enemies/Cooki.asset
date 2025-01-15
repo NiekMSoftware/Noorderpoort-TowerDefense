@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7907300184443768562, guid: 2a882037806fa414a909bdc023670d7f, type: 3}
   health: 150
-  speed: 3
+  speed: 2
   bitsOnDeath: 25
   startSpawnWave: 10
   endSpawnWave: 20
