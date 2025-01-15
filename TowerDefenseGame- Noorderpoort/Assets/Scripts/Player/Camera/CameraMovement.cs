@@ -16,6 +16,7 @@ public class CameraMovement : MonoBehaviour
     public float maxY = 120f;
     private void Update()
     {
+        if (PauseClass.instance.isPaused) { return; }
         Vector3 pos = transform.position;
 
         if (Input.GetKey("w"))

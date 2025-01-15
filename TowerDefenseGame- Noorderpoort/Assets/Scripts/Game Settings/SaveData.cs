@@ -6,18 +6,20 @@ public class SaveData : MonoBehaviour
 {
     public void Savestring(string difficulty)
     {
-        PlayerPrefs.SetString("dif", difficulty);
+        //PlayerPrefs.SetString("dif", difficulty);
     }
     public string getstring(string name)
     {
-        return PlayerPrefs.GetString(name);    
+        //return PlayerPrefs.GetString(name);    
+        return null;
     }
     public void SaveInt(int amount,string name)
     {
-        PlayerPrefs.SetInt(name, amount);
+        //PlayerPrefs.SetInt(name, amount);
     }
     public int GetInt(string name)
     {
-        return PlayerPrefs.GetInt(name);
+        //return PlayerPrefs.GetInt(name);
+        return 0;
     }
 }

@@ -17,10 +17,6 @@ public class EndGame : MonoBehaviour
         {
             blackScreen.SetActive(false);
         }
-        if (waveText != null)
-        {
-            waveText.text = FindObjectOfType<SaveData>().GetInt("waves").ToString() + " waves complete";
-        }
     }
     public void BlueScreen()
     {
@@ -28,18 +24,18 @@ public class EndGame : MonoBehaviour
     }
     IEnumerator Waiter(float time)
     {
+        waveText.text = FindObjectOfType<WaveSystem>().wavesEnded.ToString() + " waves completed";
         float prevSpeed = Time.timeScale;
         Time.timeScale = 1;
         yield return new WaitForSeconds(0.2f);
         blackScreen.SetActive(true);
-        //play sound
         yield return new WaitForSeconds(time);
-        //FindObjectOfType<SceneLoader>().LoadScene("GameOver");
         DeleteTurrets.instance.FullReset();
         blackScreen.SetActive(false);
         mainCam.gameObject.SetActive(true);
         Healthscript.instance.ended = false;
         BuildingManager.instance.CancelPlace();
+
         onEnd.Invoke();
         Time.timeScale = prevSpeed;
     }

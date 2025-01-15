@@ -41,7 +41,6 @@ public class Healthscript : MonoBehaviour
                 //NormalHealth.SetActive(false);
                 //ZeroHealth.SetActive(true);
                 ended = true;
-                FindObjectOfType<SaveData>().SaveInt(FindObjectOfType<WaveSystem>().wavesEnded, "waves");
                 FindObjectOfType<EndGame>().BlueScreen();
                 
             }
