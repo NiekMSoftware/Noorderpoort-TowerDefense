@@ -29,7 +29,6 @@ public class TrapTower : GeneralTowerScript
 
         for(int i = 0; i < allHit.Length; i++)
         {
-            print(allHit[i].gameObject.name);
             if (allHit[i].TryGetComponent(out EnemyHP en))
             {
                 en.TakeDamage(damage);

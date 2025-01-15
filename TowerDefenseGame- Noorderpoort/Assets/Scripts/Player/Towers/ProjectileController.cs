@@ -26,7 +26,8 @@ public class ProjectileController : MonoBehaviour
             //Bullet moves and rotates towards target
             if (target != null)
             {
-                transform.rotation = Quaternion.LookRotation(gameObject.GetComponent<Rigidbody>().velocity);
+                Vector3 velo = gameObject.GetComponent<Rigidbody>().velocity;
+                if (velo != Vector3.zero) { transform.rotation = Quaternion.LookRotation(velo); }
                 //transform.rotation = Quaternion.LookRotation(target.position);
                 gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
             }

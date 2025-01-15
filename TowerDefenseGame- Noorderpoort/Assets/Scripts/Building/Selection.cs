@@ -77,7 +77,6 @@ public class Selection : MonoBehaviour
 
         Outline outline = obj.GetComponent<Outline>();
 
-        print("HIIII");
         if (obj.GetComponent<RangeScript>()) { obj.GetComponent<RangeScript>().ShowRange(); }
         
         //Check if the object needs an outline

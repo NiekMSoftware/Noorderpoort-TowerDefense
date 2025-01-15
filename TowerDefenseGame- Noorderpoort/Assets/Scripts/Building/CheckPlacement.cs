@@ -28,7 +28,6 @@ public class CheckPlacement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, buildingManager.detectLayersMask))
             {
-                print(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
                 {
                     buildingManager.canPlace = true;

@@ -88,7 +88,6 @@ public class BuildingManager : MonoBehaviour
         }
         pendingObjRenderer.GetComponent<MeshRenderer>().material = originalMat;
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-        print(selector.name);
         selector.Select(pendingObject);
         Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
         pendingObject = null;

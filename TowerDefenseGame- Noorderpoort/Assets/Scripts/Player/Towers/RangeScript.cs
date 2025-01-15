@@ -49,10 +49,8 @@ public class RangeScript : MonoBehaviour
 
     public void ShowRange(bool show = true)
     {
-        print("In Range");
         if (show)
         {
-            print("We vibin");
             GameObject cir = Instantiate(rangeCircle);
             cir.transform.position = transform.position;
             cir.transform.localScale = new Vector3(range * 2, rangeCircle.transform.localScale.y, range * 2);
