@@ -20765,7 +20765,7 @@ GameObject:
   - component: {fileID: 1037451710}
   - component: {fileID: 1037451709}
   m_Layer: 5
-  m_Name: 2x speed icon
+  m_Name: 3x speed icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32131,7 +32131,7 @@ GameObject:
   - component: {fileID: 1572257461}
   - component: {fileID: 1572257460}
   m_Layer: 5
-  m_Name: 5x speed
+  m_Name: 3x speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32211,7 +32211,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

@@ -35,7 +35,7 @@ public class GameSpeed : MonoBehaviour
             case 2:
                 buttons[1].color = activeColor;
                 break;
-            case 5:
+            case 3:
                 buttons[2].color = activeColor;
                 break;
         }
