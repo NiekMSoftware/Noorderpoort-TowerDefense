@@ -79,6 +79,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (PauseClass.instance.isPaused) { return; }
         if (Selection.IsPointerOverUIElement()) { return; }
+        if (!Bitscript.instance.RemoveBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost)) { return; }
         foreach (Collider coll in towerTriggers)
         {
             if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
@@ -133,7 +134,7 @@ public class BuildingManager : MonoBehaviour
         isPlacementMode = false;
         pendingObjRenderer = null;
         if(pendingObject == null) { return; }
-        Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
+        //Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
         selector.DeSelect();
         Destroy(pendingObject);
         pendingObject = null;

@@ -35,11 +35,8 @@ public class BuyingTowers : MonoBehaviour
         if (PauseClass.instance.isPaused) { return; }
         if (buildingManager.pendingObject == null)
         {
-            if (bitscript.RemoveBits(tower.cost))
-            {
-                buildingManager.SelectObject(tower);
-                selection.DeSelect();
-            }
+            buildingManager.SelectObject(tower);
+            selection.DeSelect();
         }
     }
 }

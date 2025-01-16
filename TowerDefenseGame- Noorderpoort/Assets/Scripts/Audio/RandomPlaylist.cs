@@ -13,13 +13,14 @@ public class RandomPlaylist : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
+        NewClip();
     }
 
     // Update is called once per frame
     void Update() {
         timer += Time.deltaTime;
 
-        if (timer >= this.newClip + 1) {
+        if (timer >= this.newClip) {
             this.NewClip();
             timer = 0;
         }
@@ -37,11 +38,11 @@ public class RandomPlaylist : MonoBehaviour {
             }
         }
 
-        if (!this.source.isPlaying) {
-            this.source.PlayOneShot(clips[clipNum]);
-        }
+        source.PlayOneShot(clips[clipNum]);
 
         prevClip = clips[clipNum];
         this.newClip = this.clips[clipNum].length;
+
+        print("You are now listening to: " + clips[clipNum]);
     }
 }
