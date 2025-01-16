@@ -62,12 +62,11 @@ public class RangeScript : MonoBehaviour
             GameObject cir = Instantiate(rangeCircle);
             cir.transform.position = transform.position;
             cir.transform.localScale = new Vector3(range * 2, rangeCircle.transform.localScale.y, range * 2);
-            if (follow) { cir.transform.parent = transform;  }else { print("Bruh wants to NOT SEEE"); }
+            if (follow) { cir.transform.parent = transform;  }
             activateRanges.Add(cir);
         }
         else if (!show)
         {
-            print("YO");
             foreach(GameObject ob in activateRanges)
             {
                 Destroy(ob);

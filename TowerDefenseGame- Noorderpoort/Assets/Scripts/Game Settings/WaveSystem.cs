@@ -151,6 +151,10 @@ public class WaveSystem : MonoBehaviour
             if (gaveMoney == false)
             {
                 wavesEnded++;
+                if (wavesEnded > 0)
+                {
+                    bits.AddBits(moneyPerWave);
+                }
                 gaveMoney = true;
             }
 
@@ -181,10 +185,6 @@ public class WaveSystem : MonoBehaviour
         catch
         {
             print("Er Not posible");
-        }
-        if (wavesEnded > 0)
-        {
-            bits.AddBits(moneyPerWave);
         }
          
         //Decides how many enemies to spawn
@@ -225,7 +225,7 @@ public class WaveSystem : MonoBehaviour
     {
         //Adds health multiplier
         enemyHealthMultiplier = enemyHealthMultiplier + enemyHealthMultiplierPerRound;
-         
+
         //Resets bools for the next wave
         hasGroup = false;
         activatedTimer = false;
