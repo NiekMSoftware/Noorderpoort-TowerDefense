@@ -20,9 +20,8 @@ public class RandomPlaylist : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
 
-        if (timer >= this.newClip + 2) {
+        if (!source.isPlaying) {
             this.NewClip();
-            timer = 0;
         }
     }
 
@@ -36,11 +35,6 @@ public class RandomPlaylist : MonoBehaviour {
             {
                 hasClip = true;
             }
-        }
-
-        while (source.isPlaying)
-        {
-
         }
         source.PlayOneShot(clips[clipNum]);
 
