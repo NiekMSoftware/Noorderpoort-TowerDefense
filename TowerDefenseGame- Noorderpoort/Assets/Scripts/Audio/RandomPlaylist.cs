@@ -20,7 +20,7 @@ public class RandomPlaylist : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
 
-        if (timer >= this.newClip) {
+        if (timer >= this.newClip + 2) {
             this.NewClip();
             timer = 0;
         }
@@ -38,6 +38,10 @@ public class RandomPlaylist : MonoBehaviour {
             }
         }
 
+        while (source.isPlaying)
+        {
+
+        }
         source.PlayOneShot(clips[clipNum]);
 
         prevClip = clips[clipNum];

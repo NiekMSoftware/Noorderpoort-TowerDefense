@@ -28947,7 +28947,7 @@ GameObject:
   - component: {fileID: 1359484934}
   - component: {fileID: 1359484933}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28995,20 +28995,24 @@ MonoBehaviour:
       m_Calls: []
   m_text: "-1 new enemy: Cooki\r\n-1 new music track\r\n-Reworked Resistor\r\n-Towers
     show their range when you \nare placing or selecting them\n-You can sell towers
-    for \n~50% of their cost\n-MMM Tier 3 now gives 10% Discounts\r\n-3x speed option\r\n-Unselect
-    turrets by clicking off them\r\n-Cancel buying turret\r\n-Visuals for upgrading
-    towers\r\n-Redone turret images\r\n-Game settings for Camera Speed \nand Reduced
-    BSOD visuals\r\n-Consistent Backgrounds\r\n-Consistent Buttons\r\n-Renamed \"Levels\"
-    to \"Maps\"\r\n-Renamed \"Options\" to \"Settings\"\r\n-Various visual changes
-    to \nmap select screen\r\n-Resorted Credits\r\n-Renamed Spectre in credits\r\n-Renamed
-    \"FireGuy\" to \"Ember\"\r\n-Renamed \"Electric\" to \"Sparky\"\r\n-Pressing
-    Q in the pause menu to \nunpause the game\r\n-Slight visual changes to some \nicons
-    and backgrounds\r\n-Balancing\r\n\r\nFixes:\r\n-A tower is now selected \nafter
-    placing it.\r\n-Camera is no longer affected \nby time speed\r\n-Fixed being
-    able to place/upgrade \ntowers while paused\r\n-Fixed background music not switching\r\n-Set
-    default resolution to 1080p\r\n-Removed extra 0 when dying\r\n-Upgrading a tower
-    resetting its rotation\r\n-Black screen is affected by time speed\r\n-Being able
-    to pause in \nthe black screen before  BSOD "
+    for \n~50% of their cost by \npressing Q while placing\n-MMM Tier 3 now gives
+    10% Discounts\r\n-3x speed option\r\n-New game icon\n-Unselect turrets by clicking
+    off them\r\n-Cancel buying turret\r\n-Visuals for upgrading towers\r\n-Redone
+    turret images\r\n-Game settings for Camera Speed \nand Reduced BSOD visuals\r\n-Consistent
+    Backgrounds\r\n-Consistent Buttons\r\n-Renamed \"Levels\" to \"Maps\"\r\n-Renamed
+    \"Options\" to \"Settings\"\r\n-Various visual changes to \nmap select screen\r\n-Resorted
+    Credits\r\n-Renamed Spectre in credits\r\n-Renamed \"FireGuy\" to \"Ember\"\r\n-Renamed
+    \"Electric\" to \"Sparky\"\r\n-Pressing Escape in the pause menu to \nunpause
+    the game\r\n-Slight visual changes to some \nicons and backgrounds\r\n-Passive
+    money per wave is \nnow gained at the end of a \nwave, not at the start.\n-Balancing\r\n\r\nFixes:\r\n-A
+    tower is now selected \nafter placing it.\r\n-A tower attacking enemies \nthat
+    leave its range\r\n-Being able to select a \ntower while placing\r\n-Being able
+    to place towers \non the side of paths\r\n-Camera going down, not zooming in\n-Camera
+    is no longer affected \nby time speed\r\n-Fixed being able to place/upgrade \ntowers
+    while paused\r\n-Fixed background music not switching\r\n-Set default resolution
+    to 1080p\r\n-Removed extra 0 when dying\r\n-Upgrading a tower resetting its rotation\r\n-Black
+    screen is affected by time speed\r\n-Being able to pause in \nthe black screen
+    before  BSOD "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
