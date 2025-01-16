@@ -62,7 +62,7 @@ public class DeleteTurrets : MonoBehaviour {
     public void ResetStuff() {
         this._bitscript.bitIndex = this._bitscript.starterMoney;
         _bitscript.discountAmount = 0;
-        ShopReferences.Instance.UpdateCosts();
+        if (ShopReferences.Instance) { ShopReferences.Instance.UpdateCosts(); }
         this._healthscript.HealthIndex = 11;
     }
 }

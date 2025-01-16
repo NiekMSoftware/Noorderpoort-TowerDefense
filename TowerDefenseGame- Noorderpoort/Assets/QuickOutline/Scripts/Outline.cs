@@ -140,6 +140,7 @@ public class Outline : MonoBehaviour {
   void OnDisable() {
     foreach (var renderer in renderers) {
 
+    if (!renderer) {  continue; }
       // Remove outline shaders
       var materials = renderer.sharedMaterials.ToList();
 
@@ -220,6 +221,7 @@ public class Outline : MonoBehaviour {
 
   List<Vector3> SmoothNormals(Mesh mesh) {
 
+        if(mesh == null) { return null; }
     // Group vertices by location
     var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
 
