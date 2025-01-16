@@ -5068,6 +5068,9 @@ MonoBehaviour:
   towerUpgrade: 0
   buildingManager: {fileID: 0}
   layerNumber: 3
+  problemLayers:
+    serializedVersion: 2
+    m_Bits: 144
 --- !u!114 &2581975701133363692
 MonoBehaviour:
   m_ObjectHideFlags: 0

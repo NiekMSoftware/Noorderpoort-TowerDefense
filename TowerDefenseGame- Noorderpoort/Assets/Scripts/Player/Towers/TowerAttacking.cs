@@ -38,7 +38,7 @@ public class TowerAttacking : GeneralTowerScript
     [SerializeField] private AudioClip attackSound;
 
     [Header("Other")]
-    [SerializeField] private GameObject target;
+    public GameObject target;
     [SerializeField] private RangeScript rangeScript;
     [SerializeField] private bool rotatesTowardsEnemies;
     void Start()

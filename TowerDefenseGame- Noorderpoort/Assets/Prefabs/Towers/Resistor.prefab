@@ -303,6 +303,9 @@ MonoBehaviour:
   towerUpgrade: 0
   buildingManager: {fileID: 0}
   layerNumber: 4
+  problemLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!33 &4202668930968734914
 MeshFilter:
   m_ObjectHideFlags: 0

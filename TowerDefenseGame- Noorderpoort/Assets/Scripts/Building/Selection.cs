@@ -80,10 +80,15 @@ public class Selection : MonoBehaviour
         if (obj.GetComponent<RangeScript>()) { obj.GetComponent<RangeScript>().ShowRange(true,false); }
         
         //Check if the object needs an outline
-        if (outline == null)
-            obj.AddComponent<Outline>();
-        else 
-            outline.enabled = true;
+        if (outline == null) { obj.AddComponent<Outline>(); }
+        else
+        {
+            if (obj.GetComponent<MeshRenderer>())
+            {
+                outline.enabled = true;
+            }
+        }
+
         
         selectedObject = obj;
         UpdateUpgradeUI(obj.GetComponent<GeneralTowerScript>().towerStats);

@@ -38,7 +38,15 @@ public class RangeScript : MonoBehaviour
                 foreach (Collider col in enemyList.ToList())
                 {
                     //Removes the enemies if they get out of range
-                    if (hitColliders.Contains(col) == false)
+                    if (col)
+                    {
+                        if (hitColliders.Contains(col) == false)
+                        {
+                            if (towerAttack.target == col.gameObject) { towerAttack.target = null; }
+                            enemyList.Remove(col);
+                        }
+                    }
+                    else
                     {
                         enemyList.Remove(col);
                     }

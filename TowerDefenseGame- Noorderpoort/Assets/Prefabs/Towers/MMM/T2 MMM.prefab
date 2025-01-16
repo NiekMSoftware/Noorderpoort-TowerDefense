@@ -169,9 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerUpgrade: 0
-  towerType: 3
   buildingManager: {fileID: 0}
   layerNumber: 3
+  problemLayers:
+    serializedVersion: 2
+    m_Bits: 144
 --- !u!54 &1660164555168508162
 Rigidbody:
   m_ObjectHideFlags: 0

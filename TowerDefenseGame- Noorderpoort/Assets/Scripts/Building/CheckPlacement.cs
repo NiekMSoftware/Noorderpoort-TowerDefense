@@ -13,6 +13,7 @@ public class CheckPlacement : MonoBehaviour
 
     [SerializeField] int layerNumber;
     private LayerMask canPlaceOnLayerMask;
+    [SerializeField] LayerMask problemLayers;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class CheckPlacement : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
                 {
-                    Collider[] colliders = Physics.OverlapBox(buildingManager.pendingObject.transform.position, buildingManager.pendingObject.transform.lossyScale, Quaternion.identity, 1<<7);
+                    Collider[] colliders = Physics.OverlapBox(buildingManager.pendingObject.transform.position, buildingManager.pendingObject.transform.lossyScale, Quaternion.identity, problemLayers);
                     if(colliders.Length < 2)
                     {
                         buildingManager.canPlace = true;
