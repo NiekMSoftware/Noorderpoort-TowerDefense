@@ -16,7 +16,7 @@ public class RangeScript : MonoBehaviour
     private void Start()
     {
         towerAttack = gameObject.GetComponent<TowerAttacking>();
-        ShowRange();
+        //ShowRange();
     }
     void Update()
     {
@@ -47,18 +47,19 @@ public class RangeScript : MonoBehaviour
         }
     }
 
-    public void ShowRange(bool show = true)
+    public void ShowRange(bool show = true,bool follow = false)
     {
         if (show)
         {
             GameObject cir = Instantiate(rangeCircle);
             cir.transform.position = transform.position;
             cir.transform.localScale = new Vector3(range * 2, rangeCircle.transform.localScale.y, range * 2);
-            cir.transform.parent = transform;
+            if (follow) { cir.transform.parent = transform;  }else { print("Bruh wants to NOT SEEE"); }
             activateRanges.Add(cir);
         }
         else if (!show)
         {
+            print("YO");
             foreach(GameObject ob in activateRanges)
             {
                 Destroy(ob);

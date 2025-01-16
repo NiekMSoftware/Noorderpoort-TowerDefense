@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5485092291210386011}
   - component: {fileID: 3737951905495930300}
   - component: {fileID: 5061068324887414416}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: DetectionRange
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5360858334740156465}
   - component: {fileID: 110641741376056305}
   - component: {fileID: 4201242350807724104}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: BlastRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1189755632952455018}
   - component: {fileID: 221319956108522841}
   - component: {fileID: 3438584214192859337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Resistor
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -490,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Visual
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 955b86def3d7f2b4a9a59a9070245ec6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 955b86def3d7f2b4a9a59a9070245ec6, type: 3}

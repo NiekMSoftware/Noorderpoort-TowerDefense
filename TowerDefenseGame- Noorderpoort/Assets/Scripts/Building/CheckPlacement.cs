@@ -30,7 +30,20 @@ public class CheckPlacement : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
                 {
-                    buildingManager.canPlace = true;
+                    Collider[] colliders = Physics.OverlapBox(buildingManager.pendingObject.transform.position, buildingManager.pendingObject.transform.lossyScale, Quaternion.identity, 1<<7);
+                    if(colliders.Length < 2)
+                    {
+                        buildingManager.canPlace = true;
+
+                    }
+                    else
+                    {
+                        for(int i = 0; i < colliders.Length; i++)
+                        {
+                            print(colliders[i].gameObject.name);
+                        }
+                        buildingManager.canPlace = false;
+                    }
                 }
                 else
                 {
@@ -49,8 +62,9 @@ public class CheckPlacement : MonoBehaviour
     {
         if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.gameObject.tag == "Trap")
         {
-            buildingManager.isPlacementMode = false;
-            buildingManager.canPlace = false;
+            //buildingManager.isPlacementMode = false;
+            //buildingManager.canPlace = false;
+            //print("Enter object: " + other.name);
         }
     }
 
@@ -58,8 +72,9 @@ public class CheckPlacement : MonoBehaviour
     {
         if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.gameObject.tag == "Trap")
         {
-            buildingManager.isPlacementMode = false;
-            buildingManager.canPlace = false;
+            //buildingManager.isPlacementMode = false;
+            //buildingManager.canPlace = false;
+            //print("In object: " + other.name);
         }
     }
 
@@ -67,8 +82,9 @@ public class CheckPlacement : MonoBehaviour
     {
         if (buildingManager.towerTriggers.Contains(other) || other.tag == "Tower" || other.tag == "Trap")
         {
-            buildingManager.isPlacementMode = true;
-            buildingManager.canPlace = true;
+            //buildingManager.isPlacementMode = true;
+            //buildingManager.canPlace = true;
+            //print("Exit object: " + other.name);
         }
     }
 

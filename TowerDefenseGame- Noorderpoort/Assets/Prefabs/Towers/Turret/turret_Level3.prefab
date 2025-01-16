@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 882100593192806389}
   - component: {fileID: 2526283847282404196}
   - component: {fileID: 8265733690831307518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: turret_Level3
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerUpgrade: 2
-  towerType: 1
   buildingManager: {fileID: 0}
   layerNumber: 4
 --- !u!114 &882100593192806389
@@ -295,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882642341467261269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint (1)
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -326,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7339000798384657703}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint (2)
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -357,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8083865322925497651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -455,6 +454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretT3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30681779472d24447acac749bc0de7cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30681779472d24447acac749bc0de7cf,
         type: 3}

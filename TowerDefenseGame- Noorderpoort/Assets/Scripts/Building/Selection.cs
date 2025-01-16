@@ -77,7 +77,7 @@ public class Selection : MonoBehaviour
 
         Outline outline = obj.GetComponent<Outline>();
 
-        if (obj.GetComponent<RangeScript>()) { obj.GetComponent<RangeScript>().ShowRange(); }
+        if (obj.GetComponent<RangeScript>()) { obj.GetComponent<RangeScript>().ShowRange(true,false); }
         
         //Check if the object needs an outline
         if (outline == null)
@@ -197,7 +197,7 @@ public class Selection : MonoBehaviour
         if (selectedObject == null) return;
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;
-        if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false); }
+        if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false,false); }
             
         upgradeUI.gameObject.SetActive(false);
         selectedObject = null;

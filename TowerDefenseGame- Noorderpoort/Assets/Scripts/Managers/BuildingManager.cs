@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -84,13 +83,20 @@ public class BuildingManager : MonoBehaviour
         {
             if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
             {
-                coll.gameObject.GetComponent<RangeScript>().ShowRange(false);
+                coll.gameObject.GetComponent<RangeScript>().ShowRange(false,false);
             }
         }
         pendingObjRenderer.GetComponent<MeshRenderer>().material = originalMat;
+        int num = Random.Range(0, 1000);
+        pendingObject.name = "Tower: " + num;
         towerTriggers.Add(pendingObject.GetComponent<Collider>());
-        selector.Select(pendingObject);
         Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
+        selector.DeSelect();
+        if (pendingObject.GetComponent<RangeScript>())
+        {
+            pendingObject.GetComponent<RangeScript>().ShowRange(false, false);
+        }
+        selector.Select(pendingObject);
         pendingObject = null;
         pendingObjRenderer = null;
         isPlacementMode = false;
@@ -114,7 +120,7 @@ public class BuildingManager : MonoBehaviour
         {
             if(coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
             {
-                coll.gameObject.GetComponent<RangeScript>().ShowRange(true);
+                coll.gameObject.GetComponent<RangeScript>().ShowRange(true,false);
                 selector.selectedObject = coll.gameObject;
                 selector.DeSelect();
             }
@@ -125,6 +131,10 @@ public class BuildingManager : MonoBehaviour
         pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
         originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;
         cancelButton.SetActive(true);
+        if (pendingObject.GetComponent<RangeScript>())
+        {
+            pendingObject.GetComponent<RangeScript>().ShowRange(true, true);
+        }
     }
 
     public void CancelPlace()
