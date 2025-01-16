@@ -58,6 +58,11 @@ public class BuildingManager : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            CancelPlace();
+        }
+
         UpdateMaterials();
     }
 
@@ -141,12 +146,12 @@ public class BuildingManager : MonoBehaviour
     {
         if (PauseClass.instance.isPaused) { return; }
         cancelButton.SetActive(false);
-        isPlacementMode = false;
         pendingObjRenderer = null;
         if(pendingObject == null) { return; }
         //Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
         selector.DeSelect();
         Destroy(pendingObject);
         pendingObject = null;
+        isPlacementMode = false;
     }
 }

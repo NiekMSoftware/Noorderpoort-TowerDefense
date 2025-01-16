@@ -30,7 +30,7 @@ public class TowerAttacking : GeneralTowerScript
 
     [Header("Projectile")]
     [SerializeField] private GameObject projectile;
-    float timeUntilBullet;
+    private float timeUntilBullet;
     GameObject bulletEmpty;
 
     [Header("Sound")]

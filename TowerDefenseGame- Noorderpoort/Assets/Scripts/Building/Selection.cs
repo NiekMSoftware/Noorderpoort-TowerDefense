@@ -133,8 +133,8 @@ public class Selection : MonoBehaviour
             }
             if (towerType.firerate > upgrade.firerate)
             {
-                upgradeUI.currentStatValues[currentStat].text = towerType.firerate.ToString() + "s";
-                upgradeUI.upgradeStatValues[currentStat].text = upgrade.firerate.ToString() + "s";
+                upgradeUI.currentStatValues[currentStat].text = (towerType.firerate/5).ToString() + "s";
+                upgradeUI.upgradeStatValues[currentStat].text = (upgrade.firerate/5).ToString() + "s";
                 upgradeUI.statIcons[currentStat].sprite = statSprites[1];
                 currentStat++;
             }
