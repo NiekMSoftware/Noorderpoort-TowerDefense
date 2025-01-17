@@ -22,9 +22,12 @@ MonoBehaviour:
   prefab: {fileID: 615592888454610796, guid: 906a2c3a5abb8614f8b5c27e23c7cd7f, type: 3}
   cost: 150
   sellValue: 150
-  damage: 13
+  damage: 14
   firerate: 1
   range: 15
   projectileSpeed: 3
   moneyPerWave: 0
   discount: 0
+  detectionRange: 0
+  uses: 0
+  cooldown: 0

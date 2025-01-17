@@ -20,11 +20,14 @@ MonoBehaviour:
   isOffensive: 1
   upgradeScriptable: {fileID: 0}
   prefab: {fileID: 1727658752850482466, guid: 34e7f2a0e4c943b4489f4b672d6c67b2, type: 3}
-  cost: 400
-  sellValue: 400
+  cost: 300
+  sellValue: 350
   damage: 150
-  firerate: 5
+  firerate: 6.5
   range: 22
   projectileSpeed: 1.5
   moneyPerWave: 0
   discount: 0
+  detectionRange: 0
+  uses: 0
+  cooldown: 0

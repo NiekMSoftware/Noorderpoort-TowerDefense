@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Selection : MonoBehaviour
 {
     [Header("Did we Select an Object?")]
+    public static Selection instance;
     public GameObject selectedObject;
     public bool selectedTower;
     [SerializeField] private BuildingManager builderman;
@@ -14,9 +15,10 @@ public class Selection : MonoBehaviour
     public float timeSincePlace;
 
     public UpgradeUIReferences upgradeUI;
-    [SerializeField] private Sprite[] statSprites;
+    public Sprite[] statSprites;
     private void Start()
     {
+        instance = this;
         builderman = FindObjectOfType<BuildingManager>();
     }
     // Update is called once per frame

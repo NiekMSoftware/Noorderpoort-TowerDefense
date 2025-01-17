@@ -21,6 +21,7 @@ public class CameraMovement : MonoBehaviour
 
     [SerializeField] private TMP_Text sliderText;
 
+    [SerializeField] private GameObject mainMenu;
     private void Start()
     {
         ResetToStartPos();
@@ -28,6 +29,7 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         if (PauseClass.instance && PauseClass.instance.isPaused) { return; }
+        if (!mainMenu.activeInHierarchy) { return; }
         Vector3 pos = transform.position;
 
         if (Input.GetKey("w"))
