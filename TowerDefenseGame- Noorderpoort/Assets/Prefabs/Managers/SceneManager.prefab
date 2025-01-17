@@ -73,6 +73,9 @@ MonoBehaviour:
   maxEnemiesPerRound: 75
   enemyHealthMultiplier: 1
   enemyHealthMultiplierPerRound: 0.3
+  arrowEnemy: {fileID: 11400000, guid: d4c9c73608aa7014a8204d6c6389e8fd, type: 2}
+  arrowAmount: 3
+  arrowCooldown: 1
   enemyEmpty: {fileID: 0}
   destination: {fileID: 0}
   text: {fileID: 0}

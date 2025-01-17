@@ -42,9 +42,12 @@ public class EnemyHP : MonoBehaviour
         Bitscript bits = FindObjectOfType<Bitscript>();
         bits.AddBits(bitsOnDeath);
 
-        GameObject sound = Instantiate(soundBlock, transform.position, transform.rotation);
-        sound.GetComponent<AudioSource>().clip = deathSound;
-        sound.GetComponent<AudioSource>().Play();
+        if (scriptable.playSoundOnDeath)
+        {
+            GameObject sound = Instantiate(soundBlock, transform.position, transform.rotation);
+            sound.GetComponent<AudioSource>().clip = deathSound;
+            sound.GetComponent<AudioSource>().Play();
+        }
         //Death
         Destroy(gameObject);
     }

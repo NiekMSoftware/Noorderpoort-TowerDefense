@@ -63,6 +63,12 @@ public class WaveSystem : MonoBehaviour
     bool gaveMoney = false;
     Bitscript bits;
 
+    [Header("Showing Path")]
+    [SerializeField] private EnemyScriptable arrowEnemy;
+    [SerializeField] private int arrowAmount;
+    [SerializeField] private float arrowCooldown;
+    private int arrowsShown;
+
     [Header("Other")]
     [SerializeField] private Transform enemyEmpty;
     [SerializeField] private Transform destination;
@@ -96,7 +102,19 @@ public class WaveSystem : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (spawning == true)
+        if(wavesEnded == -1)
+        {
+            timeTillSpawn -= Time.deltaTime;
+            if (timeTillSpawn < 0)
+            {
+                StartCoroutine(SpawnArrow(0.05f, 3));
+                timeTillSpawn = arrowCooldown;
+                arrowsShown++;
+                print(arrowsShown);
+                if(arrowsShown >= arrowAmount) { wavesEnded = 0;roundStart();}
+            }
+        }
+        if (spawning == true && wavesEnded > 0)
         {
             if (spawnBossWave)
             {
@@ -145,7 +163,7 @@ public class WaveSystem : MonoBehaviour
             }
         }
 
-        if (enemyEmpty.childCount == 0)
+        if (enemyEmpty.childCount == 0 && wavesEnded > -1)
         {
             //Ends wave
             if (gaveMoney == false)
@@ -169,6 +187,18 @@ public class WaveSystem : MonoBehaviour
             {
                 roundEnd();
             }
+        }
+    }
+
+    public IEnumerator SpawnArrow(float cooldown, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            //Spawns the enemies
+            GameObject enemy = Instantiate(arrowEnemy.prefab, spawnPoint.position, spawnPoint.rotation);
+            enemy.transform.parent = enemyEmpty;
+            enemy.GetComponent<EnemyNavMesh>().movePositionTransform = destination;
+            yield return new WaitForSeconds(cooldown);
         }
     }
     public void roundStart() {

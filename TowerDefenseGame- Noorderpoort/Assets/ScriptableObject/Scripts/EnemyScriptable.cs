@@ -10,6 +10,7 @@ public class EnemyScriptable : ScriptableObject
     public int health;
     public int speed;
     public int bitsOnDeath;
+    public bool playSoundOnDeath = true;
 
     [Header("Spawning Enemy")]
     public int startSpawnWave;

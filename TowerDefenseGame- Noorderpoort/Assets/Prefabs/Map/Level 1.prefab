@@ -535,6 +535,11 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 693179688213034859}
+    - target: {fileID: 472383230069055643, guid: dda88066f5aed914db691bbec2deb2f7,
+        type: 3}
+      propertyPath: arrowCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 472383230069055648, guid: dda88066f5aed914db691bbec2deb2f7,
         type: 3}
       propertyPath: m_RootOrder
