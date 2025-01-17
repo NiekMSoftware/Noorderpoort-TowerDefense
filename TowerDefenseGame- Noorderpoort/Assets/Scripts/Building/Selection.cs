@@ -16,9 +16,11 @@ public class Selection : MonoBehaviour
 
     public UpgradeUIReferences upgradeUI;
     public Sprite[] statSprites;
+    [SerializeField] private Bitscript bits;
     private void Start()
     {
         instance = this;
+        bits = FindObjectOfType<Bitscript>();
         builderman = FindObjectOfType<BuildingManager>();
     }
     // Update is called once per frame
@@ -101,7 +103,9 @@ public class Selection : MonoBehaviour
         if (selectedObject != null)
         {
             builderman.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
-            Bitscript.instance.AddBits(selectedObject.GetComponent<GeneralTowerScript>().towerStats.sellValue);
+            bits.RemoveDiscount(selectedObject.GetComponent<GeneralTowerScript>().towerStats.discount);
+            ShopReferences.Instance.UpdateCosts();
+            bits.AddBits(selectedObject.GetComponent<GeneralTowerScript>().towerStats.sellValue);
             Destroy(selectedObject);
             DeSelect();
         }

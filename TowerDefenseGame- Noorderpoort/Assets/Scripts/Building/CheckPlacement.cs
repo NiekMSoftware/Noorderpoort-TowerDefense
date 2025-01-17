@@ -32,7 +32,7 @@ public class CheckPlacement : MonoBehaviour
                 if (hit.collider.gameObject.layer == canPlaceOnLayerMask)
                 {
                     Collider[] colliders = Physics.OverlapBox(buildingManager.pendingObject.transform.position, buildingManager.pendingObject.transform.lossyScale, Quaternion.identity, problemLayers);
-                    if(colliders.Length < 2)
+                    if (colliders.Length < 2)
                     {
                         buildingManager.canPlace = true;
 
@@ -51,6 +51,12 @@ public class CheckPlacement : MonoBehaviour
                     buildingManager.canPlace = false;
                 }
             }
+            else
+            {
+                buildingManager.canPlace = false;
+            }
+
+
 
         }
     }

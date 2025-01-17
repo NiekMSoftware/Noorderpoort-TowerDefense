@@ -8,6 +8,7 @@ public class Bitscript : MonoBehaviour
     public static Bitscript instance;
     public float bitIndex;
     public float discountAmount = 0f; // In total percentage
+    private float actualDiscount = 0;
     public float multiplierAmount = 0; // Multiplier
     public float starterMoney = 100;
     public TMP_Text bitsText;
@@ -50,11 +51,20 @@ public class Bitscript : MonoBehaviour
     public void AddDiscount(float amount)
     {
         discountAmount = Mathf.Clamp(discountAmount + amount, 0f, maxDiscountAmount);
+        actualDiscount += amount;
         ShopReferences.Instance.UpdateCosts();
     }
     public void RemoveDiscount(float amount)
     {
-        discountAmount = Mathf.Clamp(discountAmount - amount, 0f, maxDiscountAmount);
+        actualDiscount -= amount;
+        if(actualDiscount > maxDiscountAmount)
+        {
+            discountAmount = maxDiscountAmount;
+        }
+        else
+        {
+            discountAmount = actualDiscount;
+        }
     }
 
     public void AddMultiplier(float amount)
