@@ -6,7 +6,7 @@ public class SwitchEnemyLooking : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && other.GetComponent<EnemyLooking>())
         {
             other.GetComponent<EnemyLooking>().lookingAtBase = true;
             other.GetComponent<EnemyLooking>().Base = gameObject.transform;

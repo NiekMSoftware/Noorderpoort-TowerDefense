@@ -177,32 +177,32 @@ public class Selection : MonoBehaviour
                 upgradeUI.upgradeStatValues[i].text = " ";
                 upgradeUI.statIcons[i].color = new Color(1, 1, 1, 1);
             }
-            if (towerType.damage > 0)
+            if (towerType.damage > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
                 upgradeUI.statIcons[currentStat].sprite = statSprites[0];
                 currentStat++;
             }
-            if (towerType.firerate > 0)
+            if (towerType.firerate > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = (towerType.firerate / 5).ToString() + "s";
                 upgradeUI.statIcons[currentStat].sprite = statSprites[1];
                 currentStat++;
             }
-            if (towerType.range > 0)
+            if (towerType.range > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.range.ToString();
                 upgradeUI.statIcons[currentStat].sprite = statSprites[2];
                 currentStat++;
             }
-            if (towerType.moneyPerWave > 0)
+            if (towerType.moneyPerWave > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.moneyPerWave.ToString();
                 upgradeUI.statIcons[currentStat].sprite = statSprites[3];
                 currentStat++;
             }
 
-            if (towerType.discount > 0)
+            if (towerType.discount > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.discount.ToString() + "%";
                 upgradeUI.statIcons[currentStat].sprite = statSprites[4];
