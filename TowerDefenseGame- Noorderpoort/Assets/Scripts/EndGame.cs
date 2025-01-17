@@ -11,12 +11,14 @@ public class EndGame : MonoBehaviour
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private UnityEvent onEnd;
     [SerializeField] private Camera mainCam;
+    [SerializeField] private DeleteTurrets deleteTurrets;
     private void Start()
     {
         if (blackScreen != null)
         {
             blackScreen.SetActive(false);
         }
+        deleteTurrets = FindAnyObjectByType<DeleteTurrets>();
     }
     public void BlueScreen()
     {

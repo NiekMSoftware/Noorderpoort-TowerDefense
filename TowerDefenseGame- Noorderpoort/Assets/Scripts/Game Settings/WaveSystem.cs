@@ -183,7 +183,7 @@ public class WaveSystem : MonoBehaviour
                 activatedTimer = true;
             }
             timeTillWave -= Time.deltaTime;
-            if (timeTillWave < 0)
+            if (timeTillWave < 0 || bits.skipWaveTime)
             {
                 roundEnd();
             }

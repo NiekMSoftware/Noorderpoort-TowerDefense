@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e87fd07d50d84a47b50a72836467100, type: 2}
   - {fileID: 11400000, guid: d4c9c73608aa7014a8204d6c6389e8fd, type: 2}
   spawnCooldown: 0.4
-  roundCooldown: 2
+  roundCooldown: 8
   maxGroupSize: 10
   minGroupSize: 5
   enemyChanceStopsAt: 00000000000000000000000000000000000000000000000000000000000000000000000000000000

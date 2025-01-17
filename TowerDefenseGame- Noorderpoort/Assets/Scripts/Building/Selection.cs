@@ -126,7 +126,14 @@ public class Selection : MonoBehaviour
             upgradeUI.upgradeCostText.text = Bitscript.instance.CalculateWithDiscount(upgrade.cost).ToString();
             if (towerType.damage < upgrade.damage)
             {
-                upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
+                if (towerType.damage > 999)
+                {
+                    upgradeUI.currentStatValues[currentStat].text = "Infinite";
+                }
+                else
+                {
+                    upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
+                }
                 upgradeUI.upgradeStatValues[currentStat].text = upgrade.damage.ToString();
                 upgradeUI.statIcons[currentStat].sprite = statSprites[0];
                 currentStat++;
@@ -181,7 +188,14 @@ public class Selection : MonoBehaviour
             }
             if (towerType.damage > 0 && currentStat < 3)
             {
-                upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
+                if (towerType.damage > 999)
+                {
+                    upgradeUI.currentStatValues[currentStat].text = "Infinite";
+                }
+                else
+                {
+                    upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
+                }
                 upgradeUI.statIcons[currentStat].sprite = statSprites[0];
                 currentStat++;
             }
@@ -208,6 +222,24 @@ public class Selection : MonoBehaviour
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.discount.ToString() + "%";
                 upgradeUI.statIcons[currentStat].sprite = statSprites[4];
+                currentStat++;
+            }
+            if (towerType.detectionRange > 0 && currentStat < 3)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.detectionRange.ToString();
+                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[5];
+                currentStat++;
+            }
+            if (towerType.uses > 0 && currentStat < 3)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.uses.ToString();
+                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[6];
+                currentStat++;
+            }
+            if (towerType.cooldown > 0 && currentStat < 3)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.cooldown.ToString();
+                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[7];
                 currentStat++;
             }
 

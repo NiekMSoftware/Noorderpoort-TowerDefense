@@ -9,7 +9,12 @@ public class ButtonReferences : MonoBehaviour
     public TMP_Text[] currentStatValues = new TMP_Text[3];
     public Image[] statIcons = new Image[3];
     public TMP_Text towerName;
+    private Selection selection;
 
+    private void Start()
+    {
+        selection = FindAnyObjectByType<Selection>();
+    }
     public void UpdateUI(TowerScriptable towerType)
     {
         int currentStat = 0;
