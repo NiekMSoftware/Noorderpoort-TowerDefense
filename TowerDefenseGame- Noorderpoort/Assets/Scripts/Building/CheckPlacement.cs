@@ -56,8 +56,6 @@ public class CheckPlacement : MonoBehaviour
                 buildingManager.canPlace = false;
             }
 
-
-
         }
     }
 

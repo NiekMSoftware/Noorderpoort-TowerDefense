@@ -21,9 +21,6 @@ public class Bitscript : MonoBehaviour
 
     private bool isDiscountActive = true; // The state of the Discount
 
-    //Wave system cant be toggled using a toggle since it keeps getting instaniated
-    public bool skipWaveTime = false;
-
     void Start()
     {
         bitIndex = starterMoney;
@@ -108,10 +105,5 @@ public class Bitscript : MonoBehaviour
         {
             bitIndex = bitIndex + amount;
         }
-    }
-
-    public void SwapBool(bool value)
-    {
-        skipWaveTime = value;
     }
 }

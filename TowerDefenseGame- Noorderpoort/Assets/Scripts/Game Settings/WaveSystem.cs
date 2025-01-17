@@ -75,9 +75,10 @@ public class WaveSystem : MonoBehaviour
     bool activatedTimer;
 
     [SerializeField] TMP_Text text;
-     
+    [SerializeField] private OutsideWavesystem waveSys;
     void Start() {
-
+        waveSys = FindAnyObjectByType<OutsideWavesystem>();
+        waveSys.waveSystem = this;
         for(int i = 0; i < enemyStats.Length; i++)
         {
             enemyMaxChance[i] = enemyStats[i].maxSpawnChance;
@@ -182,14 +183,31 @@ public class WaveSystem : MonoBehaviour
                 timeTillWave = roundCooldown;
                 activatedTimer = true;
             }
-            timeTillWave -= Time.deltaTime;
-            if (timeTillWave < 0 || bits.skipWaveTime)
+            if (!spawning)
             {
-                roundEnd();
+                waveSys.waitingUI.SetActive(true);
+                timeTillWave -= Time.deltaTime;
+            }
+            waveSys.time.text = (((int)timeTillWave) + 1).ToString();
+            if (timeTillWave < 0 || waveSys.skipWaveTime)
+            {
+                if(spawning == false)
+                {
+                    waveSys.waitingUI.SetActive(false);
+                    roundEnd();
+                }
             }
         }
+        else
+        {
+            waveSys.waitingUI.SetActive(false);
+            print("Huh?");
+        }
     }
-
+    public void SkipTime()
+    {
+        timeTillWave = 0;
+    }
     public IEnumerator SpawnArrow(float cooldown, int amount)
     {
         for (int i = 0; i < amount; i++)
