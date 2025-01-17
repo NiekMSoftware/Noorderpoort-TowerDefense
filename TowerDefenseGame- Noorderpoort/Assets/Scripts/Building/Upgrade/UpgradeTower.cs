@@ -49,10 +49,6 @@ public class UpgradeTower : MonoBehaviour
                 newtower.transform.parent = this.turretEmpty.transform;
 
                 newtower.GetComponent<GeneralTowerScript>().SetStats(generalTowerScript.towerStats.upgradeScriptable);
-                if (newtower.GetComponent<RangeScript>())
-                {
-                    newtower.GetComponent<RangeScript>().ShowRange(true, false);
-                }
 
                 _selection.Select(newtower);
                 Destroy(tower);

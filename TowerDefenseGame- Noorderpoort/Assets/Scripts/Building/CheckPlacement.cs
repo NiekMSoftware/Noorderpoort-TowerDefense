@@ -39,10 +39,6 @@ public class CheckPlacement : MonoBehaviour
                     }
                     else
                     {
-                        for(int i = 0; i < colliders.Length; i++)
-                        {
-                            print(colliders[i].gameObject.name);
-                        }
                         buildingManager.canPlace = false;
                     }
                 }

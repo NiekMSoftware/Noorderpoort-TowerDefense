@@ -45,6 +45,7 @@ public class DeleteTurrets : MonoBehaviour {
     public void RemoveKids() {
         foreach (Transform child in obj.transform) {
             // Pull out a glock at your local school
+            if (child.gameObject.GetComponent<RangeScript>()) { child.gameObject.GetComponent<RangeScript>().ShowRange(false, false); }
             Destroy(child.gameObject);
             print("Delete kid");
         }

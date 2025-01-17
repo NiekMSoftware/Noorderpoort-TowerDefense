@@ -85,10 +85,7 @@ public class Selection : MonoBehaviour
         if (outline == null) { obj.AddComponent<Outline>(); }
         else
         {
-            if (obj.GetComponent<MeshRenderer>())
-            {
-                outline.enabled = true;
-            }
+            outline.enabled = true;
         }
 
         
