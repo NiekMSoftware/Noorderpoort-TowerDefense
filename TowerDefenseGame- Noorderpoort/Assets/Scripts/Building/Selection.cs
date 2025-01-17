@@ -117,6 +117,7 @@ public class Selection : MonoBehaviour
             {
                 upgradeUI.statArrows[i].SetActive(true);
                 upgradeUI.currentStatValues[i].text = " ";
+                upgradeUI.currentStatValues[i].color = new Color(1, 0, 0, 1);
                 upgradeUI.upgradeStatValues[i].text = " ";
                 upgradeUI.statIcons[i].color = new Color(1, 1, 1, 1);
             }
@@ -158,16 +159,6 @@ public class Selection : MonoBehaviour
                 currentStat++;
             }
 
-
-
-
-            for (int i = currentStat; i < upgradeUI.statIcons.Length; i++)
-            {
-                upgradeUI.currentStatValues[currentStat].text = towerType.range.ToString();
-                upgradeUI.upgradeStatValues[currentStat].text = upgrade.range.ToString();
-                upgradeUI.statIcons[currentStat].sprite = statSprites[3];
-            }
-
             for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(false);
@@ -179,6 +170,53 @@ public class Selection : MonoBehaviour
         else
         {
             for(int i = 0;i < upgradeUI.currentStatValues.Length; i++)
+            {
+                upgradeUI.statArrows[i].SetActive(false);
+                upgradeUI.currentStatValues[i].text = " ";
+                upgradeUI.currentStatValues[i].color = new Color(1, 1, 1, 1);
+                upgradeUI.upgradeStatValues[i].text = " ";
+                upgradeUI.statIcons[i].color = new Color(1, 1, 1, 1);
+            }
+            if (towerType.damage > 0)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.damage.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[0];
+                currentStat++;
+            }
+            if (towerType.firerate > 0)
+            {
+                upgradeUI.currentStatValues[currentStat].text = (towerType.firerate / 5).ToString() + "s";
+                upgradeUI.statIcons[currentStat].sprite = statSprites[1];
+                currentStat++;
+            }
+            if (towerType.range > 0)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.range.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[2];
+                currentStat++;
+            }
+            if (towerType.moneyPerWave > 0)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.moneyPerWave.ToString();
+                upgradeUI.statIcons[currentStat].sprite = statSprites[3];
+                currentStat++;
+            }
+
+            if (towerType.discount > 0)
+            {
+                upgradeUI.currentStatValues[currentStat].text = towerType.discount.ToString() + "%";
+                upgradeUI.statIcons[currentStat].sprite = statSprites[4];
+                currentStat++;
+            }
+
+            for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
+            {
+                upgradeUI.statArrows[i].SetActive(false);
+                upgradeUI.currentStatValues[i].text = " ";
+                upgradeUI.upgradeStatValues[i].text = " ";
+                upgradeUI.statIcons[i].color = new Color(0, 0, 0, 0);
+            }
+            for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(false);
                 upgradeUI.currentStatValues[i].text = " ";

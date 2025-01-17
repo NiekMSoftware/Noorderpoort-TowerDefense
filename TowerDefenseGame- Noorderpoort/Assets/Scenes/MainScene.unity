@@ -29000,19 +29000,20 @@ MonoBehaviour:
     off them\r\n-Cancel buying turret\r\n-Visuals for upgrading towers\r\n-Redone
     turret images\r\n-Game settings for Camera Speed \nand Reduced BSOD visuals\r\n-Consistent
     Backgrounds\r\n-Consistent Buttons\r\n-Renamed \"Levels\" to \"Maps\"\r\n-Renamed
-    \"Options\" to \"Settings\"\r\n-Various visual changes to \nmap select screen\r\n-Resorted
-    Credits\r\n-Renamed Spectre in credits\r\n-Renamed \"FireGuy\" to \"Ember\"\r\n-Renamed
-    \"Electric\" to \"Sparky\"\r\n-Pressing Escape in the pause menu to \nunpause
-    the game\r\n-Slight visual changes to some \nicons and backgrounds\r\n-Passive
-    money per wave is \nnow gained at the end of a \nwave, not at the start.\n-Balancing\r\n\r\nFixes:\r\n-A
-    tower is now selected \nafter placing it.\r\n-A tower attacking enemies \nthat
-    leave its range\r\n-Being able to select a \ntower while placing\r\n-Being able
-    to place towers \non the side of paths\r\n-Camera going down, not zooming in\n-Camera
-    is no longer affected \nby time speed\r\n-Fixed being able to place/upgrade \ntowers
-    while paused\r\n-Fixed background music not switching\r\n-Set default resolution
-    to 1080p\r\n-Removed extra 0 when dying\r\n-Upgrading a tower resetting its rotation\r\n-Black
-    screen is affected by time speed\r\n-Being able to pause in \nthe black screen
-    before  BSOD "
+    \"Options\" to \"Settings\"\r\n-Renamed \"Voice volume\" to \n\"Enemy volume\"\n-Various
+    visual changes to \nmap select screen\r\n-Resorted Credits\r\n-Renamed Spectre
+    in credits\r\n-Renamed \"FireGuy\" to \"Ember\"\r\n-Renamed \"Electric\" to \"Sparky\"\r\n-Pressing
+    Escape in the pause menu to \nunpause the game\r\n-Slight visual changes to some
+    \nicons and backgrounds\r\n-Passive money per wave is \nnow gained at the end
+    of a \nwave, not at the start.\n-Balancing\r\n\r\nFixes:\r\n-A tower is now selected
+    \nafter placing it.\r\n-A tower attacking enemies \nthat leave its range\r\n-Being
+    able to select a \ntower while placing\r\n-Being able to place towers \non the
+    side of paths\r\n-Camera going down, not zooming in\n-Camera is no longer affected
+    \nby time speed\r\n-Fixed being able to place/upgrade \ntowers while paused\r\n-Fixed
+    background music not switching\r\n-Set default resolution to 1080p\r\n-Removed
+    extra 0 when dying\r\n-Upgrading a tower resetting its rotation\r\n-Black screen
+    is affected by time speed\r\n-Being able to pause in \nthe black screen before 
+    BSOD "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34589,8 +34590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 61.74262, y: 0}
+  m_SizeDelta: {x: 323.4853, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1647237976
 MonoBehaviour:
@@ -34612,7 +34613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Voice Volume
+  m_text: Enemy Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

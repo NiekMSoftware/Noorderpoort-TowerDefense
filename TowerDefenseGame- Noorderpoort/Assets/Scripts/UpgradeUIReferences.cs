@@ -17,15 +17,4 @@ public class UpgradeUIReferences : MonoBehaviour
     public TMP_Text levelText;
     public TMP_Text upgradeCostText;
     public TMP_Text sellText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

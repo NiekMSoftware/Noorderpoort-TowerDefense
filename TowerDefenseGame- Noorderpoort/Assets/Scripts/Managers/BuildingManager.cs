@@ -53,7 +53,6 @@ public class BuildingManager : MonoBehaviour
             selector.timeSincePlace = 0;
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
-                pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = false;
                 PlaceObject();
             }
         }
@@ -84,6 +83,7 @@ public class BuildingManager : MonoBehaviour
         if (PauseClass.instance.isPaused) { return; }
         if (Selection.IsPointerOverUIElement()) { return; }
         if (!Bitscript.instance.RemoveBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost)) { return; }
+        pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = false;
         foreach (Collider coll in towerTriggers)
         {
             if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
