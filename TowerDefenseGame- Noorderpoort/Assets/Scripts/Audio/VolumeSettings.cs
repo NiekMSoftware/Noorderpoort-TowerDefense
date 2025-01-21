@@ -50,8 +50,8 @@ public class VolumeSettings : MonoBehaviour
 
     public void SetEnemyVolume() {
         float volume = enemyVolumeSlider.value;
-        this.audioMixer.SetFloat("Enemy Volume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("enemyVolume", volume);
+        audioMixer.SetFloat("Voice Volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("voiceVolume", volume);
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public class VolumeSettings : MonoBehaviour
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         SetSFXVolume();
 
-        enemyVolumeSlider.value = PlayerPrefs.GetFloat("enemyVolume");
+        enemyVolumeSlider.value = PlayerPrefs.GetFloat("voiceVolume");
         SetEnemyVolume();
     }
 }

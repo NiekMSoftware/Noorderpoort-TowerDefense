@@ -11655,8 +11655,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3eab6d16442474c40af98df0692dc276, type: 3}
   - {fileID: 8300000, guid: a8359a355325d1d4ca6d9aaddd2038f6, type: 3}
   source: {fileID: 484785116}
-  newClip: 0
-  timer: 0
 --- !u!1 &502641130
 GameObject:
   m_ObjectHideFlags: 0
@@ -24556,7 +24554,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1383075845}
         m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
-        m_MethodName: SetVoiceVolume
+        m_MethodName: SetEnemyVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31066,7 +31064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9013ccffe54ad774b807d2e41dcd759b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1315035924}
+  turretEmpty: {fileID: 1315035924}
   mainMenu: {fileID: 985311054}
 --- !u!1 &1315907249
 GameObject:
@@ -32389,7 +32387,7 @@ MonoBehaviour:
   mainVolumeSlider: {fileID: 1217966834}
   musicVolumeSlider: {fileID: 1508760528}
   sfxVolumeSlider: {fileID: 136669610}
-  voiceVolumeSlider: {fileID: 1078405673}
+  enemyVolumeSlider: {fileID: 1078405673}
 --- !u!114 &1383075847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32420,15 +32418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selection: {fileID: 1608233467}
   upgradeUI: {fileID: 0}
-  teslaTowers:
-  - {fileID: 4978053617802569782, guid: f231f191506dfd34dbafc47e217787b7, type: 3}
-  - {fileID: 1727658752850482466, guid: 34e7f2a0e4c943b4489f4b672d6c67b2, type: 3}
-  turrets:
-  - {fileID: 3205597839966706227, guid: 32b8a73ff9b205040a56c135c8b17441, type: 3}
-  - {fileID: 615592888454610796, guid: 906a2c3a5abb8614f8b5c27e23c7cd7f, type: 3}
-  teslaUpgradeCost: fa00000090010000
-  turretUpgradeCost: 6400000096000000
-  MMMUpgradeCost: 960000005e010000
   turretEmpty: {fileID: 1315035924}
 --- !u!1 &1384169949
 GameObject:
@@ -36898,9 +36887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   selectedTower: 0
-  builderman: {fileID: 0}
-  previousPending: {fileID: 0}
-  timeSincePlace: 0
+  buildingManager: {fileID: 0}
   upgradeUI: {fileID: 1140181140}
   statSprites:
   - {fileID: 21300000, guid: ef52da7d308f0b648b9b851d3727096a, type: 3}

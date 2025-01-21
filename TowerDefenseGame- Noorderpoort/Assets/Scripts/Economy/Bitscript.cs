@@ -6,10 +6,12 @@ using TMPro;
 public class Bitscript : MonoBehaviour
 {
     public static Bitscript instance;
+
+    [Header("Money")]
     public float bitIndex;
-    public float discountAmount = 0f; // In total percentage
+    public float discountAmount = 0f; 
     private float actualDiscount = 0;
-    public float multiplierAmount = 0; // Multiplier
+    private float multiplierAmount = 0;
     public float starterMoney = 100;
     public TMP_Text bitsText;
 
@@ -19,41 +21,44 @@ public class Bitscript : MonoBehaviour
     [SerializeField] private
     float maxMultiplierAmount = 5f;
 
-    private bool isDiscountActive = true; // The state of the Discount
-
     void Start()
     {
         bitIndex = starterMoney;
         instance = this;
-    }
-
-    private void FixedUpdate()
-    {
         bitsText.text = bitIndex.ToString();
     }
 
+    /// <summary>
+    /// Returns the input with discount. Mainly for UI stuff
+    /// </summary>
+    /// <param name="cost"></param>
+    /// <returns></returns>
     public float CalculateWithDiscount(int cost)
     {
         float discountedAmount = cost * (discountAmount / 100);
-        if (!isDiscountActive) { discountedAmount = 0f; }
         float newCost = (cost - (int)(discountedAmount));
         return newCost;
     }
 
-    public void SetDiscountActivity(bool state) // Set the status of the discount
-    {
-        isDiscountActive = state;
-        if (state == false) discountAmount = 0f;
-    }
+    /// <summary>
+    /// Adds a discount, then clamps it. Updates the shop with it too
+    /// </summary>
+    /// <param name="amount"></param>
     public void AddDiscount(float amount)
     {
         discountAmount = Mathf.Clamp(discountAmount + amount, 0f, maxDiscountAmount);
         actualDiscount += amount;
         ShopReferences.Instance.UpdateCosts();
     }
+
+    /// <summary>
+    /// Removes discount based on the actual discount, so if you remove 1 of 3 MMM's you end up with 20% instead of 15, since the max is 25%
+    /// </summary>
+    /// <param name="amount"></param>
     public void RemoveDiscount(float amount)
     {
         actualDiscount -= amount;
+
         if(actualDiscount > maxDiscountAmount)
         {
             discountAmount = maxDiscountAmount;
@@ -76,17 +81,10 @@ public class Bitscript : MonoBehaviour
     public bool RemoveBits(float amount)
     {
         float discountedAmount = amount * (discountAmount / 100);
-        if (!isDiscountActive) {discountedAmount = 0f;}
         if ((bitIndex - (amount - discountedAmount)) > -1f)
         {
-            if (isDiscountActive)
-            {
-                bitIndex -= (amount - (int)(discountedAmount));
-            }
-            else
-            {
-                bitIndex -= amount;
-            }
+            bitIndex -= (amount - (int)(discountedAmount));
+            bitsText.text = bitIndex.ToString();
             return true;
         }
         else
@@ -103,7 +101,8 @@ public class Bitscript : MonoBehaviour
         }
         else
         {
-            bitIndex = bitIndex + amount;
+            bitIndex += amount;
         }
+        bitsText.text = bitIndex.ToString();
     }
 }

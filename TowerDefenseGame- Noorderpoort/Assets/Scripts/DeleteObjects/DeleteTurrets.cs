@@ -5,65 +5,72 @@ using UnityEngine;
 
 public class DeleteTurrets : MonoBehaviour {
     public static DeleteTurrets instance;
-    [SerializeField] GameObject obj;
+    [SerializeField] private GameObject turretEmpty;
 
-    [SerializeField] GameObject mainMenu;
-    GameObject destinationL1;
-    GameObject destinationL2;
+    [SerializeField] private GameObject mainMenu;
+    private GameObject destinationL1;
+    private GameObject destinationL2;
 
-    bool removedKids;
+    private bool resetGame;
 
-    Bitscript _bitscript;
-    Healthscript _healthscript;
+    private Bitscript bitscript;
+    private Healthscript healthscript;
 
     void Awake() {
-        this._bitscript = FindObjectOfType<Bitscript>();
-        this._healthscript = FindObjectOfType<Healthscript>();
+        bitscript = FindObjectOfType<Bitscript>();
+        healthscript = FindObjectOfType<Healthscript>();
         instance = this;
     }
 
     void Update() {
-        if (this.mainMenu.activeSelf && !this.removedKids) {
-            this.removedKids = true;
+        //if you are in the main menu and stuff isnt reset, reset them
+        if (mainMenu.activeSelf && !resetGame) {
+            resetGame = true;
 
             FullReset();
             
         }
         else {
-            this.removedKids = false;
+            resetGame = false;
         }
     }
 
     public void FullReset()
     {
-        this.RemoveKids();
-        this.RemoveLife();
-        this.ResetStuff();
+        RemoveTurrets();
+        RemoveLevels();
+        ResetStuff();
     }
 
-    // Remove children of parent
-    public void RemoveKids() {
-        foreach (Transform child in obj.transform) {
-            // Pull out a glock at your local school
+    public void RemoveTurrets() {
+        foreach (Transform child in turretEmpty.transform) {
+
+            //Removes any range circles, then destroys the object
             if (child.gameObject.GetComponent<RangeScript>()) { child.gameObject.GetComponent<RangeScript>().ShowRange(false, false); }
             Destroy(child.gameObject);
-            print("Delete kid");
         }
     }
 
-    // Remove the destination and spawner
-    public void RemoveLife() {
-        this.destinationL1 = GameObject.Find("Level 1(Clone)");
-        this.destinationL2 = GameObject.Find("Level 2(Clone)");
-        Destroy(this.destinationL1);
-        Destroy(this.destinationL2);
+    public void RemoveLevels() {
+
+        //Grab both levels
+        destinationL1 = GameObject.Find("Level 1(Clone)");
+        destinationL2 = GameObject.Find("Level 2(Clone)");
+
+        //Destroy them, even if they dont exist
+        Destroy(destinationL1);
+        Destroy(destinationL2);
     }
 
     // Reset the money and health
     public void ResetStuff() {
-        this._bitscript.bitIndex = this._bitscript.starterMoney;
-        _bitscript.discountAmount = 0;
+
+        //Resets money and discount
+        bitscript.bitIndex = bitscript.starterMoney;
+        bitscript.discountAmount = 0;
         if (ShopReferences.Instance) { ShopReferences.Instance.UpdateCosts(); }
-        this._healthscript.HealthIndex = 11;
+
+        //Sets health back
+        healthscript.HealthIndex = 11;
     }
 }

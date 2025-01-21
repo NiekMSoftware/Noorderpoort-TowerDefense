@@ -48,8 +48,6 @@ public class BuildingManager : MonoBehaviour
             
             pendingObject.transform.position = pos;
             pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = true;
-            selector.previousPending = pendingObject;
-            selector.timeSincePlace = 0;
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
                 PlaceObject();

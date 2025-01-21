@@ -6,119 +6,135 @@ using UnityEngine.UI;
 
 public class Selection : MonoBehaviour
 {
-    [Header("Did we Select an Object?")]
     public static Selection instance;
+
+    [Header("Selected Object Things")]
     public GameObject selectedObject;
     public bool selectedTower;
-    [SerializeField] private BuildingManager builderman;
-    public GameObject previousPending;
-    public float timeSincePlace;
+
+    [Space]
+    [SerializeField] private BuildingManager buildingManager;
 
     public UpgradeUIReferences upgradeUI;
+
+    //Another script grabs these so they always use the same icons
     public Sprite[] statSprites;
     [SerializeField] private Bitscript bits;
+
     private void Start()
     {
         instance = this;
+         
         bits = FindObjectOfType<Bitscript>();
-        builderman = FindObjectOfType<BuildingManager>();
+        buildingManager = FindObjectOfType<BuildingManager>();
     }
-    // Update is called once per frame
+
     void Update()
     {
-
-        timeSincePlace += Time.deltaTime;
         //Check the input for the mouse
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buildingManager.isPlacementMode == false)
         {
+            //if you are over ui, dont select anything
             if(IsPointerOverUIElement()) { return; }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            
-            //Compare if we selected a Tower tag
+             
             if (Physics.Raycast(ray, out hit, 1000))
             {
+                //Check if the player selected a tower or trap
                 if (hit.collider.gameObject.CompareTag("Tower") || hit.collider.gameObject.CompareTag("Trap"))
                 {
-                    if (hit.collider.gameObject != previousPending && hit.collider.gameObject != builderman.pendingObject)
-                    {
-                        selectedTower = true;
-                        Select(hit.collider.gameObject);
-                    }
-                    else
-                    {
-                        if (timeSincePlace > 0.5f)
-                        {
-                            selectedTower = true;
-                            Select(hit.collider.gameObject);
-                        }
-                    }
+                    selectedTower = true;
+                    Select(hit.collider.gameObject);
                 }
-                else if(!IsPointerOverUIElement() && builderman.isPlacementMode == false)
+                //if it isnt, and you arent in ui: Deselect
+                else if(!IsPointerOverUIElement())
                 {
                     selectedTower = false;
                     DeSelect();
                 }
             }
         }
-
-        if (Input.GetMouseButton(1) && selectedObject != null)
+         
+        //The secret button no one knows about
+        if (Input.GetMouseButton(1) && selectedObject != null && buildingManager.isPlacementMode == false)
         {
             selectedTower = false;
             DeSelect();
         }
     }
 
+    /// <summary>
+    /// Select a tower
+    /// </summary>
+    /// <param name="obj"></param>
     public void Select(GameObject obj)
     {
+        //Cant select if the game is paused, or if you are pressing a selected object
         if (PauseClass.instance.isPaused) { return; }
-        //Check if the object we pressed is equal
-        if (obj == selectedObject) 
-            return;
-
+        if (obj == selectedObject) {  return; }
+         
         if (selectedObject != null)
             DeSelect();
-
-        if(builderman.isPlacementMode && obj != builderman.pendingObject) { return; }
-
-        Outline outline = obj.GetComponent<Outline>();
-
+         
+        //If you are placing but and arent trying to select your placing object then dont
+        if(buildingManager.isPlacementMode && obj != buildingManager.pendingObject) { return; }
+         
+        //Turn on the tower range
         if (obj.GetComponent<RangeScript>()) { obj.GetComponent<RangeScript>().ShowRange(true,false); }
-        
-        //Check if the object needs an outline
+         
+        Outline outline = obj.GetComponent<Outline>();
+         
+        //Check if the object needs an outline, and turn it on
         if (outline == null) { obj.AddComponent<Outline>(); }
         else
         {
             outline.enabled = true;
         }
-
-        
+         
         selectedObject = obj;
         UpdateUpgradeUI(obj.GetComponent<GeneralTowerScript>().towerStats);
     }
 
     public void SellTower()
     {
+        //You cant sell a tower if the game is paused, or if you dont have a tower selected
         if (PauseClass.instance.isPaused) { return; }
         if (selectedObject != null)
         {
-            builderman.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
+            //Remove it from the known towers
+            buildingManager.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
+             
+            //Remove any discount it had, and the shop ui according to that
             bits.RemoveDiscount(selectedObject.GetComponent<GeneralTowerScript>().towerStats.discount);
             ShopReferences.Instance.UpdateCosts();
+             
+            //Give money and destroy
             bits.AddBits(selectedObject.GetComponent<GeneralTowerScript>().towerStats.sellValue);
             Destroy(selectedObject);
+             
             DeSelect();
         }
     }
 
     private void UpdateUpgradeUI(TowerScriptable towerType)
     {
+        //The ui only supports 3 different stats
         int currentStat = 0;
+         
+        //To compare
         TowerScriptable upgrade;
-        if (upgradeUI == null) return;
+         
+        if (upgradeUI == null) { return; }
+         
         upgradeUI.gameObject.SetActive(true);
+         
+        //Compare stats if the tower can upgrade
         if (towerType.canUpgrade) {
+             
             upgrade = towerType.upgradeScriptable;
+             
+            //Set everything to nothing
             for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(true);
@@ -127,9 +143,13 @@ public class Selection : MonoBehaviour
                 upgradeUI.upgradeStatValues[i].text = " ";
                 upgradeUI.statIcons[i].color = new Color(1, 1, 1, 1);
             }
+             
             upgradeUI.upgradeCostText.text = Bitscript.instance.CalculateWithDiscount(upgrade.cost).ToString();
+
+            //These are all different stats, this one has comments
             if (towerType.damage < upgrade.damage)
             {
+                //Technically resistor has "9999999999999" damage, but thats practically infinite
                 if (towerType.damage > 999)
                 {
                     upgradeUI.currentStatValues[currentStat].text = "Infinite";
@@ -156,6 +176,8 @@ public class Selection : MonoBehaviour
                 upgradeUI.statIcons[currentStat].sprite = statSprites[2];
                 currentStat++;
             }
+
+            //Attacking towers dont have these stats
             if (towerType.moneyPerWave < upgrade.moneyPerWave)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.moneyPerWave.ToString();
@@ -172,6 +194,7 @@ public class Selection : MonoBehaviour
                 currentStat++;
             }
 
+            //Turn off all the empty spots
             for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(false);
@@ -182,6 +205,7 @@ public class Selection : MonoBehaviour
         }
         else
         {
+            //Check upper code, this is practically a copy that doesnt do upgrade stuff. This could be done better.
             for(int i = 0;i < upgradeUI.currentStatValues.Length; i++)
             {
                 upgradeUI.statArrows[i].SetActive(false);
@@ -231,19 +255,19 @@ public class Selection : MonoBehaviour
             if (towerType.detectionRange > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.detectionRange.ToString();
-                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[5];
+                upgradeUI.statIcons[currentStat].sprite = statSprites[5];
                 currentStat++;
             }
             if (towerType.uses > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.uses.ToString();
-                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[6];
+                upgradeUI.statIcons[currentStat].sprite = statSprites[6];
                 currentStat++;
             }
             if (towerType.cooldown > 0 && currentStat < 3)
             {
                 upgradeUI.currentStatValues[currentStat].text = towerType.cooldown.ToString();
-                upgradeUI.statIcons[currentStat].sprite = Selection.instance.statSprites[7];
+                upgradeUI.statIcons[currentStat].sprite = statSprites[7];
                 currentStat++;
             }
 
@@ -254,15 +278,12 @@ public class Selection : MonoBehaviour
                 upgradeUI.upgradeStatValues[i].text = " ";
                 upgradeUI.statIcons[i].color = new Color(0, 0, 0, 0);
             }
-            for (int i = currentStat; i < upgradeUI.currentStatValues.Length; i++)
-            {
-                upgradeUI.statArrows[i].SetActive(false);
-                upgradeUI.currentStatValues[i].text = " ";
-                upgradeUI.upgradeStatValues[i].text = " ";
-                upgradeUI.statIcons[i].color = new Color(0, 0, 0, 0);
-            }
+
+            //If a tower cant upgrade it must be max upgrade.
             upgradeUI.upgradeCostText.text = "MAX";
         }
+
+        //Sets the basic settings
         upgradeUI.towerName.text = towerType.towerName;
         upgradeUI.towerImage.sprite = towerType.towerIcon;
         upgradeUI.levelSlider.maxValue = towerType.maxTier;
@@ -273,17 +294,27 @@ public class Selection : MonoBehaviour
 
     public void DeSelect()
     {
+        //Cant deselect if paused, or if you have nothing selected
         if (PauseClass.instance.isPaused) { return; }
         if (selectedObject == null) return;
+         
         //Disable the Outline
         selectedObject.GetComponent<Outline>().enabled = false;
-
+         
+        //Disable any range
         if (selectedObject.GetComponent<RangeScript>()) { selectedObject.GetComponent<RangeScript>().ShowRange(false,false); }
-            
+         
         upgradeUI.gameObject.SetActive(false);
         selectedObject = null;
     }
 
+    //Below is not my code vvv (I do understand it tho)
+
+
+    /// <summary>
+    /// Returns 'true' if we touched or hovering on Unity UI element.
+    /// </summary>
+    /// <returns></returns>
     public static bool IsPointerOverUIElement()
     {
         return IsPointerOverUIElement(GetEventSystemRaycastResults());

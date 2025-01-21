@@ -302,57 +302,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.902793
   m_Center: {x: 0.18403009, y: 0, z: 0.27422488}
---- !u!1 &693179687158540739
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 693179687158540737}
-  - component: {fileID: 693179687158540738}
-  m_Layer: 0
-  m_Name: Selected Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &693179687158540737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693179687158540739}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -149.12695, y: -13.210266, z: 24.692963}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7149953176164362191}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &693179687158540738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693179687158540739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6535acc3d4ae79c42b7dc76608e579c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
-  selectedTower: 0
-  builderman: {fileID: 0}
-  previousPending: {fileID: 0}
-  timeSincePlace: 0
-  upgradeUI: {fileID: 0}
-  statSprites: []
 --- !u!1 &693179687721650257
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +457,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 693179687158540737}
   - {fileID: 693179686334138476}
   m_Father: {fileID: 693179687721650256}
   m_RootOrder: 2
@@ -543,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 472383230069055648, guid: dda88066f5aed914db691bbec2deb2f7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 472383230069055648, guid: dda88066f5aed914db691bbec2deb2f7,
         type: 3}
