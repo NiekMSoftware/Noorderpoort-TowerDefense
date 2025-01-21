@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class MainTowerHealth : MonoBehaviour
 { 
-     public float MTHealth;
+    public float MTHealth;
+    private Healthscript healthscript;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    public void Attacked()
-    {
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
+        healthscript = FindObjectOfType<Healthscript>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<EnemyAttacking>() != null)
         {
-            collision.gameObject.GetComponent<EnemyAttacking>().MTInRange = true;
-            collision.gameObject.GetComponent<EnemyAttacking>().mainTowerHealth = FindObjectOfType<Healthscript>();/*gameObject.GetComponent<Healthscript>();*/
+            EnemyHP hp = collision.gameObject.GetComponent<EnemyHP>();
+            healthscript.HealthIndex -= hp.scriptable.mainTowerDamage;
+            hp.TakeDamage(9999999999999999);
         }
     }
 

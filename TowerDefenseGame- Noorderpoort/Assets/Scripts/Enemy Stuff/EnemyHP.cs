@@ -6,8 +6,7 @@ using UnityEngine.AI;
 public class EnemyHP : MonoBehaviour
 {
     [Header("Health")]
-    private EnemyStats stats;
-    [SerializeField] private EnemyScriptable scriptable;
+    public EnemyScriptable scriptable;
     public float health;
 
     [Header("Money")]
@@ -23,7 +22,6 @@ public class EnemyHP : MonoBehaviour
         health = scriptable.health;
         if(agent == null) { agent = gameObject.GetComponent<NavMeshAgent>(); }
         agent.speed = scriptable.speed;
-        stats = gameObject.GetComponent<EnemyStats>();
         bitsOnDeath = scriptable.bitsOnDeath;
         //Health Multiplier
         health = health * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
