@@ -491,7 +491,7 @@ MonoBehaviour:
   health: 0
   soundBlock: {fileID: 4129657852645448201, guid: bbf0a54f0b28ea84f9fc11cc8ae7afe0,
     type: 3}
-  deathSound: {fileID: 8300000, guid: 10e8fa9e709af7246aa474715bc620ae, type: 3}
+  deathSound: {fileID: 8300000, guid: b50e20a915ba4dd4c947df8cec176dc2, type: 3}
   agent: {fileID: 8322468713525705826}
 --- !u!114 &2322765763154999150
 MonoBehaviour:
