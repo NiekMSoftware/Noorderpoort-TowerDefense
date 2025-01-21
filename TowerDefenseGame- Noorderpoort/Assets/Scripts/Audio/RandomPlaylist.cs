@@ -3,34 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomPlaylist : MonoBehaviour {
+    [Header("All music")]
     [SerializeField] AudioClip[] clips;
-    [SerializeField] AudioSource source;
-    [SerializeField] float newClip;
-    [SerializeField] float timer;
 
+    [Space]
+    [SerializeField] AudioSource source;
+
+    //So the music doesnt play the same one twice in a row
     private AudioClip prevClip;
     
     
-    // Start is called before the first frame update
     void Start() {
         NewClip();
     }
 
-    // Update is called once per frame
     void Update() {
-        timer += Time.deltaTime;
 
+        //If done playing music, play another
         if (!source.isPlaying) {
             this.NewClip();
         }
     }
 
+    /// <summary>
+    /// Plays a new music track
+    /// </summary>
     void NewClip() {
         bool hasClip = false;
         int clipNum = 1;
+
+        //Deadly if there is only 1 music track
         while (!hasClip)
         {
             clipNum = Random.Range(0, this.clips.Length);
+
+            //Stops the loop when it gets a new track
             if (clips[clipNum] != prevClip)
             {
                 hasClip = true;
@@ -39,7 +46,6 @@ public class RandomPlaylist : MonoBehaviour {
         source.PlayOneShot(clips[clipNum]);
 
         prevClip = clips[clipNum];
-        this.newClip = this.clips[clipNum].length;
 
         print("You are now listening to: " + clips[clipNum]);
     }

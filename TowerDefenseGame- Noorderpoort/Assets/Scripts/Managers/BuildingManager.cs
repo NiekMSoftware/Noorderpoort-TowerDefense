@@ -28,7 +28,6 @@ public class BuildingManager : MonoBehaviour
     public bool canPlace;
     public bool isPlacementMode = false;
 
-    public static TowerBehaviour towerReference;
     [SerializeField] private GameObject placeParticle;
     Selection selector;
 
@@ -131,7 +130,6 @@ public class BuildingManager : MonoBehaviour
             }
         }
         pendingObject = Instantiate(tower.prefab, pos, transform.rotation);
-        towerReference = pendingObject.GetComponent<TowerBehaviour>();
         pendingObject.GetComponent<GeneralTowerScript>().SetStats(tower);
         pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
         originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;

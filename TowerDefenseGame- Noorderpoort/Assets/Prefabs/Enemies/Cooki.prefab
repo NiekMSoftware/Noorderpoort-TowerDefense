@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 1765651243587050331}
   - component: {fileID: 2322765763154999150}
   - component: {fileID: 3040451062950243681}
-  - component: {fileID: 7885303636299498029}
-  - component: {fileID: 6354418470071112102}
   - component: {fileID: 7264581207193378678}
   m_Layer: 0
   m_Name: Cooki
@@ -153,35 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Base: {fileID: 0}
   lookingAtBase: 0
---- !u!114 &7885303636299498029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907300184443768562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4dd2a7dfece8341ae335f8e9dd592b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  bitsOnDeath: 15
---- !u!114 &6354418470071112102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907300184443768562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d2a45bfd53e30142acd38f6782c0895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MTInRange: 0
-  attackRate: 3.5
-  mainTowerHealth: {fileID: 0}
 --- !u!82 &7264581207193378678
 AudioSource:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ MonoBehaviour:
   health: 200
   speed: 2
   bitsOnDeath: 25
+  playSoundOnDeath: 1
+  mainTowerDamage: 1
   startSpawnWave: 10
   endSpawnWave: 20
   minSpawnChance: 5

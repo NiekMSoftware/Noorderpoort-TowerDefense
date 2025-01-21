@@ -16,7 +16,7 @@ public class MainTowerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<EnemyAttacking>() != null)
+        if (collision.gameObject.GetComponent<EnemyHP>() != null)
         {
             EnemyHP hp = collision.gameObject.GetComponent<EnemyHP>();
             healthscript.HealthIndex -= hp.scriptable.mainTowerDamage;

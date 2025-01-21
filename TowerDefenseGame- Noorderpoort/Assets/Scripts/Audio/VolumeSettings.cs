@@ -12,10 +12,11 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Slider mainVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
-    [SerializeField] Slider voiceVolumeSlider;
+    [SerializeField] private Slider enemyVolumeSlider;
 
     private void Start()
     {
+        //If the player has changed their settings before
         if (PlayerPrefs.HasKey("mainVolume"))
         {
             LoadVolume();
@@ -47,12 +48,15 @@ public class VolumeSettings : MonoBehaviour
         PlayerPrefs.SetFloat("sfxVolume", volume);
     }
 
-    public void SetVoiceVolume() {
-        float volume = voiceVolumeSlider.value;
-        this.audioMixer.SetFloat("Voice Volume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("voiceVolume", volume);
+    public void SetEnemyVolume() {
+        float volume = enemyVolumeSlider.value;
+        this.audioMixer.SetFloat("Enemy Volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("enemyVolume", volume);
     }
 
+    /// <summary>
+    /// Loads all the volume settings
+    /// </summary>
     private void LoadVolume()
     {
         mainVolumeSlider.value = PlayerPrefs.GetFloat("mainVolume");
@@ -64,7 +68,7 @@ public class VolumeSettings : MonoBehaviour
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         SetSFXVolume();
 
-        this.voiceVolumeSlider.value = PlayerPrefs.GetFloat("voiceVolume");
-        this.SetVoiceVolume();
+        enemyVolumeSlider.value = PlayerPrefs.GetFloat("enemyVolume");
+        SetEnemyVolume();
     }
 }

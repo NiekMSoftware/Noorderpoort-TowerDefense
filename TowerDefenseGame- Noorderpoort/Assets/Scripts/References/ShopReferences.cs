@@ -5,10 +5,12 @@ using TMPro;
 
 public class ShopReferences : MonoBehaviour
 {
+    //So you can update the costs from anywhere
     public static ShopReferences Instance;
+
+    //The value texts and their respective scriptables
     [SerializeField] private TMP_Text[] towerCosts;
     [SerializeField] private TowerScriptable[] towersInSpots;
-    private Bitscript money;
     private void Start()
     {
         Instance = this;
