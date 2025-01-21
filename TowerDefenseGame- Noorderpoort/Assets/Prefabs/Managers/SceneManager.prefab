@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 472383230069055648}
   - component: {fileID: 472383230069055643}
-  - component: {fileID: 472383230069055645}
   m_Layer: 8
   m_Name: SceneManager
   m_TagString: Managers
@@ -81,16 +80,4 @@ MonoBehaviour:
   enemyEmpty: {fileID: 0}
   destination: {fileID: 0}
   text: {fileID: 0}
---- !u!114 &472383230069055645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472383230069055649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugTower: {fileID: 0}
+  waveSys: {fileID: 0}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7100311545698751309}
   - component: {fileID: 7100311545698751306}
+  - component: {fileID: 756782732}
   m_Layer: 8
   m_Name: BuildingManager
   m_TagString: Managers
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7100311545698751308}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -637.8806, y: -209.13072, z: 20.923403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,6 +52,7 @@ MonoBehaviour:
   - {fileID: 1660744805381949770, guid: e5385d482fb8de44491bb359cdb497a2, type: 3}
   - {fileID: 7938805716372005742, guid: 167f6a9c07cadd246a3f43f9323092ef, type: 3}
   pendingObject: {fileID: 0}
+  turretObj: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 3fbba5ac31a734641ae346928a81317f, type: 2}
   - {fileID: 2100000, guid: 328ae5a0fee31ad4dbc62bf124148201, type: 2}
@@ -62,3 +64,17 @@ MonoBehaviour:
   isPlacementMode: 0
   placeParticle: {fileID: 5285702621203002817, guid: 441d0e916593a614e988650ee7e29240,
     type: 3}
+  cancelButton: {fileID: 0}
+--- !u!114 &756782732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100311545698751308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57179db6be0ebe409d1c04c30d20473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugTower: {fileID: 11400000, guid: af1bd8b158712ae448ff77f7199b520b, type: 2}
