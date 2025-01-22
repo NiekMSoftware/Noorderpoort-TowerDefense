@@ -7,7 +7,7 @@ using UnityEngine.Windows.Speech;
 public class WaveSystem : MonoBehaviour
 {
     [Header("Waves")]
-    int gameRound = 0;
+    //int gameRound = 0;
     public int wavesEnded = 0;
 
     [SerializeField] private int wavesPerBoss;
@@ -76,7 +76,9 @@ public class WaveSystem : MonoBehaviour
 
     [SerializeField] TMP_Text text;
     [SerializeField] private OutsideWavesystem waveSys;
+
     void Start() {
+        //OutsideWaveSystem basically calls the wave system through ui, since this wave system gets instantiated every map
         waveSys = FindAnyObjectByType<OutsideWavesystem>();
         waveSys.waveSystem = this;
         for(int i = 0; i < enemyStats.Length; i++)
@@ -97,12 +99,12 @@ public class WaveSystem : MonoBehaviour
          
         currentSpawnCooldown = spawnCooldown;
          
-        enemyHealthMultiplier = enemyHealthMultiplier - enemyHealthMultiplierPerRound;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Spawn arrows if you are in wave -1
         if(wavesEnded == -1)
         {
             timeTillSpawn -= Time.deltaTime;
@@ -114,10 +116,12 @@ public class WaveSystem : MonoBehaviour
                 if(arrowsShown >= arrowAmount) { wavesEnded = 0;roundStart();}
             }
         }
+         
         if (spawning == true && wavesEnded > 0)
         {
             if (spawnBossWave)
             {
+                //Gets one of the bosses and counts it as a group
                 int bos = Random.Range(0, bosses.Length);
                 GameObject enemy = Instantiate(bosses[bos], spawnPoint.position, spawnPoint.rotation);
                 enemy.transform.parent = enemyEmpty;
@@ -129,7 +133,7 @@ public class WaveSystem : MonoBehaviour
             }
             if (hasGroup == false)
             {
-                //Decides the group type
+                //Decides the group type and size
                 groupSize = Random.Range(minGroupSize, maxGroupSize);
                 type = randomEnemy();
                 spawningGroup = enemies[type];
@@ -149,6 +153,7 @@ public class WaveSystem : MonoBehaviour
                 spawnedEnemies++;
             }
              
+            //If the size of the current group reaches the expected group size, get a new group
             if (spawnedGroup >= groupSize)
             {
                 hasGroup = false;
@@ -158,21 +163,21 @@ public class WaveSystem : MonoBehaviour
             {
                 //Finishes spawning wave
                 enemiesLastRound = enemiesThisRound;
-                gameRound++;
                 spawning = false;
             }
         }
 
+        //if all enemies are dead
         if (enemyEmpty.childCount == 0 && wavesEnded > -1)
         {
             //Ends wave
             if (gaveMoney == false)
             {
-                wavesEnded++;
                 if (wavesEnded > 0)
                 {
                     bits.AddBits(moneyPerWave);
                 }
+                wavesEnded++;
                 gaveMoney = true;
             }
 
@@ -182,12 +187,16 @@ public class WaveSystem : MonoBehaviour
                 timeTillWave = roundCooldown;
                 activatedTimer = true;
             }
+
+            //Turns on the clock
             if (!spawning)
             {
                 waveSys.waitingUI.SetActive(true);
                 timeTillWave -= Time.deltaTime;
             }
             waveSys.time.text = (((int)timeTillWave) + 1).ToString();
+
+            //Starts next wave
             if (timeTillWave < 0 || waveSys.skipWaveTime)
             {
                 if(spawning == false)
@@ -199,19 +208,30 @@ public class WaveSystem : MonoBehaviour
         }
         else
         {
+            //if its spawning turn off the clock
             waveSys.waitingUI.SetActive(false);
-            print("Huh?");
         }
     }
+
+    /// <summary>
+    /// Skips the current waiting, forces the next wave to start
+    /// </summary>
     public void SkipTime()
     {
         timeTillWave = 0;
     }
+
+    /// <summary>
+    /// Spawns arrows with a slight cooldown between them
+    /// </summary>
+    /// <param name="cooldown"></param>
+    /// <param name="amount"></param>
+    /// <returns></returns>
     public IEnumerator SpawnArrow(float cooldown, int amount)
     {
         for (int i = 0; i < amount; i++)
         {
-            //Spawns the enemies
+            //Spawns the arrows
             GameObject enemy = Instantiate(arrowEnemy.prefab, spawnPoint.position, spawnPoint.rotation);
             enemy.transform.parent = enemyEmpty;
             enemy.GetComponent<EnemyNavMesh>().movePositionTransform = destination;
@@ -222,7 +242,7 @@ public class WaveSystem : MonoBehaviour
         this.text.text = "Wave: " + (this.wavesEnded + 1).ToString();
         try
         {
-            int e = (int)(wavesEnded / wavesPerBoss);
+            int e = (int)((wavesEnded + 1) / wavesPerBoss);
             if (lastBoss < e)
             {
                 spawnBossWave = true;
@@ -236,7 +256,7 @@ public class WaveSystem : MonoBehaviour
          
         //Decides how many enemies to spawn
         enemiesLastRound = enemiesThisRound;
-        float scale = enemyAmountScaleFactor * gameRound;
+        float scale = enemyAmountScaleFactor * wavesEnded;
         float i = enemiesLastRound + scale;
         enemiesThisRound = Mathf.RoundToInt(i);
          
