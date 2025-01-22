@@ -17,6 +17,6 @@ public class SpawnInLevel : MonoBehaviour
     }
 
     public void SpawnLevel2() {
-        Instantiate(this.level2, this.locationLevel2);
+        Instantiate(level2, locationLevel2);
     }
 }
