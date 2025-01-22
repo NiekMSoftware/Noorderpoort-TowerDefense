@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Windows.Speech;
 
 public class WaveSystem : MonoBehaviour
 {
     [Header("Waves")]
-    //int gameRound = 0;
     public int wavesEnded = 0;
 
     [SerializeField] private int wavesPerBoss;
@@ -239,19 +236,20 @@ public class WaveSystem : MonoBehaviour
         }
     }
     public void roundStart() {
-        this.text.text = "Wave: " + (this.wavesEnded + 1).ToString();
+        text.text = "Wave: " + (wavesEnded + 1).ToString();
         try
         {
-            int e = (int)((wavesEnded + 1) / wavesPerBoss);
-            if (lastBoss < e)
+            //Every wavesperboos the int goes up by 1
+            int currentBoss = (int)((wavesEnded + 1) / wavesPerBoss);
+            if (lastBoss < currentBoss)
             {
                 spawnBossWave = true;
-                lastBoss = e;
+                lastBoss = currentBoss;
             }
         }
         catch
         {
-            print("Er Not posible");
+            print("Error!");
         }
          
         //Decides how many enemies to spawn
@@ -304,46 +302,29 @@ public class WaveSystem : MonoBehaviour
     {
         int chosenType = 0;
         int tot = 0;
+
         //Chooses a type of enemy
         for (int i = 1; i < enemies.Length; i++)
         {
             tot = tot + enemyChance[i - 1];
         }
-        /*print(tot);*/
         int newtype = Random.Range(0, 100);
         int total = 0;
-        /*print(newtype + " Random");*/
         bool hasType = false;
-        for (int i = 0; i < enemies.Length; i++)
+        for (int i = 1; i < enemies.Length; i++)
         {
-            if (i >= 1)
+            //Puts all the numbers together, and chooses an enemy;
+            if (newtype >= total && newtype < enemyChance[i - 1] + total)
             {
-/*                print(total + " Current total" + i);
-                print((enemyChance[i - 1] + total) + "Chance total" + i);*/
-                if (newtype >= total && newtype < enemyChance[i - 1] + total)
-                {
-                    chosenType = i;
-                    /*print("Chosen type = " + i  + "(+1)");*/
-                    hasType = true;
-                }
-                total = total + enemyChance[i - 1];
+                chosenType = i;
+                hasType = true;
             }
-            else
-            {
-                if (newtype >= 0 && newtype < enemyChance[0])
-                {
-                    chosenType = 1;
-                    total = total + enemyChance[0];
-                    hasType = true;
-                    /*print("Chosen type = 1");*/
-                }
-            }
+            total += enemyChance[i - 1];
         }
         if (hasType == false)
         {
             chosenType = 0;
         }
-        /*print(total + " Chosen");*/
         return chosenType;
     }
     public void ChanceCalculator()
@@ -353,24 +334,30 @@ public class WaveSystem : MonoBehaviour
         {
             if (wavesEnded < enemyStartsAt[enemy])
             {
+                //if the wave is before the enemy can spawn, 0% chance
                 enemyChance[enemy] = 0;
             }
             else if (wavesEnded >= enemyChanceStopsAt[enemy])
             {
+                //if the wave is above the enemy chance increase wave, max chance
                 enemyChance[enemy] = enemyMaxChance[enemy];
             }
             else
             {
+                //if the wave is between the start and end, calculate the % chance.
+
+
                 //Math
 
+                //Total waves between start and stop
                 int negativeWaves = enemyChanceStopsAt[enemy] - enemyStartsAt[enemy];
-                 
+                //current wave over start
                 int roundsOverChance = wavesEnded - enemyStartsAt[enemy];
-                 
+                //total difference in chance between starting and stopping
                 int chanceDifference = enemyMaxChance[enemy] - enemyMinChance[enemy];
-                 
+                //Amount of % the chance needs to go up
                 int chanceUpPerWave = chanceDifference / (negativeWaves - 1);
-                 
+                //the amount of % + the minimum chance
                 enemyChance[enemy] = enemyMinChance[enemy] + (chanceUpPerWave * roundsOverChance);
             }
         }

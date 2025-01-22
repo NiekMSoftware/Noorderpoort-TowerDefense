@@ -49584,7 +49584,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8295164720202019572, guid: 021ddd8a116477d4eaec1659b0d1a161, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 021ddd8a116477d4eaec1659b0d1a161, type: 3}
 --- !u!4 &8295164720202019567 stripped
 Transform:
