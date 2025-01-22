@@ -10,14 +10,19 @@ public class EnemyNavMesh : MonoBehaviour
     public Transform movePositionTransform;
     private NavMeshAgent agent;
     public bool lookingAtMovement = true;
-    // Start is called before the first frame update
+
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
+    private void Start()
+    {
+        agent.destination = movePositionTransform.position;
+    }
     void Update()
     {
-        //Look at where it is going
+        //Only rotate if it needs to rotate
         if (transform.rotation != Quaternion.Euler(agent.velocity))
         {
             if (lookingAtMovement)
@@ -25,6 +30,5 @@ public class EnemyNavMesh : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(agent.velocity);
             }
         }
-        agent.destination = movePositionTransform.position;
     }
 }

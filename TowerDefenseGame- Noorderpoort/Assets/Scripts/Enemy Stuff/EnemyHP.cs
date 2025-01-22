@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,12 +17,14 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     void Start()
     {
+        //Setting stats
         health = scriptable.health;
         if(agent == null) { agent = gameObject.GetComponent<NavMeshAgent>(); }
         agent.speed = scriptable.speed;
         bitsOnDeath = scriptable.bitsOnDeath;
-        //Health Multiplier
-        health = health * FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
+
+        //Making hp scale with waves
+        health *= FindObjectOfType<WaveSystem>().enemyHealthMultiplier;
     }
     public void TakeDamage(float damage)
     {
@@ -42,6 +42,7 @@ public class EnemyHP : MonoBehaviour
 
         if (scriptable.playSoundOnDeath)
         {
+            //Spawn and play a death sound
             GameObject sound = Instantiate(soundBlock, transform.position, transform.rotation);
             sound.GetComponent<AudioSource>().clip = deathSound;
             sound.GetComponent<AudioSource>().Play();
@@ -51,7 +52,7 @@ public class EnemyHP : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Death if touched by a bullet and less than 1 hp
+        //Death if touched by a bullet and less than 1 hp, no matter the bullets damage
         if (collision.gameObject.CompareTag("Bullet"))
         {
             if (health <= 0)

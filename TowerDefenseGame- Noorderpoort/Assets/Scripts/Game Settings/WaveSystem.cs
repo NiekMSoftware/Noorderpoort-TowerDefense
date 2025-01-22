@@ -111,7 +111,6 @@ public class WaveSystem : MonoBehaviour
                 StartCoroutine(SpawnArrow(0.05f, 3));
                 timeTillSpawn = arrowCooldown;
                 arrowsShown++;
-                print(arrowsShown);
                 if(arrowsShown >= arrowAmount) { wavesEnded = 0;roundStart();}
             }
         }
