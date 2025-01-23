@@ -9,6 +9,8 @@ public class RandomPlaylist : MonoBehaviour {
 
     //So the music doesnt play the same one twice in a row
     private AudioClip prevClip;
+
+    private float time = 0;
     
     
     void Start() {
@@ -16,11 +18,19 @@ public class RandomPlaylist : MonoBehaviour {
     }
 
     void Update() {
-
-        //If done playing music, play another
-        if (!source.isPlaying) {
-            NewClip();
+        if(time > 1)
+        {
+            //If done playing music, play another
+            if (!source.isPlaying)
+            {
+                NewClip();
+            }
         }
+        else
+        {
+            time += Time.deltaTime;
+        }
+
     }
 
     /// <summary>
