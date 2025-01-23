@@ -111,11 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f41374083b8ac4eb08d756535a6463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTTL: 3
+  bulletTTL: 1
   target: {fileID: 0}
-  speed: 0.05
   hitParticle: {fileID: 3482557903540798658, guid: b11285bf71b8ae54f9dbfd4c862874c5,
     type: 3}
+  justHereToCount: 0
+  speed: 0.05
+  damage: 0
 --- !u!54 &1229303297328922625
 Rigidbody:
   m_ObjectHideFlags: 0

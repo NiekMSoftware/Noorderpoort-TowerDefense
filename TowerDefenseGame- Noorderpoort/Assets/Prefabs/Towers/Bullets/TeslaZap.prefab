@@ -4933,12 +4933,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f41374083b8ac4eb08d756535a6463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTTL: 3
+  bulletTTL: 1
   target: {fileID: 0}
-  speed: 0.05
   hitParticle: {fileID: 7146523334735777839, guid: 806d6501049e4574eb6ce61ba3f4b12f,
     type: 3}
   justHereToCount: 0
+  speed: 0.05
+  damage: 0
 --- !u!54 &1229303297328922625
 Rigidbody:
   m_ObjectHideFlags: 0

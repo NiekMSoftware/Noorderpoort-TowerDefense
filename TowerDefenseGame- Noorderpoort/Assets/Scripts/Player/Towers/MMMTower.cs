@@ -8,34 +8,39 @@ public class MMMTower : GeneralTowerScript
     [SerializeField] private int waveMoney;
 
     [Header("Sound")]
-    [SerializeField] private AudioSource audiosource;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip printerNoise;
 
     [Header("Other")]
-    Bitscript bitscript;
-    WaveSystem waveSystem;
+    [SerializeField] private Bitscript bitscript;
+    [SerializeField] private WaveSystem waveSystem;
     [SerializeField] private GameObject particlePrefab;
-    int lastRound;
+    private int lastRound;
     void Start()
     {
-        audiosource.clip = printerNoise;
+        audioSource.clip = printerNoise;
+
         bitscript = FindObjectOfType<Bitscript>();
         waveSystem = FindObjectOfType<WaveSystem>();
 
+        //Dont give money for placing MMM
         lastRound = waveSystem.wavesEnded;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Dont give money if placing tower
         if (isBeingPlaced == false)
         {
             if (waveSystem.wavesEnded > lastRound)
             {
+                //Gives ya money
                 bitscript.AddBits(waveMoney);
-                audiosource.Play();
-                lastRound = waveSystem.wavesEnded;
+                audioSource.Play();
                 Instantiate(particlePrefab,transform.position,transform.rotation,transform);
+
+                //So it doesnt spam money. Kind of a bad printer imagine your printer not printing anything else until your have done a task of some kind.
+                lastRound = waveSystem.wavesEnded;
             }
         }
         else

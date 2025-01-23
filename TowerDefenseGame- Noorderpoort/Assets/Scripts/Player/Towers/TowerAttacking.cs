@@ -103,11 +103,11 @@ public class TowerAttacking : GeneralTowerScript
                         GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
 
                         Projectile.transform.parent = bulletEmpty.transform;
-                        Projectile.GetComponent<ProjectileController>().target = target.transform;
+                        Projectile.GetComponent<ProjectileController>().target = target;
                         Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                        Projectile.GetComponent<ProjectileController>().damage = towerStats.damage;
 
                         timeUntilBullet = fireRate / 10;
-                        target.GetComponent<EnemyHP>().TakeDamage(damage);
                         if (multipleFirepoints)
                         {
                             firePoint = allFirePoints[currentFirePoint];
