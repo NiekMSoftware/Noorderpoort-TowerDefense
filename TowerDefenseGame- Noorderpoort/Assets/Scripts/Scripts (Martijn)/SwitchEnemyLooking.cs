@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchEnemyLooking : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        //if enemy gets in range, make it look at the main base
         if (other.CompareTag("Enemy") && other.GetComponent<EnemyLooking>())
         {
             other.GetComponent<EnemyLooking>().lookingAtBase = true;

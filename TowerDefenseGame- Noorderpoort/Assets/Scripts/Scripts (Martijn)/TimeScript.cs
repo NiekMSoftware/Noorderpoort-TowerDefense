@@ -1,40 +1,41 @@
-using System.Collections;
-using UnityEngine.UI;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class TimeScript : MonoBehaviour {
-    public float timeRemaining = 0;
+    public float currentTime = 0;
     public bool timeIsRunning;
     public TMP_Text textTime;
    
-    // Start is called before the first frame update
     void Start() {
-        this.timeIsRunning = true;
+        //Start counting time when script spawns in, which is at the same time as the level
+        timeIsRunning = true;
     }
 
     void Update()
     {
-        if (this.timeIsRunning) {
-            if (this.timeRemaining >= 0) {
-                this.timeRemaining += Time.deltaTime;
-                DisplayTime(this.timeRemaining);
+        if (timeIsRunning) {
+            if (currentTime >= 0) {
+                currentTime += Time.deltaTime;
+                DisplayTime(currentTime);
             }
         }
     }
 
     void DisplayTime(float timeToDisplay) {
+        //Getting the time in minutes/seconds
         timeToDisplay += 1;
 
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        this.textTime.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        textTime.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
+    /// <summary>
+    /// Sets time to 0. Self explanatory
+    /// </summary>
     public void ResetTime() {
-        this.timeRemaining = 0;
+        currentTime = 0;
     }
 }
 

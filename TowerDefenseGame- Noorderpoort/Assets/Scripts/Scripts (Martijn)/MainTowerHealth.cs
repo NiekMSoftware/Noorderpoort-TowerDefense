@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainTowerHealth : MonoBehaviour
 { 
-    public float MTHealth;
     private Healthscript healthscript;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         healthscript = FindObjectOfType<Healthscript>();
@@ -16,6 +11,7 @@ public class MainTowerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if you get hit by an enemy, instant kill enemy and have it deal its damage
         if (collision.gameObject.GetComponent<EnemyHP>() != null)
         {
             EnemyHP hp = collision.gameObject.GetComponent<EnemyHP>();

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyLooking : MonoBehaviour
 {
+    //Self explanatory
     public Transform Base;
     public bool lookingAtBase = false;
 
