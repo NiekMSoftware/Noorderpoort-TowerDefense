@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,43 +12,50 @@ public class RangeScript : MonoBehaviour
     public TowerAttacking towerAttack;
     [SerializeField] private GameObject rangeCircle;
     public List<GameObject> activateRanges;
+    [SerializeField] private float cooldown = 0.1f;
+    private bool onCooldown = false;
     private void Start()
     {
         towerAttack = gameObject.GetComponent<TowerAttacking>();
     }
     void Update()
     {
-        if (towerAttack.isBeingPlaced == false)
+        if (!onCooldown)
         {
-            //Looks at everything around it
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, range);
-            if (hitColliders.Length > 0)
+            if (towerAttack.isBeingPlaced == false)
             {
-                foreach (Collider col in hitColliders.ToList())
+                //Looks at everything around it
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, range);
+                if (hitColliders.Length > 0)
                 {
-                    //Makes sure that the things are enemies
-                    if (col.gameObject.GetComponent<EnemyNavMesh>() == true && enemyList.Contains(col) == false && col.gameObject.CompareTag("Enemy"))
+                    foreach (Collider col in hitColliders.ToList())
                     {
-                        //Adds them to a list
-                        enemyList.Add(col);
-                    }
-                }
-                foreach (Collider col in enemyList.ToList())
-                {
-                    //Removes the enemies if they get out of range
-                    if (col)
-                    {
-                        if (hitColliders.Contains(col) == false)
+                        //Makes sure that the things are enemies
+                        if (col.gameObject.GetComponent<EnemyNavMesh>() == true && enemyList.Contains(col) == false && col.gameObject.CompareTag("Enemy"))
                         {
-                            if (towerAttack.target == col.gameObject) { towerAttack.target = null; }
+                            //Adds them to a list
+                            enemyList.Add(col);
+                        }
+                    }
+                    foreach (Collider col in enemyList.ToList())
+                    {
+                        //Removes the enemies if they get out of range
+                        if (col)
+                        {
+                            if (hitColliders.Contains(col) == false)
+                            {
+                                if (towerAttack.target == col.gameObject) { towerAttack.target = null; }
+                                enemyList.Remove(col);
+                            }
+                        }
+                        else
+                        {
                             enemyList.Remove(col);
                         }
                     }
-                    else
-                    {
-                        enemyList.Remove(col);
-                    }
                 }
+                onCooldown = true;
+                StartCoroutine(Cooldown(cooldown));
             }
         }
     }
@@ -76,5 +84,10 @@ public class RangeScript : MonoBehaviour
             }
             activateRanges.Clear();
         }
+    }
+    public IEnumerator Cooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        onCooldown = false;
     }
 }

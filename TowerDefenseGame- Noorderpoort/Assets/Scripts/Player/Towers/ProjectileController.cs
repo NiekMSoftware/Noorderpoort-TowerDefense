@@ -51,7 +51,7 @@ public class ProjectileController : MonoBehaviour
 
     public void Die()
     {
-        if(justHereToCount == false)
+        if(justHereToCount == false && target != null)
         {
             //If the bullet misses it deals damage anyway
             target.GetComponent<EnemyHP>().TakeDamage(damage);

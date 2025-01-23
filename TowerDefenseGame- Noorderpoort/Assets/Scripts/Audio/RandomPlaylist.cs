@@ -19,7 +19,7 @@ public class RandomPlaylist : MonoBehaviour {
 
         //If done playing music, play another
         if (!source.isPlaying) {
-            this.NewClip();
+            NewClip();
         }
     }
 
@@ -33,7 +33,7 @@ public class RandomPlaylist : MonoBehaviour {
         //Deadly if there is only 1 music track
         while (!hasClip)
         {
-            clipNum = Random.Range(0, this.clips.Length);
+            clipNum = Random.Range(0, clips.Length);
 
             //Stops the loop when it gets a new track
             if (clips[clipNum] != prevClip)
