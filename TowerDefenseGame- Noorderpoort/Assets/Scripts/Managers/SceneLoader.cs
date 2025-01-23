@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    //Self explanatory
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -10,7 +11,6 @@ public class SceneLoader : MonoBehaviour
     
     public void Exit()
     {
-        Debug.Log("Exit");
         Application.Quit();
     }
 }

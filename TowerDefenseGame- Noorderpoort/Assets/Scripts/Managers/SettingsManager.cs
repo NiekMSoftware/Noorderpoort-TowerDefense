@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,13 +15,16 @@ namespace Settings
         
         private void Start()
         {
+            //Gets all available resolutions
             resolutions = Screen.resolutions;
             
+            //Clears dropsdown
             if (useDropdown)
             {
                 resolutionDropDown.ClearOptions();
             }
 
+            //Adds all options to the dropdown
             List<string> options = new List<string>();
 
             for (int i = 0; i < resolutions.Length; i++)
@@ -35,7 +37,6 @@ namespace Settings
         //protected functions because we don't want them accessed everywhere only by the children of this Class
         protected void VSyncCountUpdate(bool vSync)
         {
-            // VsyncCount = to our bool called vSync the ? operator just checks if vSync is false or true and converts that to a 1 or a 0
             QualitySettings.vSyncCount = vSync ? 1 : 0;
         }
 

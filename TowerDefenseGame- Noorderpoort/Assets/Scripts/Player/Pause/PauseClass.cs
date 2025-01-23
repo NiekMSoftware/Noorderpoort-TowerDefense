@@ -6,11 +6,12 @@ using UnityEngine;
 public class PauseClass : MonoBehaviour
 {
     public static PauseClass instance;
-    public GameObject pausescreen;
+    [SerializeField] private GameObject pausescreen;
     [SerializeField] private GameObject[] settingEmpties;
 
-    public GameSpeed gameSpeed;
+    //[SerializeField] private GameSpeed gameSpeed;
 
+    //Speed before pausing
     private float prevTimeSpeed = 1;
 
     public bool isPaused = false;
@@ -38,6 +39,7 @@ public class PauseClass : MonoBehaviour
         }
         else
         {
+            //Resume game if game is paused already
             ResumeGame();
         }
     }
@@ -47,6 +49,8 @@ public class PauseClass : MonoBehaviour
         isPaused = false;
         pausescreen.SetActive(false);
         Time.timeScale = prevTimeSpeed;
+
+        //Turns off all the settings tabs, so you dont have game setting active when you press esc again
         for (int i = 0; i < settingEmpties.Length; i++)
         {
             settingEmpties[i].SetActive(false);

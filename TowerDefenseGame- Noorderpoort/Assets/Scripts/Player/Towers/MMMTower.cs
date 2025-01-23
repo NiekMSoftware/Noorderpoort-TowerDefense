@@ -47,7 +47,6 @@ public class MMMTower : GeneralTowerScript
     {
         if(bitscript == null) { bitscript = FindObjectOfType<Bitscript>(); }
         waveMoney = stats.moneyPerWave;
-        sellValue = stats.sellValue;
         towerStats = stats;
         bitscript.AddDiscount(stats.discount);
     }

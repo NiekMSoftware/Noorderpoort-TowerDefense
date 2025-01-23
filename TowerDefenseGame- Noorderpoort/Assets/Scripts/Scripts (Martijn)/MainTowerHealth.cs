@@ -19,7 +19,7 @@ public class MainTowerHealth : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyHP>() != null)
         {
             EnemyHP hp = collision.gameObject.GetComponent<EnemyHP>();
-            healthscript.HealthIndex -= hp.scriptable.mainTowerDamage;
+            healthscript.healthAmount -= hp.scriptable.mainTowerDamage;
             hp.TakeDamage(9999999999999999);
         }
     }

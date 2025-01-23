@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameSpeed : MonoBehaviour
 {
-    [SerializeField]
-    Image[] buttons;
+    [SerializeField] Image[] buttons;
     [SerializeField] Color activeColor;
     [SerializeField] Color inactiveColor;
     void Start()
     {
+        //Defaults to 1x speed
         foreach(var button in buttons)
         {
             button.color = inactiveColor;
@@ -21,12 +19,14 @@ public class GameSpeed : MonoBehaviour
     public void ChangeSpeed(float amount)
     {
         Time.timeScale = amount;
+
+        //Makes all buttons gray
         foreach (var button in buttons)
         {
             button.color = inactiveColor;
         }
 
-        //This could 100% be made better but im too lazy
+        //Horrible way of making selected button blueishgreen
         switch (amount)
         {
             case 1:

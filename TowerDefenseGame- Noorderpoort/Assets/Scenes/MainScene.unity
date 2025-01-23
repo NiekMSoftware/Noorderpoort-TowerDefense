@@ -15350,7 +15350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 100
-  panBorderThickness: 1
   panLimit: {x: 50, y: 50}
   scrollSpeed: 100
   minY: 20
@@ -25365,7 +25364,6 @@ MonoBehaviour:
   - {fileID: 1075895092}
   - {fileID: 515230877}
   - {fileID: 544218550}
-  gameSpeed: {fileID: 0}
   isPaused: 0
 --- !u!1 &1117162176
 GameObject:
@@ -49512,6 +49510,16 @@ PrefabInstance:
       objectReference: {fileID: 2139004488}
     - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1738668241}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartImage
+      value: 
+      objectReference: {fileID: 2139004488}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
       propertyPath: HealthAmount
       value: 
       objectReference: {fileID: 1738668241}
@@ -49520,6 +49528,88 @@ PrefabInstance:
       propertyPath: NormalHealth
       value: 
       objectReference: {fileID: 387646611}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: healthAmount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -657895010, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 568499691, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 704473174, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -683316025, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 1878464745, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 221316005, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: -1581248999, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: -315803104, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 1918834621, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 737445319, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[10]
+      value: 
+      objectReference: {fileID: -1375535041, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
+    - target: {fileID: 8471383421733794244, guid: 021ddd8a116477d4eaec1659b0d1a161,
+        type: 3}
+      propertyPath: heartSprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 1593687586, guid: 774a78bf0d2df404ca39ecb4d68e153b,
+        type: 3}
     - target: {fileID: 8471383421733794246, guid: 021ddd8a116477d4eaec1659b0d1a161,
         type: 3}
       propertyPath: bitsText

@@ -9,61 +9,47 @@ public class Healthscript : MonoBehaviour
 {
     [Header("Health")]
     //This int is the amount of health you have
-    public int HealthIndex;
-    public Image Heart;
-    public Sprite[] Spritearray;
-    public TMP_Text HealthAmount;
-    
-    //When the health was set to 0 it would still display 1 so i made another TMP text wich it toggles on and off based on the health value
-    public GameObject NormalHealth;
-    public GameObject ZeroHealth;
-    public bool ended = false;
+    public int healthAmount;
+
+    [Header("UI")]
+    [SerializeField] private Image heartImage;
+    [SerializeField] private Sprite[] heartSprites;
+    [SerializeField] private TMP_Text healthText;
+
+
+    public bool isDead = false;
     public static Healthscript instance;
-    // Start is called before the first frame update
+
     private void Start()
     {
         //This matches the health to the length of the array
-        HealthIndex = Spritearray.Length - 1;
+        healthAmount = heartSprites.Length - 1;
         instance = this;
     }
 
 
 
-    // Update is called once per frame
     void Update()
     {
-        if(HealthIndex <= 0)
+        if(healthAmount <= 0)
         {
-            HealthIndex = 0;
-            if (ended == false)
+            healthAmount = 0;
+
+            //So you dont die multiple times
+            if (isDead == false)
             {
-                HealthAmount.text = HealthIndex.ToString();
-                //NormalHealth.SetActive(false);
-                //ZeroHealth.SetActive(true);
-                ended = true;
+                healthText.text = healthAmount.ToString();
+                isDead = true;
                 FindObjectOfType<EndGame>().BlueScreen();
                 
             }
         }
-        else
-        {
-            NormalHealth.SetActive(true);
-            //ZeroHealth.SetActive(false);
-        }
 
-        //If the HealthIndex goes below 0 it will give a error so im only allowing it to function if it is larger or equal to 0
-        if (HealthIndex >= 0) 
+        //Updates the UI
+        if (healthAmount >= 0 && healthAmount < heartSprites.Length) 
         { 
-            Heart.sprite = Spritearray[HealthIndex];
+            heartImage.sprite = heartSprites[healthAmount];
         }
-        //This converts the amount of health you have into text
-        HealthAmount.text = HealthIndex.ToString();
-
-        //I made this to test if it would actually update
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            HealthIndex--;
-        }
-        
+        healthText.text = healthAmount.ToString();
     }
 }

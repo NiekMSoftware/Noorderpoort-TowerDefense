@@ -52,7 +52,7 @@ public class EndGame : MonoBehaviour
         mainCam.GetComponent<CameraMovement>().ResetToStartPos();
 
         //Puts the player back to "alive" and stops any building the player was doing
-        Healthscript.instance.ended = false;
+        Healthscript.instance.isDead = false;
         BuildingManager.instance.CancelPlace();
 
         onEnd.Invoke();

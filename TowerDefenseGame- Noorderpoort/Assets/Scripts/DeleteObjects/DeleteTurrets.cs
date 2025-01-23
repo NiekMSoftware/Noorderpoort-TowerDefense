@@ -71,6 +71,6 @@ public class DeleteTurrets : MonoBehaviour {
         if (ShopReferences.Instance) { ShopReferences.Instance.UpdateCosts(); }
 
         //Sets health back
-        healthscript.HealthIndex = 11;
+        healthscript.healthAmount = 11;
     }
 }
