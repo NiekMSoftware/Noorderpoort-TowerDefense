@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class Selection : MonoBehaviour
 {
@@ -102,9 +100,6 @@ public class Selection : MonoBehaviour
         if (PauseClass.instance.isPaused) { return; }
         if (selectedObject != null)
         {
-            //Remove it from the known towers
-            buildingManager.towerTriggers.Remove(selectedObject.GetComponent<Collider>());
-             
             //Remove any discount it had, and the shop ui according to that
             bits.RemoveDiscount(selectedObject.GetComponent<GeneralTowerScript>().towerStats.discount);
             ShopReferences.Instance.UpdateCosts();

@@ -36,7 +36,7 @@ public class BuyingTowers : MonoBehaviour
         {
             //Select any previously selected object and start placing the new tower
             selection.DeSelect();
-            buildingManager.SelectObject(tower);
+            buildingManager.StartPlacingObject(tower);
         }
     }
 }

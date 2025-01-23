@@ -1,39 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BuildingManager : MonoBehaviour
 {
     [Header("Tower Objects")]
-    public List<Collider> towerTriggers;
-
-    public GameObject[] objects;
+    //The object the player is currently placing
     public GameObject pendingObject;
     private MeshRenderer pendingObjRenderer;
 
     private Vector3 pos;
 
-    [FormerlySerializedAs("obj")]
-    [Header("Deletus McFeetus")] 
-    [SerializeField] public GameObject turretObj;
+    [Header("Turret empty")] 
+    [SerializeField] public GameObject turretEmpty;
 
     [Header("Materials and Layers")]
     [SerializeField] private Material[] materials;
-
-    private RaycastHit hit;
     public LayerMask detectLayersMask;
 
-    [Header("Is the Tower Placeable?")]
+    private RaycastHit hit;
+
+    [Header("Is the Tower Placeable")]
     public bool canPlace;
     public bool isPlacementMode = false;
 
+    [Header("Misc")]
     [SerializeField] private GameObject placeParticle;
-    Selection selector;
+    [SerializeField] private GameObject cancelButton;
 
+    private Selection selector;
     private Material originalMat;
 
-    [SerializeField] private GameObject cancelButton;
 
     public static BuildingManager instance;
     private void Start()
@@ -41,10 +36,11 @@ public class BuildingManager : MonoBehaviour
         selector = FindObjectOfType<Selection>();
         instance = this;
     }
+
     void Update()
     {
+        //if you are placing, make it follow your mouse and tell tower its being placed
         if (pendingObject != null) {
-            this.pendingObject.transform.parent = this.turretObj.transform;
             
             pendingObject.transform.position = pos;
             pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = true;
@@ -64,6 +60,7 @@ public class BuildingManager : MonoBehaviour
 
     void UpdateMaterials()
     {
+        //Updates tower material based on if it can be placed or not
         if (canPlace && pendingObject != null)
         {
             pendingObjRenderer.GetComponent<MeshRenderer>().material = materials[0];
@@ -77,28 +74,35 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObject()
     {
+        //cant place if: Game paused, Mouse over UI or Too poor
         if (PauseClass.instance.isPaused) { return; }
         if (Selection.IsPointerOverUIElement()) { return; }
         if (!Bitscript.instance.RemoveBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost)) { return; }
+
+        //Make the tower know its placed
         pendingObject.GetComponent<GeneralTowerScript>().isBeingPlaced = false;
-        foreach (Collider coll in towerTriggers)
-        {
-            if (coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
-            {
-                coll.gameObject.GetComponent<RangeScript>().ShowRange(false,false);
-            }
-        }
         pendingObjRenderer.GetComponent<MeshRenderer>().material = originalMat;
+        pendingObject.transform.parent = turretEmpty.transform;
+
+        //Change name for debugging
         int num = Random.Range(0, 1000);
-        pendingObject.name = "Tower: " + num;
-        towerTriggers.Add(pendingObject.GetComponent<Collider>());
+        pendingObject.name = pendingObject.GetComponent<GeneralTowerScript>().towerStats.towerName + ": " + num;
+
+        //Spawn particle
         Instantiate(placeParticle, pendingObject.transform.position, pendingObject.transform.rotation);
+
+        //Deselect any other objects
         selector.DeSelect();
+
+        //Removes unplaced tower range
         if (pendingObject.GetComponent<RangeScript>())
         {
             pendingObject.GetComponent<RangeScript>().ShowRange(false, false);
         }
+        //Select new object
         selector.Select(pendingObject);
+
+        //Make manager forget the object
         pendingObject = null;
         pendingObjRenderer = null;
         isPlacementMode = false;
@@ -107,6 +111,7 @@ public class BuildingManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Gets the position the mouse is aiming
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit, 1000, detectLayersMask))
@@ -115,22 +120,17 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    public void SelectObject(TowerScriptable tower)
+    public void StartPlacingObject(TowerScriptable tower)
     {
         isPlacementMode = true;
-        foreach (Collider coll in towerTriggers)
-        {
-            if(coll != null && coll.gameObject.GetComponent<RangeScript>() != null)
-            {
-                coll.gameObject.GetComponent<RangeScript>().ShowRange(true,false);
-                selector.selectedObject = coll.gameObject;
-                selector.DeSelect();
-            }
-        }
         pendingObject = Instantiate(tower.prefab, pos, transform.rotation);
         pendingObject.GetComponent<GeneralTowerScript>().SetStats(tower);
+
+        //Shows if you can place in that spot
         pendingObjRenderer = pendingObject.transform.Find("Visual").GetComponent<MeshRenderer>();
         originalMat = pendingObjRenderer.GetComponent<MeshRenderer>().material;
+
+
         cancelButton.SetActive(true);
         if (pendingObject.GetComponent<RangeScript>())
         {
@@ -140,11 +140,13 @@ public class BuildingManager : MonoBehaviour
 
     public void CancelPlace()
     {
+        //Cant cancel if: Game paused, Not placing an object
         if (PauseClass.instance.isPaused) { return; }
         cancelButton.SetActive(false);
         pendingObjRenderer = null;
         if(pendingObject == null) { return; }
-        //Bitscript.instance.AddBits(pendingObject.GetComponent<GeneralTowerScript>().towerStats.cost);
+
+        //Get rid of the object
         selector.DeSelect();
         Destroy(pendingObject);
         pendingObject = null;

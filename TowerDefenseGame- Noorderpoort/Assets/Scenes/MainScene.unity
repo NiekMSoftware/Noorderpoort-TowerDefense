@@ -16103,9 +16103,19 @@ PrefabInstance:
       objectReference: {fileID: 1315035924}
     - target: {fileID: 7100311545698751306, guid: 944e672a0a8f579458d860772f6ed36e,
         type: 3}
+      propertyPath: turretEmpty
+      value: 
+      objectReference: {fileID: 1315035924}
+    - target: {fileID: 7100311545698751306, guid: 944e672a0a8f579458d860772f6ed36e,
+        type: 3}
       propertyPath: cancelButton
       value: 
       objectReference: {fileID: 789316025}
+    - target: {fileID: 7100311545698751306, guid: 944e672a0a8f579458d860772f6ed36e,
+        type: 3}
+      propertyPath: materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7100311545698751308, guid: 944e672a0a8f579458d860772f6ed36e,
         type: 3}
       propertyPath: m_Name
