@@ -1,23 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonReferences : MonoBehaviour
 {
+    //When hovering over a tower in the shop, it uses this
     public TMP_Text[] currentStatValues = new TMP_Text[3];
     public Image[] statIcons = new Image[3];
     public TMP_Text towerName;
-    private Selection selection;
-
-    private void Start()
-    {
-        selection = FindAnyObjectByType<Selection>();
-    }
     public void UpdateUI(TowerScriptable towerType)
     {
         int currentStat = 0;
+
+        //Remove any exisiting values
         for (int i = 0; i < currentStatValues.Length; i++)
         {
             currentStatValues[i].text = " ";
@@ -25,10 +20,14 @@ public class ButtonReferences : MonoBehaviour
             statIcons[i].color = new Color(1, 1, 1, 1);
         }
 
+        //Name
         towerName.text = towerType.towerName;
 
+        //These are basically the same, so I will only comment this one
+        //If the tower deals damage and it isnt already showing 3 stats
         if (towerType.damage > 0 && currentStat < 3)
         {
+            //above 999 damage counts as infinite
             if(towerType.damage > 999)
             {
                 currentStatValues[currentStat].text = "Infinite";
@@ -38,6 +37,7 @@ public class ButtonReferences : MonoBehaviour
                 currentStatValues[currentStat].text = towerType.damage.ToString();
             }
             
+            //Get the icon for the stat
             statIcons[currentStat].sprite = Selection.instance.statSprites[0];
             currentStat++;
         }
@@ -86,11 +86,7 @@ public class ButtonReferences : MonoBehaviour
             currentStat++;
         }
 
-        for (int i = currentStat; i < currentStatValues.Length; i++)
-        {
-            currentStatValues[i].text = " ";
-            statIcons[i].color = new Color(0, 0, 0, 0);
-        }
+        //Turns off all the stats that dont have anything to go onto them
         for (int i = currentStat; i < currentStatValues.Length; i++)
         {
             currentStatValues[i].text = " ";

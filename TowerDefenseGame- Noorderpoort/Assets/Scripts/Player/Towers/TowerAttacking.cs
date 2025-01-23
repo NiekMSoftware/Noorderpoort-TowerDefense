@@ -7,31 +7,23 @@ using UnityEngine.UIElements;
 
 public class TowerAttacking : GeneralTowerScript
 {
-    [Header("Health")]
-    [SerializeField] private float health = 100;
-    [Space]
-    [SerializeField] private float timeStunned = 5;
-    float stunTime = 0;
-    bool stunned = false;
-
     [Header("Damage")]
     [SerializeField] private float damage;
     [SerializeField] private float fireRate;
-    [Space]
     [SerializeField] private float projectileSpeed;
-    bool enemyInRange = false;
+    private bool enemyInRange = false;
 
     [Header("Firepoints")]
     [SerializeField] private Transform firePoint;
     [Space]
     [SerializeField] private bool multipleFirepoints;
     [SerializeField] private Transform[] allFirePoints;
-    int currentFirePoint = 0;
+    private int currentFirePoint = 0;
 
     [Header("Projectile")]
     [SerializeField] private GameObject projectile;
-    private float timeUntilBullet;
-    GameObject bulletEmpty;
+    private float timeUntilNextBullet;
+    private GameObject bulletEmpty;
 
     [Header("Sound")]
     [SerializeField] private AudioSource audiosource;
@@ -48,6 +40,8 @@ public class TowerAttacking : GeneralTowerScript
             audiosource.clip = attackSound;
         }
         bulletEmpty = GameObject.Find("BulletEmpty");
+
+        //Sets the current firepoint and gets the range
         if (multipleFirepoints == true)
         {
             firePoint = allFirePoints[currentFirePoint];
@@ -57,6 +51,7 @@ public class TowerAttacking : GeneralTowerScript
 
     void Update()
     {
+        //Checks if an enemy exists
         if (target == null)
         {
             enemyInRange = false;
@@ -66,81 +61,68 @@ public class TowerAttacking : GeneralTowerScript
             enemyInRange = true;
         }
 
-        if (health <= 0)
+        //Gets the first enemy that entered its range
+        if (rangeScript.enemyList.Count != 0)
         {
-            stunned = true;
-            stunTime = timeStunned;
-            health = 100;
-        }
-
-        if (stunTime <= 0 && stunned == true)
-        {
-            health = 100;
-            stunned = false;
-        }
-
-        if (stunned == false)
-        {
-            if (rangeScript.enemyList.Count != 0)
+            if (rangeScript.enemyList[0] != null)
             {
-                if (rangeScript.enemyList[0] != null)
-                {
-                    target = rangeScript.enemyList[0].gameObject;
-                }
-                else if (rangeScript.enemyList.Count == 0)
-                {
-                    target = null;
-                }
+                target = rangeScript.enemyList[0].gameObject;
             }
-
-            if (isBeingPlaced == false)
+            else if (rangeScript.enemyList.Count == 0)
             {
-                timeUntilBullet -= Time.deltaTime;
-                if (enemyInRange == true)
+                target = null;
+            }
+        }
+
+        if (isBeingPlaced == false)
+        {
+            timeUntilNextBullet -= Time.deltaTime;
+            if (enemyInRange == true)
+            {
+                if (timeUntilNextBullet < 0)
                 {
-                    if (timeUntilBullet < 0)
+                    //Spawn bullet
+                    GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
+
+                    Projectile.transform.parent = bulletEmpty.transform;
+                    Projectile.GetComponent<ProjectileController>().target = target;
+                    Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
+                    Projectile.GetComponent<ProjectileController>().damage = towerStats.damage;
+
+                    timeUntilNextBullet = fireRate / 10;
+
+                    //Choose next firepoint
+                    if (multipleFirepoints)
                     {
-                        GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
-
-                        Projectile.transform.parent = bulletEmpty.transform;
-                        Projectile.GetComponent<ProjectileController>().target = target;
-                        Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                        Projectile.GetComponent<ProjectileController>().damage = towerStats.damage;
-
-                        timeUntilBullet = fireRate / 10;
-                        if (multipleFirepoints)
+                        firePoint = allFirePoints[currentFirePoint];
+                        currentFirePoint++;
+                        if (currentFirePoint == allFirePoints.Length)
                         {
-                            firePoint = allFirePoints[currentFirePoint];
-                            currentFirePoint++;
-                            if (currentFirePoint == allFirePoints.Length)
-                            {
-                                currentFirePoint = 0;
-                            }
+                            currentFirePoint = 0;
                         }
-                        audiosource.Play();
                     }
+                    audiosource.Play();
                 }
             }
         }
-        else
-        {
-            stunTime -= Time.deltaTime;
-        }
+        
         if (gameObject.GetComponent<RangeScript>().enemyList.Count != 0)
         {
             if (rotatesTowardsEnemies)
             {
+                //Look towards your target
                 if (target == null) return;
                 var lookPos = target.transform.position - transform.position;
                 lookPos.y = 0;
                 var rotation = Quaternion.LookRotation(-lookPos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10f);
             }
         }
     }
 
     public override void SetStats(TowerScriptable stats)
     {
+        //Self explanatory
         if(rangeScript == null) { rangeScript = gameObject.GetComponent<RangeScript>(); }
         damage = stats.damage;
         fireRate = stats.firerate;

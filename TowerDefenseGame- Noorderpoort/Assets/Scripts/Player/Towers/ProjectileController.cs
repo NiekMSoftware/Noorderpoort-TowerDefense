@@ -23,6 +23,7 @@ public class ProjectileController : MonoBehaviour
     }
     void Update()
     {
+        //For any non projectile objects this script can be used as a death timer
         if (justHereToCount == false)
         {
             Vector3 velo = gameObject.GetComponent<Rigidbody>().velocity;
@@ -44,7 +45,6 @@ public class ProjectileController : MonoBehaviour
             //Bullet dies after hitting the enemy, damage is handled by tower attacking
             if (collision.collider.tag == "Enemy")
             {
-                //target = collision.collider.gameObject;
                 Die();
                 Instantiate(hitParticle, transform.position, transform.rotation);
             } 
@@ -53,7 +53,11 @@ public class ProjectileController : MonoBehaviour
 
     public void Die()
     {
+        if(justHereToCount == false)
+        {
+            //If the bullet misses it deals damage anyway
+            target.GetComponent<EnemyHP>().TakeDamage(damage);
+        }
         Destroy(gameObject);
-        target.GetComponent<EnemyHP>().TakeDamage(damage);
     }
 }

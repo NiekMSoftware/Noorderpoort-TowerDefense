@@ -16,7 +16,6 @@ public class RangeScript : MonoBehaviour
     private void Start()
     {
         towerAttack = gameObject.GetComponent<TowerAttacking>();
-        //ShowRange();
     }
     void Update()
     {
@@ -59,14 +58,20 @@ public class RangeScript : MonoBehaviour
     {
         if (show)
         {
+            //Spawn a range circle
             GameObject cir = Instantiate(rangeCircle);
             cir.transform.position = transform.position;
             cir.transform.localScale = new Vector3(range * 2, rangeCircle.transform.localScale.y, range * 2);
+
+            //Makes them follow the parent if they are told to, but dont is they arent. This is so they dont rotate with towers while placed
             if (follow) { cir.transform.parent = transform;  }
+
+            //Adds the circle to the list, since this function sometimes gets called multiple times
             activateRanges.Add(cir);
         }
         else if (!show)
         {
+            //Removes all active range cirlces
             foreach(GameObject ob in activateRanges)
             {
                 Destroy(ob);
