@@ -80,6 +80,7 @@ public class TowerAttacking : GeneralTowerScript
                     control.target = target;
                     control.speed = projectileSpeed / 10;
                     control.damage = towerStats.damage;
+                    control.TowerStart();
 
                     timeUntilNextBullet = fireRate / 10;
 

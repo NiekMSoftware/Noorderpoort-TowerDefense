@@ -15,7 +15,7 @@ public class ProjectileController : MonoBehaviour
 
     public float damage;
     private Rigidbody rb;
-    void Start()
+    public void TowerStart()
     {
         //Where it wants to go
         targetDirection = target.transform.position - transform.position;
