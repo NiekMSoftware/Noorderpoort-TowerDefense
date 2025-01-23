@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Settings
 {
@@ -13,7 +9,7 @@ namespace Settings
 
         public void SwitchVsync()
         {
-            //vSync becomes what it isn't so false becomes true and true becomes false
+            //vSync switches
             vSync = !vSync;
 
             VSyncCountUpdate(vSync);

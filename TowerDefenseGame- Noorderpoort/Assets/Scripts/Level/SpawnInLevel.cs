@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class SpawnInLevel : MonoBehaviour
 {
-    [SerializeField] private Transform locationLevel1;
-    [SerializeField] private GameObject level1;
-    
-    [SerializeField] private Transform locationLevel2;
-    [SerializeField] private GameObject level2;
+    //Self explanatory
+    [SerializeField] private Transform[] locationLevels;
+    [SerializeField] private GameObject[] levels;
 
-    public void SpawnLevel1()
+    public void SpawnLevel(int level)
     {
-        Instantiate(level1, locationLevel1);
-    }
-
-    public void SpawnLevel2() {
-        Instantiate(level2, locationLevel2);
+        Instantiate(levels[level],locationLevels[level]);
     }
 }

@@ -8457,42 +8457,18 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 190002684}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 2
   m_Options:
     m_Options:
-    - m_Text: Medium
-      m_Image: {fileID: 0}
     - m_Text: Low
+      m_Image: {fileID: 0}
+    - m_Text: Medium
       m_Image: {fileID: 0}
     - m_Text: High
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 350160726}
-        m_TargetAssemblyTypeName: Settings.QualityPreset, Assembly-CSharp
-        m_MethodName: Quality
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 350160726}
-        m_TargetAssemblyTypeName: Settings.QualityPreset, Assembly-CSharp
-        m_MethodName: Quality
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 350160726}
         m_TargetAssemblyTypeName: Settings.QualityPreset, Assembly-CSharp
         m_MethodName: Quality
@@ -25030,8 +25006,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1383075847}
         m_TargetAssemblyTypeName: SpawnInLevel, Assembly-CSharp
-        m_MethodName: SpawnLevel1
-        m_Mode: 1
+        m_MethodName: SpawnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30024,12 +30000,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1383075847}
         m_TargetAssemblyTypeName: SpawnInLevel, Assembly-CSharp
-        m_MethodName: SpawnLevel2
-        m_Mode: 1
+        m_MethodName: SpawnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -32275,6 +32251,7 @@ GameObject:
   - component: {fileID: 1383075845}
   - component: {fileID: 1383075847}
   - component: {fileID: 1383075848}
+  - component: {fileID: 1383075849}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -32400,10 +32377,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95a2e9dd9879aa4e856864eb1f36f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationLevel1: {fileID: 550770297}
-  level1: {fileID: 693179687721650257, guid: 0ad4bf61b2e04d143903259111200131, type: 3}
-  locationLevel2: {fileID: 550770297}
-  level2: {fileID: 693179687721650257, guid: 17eb77651ea2b6f45b1053e2077431e1, type: 3}
+  locationLevels:
+  - {fileID: 550770297}
+  - {fileID: 550770297}
+  levels:
+  - {fileID: 693179687721650257, guid: 0ad4bf61b2e04d143903259111200131, type: 3}
+  - {fileID: 693179687721650257, guid: 17eb77651ea2b6f45b1053e2077431e1, type: 3}
 --- !u!114 &1383075848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32419,6 +32398,18 @@ MonoBehaviour:
   _selection: {fileID: 1608233467}
   upgradeUI: {fileID: 0}
   turretEmpty: {fileID: 1315035924}
+--- !u!114 &1383075849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383075839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed502c86ae29a0d46aec2ef34618a0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1384169949
 GameObject:
   m_ObjectHideFlags: 0

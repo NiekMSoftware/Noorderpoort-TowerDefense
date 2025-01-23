@@ -6,6 +6,7 @@ namespace Settings
     {
         public void SwitchWindowMode(int windowType)
         {
+            //Self explanatory
             switch (windowType)
             {
                 case 0:

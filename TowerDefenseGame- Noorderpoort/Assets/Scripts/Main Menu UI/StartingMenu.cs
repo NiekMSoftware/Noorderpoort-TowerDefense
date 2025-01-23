@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Settings;
 using UnityEngine;
 
 namespace Settings
@@ -10,8 +7,9 @@ namespace Settings
         private void Awake()
         {
             //Set a default quality setting
-            QualitySettings.SetQualityLevel(1);
-            Debug.Log("Set to medium");
+            QualitySettings.SetQualityLevel(2);
+            PlayerPrefs.Save();
+            Debug.Log("Set to high");
             
             //wake up the method for the windowed setting
             Window(FullScreenMode.MaximizedWindow);

@@ -1,6 +1,3 @@
-using System;
-using Settings;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Settings
@@ -9,27 +6,23 @@ namespace Settings
     {
         public void ChangeResolution(int res)
         {
-            Debug.Log("Cheese");
+            //self explanatory
             switch (res)
             { 
                 case 0:
                     Screen.SetResolution(3840,2160,true);
-                    PlayerPrefs.Save();
                 break;
                 
                 case 1:
                 Screen.SetResolution(2560,1440,true);
-                PlayerPrefs.Save();
                 break;
                 
                 case 2:
                 Screen.SetResolution(1920,1080,true);
-                PlayerPrefs.Save();
                 break;
                 
                 case 3:
                 Screen.SetResolution(1280, 720, true);
-                PlayerPrefs.Save();
                 break;
             }
         }
