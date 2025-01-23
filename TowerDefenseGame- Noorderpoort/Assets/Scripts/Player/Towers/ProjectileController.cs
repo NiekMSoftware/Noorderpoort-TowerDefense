@@ -6,6 +6,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private float bulletTTL = 5;
     [Header("Other")]
     public GameObject target;
+    private EnemyHP targetHP;
     [SerializeField] private GameObject hitParticle;
     [SerializeField] private bool justHereToCount;
     [Space]
@@ -13,20 +14,22 @@ public class ProjectileController : MonoBehaviour
     private Vector3 targetDirection;
 
     public float damage;
-
+    private Rigidbody rb;
     void Start()
     {
         //Where it wants to go
         targetDirection = target.transform.position - transform.position;
+        targetHP = target.GetComponent<EnemyHP>();
+        rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
         //For any non projectile objects this script can be used as a death timer
         if (justHereToCount == false)
         {
-            Vector3 velo = gameObject.GetComponent<Rigidbody>().velocity;
+            Vector3 velo = rb.velocity;
             if (velo != Vector3.zero) { transform.rotation = Quaternion.LookRotation(velo); }
-            gameObject.GetComponent<Rigidbody>().AddForce(targetDirection * speed, ForceMode.Impulse);
+            rb.AddForce(targetDirection * speed, ForceMode.Impulse);
         }
 
         //Bullet dies after existing too long
@@ -41,10 +44,10 @@ public class ProjectileController : MonoBehaviour
         if (justHereToCount == false)
         {
             //Bullet dies after hitting the enemy, damage is handled by tower attacking
-            if (collision.collider.tag == "Enemy")
+            if (collision.collider.CompareTag("Enemy"))
             {
-                Die();
                 Instantiate(hitParticle, transform.position, transform.rotation);
+                Die();
             } 
         }
     }
@@ -54,7 +57,7 @@ public class ProjectileController : MonoBehaviour
         if(justHereToCount == false && target != null)
         {
             //If the bullet misses it deals damage anyway
-            target.GetComponent<EnemyHP>().TakeDamage(damage);
+            targetHP.TakeDamage(damage);
         }
         Destroy(gameObject);
     }

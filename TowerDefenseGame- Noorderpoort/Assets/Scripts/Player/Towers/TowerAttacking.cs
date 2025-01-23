@@ -57,15 +57,11 @@ public class TowerAttacking : GeneralTowerScript
         }
 
         //Gets the first enemy that entered its range
-        if (rangeScript.enemyList.Count != 0)
+        if (rangeScript.enemyList.Count != 0 && target == null)
         {
             if (rangeScript.enemyList[0] != null)
             {
                 target = rangeScript.enemyList[0].gameObject;
-            }
-            else if (rangeScript.enemyList.Count == 0)
-            {
-                target = null;
             }
         }
 
@@ -80,9 +76,10 @@ public class TowerAttacking : GeneralTowerScript
                     GameObject Projectile = Instantiate(projectile, firePoint.position, Quaternion.Euler(firePoint.eulerAngles.x, firePoint.eulerAngles.y, firePoint.eulerAngles.z - 90));
 
                     Projectile.transform.parent = bulletEmpty.transform;
-                    Projectile.GetComponent<ProjectileController>().target = target;
-                    Projectile.GetComponent<ProjectileController>().speed = projectileSpeed / 10;
-                    Projectile.GetComponent<ProjectileController>().damage = towerStats.damage;
+                    ProjectileController control = Projectile.GetComponent<ProjectileController>();
+                    control.target = target;
+                    control.speed = projectileSpeed / 10;
+                    control.damage = towerStats.damage;
 
                     timeUntilNextBullet = fireRate / 10;
 
@@ -101,7 +98,7 @@ public class TowerAttacking : GeneralTowerScript
             }
         }
         
-        if (gameObject.GetComponent<RangeScript>().enemyList.Count != 0)
+        if (rangeScript.enemyList.Count != 0)
         {
             if (rotatesTowardsEnemies)
             {

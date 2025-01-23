@@ -31,7 +31,7 @@ public class RangeScript : MonoBehaviour
                     foreach (Collider col in hitColliders.ToList())
                     {
                         //Makes sure that the things are enemies
-                        if (col.gameObject.GetComponent<EnemyNavMesh>() == true && enemyList.Contains(col) == false && col.gameObject.CompareTag("Enemy"))
+                        if (enemyList.Contains(col) == false && col.gameObject.CompareTag("Enemy"))
                         {
                             //Adds them to a list
                             enemyList.Add(col);
