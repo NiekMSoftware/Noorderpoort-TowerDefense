@@ -31739,29 +31739,34 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-1 new enemy: Cooki\r\n-1 new music track\r\n-Reworked Resistor\r\n-Towers
-    show their range when you \nare placing or selecting them\n-Arrows showing the
-    way the \nenemies go before wave 1\n-Hover over UI towers to see base stats\n-You
-    can sell towers for \n~50% of their cost by \npressing Q while placing\n-MMM
-    Tier 3 now gives 10% Discounts\r\n-3x speed option\r\n-New game icon\n-Unselect
-    turrets by clicking off them\r\n-Cancel buying turret\r\n-Visuals for upgrading
-    towers\r\n-Redone turret images\r\n-Game settings for Camera Speed \nand Reduced
-    BSOD visuals\r\n-Consistent Backgrounds\r\n-Consistent Buttons\r\n-Renamed \"Levels\"
-    to \"Maps\"\r\n-Renamed \"Options\" to \"Settings\"\r\n-Renamed \"Voice volume\"
-    to \n\"Enemy volume\"\n-Various visual changes to \nmap select screen\r\n-Resorted
-    Credits\r\n-Renamed Spectre & MeletEngine \nin credits\r\n-Added testers to credits\n-Renamed
-    \"FireGuy\" to \"Ember\"\r\n-Renamed \"Electric\" to \"Sparky\"\r\n-Pressing
-    Escape in the pause menu to \nunpause the game\r\n-Slight visual changes to some
-    \nicons and backgrounds\r\n-Passive money per wave is \nnow gained at the end
-    of a \nwave, not at the start.\n-Balancing\r\n\r\nFixes:\r\n-A tower is now selected
-    \nafter placing it.\r\n-A tower attacking enemies \nthat leave its range\r\n-Being
-    able to select a \ntower while placing\r\n-Being able to place towers \non the
-    side of paths\r\n-Camera going down, not zooming in\n-Camera is no longer affected
-    \nby time speed\r\n-Fixed being able to place/upgrade \ntowers while paused\r\n-Fixed
-    background music not switching\r\n-Set default resolution to 1080p\r\n-Removed
-    extra 0 when dying\r\n-Upgrading a tower resetting its rotation\r\n-Black screen
-    is affected by time speed\r\n-Being able to pause in \nthe black screen before 
-    BSOD \n-Weird colliders on decorations, not \nallowing placement in some spots"
+  m_text: "Short patches:\r\n-1 new enemy: Cooki\r\n-1 new music track\r\n-Reworked
+    Resistor\r\n-Towers show their range when you\n are placing or selecting them\r\n-You
+    can sell towers after they have \nbeen placed for ~50% of their value\n-MMM Tier
+    3 now gives 10% \nDiscounts (25% max)\r\n-3x speed option\r\n-Unselect turrets
+    by clicking off them\r\n-Cancel buying turret\r\n-Visuals for upgrading towers\r\n-Redone
+    turret images\r\n-Game settings for Camera Speed and \nReduced BSOD visuals\r\n-Consistent
+    Backgrounds\r\n-Consistent Buttons\r\n-Renamed \"Levels\" to \"Maps\"\r\n-Renamed
+    \"Options\" to \"Settings\"\r\n-Renamed \"Voice volume\" to \n\"Enemy volume\"\r\n-Various
+    visual changes to map \nselect screen\r\n-Resorted Credits\r\n-Renamed Spectre
+    in credits\r\n-Renamed \"FireGuy\" to \"Ember\"\r\n-Renamed \"Electric\" to \"Sparky\"\r\n-Pressing
+    Escape in the pause menu \nnow unpauses the game\r\n-Slight visual changes to
+    some \nicons and backgrounds\r\n-Passive money per wave is now gained\n at the
+    end of a wave, not at the start.\r\n-8 seconds between waves to \nplace towers
+    (can be skipped)\r\n-Arrows showing the path the enemies \nwill take at the start\r\n-Hover
+    over the shop towers to see \ntheir stats before placing them\r\n-New splash
+    screen\r\n-Balancing \r\n\nBug fixes:\r\n-A tower is now selected \nafter placing
+    it.\r\n-Towers attacking enemies \nthat leave its range\r\n-Being able to select
+    a tower \nduring placing\r\n-Being able to place towers on \nthe side of paths\r\n-Camera
+    going down, not zooming in\r\n-Camera is no longer affected \nby time speed\r\n-Being
+    able to place/upgrade \ntowers while paused\r\n-Fixed background music not switching\r\n-Set
+    default resolution to 1080p\r\n-Removed extra 0 when dying\r\n-Upgrading a tower
+    resetting its rotation\r\n-Black screen is affected by time speed\r\n-Being able
+    to pause in the \nblack screen before  BSOD\r\n-Being able to place towers \noutside
+    the map\r\n-Weird colliders, mainly on map 2\r\n-Gepp sound delay removed\r\n-\"Gold\"
+    material just being black\r\n-Enemies should collide with \neachother less\r\n-Bosses
+    spawn 1 wave earlier now, \nso it follow the path of every 5 waves\r\n-Enemies
+    not starting at 1x \nhealth multiplier\r\n-Being able to press space to hurt
+    \nyourself\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
